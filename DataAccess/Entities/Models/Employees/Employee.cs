@@ -23,6 +23,8 @@ namespace DataAccess.Entities.Models.Employees
         public ResidenceRegion? ResidenceRegion { get; set; }
         //TourTicketOrder
         public virtual ICollection<TourTicketOrder>? TourTicketOrders { get; set; }
+        //EventTicketOrder
+        public virtual ICollection<EventTicketOrder>? EventTicketOrders { get; set; }
 
 
 

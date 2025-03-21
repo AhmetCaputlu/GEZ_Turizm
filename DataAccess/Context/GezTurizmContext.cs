@@ -50,8 +50,10 @@ namespace DataAccess.Context
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductCategory> ProductCategories { get; set; }
         public DbSet<TourTicket> TourTickets { get; set; }
+        public DbSet<EventTicket> EventTickets { get; set; }
         public DbSet<TourTicketOrder> TourTicketOrders { get; set; }
-        public DbSet<TourTicketOrderDetail> TourTicketOrderDetails { get; set; }
+        public DbSet<EventTicketOrder> EventTicketOrders { get; set; }
+        public DbSet<EventTicketOrderDetail> EventTicketOrderDetails { get; set; }
 
 
        
