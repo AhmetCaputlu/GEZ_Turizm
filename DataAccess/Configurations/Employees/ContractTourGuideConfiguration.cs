@@ -15,6 +15,7 @@ namespace DataAccess.Configurations.Employees
             builder.Property(x => x.Language).IsRequired(true).HasDefaultValue(Language.None).HasConversion(x => x.ToString(), x => (Language)Enum.Parse(typeof(Language), x));
             builder.Property(x => x.Language).HasMaxLength(35);
             builder.HasOne(x => x.SubContractWorkerSupplier).WithMany(x => x.ContractTourGuides).HasForeignKey(x => x.SubContractWorkerSupplierId).OnDelete(DeleteBehavior.NoAction);
+            builder.HasMany(x => x.ContractTourGuides_Tours).WithOne(x => x.ContractTourGuide).HasForeignKey(x => x.ContractTourGuideId).OnDelete(DeleteBehavior.NoAction);
 
         }
     }

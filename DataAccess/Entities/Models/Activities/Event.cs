@@ -9,9 +9,6 @@ namespace DataAccess.Entities.Models.Activities
     {
         public EventCategory EventCategory { get; set; }
         //Mapping
-        public int? RegionId { get; set; }
-        public ServiceRegion? ServiceRegion { get; set; }
-        public virtual ICollection<Vehicle>? Vehicles { get; set; }
-        public virtual ICollection<RentalVehicle>? RentalVehicles { get; set; }
+        
     }
 }

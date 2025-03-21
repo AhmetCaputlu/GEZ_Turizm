@@ -20,9 +20,8 @@ namespace DataAccess.Entities.Abstracts
         public Currency Currency { get; set; }
         public PaymentStatus PaymentStatus { get; set; }
         //Mapping
-        //WebUserAccount
-        public int? WebUserAccountId { get; set; }
-        public WebUserAccount? WebUserAccount { get; set; }
+       
+        
 
 
     }

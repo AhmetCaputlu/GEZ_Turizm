@@ -14,6 +14,7 @@ namespace DataAccess.Configurations.Activities
             builder.Property(x => x.EventCategory).IsRequired(true).HasConversion(x=>x.ToString(), x => (EventCategory)Enum.Parse(typeof(EventCategory), x)).HasMaxLength(50);
             //builder.Property(x => x.EventCategory)
             builder.HasOne(x=>x.ServiceRegion).WithMany(x=>x.Events).HasForeignKey(x=>x.RegionId).OnDelete(DeleteBehavior.NoAction);
+
         }
     }
 }

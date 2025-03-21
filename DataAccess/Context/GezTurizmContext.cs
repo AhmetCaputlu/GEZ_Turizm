@@ -4,10 +4,8 @@ using DataAccess.Entities.Models.Companies.PartnerCompanies;
 using DataAccess.Entities.Models.Companies.Suppliers;
 using DataAccess.Entities.Models.Countries;
 using DataAccess.Entities.Models.Employees;
-using DataAccess.Entities.Models.Orders;
 using DataAccess.Entities.Models.Products;
 using DataAccess.Entities.Models.Regions;
-using DataAccess.Entities.Models.Tickets;
 using DataAccess.Entities.Models.Vehicles;
 using DataAccess.Entities.Models.WebUsers;
 using Microsoft.AspNetCore.Identity;
@@ -48,11 +46,7 @@ namespace DataAccess.Context
         public DbSet<RentalVehicleSupplier> RentalVehicleSuppliers { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductCategory> ProductCategories { get; set; }
-        public DbSet<TourTicket> TourTickets { get; set; }
-        public DbSet<EventTicket> EventTickets { get; set; }
-        public DbSet<ProductOrder> ProductOrders { get; set; }
-        public DbSet<EventTicketOrder> EventTicketOrders { get; set; }
-        public DbSet<TourTicketOrder> TourTicketOrders { get; set; }
+
 
        
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -60,9 +54,7 @@ namespace DataAccess.Context
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.UseSqlServer
-                    ("Server=.\\SQLEXPRESS;Database=GEZTurizmDB;Integrated Security=True;TrustServerCertificate=true;");
-                    
-            }
+                    ("Server=.\\SQLEXPRESS;Database=GEZTurizmDB;Integrated Security=True;TrustServerCertificate=true;");}
             base.OnConfiguring(optionsBuilder);
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)

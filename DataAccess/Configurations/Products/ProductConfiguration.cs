@@ -18,7 +18,6 @@ namespace DataAccess.Configurations.Products
             builder.Property(x => x.UnitPrice).IsRequired(true);
             builder.Property(x => x.UnitsInStock).IsRequired(true);
             //Mapping
-            builder.HasMany(x => x.ProductOrders).WithOne(x => x.Product).HasForeignKey(x => x.ProductId).OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

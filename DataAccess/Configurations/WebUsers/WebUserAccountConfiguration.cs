@@ -43,16 +43,7 @@ namespace DataAccess.Configurations.WebUsers
             builder.HasOne(x=>x.WebUserProfile).WithOne(x=>x.WebUserAccount).HasForeignKey<WebUserProfile>(x=>x.WebUserAccountId).OnDelete(DeleteBehavior.NoAction);
             //Country
             builder.HasOne(x=>x.Country).WithMany(x=>x.WebUserAccounts).HasForeignKey(x=>x.CountryId).OnDelete(DeleteBehavior.NoAction);
-            //TourTicket
-            builder.HasMany(x => x.TourTickets).WithOne(x => x.WebUserAccount).HasForeignKey(x => x.WebUserAccountId).OnDelete(DeleteBehavior.NoAction);
-            //EventTicket
-            builder.HasMany(x => x.EventTickets).WithOne(x => x.WebUserAccount).HasForeignKey(x => x.WebUserAccountId).OnDelete(DeleteBehavior.NoAction);
-            //EventTicketOrder
-            builder.HasMany(x => x.EventTicketOrders).WithOne(x => x.WebUserAccount).HasForeignKey(x => x.WebUserAccountId).OnDelete(DeleteBehavior.NoAction);
-            //ProductOrder
-            builder.HasMany(x => x.ProductOrders).WithOne(x => x.WebUserAccount).HasForeignKey(x => x.WebUserAccountId).OnDelete(DeleteBehavior.NoAction);
-            //TourTicketOrder
-            builder.HasMany(x => x.TourTicketOrders).WithOne(x => x.WebUserAccount).HasForeignKey(x => x.WebUserAccountId).OnDelete(DeleteBehavior.NoAction);
+            
         }
     }
 }

@@ -12,5 +12,6 @@ namespace DataAccess.Entities.Models.Employees
         public virtual ICollection<ContractTourGuide_ServiceRegion>? ContractTourGuides_ServiceRegions { get; set; }
         public int? SubContractWorkerSupplierId { get; set; }
         public virtual SubContractWorkerSupplier? SubContractWorkerSupplier { get; set; }
+        public virtual ICollection<ContractTourGuide_Tour>? ContractTourGuides_Tours { get; set; }
     }
 }

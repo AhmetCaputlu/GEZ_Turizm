@@ -1,5 +1,6 @@
 ﻿using DataAccess.Entities.Abstracts;
 using DataAccess.Entities.Enums;
+using DataAccess.Entities.Models.Employees;
 using DataAccess.Entities.Models.WebUsers;
 
 namespace DataAccess.Entities.Models.Countries
@@ -15,5 +16,7 @@ namespace DataAccess.Entities.Models.Countries
 
         //WebUSerAcoount
         public virtual ICollection<WebUserAccount>? WebUserAccounts { get; set; }
+        //Employee
+        public virtual ICollection<Employee>? Employees { get; set; }
     }
 }

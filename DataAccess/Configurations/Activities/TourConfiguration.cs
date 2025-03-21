@@ -15,8 +15,8 @@ namespace DataAccess.Configurations.Activities
             builder.Property(x => x.TourCategory).IsRequired(true).HasConversion(x => x.ToString(), x => (TourCategory)Enum.Parse(typeof(TourCategory), x)).HasMaxLength(50);
             //Mapping
             //TourTicket
-            builder.HasMany(x => x.TourTickets).WithOne(x => x.Tour).HasForeignKey(x => x.TourId).OnDelete(DeleteBehavior.NoAction);
             builder.HasOne(x => x.ServiceRegion).WithMany(x => x.Tours).HasForeignKey(x => x.RegionId).OnDelete(DeleteBehavior.NoAction);
+            builder.HasMany(x => x.ContractTourGuides_Tours).WithOne(x => x.Tour).HasForeignKey(x => x.TourId).OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

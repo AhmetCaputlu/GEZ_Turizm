@@ -1,6 +1,6 @@
 ﻿using DataAccess.Entities.Abstracts;
 using DataAccess.Entities.Enums;
-using DataAccess.Entities.Models.Orders;
+using DataAccess.Entities.Models.Countries;
 using DataAccess.Entities.Models.Regions;
 
 namespace DataAccess.Entities.Models.Employees
@@ -12,15 +12,14 @@ namespace DataAccess.Entities.Models.Employees
         public Department CurrentPosition { get; set; }
         //Mapping
 
+        //Country
+        public int? CountryId { get; set; }
+        public virtual Country? Country { get; set; }
+
         //Residence Region
         public int? ResidenceRegionId { get; set; }
         public ResidenceRegion? ResidenceRegion { get; set; }
 
-        //EventTicketOrder
-        public virtual ICollection<EventTicketOrder>? EventTicketOrders { get; set; }
-        //TourTicketOrder
-        public virtual ICollection<TourTicketOrder>? TourTicketOrders { get; set; }
-        //Product Order
-        public virtual ICollection<ProductOrder>? ProductOrders { get; set; }
+        
     }
 }

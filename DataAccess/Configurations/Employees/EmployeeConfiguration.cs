@@ -20,12 +20,8 @@ namespace DataAccess.Configurations.Employees
 
             //Residence Region
             builder.HasOne(x => x.ResidenceRegion).WithMany(x => x.Employees).HasForeignKey(x => x.ResidenceRegionId).OnDelete(DeleteBehavior.NoAction);
-            //EventTicketOrder
-            builder.HasMany(x => x.EventTicketOrders).WithOne(x => x.Employee).HasForeignKey(x => x.EmployeeId).OnDelete(DeleteBehavior.NoAction);
-            //ProductOrder
-            builder.HasMany(x => x.ProductOrders).WithOne(x => x.Employee).HasForeignKey(x => x.EmployeeId).OnDelete(DeleteBehavior.NoAction);
-            //TourTicketOrder
-            builder.HasMany(x => x.TourTicketOrders).WithOne(x => x.Employee).HasForeignKey(x => x.EmployeeId).OnDelete(DeleteBehavior.NoAction);
+            //Country
+            builder.HasOne(x => x.Country).WithMany(x => x.Employees).HasForeignKey(x => x.CountryId).OnDelete(DeleteBehavior.NoAction);
         }
     }
 }
