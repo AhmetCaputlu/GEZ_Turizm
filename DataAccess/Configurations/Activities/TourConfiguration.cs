@@ -17,6 +17,7 @@ namespace DataAccess.Configurations.Activities
             //TourTicket
             builder.HasOne(x => x.ServiceRegion).WithMany(x => x.Tours).HasForeignKey(x => x.RegionId).OnDelete(DeleteBehavior.NoAction);
             builder.HasMany(x => x.ContractTourGuides_Tours).WithOne(x => x.Tour).HasForeignKey(x => x.TourId).OnDelete(DeleteBehavior.NoAction);
+            builder.HasMany(x => x.TourTickets).WithOne(x => x.Tour).HasForeignKey(x => x.TourId).OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

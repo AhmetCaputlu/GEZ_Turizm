@@ -6,7 +6,6 @@ namespace DataAccess.Entities.Abstracts
 {
     public abstract class BaseOrderModel : BaseModel
     {
-        public DateTime OrderDate { get; set; }
         public string? Note { get; set; }
         public string WebUserEmail { get; set; }
         //Mapping

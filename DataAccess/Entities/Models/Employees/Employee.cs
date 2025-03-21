@@ -1,7 +1,9 @@
 ﻿using DataAccess.Entities.Abstracts;
 using DataAccess.Entities.Enums;
 using DataAccess.Entities.Models.Countries;
+using DataAccess.Entities.Models.Orders;
 using DataAccess.Entities.Models.Regions;
+using DataAccess.Entities.Models.Tickets;
 
 namespace DataAccess.Entities.Models.Employees
 {
@@ -19,7 +21,10 @@ namespace DataAccess.Entities.Models.Employees
         //Residence Region
         public int? ResidenceRegionId { get; set; }
         public ResidenceRegion? ResidenceRegion { get; set; }
+        //TourTicketOrder
+        public virtual ICollection<TourTicketOrder>? TourTicketOrders { get; set; }
 
-        
+
+
     }
 }

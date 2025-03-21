@@ -1,6 +1,7 @@
 ﻿using DataAccess.Entities.Enums;
 using DataAccess.Entities.Interfaces;
 using DataAccess.Entities.Models.Countries;
+using DataAccess.Entities.Models.Orders;
 using Microsoft.AspNetCore.Identity;
 
 namespace DataAccess.Entities.Models.WebUsers
@@ -21,6 +22,8 @@ namespace DataAccess.Entities.Models.WebUsers
         //Country
         public int? CountryId { get; set; }
         public virtual Country? Country { get; set; }
-      
+        //TourTicketOrder
+        public virtual ICollection<TourTicketOrder>? TourTicketOrders { get; set; }
+
     }
 }

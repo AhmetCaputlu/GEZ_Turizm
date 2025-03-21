@@ -8,7 +8,6 @@ namespace DataAccess.Configurations.Abstracts
         public override void Configure(EntityTypeBuilder<T> builder)
         {
             base.Configure(builder);
-            builder.Property(x => x.OrderDate).IsRequired(true);
             builder.Property(x => x.Note).IsRequired(false).HasMaxLength(40);
             builder.Property(x => x.WebUserEmail).IsRequired(true).HasMaxLength(120);
         }
