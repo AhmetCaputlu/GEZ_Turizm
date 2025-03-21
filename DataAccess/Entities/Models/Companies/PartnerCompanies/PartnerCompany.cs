@@ -7,5 +7,7 @@ namespace DataAccess.Entities.Models.Companies.PartnerCompanies
     {
         public decimal CommissionRate { get; set; }
         public bool AcceptTickets { get; set; }
+        //PartnerCompanyTransaction
+        public virtual ICollection<PartnerCompanyTransaction>? PartnerCompanyTransactions { get; set; }
     }
 }

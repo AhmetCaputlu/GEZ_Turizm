@@ -8,5 +8,8 @@ namespace DataAccess.Entities.Models.Companies.PartnerCompanies
         public decimal Receive { get; set; }
         public decimal Balance { get; set; }
         //Mapping
+        public int? PartnerCompanyId { get; set; }
+        public virtual PartnerCompany? PartnerCompany { get; set; }
+
     }
 }

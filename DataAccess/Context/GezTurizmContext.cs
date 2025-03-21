@@ -44,6 +44,7 @@ namespace DataAccess.Context
         public DbSet<Tour> Tours { get; set; }
         public DbSet<Event> Events { get; set; }
         public DbSet<PartnerCompany> PartnerCompanies { get; set; }
+        public DbSet<PartnerCompanyTransaction> PartnerCompanyTransactions { get; set; }
         public DbSet<ProductSupplier> ProductSuppliers { get; set; }
         public DbSet<SubContractWorkerSupplier> SubContractWorkerSuppliers { get; set; }
         public DbSet<RentalVehicleSupplier> RentalVehicleSuppliers { get; set; }
