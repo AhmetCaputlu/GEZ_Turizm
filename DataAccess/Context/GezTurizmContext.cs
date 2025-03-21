@@ -48,6 +48,8 @@ namespace DataAccess.Context
         public DbSet<SubContractWorkerSupplier> SubContractWorkerSuppliers { get; set; }
         public DbSet<RentalVehicleSupplier> RentalVehicleSuppliers { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<ProductOrder> ProductOrders { get; set; }
+        public DbSet<ProductOrderDetail> ProductOrderDetails { get; set; }
         public DbSet<ProductCategory> ProductCategories { get; set; }
         public DbSet<TourTicket> TourTickets { get; set; }
         public DbSet<EventTicket> EventTickets { get; set; }

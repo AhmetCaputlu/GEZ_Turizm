@@ -26,6 +26,8 @@ namespace DataAccess.Entities.Models.WebUsers
         public virtual ICollection<TourTicketOrder>? TourTicketOrders { get; set; }
         //EventTicketOrder
         public virtual ICollection<EventTicketOrder>? EventTicketOrders { get; set; }
+        //ProductOrder
+        public virtual ICollection<ProductOrder>? ProductOrders { get; set; }
 
     }
 }

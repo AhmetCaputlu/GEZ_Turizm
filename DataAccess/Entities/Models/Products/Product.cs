@@ -1,5 +1,6 @@
 ﻿using DataAccess.Entities.Abstracts;
 using DataAccess.Entities.Models.Companies.Suppliers;
+using DataAccess.Entities.Models.OrderDetails;
 
 namespace DataAccess.Entities.Models.Products
 {
@@ -11,8 +12,9 @@ namespace DataAccess.Entities.Models.Products
         public short UnitsInStock { get; set; }
         //Mapping
         public int? CategoryId { get; set; }
-        public ProductCategory? ProductCategory { get; set; }
+        public ProductCategory   ProductCategory { get; set; }
         public int? ProductSupplierId { get; set; }
         public ProductSupplier? ProductSupplier { get; set; }
+        public virtual ICollection<ProductOrderDetail>? ProductOrderDetails { get; set; }
     }
 }
