@@ -1,5 +1,6 @@
 ﻿using DataAccess.Configurations.Abstracts;
 using DataAccess.Entities.Models.Companies.PartnerCompanies;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace DataAccess.Configurations.Companies.PartnerCompanies
@@ -9,6 +10,9 @@ namespace DataAccess.Configurations.Companies.PartnerCompanies
         public override void Configure(EntityTypeBuilder<PartnerCompanyTransaction> builder)
         {
             base.Configure(builder);
+            builder.Property(x => x.Debt).IsRequired(true).HasColumnType("decimal(10,4)");
+            builder.Property(x => x.Receive).IsRequired(true).HasColumnType("decimal(10,4)");
+            builder.Property(x => x.Balance).IsRequired(true).HasColumnType("decimal(10,4)");
             //Burası yapılandırılacak
         }
     }

@@ -6,6 +6,7 @@ using DataAccess.Entities.Models.Countries;
 using DataAccess.Entities.Models.Employees;
 using DataAccess.Entities.Models.OrderDetails;
 using DataAccess.Entities.Models.Orders;
+using DataAccess.Entities.Models.PassTickets;
 using DataAccess.Entities.Models.Products;
 using DataAccess.Entities.Models.Regions;
 using DataAccess.Entities.Models.Tickets;
@@ -45,6 +46,8 @@ namespace DataAccess.Context
         public DbSet<Event> Events { get; set; }
         public DbSet<PartnerCompany> PartnerCompanies { get; set; }
         public DbSet<PartnerCompanyTransaction> PartnerCompanyTransactions { get; set; }
+        public DbSet<PassEventTicket> PassEventTickets { get; set; }
+        public DbSet<PassTourTicket> PassTourTickets { get; set; }
         public DbSet<ProductSupplier> ProductSuppliers { get; set; }
         public DbSet<SubContractWorkerSupplier> SubContractWorkerSuppliers { get; set; }
         public DbSet<RentalVehicleSupplier> RentalVehicleSuppliers { get; set; }

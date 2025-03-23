@@ -1,4 +1,5 @@
 ﻿using DataAccess.Entities.Abstracts;
+using DataAccess.Entities.Models.PassTickets;
 
 namespace DataAccess.Entities.Models.Companies.PartnerCompanies
 {
@@ -10,6 +11,8 @@ namespace DataAccess.Entities.Models.Companies.PartnerCompanies
         //Mapping
         public int? PartnerCompanyId { get; set; }
         public virtual PartnerCompany? PartnerCompany { get; set; }
+        public virtual ICollection<PassEventTicket>? PassEventTickets{ get; set; }
+        public virtual ICollection<PassTourTicket>? PassTourTickets { get; set; }
 
     }
 }

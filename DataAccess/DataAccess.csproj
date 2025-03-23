@@ -16,7 +16,6 @@
 	</ItemGroup>
 	
   <ItemGroup>
-    <Folder Include="Configurations\PassTickets\" />
     <Folder Include="Helpers\" />
     <Folder Include="Repositories\" />
   </ItemGroup>

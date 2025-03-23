@@ -10,8 +10,8 @@ namespace DataAccess.Configurations.Companies.PartnerCompanies
         public override void Configure(EntityTypeBuilder<PartnerCompany> builder)
         {
             base.Configure(builder);
-            builder.Property(x => x.CommissionRate).IsRequired(true).HasColumnType("decimal(7,4)");
             builder.Property(x => x.AcceptTickets).IsRequired(true);
+            builder.HasMany(x=>x.PartnerCompanyTransactions).WithOne(x=>x.PartnerCompany).HasForeignKey(x=>x.PartnerCompanyId).OnDelete(DeleteBehavior.NoAction);
         }
     }
 }
