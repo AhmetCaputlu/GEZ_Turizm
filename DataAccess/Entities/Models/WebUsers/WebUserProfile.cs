@@ -1,4 +1,5 @@
-﻿using DataAccess.Entities.Enums;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using DataAccess.Entities.Enums;
 using DataAccess.Entities.Interfaces;
 
 namespace DataAccess.Entities.Models.WebUsers
@@ -9,6 +10,7 @@ namespace DataAccess.Entities.Models.WebUsers
         public string LastName { get; set; }
         public Gender Gender { get; set; }
         public DateTime BirthDate { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public byte Age
         {
             get
@@ -16,6 +18,7 @@ namespace DataAccess.Entities.Models.WebUsers
                 return (byte)(DateTime.Now.Year - BirthDate.Year -
                   (BirthDate.Date > DateTime.Today.AddYears(DateTime.Now.Year - BirthDate.Year) ? 1 : 0));
             }
+            set { }
         }
         public string? Address { get; set; }
         public string? PhotoPath { get; set; }

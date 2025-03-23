@@ -1,4 +1,5 @@
-﻿using DataAccess.Entities.Abstracts;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using DataAccess.Entities.Abstracts;
 using DataAccess.Entities.Enums;
 using DataAccess.Entities.Models.Countries;
 using DataAccess.Entities.Models.Orders;
@@ -10,7 +11,8 @@ namespace DataAccess.Entities.Models.Employees
     public class Employee : BaseEmployeeModel
     {
         public override DateTime EndContract { get { return HireDate.AddYears(3); } }
-        public ushort DaysWorked { get { return (ushort)(DateTime.Now - HireDate).TotalDays; } }
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        public ushort DaysWorked { get { return (ushort)(DateTime.Now - HireDate).TotalDays; } set { } }
         public Department CurrentPosition { get; set; }
         //Mapping
 
