@@ -1,5 +1,6 @@
 ﻿using DataAccess.Entities.Enums;
 using DataAccess.Entities.Models.WebUsers;
+using DataAccess.SeedData.WebUsers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -11,11 +12,11 @@ namespace DataAccess.Configurations.WebUsers
         {
             //IEntity
             builder.Ignore(x => x.Id);
-            builder.Property(x => x.Guid).HasMaxLength(36).IsRequired(true).HasDefaultValue(Guid.NewGuid().ToString());
+            builder.Property(x => x.Guid).HasMaxLength(36).IsRequired(true);
             builder.Property(x => x.CreatedDate).IsRequired(true).HasDefaultValue(DateTime.Now);
-            builder.Property(x => x.CreatedID).IsRequired(true).HasMaxLength(36).HasDefaultValue(Guid.NewGuid().ToString());
+            builder.Property(x => x.CreatedID).IsRequired(true).HasMaxLength(36);
             //todo:Kayıt oluşturan kullanıcının Guid bilgisi atanacak.
-            builder.Property(x => x.CreatedIPAddress).HasMaxLength(20).IsRequired(true).HasDefaultValue("");
+            builder.Property(x => x.CreatedIPAddress).HasMaxLength(20).IsRequired(true).HasDefaultValue("IP verilmedi");
             //todo:BLL katmanında kullanıcının IP bilgisi alınacak.(HttpContext)
             builder.Property(x => x.UpdatedDate).IsRequired(false);
             builder.Property(x => x.UpdatedID).IsRequired(false).HasMaxLength(36);
@@ -43,7 +44,8 @@ namespace DataAccess.Configurations.WebUsers
             builder.HasOne(x=>x.WebUserProfile).WithOne(x=>x.WebUserAccount).HasForeignKey<WebUserProfile>(x=>x.WebUserAccountId).OnDelete(DeleteBehavior.NoAction);
             //Country
             builder.HasOne(x=>x.Country).WithMany(x=>x.WebUserAccounts).HasForeignKey(x=>x.CountryId).OnDelete(DeleteBehavior.NoAction);
-            
+
+            builder.HasData(WebUserAccountSeedData.GetUserAccounts(3));
         }
     }
 }
