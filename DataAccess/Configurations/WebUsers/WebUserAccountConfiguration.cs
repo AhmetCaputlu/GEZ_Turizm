@@ -1,4 +1,5 @@
-﻿using DataAccess.Entities.Enums;
+﻿using System.Reflection.Emit;
+using DataAccess.Entities.Enums;
 using DataAccess.Entities.Models.WebUsers;
 using DataAccess.SeedData.WebUsers;
 using Microsoft.EntityFrameworkCore;
@@ -45,7 +46,6 @@ namespace DataAccess.Configurations.WebUsers
             //Country
             builder.HasOne(x=>x.Country).WithMany(x=>x.WebUserAccounts).HasForeignKey(x=>x.CountryId).OnDelete(DeleteBehavior.NoAction);
 
-            builder.HasData(WebUserAccountSeedData.GetUserAccounts(3));
         }
     }
 }

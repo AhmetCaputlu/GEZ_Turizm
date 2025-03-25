@@ -12,6 +12,7 @@ using DataAccess.Entities.Models.Regions;
 using DataAccess.Entities.Models.Tickets;
 using DataAccess.Entities.Models.Vehicles;
 using DataAccess.Entities.Models.WebUsers;
+using DataAccess.SeedData.WebUsers;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -62,7 +63,6 @@ namespace DataAccess.Context
         public DbSet<EventTicketOrderDetail> EventTicketOrderDetails { get; set; }
 
 
-       
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -76,6 +76,11 @@ namespace DataAccess.Context
            
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(GezTurizmContext).Assembly);
 
+            //Bu mantıkla ekleyeceğiz.
+            //Yarın tüm veriler eklenmeli sırası belirlenmeli.
+            //Sonra da repository klasörüne geçeceğiz.
+            modelBuilder.Entity<WebUserAccount>().HasData(WebUserAccountSeedData.GetUserAccounts(10));
+            modelBuilder.Entity<WebUserProfile>().HasData(WebUserProfileSeedData.GetUserProfiles(8));
             base.OnModelCreating(modelBuilder);
         }
     }

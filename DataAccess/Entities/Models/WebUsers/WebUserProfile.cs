@@ -10,15 +10,26 @@ namespace DataAccess.Entities.Models.WebUsers
         public string LastName { get; set; }
         public Gender Gender { get; set; }
         public DateTime BirthDate { get; set; }
-        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        public byte Age
+        public byte? Age
         {
+            #region Veritabanı bu kodu okuyamadı(EZİK MSSQL)
+            /* _age = (byte)(DateTime.Now.Year - BirthDate.Year -
+                    (BirthDate.Date > DateTime.Today.AddYears(DateTime.Now.Year - BirthDate.Year) ? 1 : 0));*/
+            #endregion
+
             get
             {
-                return (byte)(DateTime.Now.Year - BirthDate.Year -
-                  (BirthDate.Date > DateTime.Today.AddYears(DateTime.Now.Year - BirthDate.Year) ? 1 : 0));
+                var today = DateTime.Today;
+                var age = today.Year - BirthDate.Year;
+
+                if (BirthDate.Date > today.AddYears(-age))
+                {
+                    age--;
+                }
+
+                return (byte?)age;
             }
-            set { }
+            set { }           
         }
         public string? Address { get; set; }
         public string? PhotoPath { get; set; }
@@ -26,7 +37,7 @@ namespace DataAccess.Entities.Models.WebUsers
         public string? Email { get; set; }
         public string? TCN_Passport { get; set; }
         //Custom
-        public DateTime UpdatedDate { get; set; }
+        public DateTime? UpdatedDate { get; set; }
         //Mapping
 
         //WebUserAccount

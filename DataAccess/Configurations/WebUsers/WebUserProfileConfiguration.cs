@@ -20,7 +20,7 @@ namespace DataAccess.Configurations.WebUsers
             builder.Property(x => x.PhotoPath).HasMaxLength(255).IsRequired(false);
             builder.Property(x => x.PhoneNumber).HasMaxLength(11).IsRequired(false);
             builder.Property(x => x.Email).HasMaxLength(120).IsRequired(false);
-            builder.Property(x => x.UpdatedDate).IsRequired(true).HasDefaultValue(DateTime.Now);
+            builder.Property(x => x.UpdatedDate).IsRequired(false).HasDefaultValue(DateTime.Now);
             //Mapping
 
             //WebUserAccount

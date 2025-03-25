@@ -10,7 +10,7 @@ namespace DataAccess.Entities.Interfaces
         Gender Gender { get; set; }
         public DateTime BirthDate { get; set; }
 
-        byte Age { get; }
+        byte? Age { get; set; }
 
         string? Address { get; set; }
         string? PhotoPath { get; set; }

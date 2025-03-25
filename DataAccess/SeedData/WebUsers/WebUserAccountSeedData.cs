@@ -1,6 +1,7 @@
 ﻿using BCrypt.Net;
 using DataAccess.Entities.Models.WebUsers;
 using DataAccess.Entities.Enums;
+using DataAccess.SeedData.Randoms;
 
 namespace DataAccess.SeedData.WebUsers
 {
@@ -12,19 +13,20 @@ namespace DataAccess.SeedData.WebUsers
             for (int i = 0; i < count; i++)
             {
                 WebUserAccount webUserAccount = new WebUserAccount
-                {             
+                {
 
                     Id = i + 1,
                     Guid = Guid.NewGuid().ToString(),
+                    CreatedDate = RandomDatetime.GetDateTime(),//Başlangıç verilerimiz rastgele olsun
                     CreatedID = Guid.NewGuid().ToString(),
                     CreatedIPAddress = $"CreatedIPAdress {i}",
                     UserName = $"UserName {i}",
                     PasswordHash = BCrypt.Net.BCrypt.HashPassword($"HashPassword {i}"),
                     Email = $"Email {i}",
                     SecurityStamp = Guid.NewGuid().ToString(),
-                    Status = DataStatus.Active,
+                    Status = RandomEnum.GetRandomStatus(),
                     PhoneNumber = $"PNumber {i}",
-                    CountryId = 1
+                    CountryId = null,
                 };
                 webUserAccount.NormalizedUserName = webUserAccount.UserName.ToUpper();
                 webUserAccount.NormalizedEmail = webUserAccount.Email.ToUpper();
