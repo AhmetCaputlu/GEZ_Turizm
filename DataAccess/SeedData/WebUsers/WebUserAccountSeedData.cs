@@ -5,9 +5,9 @@ using DataAccess.SeedData.Randoms;
 
 namespace DataAccess.SeedData.WebUsers
 {
-    public class WebUserAccountSeedData
+    internal class WebUserAccountSeedData
     {
-        public static List<WebUserAccount> GetUserAccounts(int count)
+        internal static List<WebUserAccount> GetUserAccounts(int count)
         {
             List<WebUserAccount> webUserAccounts = new List<WebUserAccount>();
             for (int i = 0; i < count; i++)
@@ -26,7 +26,7 @@ namespace DataAccess.SeedData.WebUsers
                     SecurityStamp = Guid.NewGuid().ToString(),
                     Status = RandomEnum.GetRandomStatus(),
                     PhoneNumber = $"PNumber {i}",
-                    CountryId = null,
+                    CountryId = RandomNavId.GetNavIdMax10(),
                 };
                 webUserAccount.NormalizedUserName = webUserAccount.UserName.ToUpper();
                 webUserAccount.NormalizedEmail = webUserAccount.Email.ToUpper();

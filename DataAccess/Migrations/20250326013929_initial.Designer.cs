@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(GezTurizmContext))]
-    [Migration("20250325004700_initial")]
+    [Migration("20250326013929_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -96,14 +96,14 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 3, 25, 3, 46, 59, 545, DateTimeKind.Local).AddTicks(8926));
+                        .HasDefaultValue(new DateTime(2025, 3, 26, 4, 39, 28, 375, DateTimeKind.Local).AddTicks(1308));
 
                     b.Property<string>("CreatedID")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("fa7cd605-f9c2-457c-97c5-3791e146b20b");
+                        .HasDefaultValue("4bca15e2-fb52-4570-ae5f-bef32a1ab002");
 
                     b.Property<string>("CreatedIPAddress")
                         .IsRequired()
@@ -134,7 +134,7 @@ namespace DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("878e68fc-b30c-428d-8a32-4c0f12597cc8");
+                        .HasDefaultValue("75c4da58-4a60-4433-b885-35927487e651");
 
                     b.Property<int?>("RegionId")
                         .HasColumnType("int");
@@ -178,14 +178,14 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 3, 25, 3, 46, 59, 553, DateTimeKind.Local).AddTicks(1561));
+                        .HasDefaultValue(new DateTime(2025, 3, 26, 4, 39, 28, 375, DateTimeKind.Local).AddTicks(7826));
 
                     b.Property<string>("CreatedID")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("ac95461a-7f1f-4bc6-b2e7-cf276d2abb84");
+                        .HasDefaultValue("0a750d89-0db7-4eb2-8006-664529727e44");
 
                     b.Property<string>("CreatedIPAddress")
                         .IsRequired()
@@ -211,7 +211,7 @@ namespace DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("8ff5ffe4-17d8-4957-a869-3a4136ca8e2a");
+                        .HasDefaultValue("c25923aa-9db6-46a3-984a-3a62571ddbcc");
 
                     b.Property<int?>("RegionId")
                         .HasColumnType("int");
@@ -283,14 +283,14 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 3, 25, 3, 46, 59, 553, DateTimeKind.Local).AddTicks(9088));
+                        .HasDefaultValue(new DateTime(2025, 3, 26, 4, 39, 28, 376, DateTimeKind.Local).AddTicks(4256));
 
                     b.Property<string>("CreatedID")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("66cdae2c-924f-4946-b3c2-c4a99e2bf459");
+                        .HasDefaultValue("94d86e07-6ea6-49bb-a5ab-263e52cbf3c9");
 
                     b.Property<string>("CreatedIPAddress")
                         .IsRequired()
@@ -309,7 +309,7 @@ namespace DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("ee059693-9fb2-4e63-882e-a810614890d3");
+                        .HasDefaultValue("360355d4-d898-4e84-9303-9a7d15b4b799");
 
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
@@ -353,14 +353,14 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 3, 25, 3, 46, 59, 554, DateTimeKind.Local).AddTicks(3319));
+                        .HasDefaultValue(new DateTime(2025, 3, 26, 4, 39, 28, 376, DateTimeKind.Local).AddTicks(8380));
 
                     b.Property<string>("CreatedID")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("991afde5-03bd-4bf8-b29c-5edc390f0f98");
+                        .HasDefaultValue("7b7b1d8b-e7f4-4cd4-859c-fbf3e797b423");
 
                     b.Property<string>("CreatedIPAddress")
                         .IsRequired()
@@ -377,7 +377,7 @@ namespace DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("163e79b5-084d-4a52-979b-af289d16ec5a");
+                        .HasDefaultValue("a87879cd-3abe-460b-87f6-92e96490d7c8");
 
                     b.Property<int?>("PartnerCompanyId")
                         .HasColumnType("int");
@@ -441,14 +441,14 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 3, 25, 3, 46, 59, 554, DateTimeKind.Local).AddTicks(6079));
+                        .HasDefaultValue(new DateTime(2025, 3, 26, 4, 39, 28, 377, DateTimeKind.Local).AddTicks(1839));
 
                     b.Property<string>("CreatedID")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("f6098cde-24c8-4118-ba78-2d1135212beb");
+                        .HasDefaultValue("02701569-e44a-4772-be95-20a071178143");
 
                     b.Property<string>("CreatedIPAddress")
                         .IsRequired()
@@ -467,7 +467,7 @@ namespace DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("542453ca-2f48-4a3b-9be2-f6ba5783a7e8");
+                        .HasDefaultValue("dbb22484-f6e8-429a-a85c-6a789f357734");
 
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
@@ -528,14 +528,14 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 3, 25, 3, 46, 59, 554, DateTimeKind.Local).AddTicks(9921));
+                        .HasDefaultValue(new DateTime(2025, 3, 26, 4, 39, 28, 377, DateTimeKind.Local).AddTicks(5829));
 
                     b.Property<string>("CreatedID")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("4ed7dad2-0815-4500-a4eb-ed9ae47884ac");
+                        .HasDefaultValue("faae95a4-272d-4801-af74-6291083ef44b");
 
                     b.Property<string>("CreatedIPAddress")
                         .IsRequired()
@@ -554,7 +554,7 @@ namespace DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("b2d29b7d-33d5-4196-af80-43d6252ade77");
+                        .HasDefaultValue("b137304e-9e2e-4987-b90b-826029a765eb");
 
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
@@ -615,14 +615,14 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 3, 25, 3, 46, 59, 555, DateTimeKind.Local).AddTicks(3784));
+                        .HasDefaultValue(new DateTime(2025, 3, 26, 4, 39, 28, 377, DateTimeKind.Local).AddTicks(9695));
 
                     b.Property<string>("CreatedID")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("05a40ddf-ccf6-45ae-be92-b5e01e9c8355");
+                        .HasDefaultValue("cccd22c8-940d-4a97-8736-8ebdff7c2b0e");
 
                     b.Property<string>("CreatedIPAddress")
                         .IsRequired()
@@ -641,7 +641,7 @@ namespace DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("92f1325e-c557-4af0-9b60-01515a3aa762");
+                        .HasDefaultValue("4b052ca8-e4c5-4033-b4bf-90abccfcf24e");
 
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
@@ -686,8 +686,8 @@ namespace DataAccess.Migrations
 
                     b.Property<string>("CountryCode")
                         .IsRequired()
-                        .HasMaxLength(3)
-                        .HasColumnType("nvarchar(3)");
+                        .HasMaxLength(8)
+                        .HasColumnType("nvarchar(8)");
 
                     b.Property<string>("CountryDescription")
                         .HasMaxLength(190)
@@ -706,14 +706,14 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 3, 25, 3, 46, 59, 555, DateTimeKind.Local).AddTicks(8724));
+                        .HasDefaultValue(new DateTime(2025, 3, 26, 4, 39, 28, 378, DateTimeKind.Local).AddTicks(3916));
 
                     b.Property<string>("CreatedID")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("8d5211b7-0433-48ec-92c3-43d4efdb1e27");
+                        .HasDefaultValue("6029b8bf-c04f-4c62-a3b4-e228e344b57c");
 
                     b.Property<string>("CreatedIPAddress")
                         .IsRequired()
@@ -727,7 +727,7 @@ namespace DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("77b160f8-132c-4860-aabd-d76406dbb203");
+                        .HasDefaultValue("18f6d9bd-56f6-4bd9-96fd-5b537d714139");
 
                     b.Property<string>("Status")
                         .IsRequired()
@@ -750,6 +750,218 @@ namespace DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Countries");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Continent = "Australia",
+                            CountryCode = "X 0",
+                            CountryDescription = "CountryDescription 0",
+                            CountryName = "CountryName 0",
+                            CountryPhone = "Cphone 0",
+                            CreatedDate = new DateTime(2002, 5, 23, 10, 39, 3, 0, DateTimeKind.Unspecified),
+                            CreatedID = "30b8305a-140e-44c4-83be-2152e99339ca",
+                            CreatedIPAddress = "CreatedIPAdress 0",
+                            Guid = "ff9904d2-8e38-43f1-9f0c-9f8709f885b8",
+                            Status = "Active"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Continent = "Asia",
+                            CountryCode = "X 1",
+                            CountryDescription = "CountryDescription 1",
+                            CountryName = "CountryName 1",
+                            CountryPhone = "Cphone 1",
+                            CreatedDate = new DateTime(2016, 11, 9, 2, 18, 36, 0, DateTimeKind.Unspecified),
+                            CreatedID = "bd6fef1d-d59a-489c-85fa-db45be1a5dc1",
+                            CreatedIPAddress = "CreatedIPAdress 1",
+                            Guid = "e16090ce-4268-40db-bfc1-5c5c433446f3",
+                            Status = "Passive"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Continent = "Africa",
+                            CountryCode = "X 2",
+                            CountryDescription = "CountryDescription 2",
+                            CountryName = "CountryName 2",
+                            CountryPhone = "Cphone 2",
+                            CreatedDate = new DateTime(2018, 3, 10, 23, 52, 33, 0, DateTimeKind.Unspecified),
+                            CreatedID = "299dd26e-4f3f-4ea6-adb7-bcde5b3cf833",
+                            CreatedIPAddress = "CreatedIPAdress 2",
+                            Guid = "99324bf2-4fbf-4c87-af31-c235e6fad73f",
+                            Status = "Passive"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Continent = "Australia",
+                            CountryCode = "X 3",
+                            CountryDescription = "CountryDescription 3",
+                            CountryName = "CountryName 3",
+                            CountryPhone = "Cphone 3",
+                            CreatedDate = new DateTime(2005, 4, 1, 16, 28, 41, 0, DateTimeKind.Unspecified),
+                            CreatedID = "298526df-e7fe-45b6-9098-3fa76c4c7b92",
+                            CreatedIPAddress = "CreatedIPAdress 3",
+                            Guid = "ccc27cae-4827-49c4-aabc-21575e03c642",
+                            Status = "Unknown"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Continent = "NorthAmerica",
+                            CountryCode = "X 4",
+                            CountryDescription = "CountryDescription 4",
+                            CountryName = "CountryName 4",
+                            CountryPhone = "Cphone 4",
+                            CreatedDate = new DateTime(2020, 12, 12, 17, 18, 29, 0, DateTimeKind.Unspecified),
+                            CreatedID = "792e025b-c17f-44a9-b33f-59db2a16e0cf",
+                            CreatedIPAddress = "CreatedIPAdress 4",
+                            Guid = "5e1c80ac-fe3b-47ff-aac6-3c2e3ce276d2",
+                            Status = "Unknown"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Continent = "None",
+                            CountryCode = "X 5",
+                            CountryDescription = "CountryDescription 5",
+                            CountryName = "CountryName 5",
+                            CountryPhone = "Cphone 5",
+                            CreatedDate = new DateTime(2001, 2, 16, 9, 50, 38, 0, DateTimeKind.Unspecified),
+                            CreatedID = "3a2970ba-5d62-457d-ba43-fdcedcef54a0",
+                            CreatedIPAddress = "CreatedIPAdress 5",
+                            Guid = "7e0e1015-352e-4162-8f9d-70cbce10cfbe",
+                            Status = "Unknown"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Continent = "NorthAmerica",
+                            CountryCode = "X 6",
+                            CountryDescription = "CountryDescription 6",
+                            CountryName = "CountryName 6",
+                            CountryPhone = "Cphone 6",
+                            CreatedDate = new DateTime(2013, 5, 24, 3, 47, 28, 0, DateTimeKind.Unspecified),
+                            CreatedID = "b9324d88-3d37-4340-b717-7a1abfef2faa",
+                            CreatedIPAddress = "CreatedIPAdress 6",
+                            Guid = "ca58a458-a25b-4291-8a09-285683566490",
+                            Status = "Unknown"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Continent = "NorthAmerica",
+                            CountryCode = "X 7",
+                            CountryDescription = "CountryDescription 7",
+                            CountryName = "CountryName 7",
+                            CountryPhone = "Cphone 7",
+                            CreatedDate = new DateTime(2013, 6, 16, 14, 43, 22, 0, DateTimeKind.Unspecified),
+                            CreatedID = "4f662fdf-bbd9-4d67-9e71-65caa5453db3",
+                            CreatedIPAddress = "CreatedIPAdress 7",
+                            Guid = "f410eec5-ff57-431b-839a-bc25786710bb",
+                            Status = "Unknown"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Continent = "NorthAmerica",
+                            CountryCode = "X 8",
+                            CountryDescription = "CountryDescription 8",
+                            CountryName = "CountryName 8",
+                            CountryPhone = "Cphone 8",
+                            CreatedDate = new DateTime(2013, 1, 16, 11, 47, 26, 0, DateTimeKind.Unspecified),
+                            CreatedID = "22a01582-e733-4a52-875f-fcf043d0757a",
+                            CreatedIPAddress = "CreatedIPAdress 8",
+                            Guid = "5552897f-218e-44e4-8905-d473ea5aba7d",
+                            Status = "Unknown"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Continent = "NorthAmerica",
+                            CountryCode = "X 9",
+                            CountryDescription = "CountryDescription 9",
+                            CountryName = "CountryName 9",
+                            CountryPhone = "Cphone 9",
+                            CreatedDate = new DateTime(2000, 11, 23, 13, 28, 38, 0, DateTimeKind.Unspecified),
+                            CreatedID = "54c38a20-56d3-4b2e-bab7-a25f04914312",
+                            CreatedIPAddress = "CreatedIPAdress 9",
+                            Guid = "6a0df0f5-ee9f-4409-8fa2-3effb130eedf",
+                            Status = "Unknown"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Continent = "Africa",
+                            CountryCode = "X 10",
+                            CountryDescription = "CountryDescription 10",
+                            CountryName = "CountryName 10",
+                            CountryPhone = "Cphone 10",
+                            CreatedDate = new DateTime(2013, 6, 3, 23, 42, 50, 0, DateTimeKind.Unspecified),
+                            CreatedID = "39739f1c-8e32-42dd-8266-b7c052b7aa73",
+                            CreatedIPAddress = "CreatedIPAdress 10",
+                            Guid = "26155b80-4a34-45f4-abb0-a922f98fc151",
+                            Status = "Passive"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Continent = "Australia",
+                            CountryCode = "X 11",
+                            CountryDescription = "CountryDescription 11",
+                            CountryName = "CountryName 11",
+                            CountryPhone = "Cphone 11",
+                            CreatedDate = new DateTime(2014, 12, 16, 22, 19, 31, 0, DateTimeKind.Unspecified),
+                            CreatedID = "9ceede82-ba8d-4c6b-9d4f-dde32df8b233",
+                            CreatedIPAddress = "CreatedIPAdress 11",
+                            Guid = "3b7de206-ef11-49f3-bae3-7821c120d50e",
+                            Status = "Active"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Continent = "Europe",
+                            CountryCode = "X 12",
+                            CountryDescription = "CountryDescription 12",
+                            CountryName = "CountryName 12",
+                            CountryPhone = "Cphone 12",
+                            CreatedDate = new DateTime(2021, 4, 24, 3, 12, 18, 0, DateTimeKind.Unspecified),
+                            CreatedID = "bc9bef29-69c1-4a64-8fa5-70f4b35bae38",
+                            CreatedIPAddress = "CreatedIPAdress 12",
+                            Guid = "b0efad4d-7249-401c-840b-81970d6eba04",
+                            Status = "Active"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Continent = "NorthAmerica",
+                            CountryCode = "X 13",
+                            CountryDescription = "CountryDescription 13",
+                            CountryName = "CountryName 13",
+                            CountryPhone = "Cphone 13",
+                            CreatedDate = new DateTime(2003, 9, 16, 13, 26, 49, 0, DateTimeKind.Unspecified),
+                            CreatedID = "5326138d-1a07-4cd9-99e8-0a6968253b52",
+                            CreatedIPAddress = "CreatedIPAdress 13",
+                            Guid = "a216b16a-896e-4c32-8613-684836d7cb6c",
+                            Status = "Active"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Continent = "Africa",
+                            CountryCode = "X 14",
+                            CountryDescription = "CountryDescription 14",
+                            CountryName = "CountryName 14",
+                            CountryPhone = "Cphone 14",
+                            CreatedDate = new DateTime(2002, 12, 15, 4, 27, 54, 0, DateTimeKind.Unspecified),
+                            CreatedID = "52c3fe13-8495-4219-9c3d-d4902101ba6f",
+                            CreatedIPAddress = "CreatedIPAdress 14",
+                            Guid = "82791ed4-bfb9-49e8-8681-0172dd386a96",
+                            Status = "Active"
+                        });
                 });
 
             modelBuilder.Entity("DataAccess.Entities.Models.Employees.ContractDriver", b =>
@@ -775,14 +987,14 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 3, 25, 3, 46, 59, 556, DateTimeKind.Local).AddTicks(2518));
+                        .HasDefaultValue(new DateTime(2025, 3, 26, 4, 39, 28, 378, DateTimeKind.Local).AddTicks(7618));
 
                     b.Property<string>("CreatedID")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("4abe2a14-91d9-49fd-b863-87d6f1bd3726");
+                        .HasDefaultValue("99e59d2e-f4d4-45a6-ab1e-095501f38012");
 
                     b.Property<string>("CreatedIPAddress")
                         .IsRequired()
@@ -802,8 +1014,7 @@ namespace DataAccess.Migrations
                         .HasMaxLength(120)
                         .HasColumnType("nvarchar(120)");
 
-                    b.Property<DateTime>("EndContract")
-                        .ValueGeneratedOnAddOrUpdate()
+                    b.Property<DateTime?>("EndContract")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("Experience")
@@ -826,7 +1037,7 @@ namespace DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("81bcf5c7-e6d8-4dc9-8aff-5c7e7a8a8fa3");
+                        .HasDefaultValue("1dd50b8d-e6d3-4a46-937a-2d9cb2d92d46");
 
                     b.Property<DateTime>("HireDate")
                         .HasColumnType("datetime2");
@@ -899,14 +1110,14 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 3, 25, 3, 46, 59, 556, DateTimeKind.Local).AddTicks(9097));
+                        .HasDefaultValue(new DateTime(2025, 3, 26, 4, 39, 28, 379, DateTimeKind.Local).AddTicks(5105));
 
                     b.Property<string>("CreatedID")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("f4eee1f4-d628-4c59-90ba-36f4b89981aa");
+                        .HasDefaultValue("1a5cc952-05ec-4f77-9a63-2ede41b39fb2");
 
                     b.Property<string>("CreatedIPAddress")
                         .IsRequired()
@@ -919,8 +1130,7 @@ namespace DataAccess.Migrations
                         .HasMaxLength(120)
                         .HasColumnType("nvarchar(120)");
 
-                    b.Property<DateTime>("EndContract")
-                        .ValueGeneratedOnAddOrUpdate()
+                    b.Property<DateTime?>("EndContract")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("Experience")
@@ -943,7 +1153,7 @@ namespace DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("b6cab846-78d7-4bd6-805e-6121d64293e9");
+                        .HasDefaultValue("0647fda9-27d3-4fa2-90eb-949cecd86af3");
 
                     b.Property<DateTime>("HireDate")
                         .HasColumnType("datetime2");
@@ -1020,20 +1230,23 @@ namespace DataAccess.Migrations
                         .HasColumnType("datetime2")
                         .HasDefaultValue(new DateTime(2000, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
 
+                    b.Property<int?>("ContractCount")
+                        .HasColumnType("int");
+
                     b.Property<int?>("CountryId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 3, 25, 3, 46, 59, 557, DateTimeKind.Local).AddTicks(4550));
+                        .HasDefaultValue(new DateTime(2025, 3, 26, 4, 39, 28, 380, DateTimeKind.Local).AddTicks(812));
 
                     b.Property<string>("CreatedID")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("16dbd3aa-7309-4aad-8c87-4a69881c8935");
+                        .HasDefaultValue("c7cc9243-bb54-4242-b5f3-ac2ef6ac8c9b");
 
                     b.Property<string>("CreatedIPAddress")
                         .IsRequired()
@@ -1044,19 +1257,17 @@ namespace DataAccess.Migrations
 
                     b.Property<string>("CurrentPosition")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasMaxLength(35)
+                        .HasColumnType("nvarchar(35)");
 
-                    b.Property<int>("DaysWorked")
-                        .ValueGeneratedOnAddOrUpdate()
+                    b.Property<int?>("DaysWorked")
                         .HasColumnType("int");
 
                     b.Property<string>("Email")
                         .HasMaxLength(120)
                         .HasColumnType("nvarchar(120)");
 
-                    b.Property<DateTime>("EndContract")
-                        .ValueGeneratedOnAddOrUpdate()
+                    b.Property<DateTime?>("EndContract")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("Experience")
@@ -1079,7 +1290,7 @@ namespace DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("9e965561-e256-4b0d-8329-2e3143f55013");
+                        .HasDefaultValue("f073d4fc-12c6-43de-95c3-d05639c4f968");
 
                     b.Property<DateTime>("HireDate")
                         .HasColumnType("datetime2");
@@ -1129,6 +1340,398 @@ namespace DataAccess.Migrations
                     b.HasIndex("ResidenceRegionId");
 
                     b.ToTable("Employees");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Address = "Adress 0",
+                            Age = (byte)30,
+                            BirthDate = new DateTime(1994, 9, 23, 22, 8, 36, 0, DateTimeKind.Unspecified),
+                            ContractCount = 6,
+                            CountryId = 2,
+                            CreatedDate = new DateTime(2000, 6, 12, 2, 43, 7, 0, DateTimeKind.Unspecified),
+                            CreatedID = "132ee9b6-2bb0-48e6-8734-35575f484754",
+                            CreatedIPAddress = "CreatedIPAdress 0",
+                            CurrentPosition = "Marketing",
+                            DaysWorked = 5987,
+                            Email = "Email 0",
+                            EndContract = new DateTime(2026, 11, 2, 23, 20, 45, 0, DateTimeKind.Unspecified),
+                            Experience = 2,
+                            FirstName = "FirstName 0",
+                            Gender = "Unknown",
+                            Guid = "c6eac58a-ed7b-4210-a058-3c8b74b940e0",
+                            HireDate = new DateTime(2008, 11, 2, 23, 20, 45, 0, DateTimeKind.Unspecified),
+                            LastName = "LastName 0",
+                            PhoneNumber = "PNumber 0",
+                            PhotoPath = "PhotoPath 0",
+                            Status = "Unknown",
+                            TCN_Passport = "TCN 0"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Address = "Adress 1",
+                            Age = (byte)56,
+                            BirthDate = new DateTime(1969, 3, 20, 18, 29, 40, 0, DateTimeKind.Unspecified),
+                            ContractCount = 8,
+                            CountryId = 4,
+                            CreatedDate = new DateTime(2012, 9, 2, 5, 10, 49, 0, DateTimeKind.Unspecified),
+                            CreatedID = "c39b4b17-a352-4bac-80e8-38ae4fbb23da",
+                            CreatedIPAddress = "CreatedIPAdress 1",
+                            CurrentPosition = "Administrative",
+                            DaysWorked = 7418,
+                            Email = "Email 1",
+                            EndContract = new DateTime(2028, 12, 3, 4, 14, 10, 0, DateTimeKind.Unspecified),
+                            Experience = 3,
+                            FirstName = "FirstName 1",
+                            Gender = "Male",
+                            Guid = "fcf42990-4c20-4ecd-a63f-790082f21946",
+                            HireDate = new DateTime(2004, 12, 3, 4, 14, 10, 0, DateTimeKind.Unspecified),
+                            LastName = "LastName 1",
+                            PhoneNumber = "PNumber 1",
+                            PhotoPath = "PhotoPath 1",
+                            Status = "Unknown",
+                            TCN_Passport = "TCN 1"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Address = "Adress 2",
+                            Age = (byte)52,
+                            BirthDate = new DateTime(1972, 8, 1, 20, 14, 47, 0, DateTimeKind.Unspecified),
+                            ContractCount = 4,
+                            CountryId = 5,
+                            CreatedDate = new DateTime(2021, 7, 26, 11, 23, 43, 0, DateTimeKind.Unspecified),
+                            CreatedID = "bef9010b-e7a6-4add-8bb0-7b0f50d27aa4",
+                            CreatedIPAddress = "CreatedIPAdress 2",
+                            CurrentPosition = "Administrative",
+                            DaysWorked = 3362,
+                            Email = "Email 2",
+                            EndContract = new DateTime(2028, 1, 10, 13, 8, 49, 0, DateTimeKind.Unspecified),
+                            Experience = 4,
+                            FirstName = "FirstName 2",
+                            Gender = "Unknown",
+                            Guid = "482f335a-20cf-4156-8bae-336ae62f0cf9",
+                            HireDate = new DateTime(2016, 1, 10, 13, 8, 49, 0, DateTimeKind.Unspecified),
+                            LastName = "LastName 2",
+                            PhoneNumber = "PNumber 2",
+                            PhotoPath = "PhotoPath 2",
+                            Status = "Unknown",
+                            TCN_Passport = "TCN 2"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Address = "Adress 3",
+                            Age = (byte)59,
+                            BirthDate = new DateTime(1965, 8, 11, 12, 50, 53, 0, DateTimeKind.Unspecified),
+                            ContractCount = 4,
+                            CountryId = 7,
+                            CreatedDate = new DateTime(2000, 11, 10, 10, 35, 12, 0, DateTimeKind.Unspecified),
+                            CreatedID = "37152d11-ccb4-4c22-8c5b-e61921d6f1e4",
+                            CreatedIPAddress = "CreatedIPAdress 3",
+                            CurrentPosition = "IT",
+                            DaysWorked = 3912,
+                            Email = "Email 3",
+                            EndContract = new DateTime(2026, 7, 9, 12, 14, 33, 0, DateTimeKind.Unspecified),
+                            Experience = 5,
+                            FirstName = "FirstName 3",
+                            Gender = "Unknown",
+                            Guid = "02ed7bf8-cdfd-47bc-a48f-30ce26681449",
+                            HireDate = new DateTime(2014, 7, 9, 12, 14, 33, 0, DateTimeKind.Unspecified),
+                            LastName = "LastName 3",
+                            PhoneNumber = "PNumber 3",
+                            PhotoPath = "PhotoPath 3",
+                            Status = "Passive",
+                            TCN_Passport = "TCN 3"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Address = "Adress 4",
+                            Age = (byte)57,
+                            BirthDate = new DateTime(1967, 4, 23, 23, 48, 3, 0, DateTimeKind.Unspecified),
+                            ContractCount = 6,
+                            CountryId = 3,
+                            CreatedDate = new DateTime(2004, 12, 21, 20, 37, 20, 0, DateTimeKind.Unspecified),
+                            CreatedID = "8b3a2a67-7770-4a2b-b303-18f9184e5cdd",
+                            CreatedIPAddress = "CreatedIPAdress 4",
+                            CurrentPosition = "Administrative",
+                            DaysWorked = 6044,
+                            Email = "Email 4",
+                            EndContract = new DateTime(2026, 9, 6, 15, 27, 23, 0, DateTimeKind.Unspecified),
+                            Experience = 6,
+                            FirstName = "FirstName 4",
+                            Gender = "Male",
+                            Guid = "1060f500-5ecc-4bbd-97a1-587f2a3377e6",
+                            HireDate = new DateTime(2008, 9, 6, 15, 27, 23, 0, DateTimeKind.Unspecified),
+                            LastName = "LastName 4",
+                            PhoneNumber = "PNumber 4",
+                            PhotoPath = "PhotoPath 4",
+                            Status = "Active",
+                            TCN_Passport = "TCN 4"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Address = "Adress 5",
+                            Age = (byte)58,
+                            BirthDate = new DateTime(1967, 1, 24, 18, 22, 10, 0, DateTimeKind.Unspecified),
+                            ContractCount = 4,
+                            CountryId = 8,
+                            CreatedDate = new DateTime(2015, 12, 9, 19, 14, 36, 0, DateTimeKind.Unspecified),
+                            CreatedID = "89e4ca11-472a-46f1-8f03-f236f5f41010",
+                            CreatedIPAddress = "CreatedIPAdress 5",
+                            CurrentPosition = "Marketing",
+                            DaysWorked = 3600,
+                            Email = "Email 5",
+                            EndContract = new DateTime(2027, 5, 17, 11, 19, 50, 0, DateTimeKind.Unspecified),
+                            Experience = 7,
+                            FirstName = "FirstName 5",
+                            Gender = "Female",
+                            Guid = "e0e5d83c-e72f-463a-97c9-166c5273f9a7",
+                            HireDate = new DateTime(2015, 5, 17, 11, 19, 50, 0, DateTimeKind.Unspecified),
+                            LastName = "LastName 5",
+                            PhoneNumber = "PNumber 5",
+                            PhotoPath = "PhotoPath 5",
+                            Status = "Unknown",
+                            TCN_Passport = "TCN 5"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Address = "Adress 6",
+                            Age = (byte)51,
+                            BirthDate = new DateTime(1973, 8, 9, 22, 16, 32, 0, DateTimeKind.Unspecified),
+                            ContractCount = 3,
+                            CountryId = 4,
+                            CreatedDate = new DateTime(2018, 3, 14, 10, 26, 51, 0, DateTimeKind.Unspecified),
+                            CreatedID = "7c758e99-c571-488b-be35-bffdb5670d91",
+                            CreatedIPAddress = "CreatedIPAdress 6",
+                            CurrentPosition = "Operations",
+                            DaysWorked = 2997,
+                            Email = "Email 6",
+                            EndContract = new DateTime(2026, 1, 9, 12, 33, 13, 0, DateTimeKind.Unspecified),
+                            Experience = 8,
+                            FirstName = "FirstName 6",
+                            Gender = "Male",
+                            Guid = "2101d0ab-3251-4c8c-8d76-5eecad2959fc",
+                            HireDate = new DateTime(2017, 1, 9, 12, 33, 13, 0, DateTimeKind.Unspecified),
+                            LastName = "LastName 6",
+                            PhoneNumber = "PNumber 6",
+                            PhotoPath = "PhotoPath 6",
+                            Status = "Passive",
+                            TCN_Passport = "TCN 6"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Address = "Adress 7",
+                            Age = (byte)64,
+                            BirthDate = new DateTime(1960, 8, 21, 10, 29, 24, 0, DateTimeKind.Unspecified),
+                            ContractCount = 9,
+                            CountryId = 8,
+                            CreatedDate = new DateTime(2018, 10, 22, 7, 10, 45, 0, DateTimeKind.Unspecified),
+                            CreatedID = "fc32ea57-f8c3-43da-9e58-108e81e85969",
+                            CreatedIPAddress = "CreatedIPAdress 7",
+                            CurrentPosition = "Accounting",
+                            DaysWorked = 8710,
+                            Email = "Email 7",
+                            EndContract = new DateTime(2028, 5, 21, 3, 28, 43, 0, DateTimeKind.Unspecified),
+                            Experience = 9,
+                            FirstName = "FirstName 7",
+                            Gender = "Unknown",
+                            Guid = "550eb782-1afe-41d7-9fa4-c863e87810af",
+                            HireDate = new DateTime(2001, 5, 21, 3, 28, 43, 0, DateTimeKind.Unspecified),
+                            LastName = "LastName 7",
+                            PhoneNumber = "PNumber 7",
+                            PhotoPath = "PhotoPath 7",
+                            Status = "Passive",
+                            TCN_Passport = "TCN 7"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Address = "Adress 8",
+                            Age = (byte)57,
+                            BirthDate = new DateTime(1967, 9, 1, 4, 45, 34, 0, DateTimeKind.Unspecified),
+                            ContractCount = 5,
+                            CountryId = 2,
+                            CreatedDate = new DateTime(2010, 8, 5, 23, 33, 24, 0, DateTimeKind.Unspecified),
+                            CreatedID = "5c19988b-6385-4a6e-972a-9f70c4686d2a",
+                            CreatedIPAddress = "CreatedIPAdress 8",
+                            CurrentPosition = "IT",
+                            DaysWorked = 4584,
+                            Email = "Email 8",
+                            EndContract = new DateTime(2027, 9, 5, 12, 30, 23, 0, DateTimeKind.Unspecified),
+                            Experience = 10,
+                            FirstName = "FirstName 8",
+                            Gender = "Unknown",
+                            Guid = "ed28b428-71a9-4d6d-b5b1-9cd55b1eba74",
+                            HireDate = new DateTime(2012, 9, 5, 12, 30, 23, 0, DateTimeKind.Unspecified),
+                            LastName = "LastName 8",
+                            PhoneNumber = "PNumber 8",
+                            PhotoPath = "PhotoPath 8",
+                            Status = "Active",
+                            TCN_Passport = "TCN 8"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Address = "Adress 9",
+                            Age = (byte)31,
+                            BirthDate = new DateTime(1994, 2, 26, 6, 28, 6, 0, DateTimeKind.Unspecified),
+                            ContractCount = 2,
+                            CountryId = 6,
+                            CreatedDate = new DateTime(2004, 10, 10, 14, 25, 35, 0, DateTimeKind.Unspecified),
+                            CreatedID = "772ed110-08cb-4aae-ba92-29bc5c769b31",
+                            CreatedIPAddress = "CreatedIPAdress 9",
+                            CurrentPosition = "Consulting",
+                            DaysWorked = 1906,
+                            Email = "Email 9",
+                            EndContract = new DateTime(2026, 1, 5, 9, 49, 23, 0, DateTimeKind.Unspecified),
+                            Experience = 11,
+                            FirstName = "FirstName 9",
+                            Gender = "Female",
+                            Guid = "eddb7f52-0c4d-45f6-85bc-94cda3c1a4f4",
+                            HireDate = new DateTime(2020, 1, 5, 9, 49, 23, 0, DateTimeKind.Unspecified),
+                            LastName = "LastName 9",
+                            PhoneNumber = "PNumber 9",
+                            PhotoPath = "PhotoPath 9",
+                            Status = "Active",
+                            TCN_Passport = "TCN 9"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Address = "Adress 10",
+                            Age = (byte)42,
+                            BirthDate = new DateTime(1982, 12, 9, 17, 16, 52, 0, DateTimeKind.Unspecified),
+                            ContractCount = 7,
+                            CountryId = 10,
+                            CreatedDate = new DateTime(2004, 2, 22, 18, 10, 28, 0, DateTimeKind.Unspecified),
+                            CreatedID = "b7b36f63-45cd-424d-afdf-d7ea3727271b",
+                            CreatedIPAddress = "CreatedIPAdress 10",
+                            CurrentPosition = "IT",
+                            DaysWorked = 6697,
+                            Email = "Email 10",
+                            EndContract = new DateTime(2027, 11, 23, 7, 55, 38, 0, DateTimeKind.Unspecified),
+                            Experience = 12,
+                            FirstName = "FirstName 10",
+                            Gender = "Male",
+                            Guid = "2f295fb9-d361-43c7-8e5f-7bcb44dfdb4e",
+                            HireDate = new DateTime(2006, 11, 23, 7, 55, 38, 0, DateTimeKind.Unspecified),
+                            LastName = "LastName 10",
+                            PhoneNumber = "PNumber 10",
+                            PhotoPath = "PhotoPath 10",
+                            Status = "Active",
+                            TCN_Passport = "TCN 10"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Address = "Adress 11",
+                            Age = (byte)55,
+                            BirthDate = new DateTime(1969, 7, 23, 5, 42, 33, 0, DateTimeKind.Unspecified),
+                            ContractCount = 4,
+                            CountryId = 8,
+                            CreatedDate = new DateTime(2006, 7, 16, 14, 52, 26, 0, DateTimeKind.Unspecified),
+                            CreatedID = "a19795d9-7fbf-4790-81c7-e4597da2ea19",
+                            CreatedIPAddress = "CreatedIPAdress 11",
+                            CurrentPosition = "Operations",
+                            DaysWorked = 3172,
+                            Email = "Email 11",
+                            EndContract = new DateTime(2028, 7, 18, 5, 47, 5, 0, DateTimeKind.Unspecified),
+                            Experience = 13,
+                            FirstName = "FirstName 11",
+                            Gender = "Female",
+                            Guid = "65f34fb4-b275-40f3-8c45-1d5eda7e9e2d",
+                            HireDate = new DateTime(2016, 7, 18, 5, 47, 5, 0, DateTimeKind.Unspecified),
+                            LastName = "LastName 11",
+                            PhoneNumber = "PNumber 11",
+                            PhotoPath = "PhotoPath 11",
+                            Status = "Passive",
+                            TCN_Passport = "TCN 11"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Address = "Adress 12",
+                            Age = (byte)37,
+                            BirthDate = new DateTime(1987, 9, 8, 12, 29, 7, 0, DateTimeKind.Unspecified),
+                            ContractCount = 2,
+                            CountryId = 8,
+                            CreatedDate = new DateTime(2019, 1, 21, 18, 8, 37, 0, DateTimeKind.Unspecified),
+                            CreatedID = "9c0458eb-6873-4a10-b2e4-87993ebf322a",
+                            CreatedIPAddress = "CreatedIPAdress 12",
+                            CurrentPosition = "Operations",
+                            DaysWorked = 1842,
+                            Email = "Email 12",
+                            EndContract = new DateTime(2026, 3, 9, 13, 58, 46, 0, DateTimeKind.Unspecified),
+                            Experience = 14,
+                            FirstName = "FirstName 12",
+                            Gender = "Unknown",
+                            Guid = "b2254a52-fe65-4f47-98d4-f5cbf1b54dfd",
+                            HireDate = new DateTime(2020, 3, 9, 13, 58, 46, 0, DateTimeKind.Unspecified),
+                            LastName = "LastName 12",
+                            PhoneNumber = "PNumber 12",
+                            PhotoPath = "PhotoPath 12",
+                            Status = "Active",
+                            TCN_Passport = "TCN 12"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Address = "Adress 13",
+                            Age = (byte)38,
+                            BirthDate = new DateTime(1986, 5, 15, 4, 54, 22, 0, DateTimeKind.Unspecified),
+                            ContractCount = 9,
+                            CountryId = 9,
+                            CreatedDate = new DateTime(2015, 3, 2, 7, 52, 28, 0, DateTimeKind.Unspecified),
+                            CreatedID = "a0c47f71-50d3-4769-af56-b5529a8b049f",
+                            CreatedIPAddress = "CreatedIPAdress 13",
+                            CurrentPosition = "Marketing",
+                            DaysWorked = 8528,
+                            Email = "Email 13",
+                            EndContract = new DateTime(2028, 11, 18, 10, 55, 39, 0, DateTimeKind.Unspecified),
+                            Experience = 15,
+                            FirstName = "FirstName 13",
+                            Gender = "Female",
+                            Guid = "850a19b7-0016-4a4d-86df-4580df98623d",
+                            HireDate = new DateTime(2001, 11, 18, 10, 55, 39, 0, DateTimeKind.Unspecified),
+                            LastName = "LastName 13",
+                            PhoneNumber = "PNumber 13",
+                            PhotoPath = "PhotoPath 13",
+                            Status = "Unknown",
+                            TCN_Passport = "TCN 13"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Address = "Adress 14",
+                            Age = (byte)37,
+                            BirthDate = new DateTime(1987, 6, 10, 20, 14, 34, 0, DateTimeKind.Unspecified),
+                            ContractCount = 8,
+                            CountryId = 2,
+                            CreatedDate = new DateTime(2009, 6, 17, 9, 46, 52, 0, DateTimeKind.Unspecified),
+                            CreatedID = "24967eff-927c-4ad9-9636-c75258b7c60b",
+                            CreatedIPAddress = "CreatedIPAdress 14",
+                            CurrentPosition = "Operations",
+                            DaysWorked = 7579,
+                            Email = "Email 14",
+                            EndContract = new DateTime(2028, 6, 24, 9, 38, 31, 0, DateTimeKind.Unspecified),
+                            Experience = 16,
+                            FirstName = "FirstName 14",
+                            Gender = "Female",
+                            Guid = "462224e5-8159-4894-93e6-67496483a1fd",
+                            HireDate = new DateTime(2004, 6, 24, 9, 38, 31, 0, DateTimeKind.Unspecified),
+                            LastName = "LastName 14",
+                            PhoneNumber = "PNumber 14",
+                            PhotoPath = "PhotoPath 14",
+                            Status = "Passive",
+                            TCN_Passport = "TCN 14"
+                        });
                 });
 
             modelBuilder.Entity("DataAccess.Entities.Models.OrderDetails.EventTicketOrderDetail", b =>
@@ -1142,14 +1745,14 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 3, 25, 3, 46, 59, 559, DateTimeKind.Local).AddTicks(3488));
+                        .HasDefaultValue(new DateTime(2025, 3, 26, 4, 39, 28, 382, DateTimeKind.Local).AddTicks(317));
 
                     b.Property<string>("CreatedID")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("9a135857-cfb7-4fd8-83ce-654ffaacd6cd");
+                        .HasDefaultValue("b53e9814-df0f-4776-87b1-b7c3d507c86e");
 
                     b.Property<string>("CreatedIPAddress")
                         .IsRequired()
@@ -1172,7 +1775,7 @@ namespace DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("7d7f96a5-4040-46ea-84b8-e44f7ddf0cf4");
+                        .HasDefaultValue("2be557e2-9710-4184-86bf-ec02a55943cf");
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
@@ -1221,14 +1824,14 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 3, 25, 3, 46, 59, 559, DateTimeKind.Local).AddTicks(8519));
+                        .HasDefaultValue(new DateTime(2025, 3, 26, 4, 39, 28, 382, DateTimeKind.Local).AddTicks(4896));
 
                     b.Property<string>("CreatedID")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("90071caa-a0d3-42de-a028-5b1f5ad67cae");
+                        .HasDefaultValue("9a16466f-de8f-47ba-a9aa-549a9227d4da");
 
                     b.Property<string>("CreatedIPAddress")
                         .IsRequired()
@@ -1245,7 +1848,7 @@ namespace DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("fb5e64b8-b248-4f81-a7c6-eb6c0a665c14");
+                        .HasDefaultValue("da33c2ce-2a30-4df4-95df-a7ca5670d745");
 
                     b.Property<int?>("ProductId")
                         .HasColumnType("int");
@@ -1300,14 +1903,14 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 3, 25, 3, 46, 59, 560, DateTimeKind.Local).AddTicks(3019));
+                        .HasDefaultValue(new DateTime(2025, 3, 26, 4, 39, 28, 382, DateTimeKind.Local).AddTicks(9844));
 
                     b.Property<string>("CreatedID")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("3ee79cb4-06a5-4f5a-8a0c-b8e6bba33d24");
+                        .HasDefaultValue("0040877c-0869-4867-b728-74d08177da78");
 
                     b.Property<string>("CreatedIPAddress")
                         .IsRequired()
@@ -1324,7 +1927,7 @@ namespace DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("15140d8e-0e37-43a0-a833-31d2a72e7f2c");
+                        .HasDefaultValue("0d8ca37e-679b-463e-9271-849e0e1ae2fa");
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
@@ -1379,14 +1982,14 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 3, 25, 3, 46, 59, 560, DateTimeKind.Local).AddTicks(7566));
+                        .HasDefaultValue(new DateTime(2025, 3, 26, 4, 39, 28, 383, DateTimeKind.Local).AddTicks(4672));
 
                     b.Property<string>("CreatedID")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("9a4564c4-3dbf-4ee6-b142-0798cc0ef91c");
+                        .HasDefaultValue("681029f1-95f6-45dd-b9e7-1c33fea186a3");
 
                     b.Property<string>("CreatedIPAddress")
                         .IsRequired()
@@ -1403,7 +2006,7 @@ namespace DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("6f2afed9-25ce-455a-9f5e-71cfaf98d85d");
+                        .HasDefaultValue("052a6160-e18e-44ca-b58f-70836798a78c");
 
                     b.Property<string>("Note")
                         .HasMaxLength(40)
@@ -1455,14 +2058,14 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 3, 25, 3, 46, 59, 561, DateTimeKind.Local).AddTicks(1866));
+                        .HasDefaultValue(new DateTime(2025, 3, 26, 4, 39, 28, 383, DateTimeKind.Local).AddTicks(8845));
 
                     b.Property<string>("CreatedID")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("7f5ffe7d-4b51-4565-8cf7-a836fd132267");
+                        .HasDefaultValue("0ed29365-f77f-41b7-878e-dbf9b6518c2f");
 
                     b.Property<string>("CreatedIPAddress")
                         .IsRequired()
@@ -1479,7 +2082,7 @@ namespace DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("615900c1-d20b-4677-8df5-ee90199791c1");
+                        .HasDefaultValue("c5c56012-1ad2-4686-a3e5-2974c9db44e8");
 
                     b.Property<string>("Note")
                         .HasMaxLength(40)
@@ -1531,14 +2134,14 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 3, 25, 3, 46, 59, 561, DateTimeKind.Local).AddTicks(6425));
+                        .HasDefaultValue(new DateTime(2025, 3, 26, 4, 39, 28, 384, DateTimeKind.Local).AddTicks(3182));
 
                     b.Property<string>("CreatedID")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("aba21a6d-44fb-4a89-a40d-e3de88946973");
+                        .HasDefaultValue("b0863706-a3c9-432c-92b6-5d2f86e7c75c");
 
                     b.Property<string>("CreatedIPAddress")
                         .IsRequired()
@@ -1555,7 +2158,7 @@ namespace DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("0c313d3e-9335-4f69-97a1-307f11a61d3c");
+                        .HasDefaultValue("b6db8268-8b0e-4d95-8e76-04b8349bb304");
 
                     b.Property<string>("Note")
                         .HasMaxLength(40)
@@ -1613,14 +2216,14 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 3, 25, 3, 46, 59, 562, DateTimeKind.Local).AddTicks(764));
+                        .HasDefaultValue(new DateTime(2025, 3, 26, 4, 39, 28, 384, DateTimeKind.Local).AddTicks(7414));
 
                     b.Property<string>("CreatedID")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("aa93c43a-4a7c-4d45-bc53-80b94fc3a775");
+                        .HasDefaultValue("c0ef5483-abee-4131-9397-93035e3ecffa");
 
                     b.Property<string>("CreatedIPAddress")
                         .IsRequired()
@@ -1651,7 +2254,7 @@ namespace DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("faacd8ab-d416-4747-9a51-b8b5ad00fe09");
+                        .HasDefaultValue("edd5e415-bac9-4fe7-a613-eff7734ff357");
 
                     b.Property<int?>("PartnerCompanyTransactionId")
                         .HasColumnType("int");
@@ -1711,14 +2314,14 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 3, 25, 3, 46, 59, 562, DateTimeKind.Local).AddTicks(6371));
+                        .HasDefaultValue(new DateTime(2025, 3, 26, 4, 39, 28, 385, DateTimeKind.Local).AddTicks(2744));
 
                     b.Property<string>("CreatedID")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("51ec9a4e-47ce-4564-9c93-33236b8a0b20");
+                        .HasDefaultValue("288fe930-2970-48f7-9c4c-7e8a2822b642");
 
                     b.Property<string>("CreatedIPAddress")
                         .IsRequired()
@@ -1749,7 +2352,7 @@ namespace DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("09d0bd24-ba09-40a9-a5e3-0af7ff8e07ea");
+                        .HasDefaultValue("b69b4d8b-d900-47b3-acb3-6e4d2952496a");
 
                     b.Property<int?>("PartnerCompanyTransactionId")
                         .HasColumnType("int");
@@ -1806,14 +2409,14 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 3, 25, 3, 46, 59, 563, DateTimeKind.Local).AddTicks(8878));
+                        .HasDefaultValue(new DateTime(2025, 3, 26, 4, 39, 28, 386, DateTimeKind.Local).AddTicks(2983));
 
                     b.Property<string>("CreatedID")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("0eface94-61c6-45e5-a30a-d97ee422703d");
+                        .HasDefaultValue("13bd2640-8cd9-43d5-ab0a-48525694ce30");
 
                     b.Property<string>("CreatedIPAddress")
                         .IsRequired()
@@ -1832,7 +2435,7 @@ namespace DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("5c3fe1b2-e4e9-43c0-bf2d-87ff5f97dd90");
+                        .HasDefaultValue("1d426c03-abc4-4a53-a0c3-8fc41f925796");
 
                     b.Property<string>("ProductName")
                         .IsRequired()
@@ -1898,14 +2501,14 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 3, 25, 3, 46, 59, 563, DateTimeKind.Local).AddTicks(2862));
+                        .HasDefaultValue(new DateTime(2025, 3, 26, 4, 39, 28, 385, DateTimeKind.Local).AddTicks(7550));
 
                     b.Property<string>("CreatedID")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("59769ff2-e1ac-4fa6-9224-838a7dc70dc2");
+                        .HasDefaultValue("ff3fdb15-3ce6-4cd9-bac4-88f36d8461f6");
 
                     b.Property<string>("CreatedIPAddress")
                         .IsRequired()
@@ -1924,7 +2527,7 @@ namespace DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("c89b4bad-0332-46a0-b413-77a42ed7344e");
+                        .HasDefaultValue("4ee1493e-6cd4-4157-8ac5-f9c2c8374555");
 
                     b.Property<string>("Status")
                         .IsRequired()
@@ -1963,14 +2566,14 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 3, 25, 3, 46, 59, 564, DateTimeKind.Local).AddTicks(2284));
+                        .HasDefaultValue(new DateTime(2025, 3, 26, 4, 39, 28, 386, DateTimeKind.Local).AddTicks(6311));
 
                     b.Property<string>("CreatedID")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("a0f37f34-ad18-47f0-abb7-68d11cad98fb");
+                        .HasDefaultValue("85135bd8-31c8-4267-8d55-3b3b245d6533");
 
                     b.Property<string>("CreatedIPAddress")
                         .IsRequired()
@@ -1989,7 +2592,7 @@ namespace DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("524a4b77-65ab-4e41-a995-4d3e0ef46a2c");
+                        .HasDefaultValue("eeeb7b03-8c85-4b72-93ff-fafdae9dd8fb");
 
                     b.Property<string>("Status")
                         .IsRequired()
@@ -2033,14 +2636,14 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 3, 25, 3, 46, 59, 564, DateTimeKind.Local).AddTicks(5355));
+                        .HasDefaultValue(new DateTime(2025, 3, 26, 4, 39, 28, 387, DateTimeKind.Local).AddTicks(2731));
 
                     b.Property<string>("CreatedID")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("fb597568-f565-4a4b-8f2c-94ba4c0bdc87");
+                        .HasDefaultValue("6f7c4442-30e4-4d12-a18e-20bfb2960eb9");
 
                     b.Property<string>("CreatedIPAddress")
                         .IsRequired()
@@ -2059,7 +2662,7 @@ namespace DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("14b468cd-e768-4e13-89b1-081e5a48feb4");
+                        .HasDefaultValue("92274ba5-5bc8-4144-919c-b7ce649aa532");
 
                     b.Property<bool>("HasAirport")
                         .HasColumnType("bit");
@@ -2112,14 +2715,14 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 3, 25, 3, 46, 59, 564, DateTimeKind.Local).AddTicks(9248));
+                        .HasDefaultValue(new DateTime(2025, 3, 26, 4, 39, 28, 387, DateTimeKind.Local).AddTicks(6446));
 
                     b.Property<string>("CreatedID")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("8df58745-8928-4985-ac5d-3c868265b5fd");
+                        .HasDefaultValue("1f6b6df2-c03c-4c30-ba96-91e5d3ad321f");
 
                     b.Property<string>("CreatedIPAddress")
                         .IsRequired()
@@ -2156,7 +2759,7 @@ namespace DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("ef012513-6ed2-4fdb-8c0c-eee6a3467792");
+                        .HasDefaultValue("53a7937f-a75b-4130-a57e-356ecb49ec77");
 
                     b.Property<string>("PaymentStatus")
                         .IsRequired()
@@ -2214,14 +2817,14 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 3, 25, 3, 46, 59, 565, DateTimeKind.Local).AddTicks(2792));
+                        .HasDefaultValue(new DateTime(2025, 3, 26, 4, 39, 28, 388, DateTimeKind.Local).AddTicks(152));
 
                     b.Property<string>("CreatedID")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("b1d17e8c-aed8-4dd2-9004-2c568bbd7093");
+                        .HasDefaultValue("03e8d41f-da30-433f-b41f-2b252ee782d6");
 
                     b.Property<string>("CreatedIPAddress")
                         .IsRequired()
@@ -2255,7 +2858,7 @@ namespace DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("72f680de-df20-49c3-8b9c-8eb61c5a858b");
+                        .HasDefaultValue("078451a7-6020-468e-b1aa-9954a1c2e27f");
 
                     b.Property<string>("PaymentStatus")
                         .IsRequired()
@@ -2321,14 +2924,14 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 3, 25, 3, 46, 59, 565, DateTimeKind.Local).AddTicks(6466));
+                        .HasDefaultValue(new DateTime(2025, 3, 26, 4, 39, 28, 388, DateTimeKind.Local).AddTicks(3753));
 
                     b.Property<string>("CreatedID")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("53867f95-89b9-4eeb-a668-203e53936548");
+                        .HasDefaultValue("2087acf8-65cf-421d-8145-c7c7ef6dcf5f");
 
                     b.Property<string>("CreatedIPAddress")
                         .IsRequired()
@@ -2351,7 +2954,7 @@ namespace DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("5db011af-f978-46ed-80d1-0af2ecb06d7a");
+                        .HasDefaultValue("3976ff22-e4f9-49ed-b6e1-ad45d0bc2a26");
 
                     b.Property<int>("Kilometer")
                         .HasMaxLength(7)
@@ -2434,14 +3037,14 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 3, 25, 3, 46, 59, 566, DateTimeKind.Local).AddTicks(1983));
+                        .HasDefaultValue(new DateTime(2025, 3, 26, 4, 39, 28, 388, DateTimeKind.Local).AddTicks(9752));
 
                     b.Property<string>("CreatedID")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("d0cfc83e-dbc7-4737-9af4-a5e004841bda");
+                        .HasDefaultValue("e32134e2-3520-422b-a803-d2d35c6dc5c5");
 
                     b.Property<string>("CreatedIPAddress")
                         .IsRequired()
@@ -2458,7 +3061,7 @@ namespace DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("55c453ed-2505-4c11-9bfc-b21619973172");
+                        .HasDefaultValue("d29423b3-e828-4819-b5d3-9a7b8c6ff00e");
 
                     b.Property<int>("Kilometer")
                         .HasMaxLength(7)
@@ -2536,7 +3139,7 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 3, 25, 3, 46, 59, 568, DateTimeKind.Local).AddTicks(5043));
+                        .HasDefaultValue(new DateTime(2025, 3, 26, 4, 39, 28, 391, DateTimeKind.Local).AddTicks(3396));
 
                     b.Property<string>("CreatedID")
                         .IsRequired()
@@ -2637,21 +3240,22 @@ namespace DataAccess.Migrations
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "014e084d-3a61-479f-b219-9dc3ceb7064a",
-                            CreatedDate = new DateTime(2014, 4, 4, 12, 50, 21, 0, DateTimeKind.Unspecified),
-                            CreatedID = "510d9d12-a558-4ede-b4c2-e1f27b82fd70",
+                            ConcurrencyStamp = "175d0a82-f5ee-46db-8c43-24ea296c3afc",
+                            CountryId = 4,
+                            CreatedDate = new DateTime(2007, 4, 10, 20, 44, 29, 0, DateTimeKind.Unspecified),
+                            CreatedID = "d8776844-4d3c-4875-9167-ad0b7dd5460b",
                             CreatedIPAddress = "CreatedIPAdress 0",
                             Email = "Email 0",
                             EmailConfirmed = false,
-                            Guid = "ee7c8970-37e6-40ff-a2a3-6e2ac109eb75",
+                            Guid = "43ba0b84-5a55-478e-b36b-9114203eff0b",
                             LockoutEnabled = false,
                             NormalizedEmail = "EMAİL 0",
                             NormalizedUserName = "USERNAME 0",
-                            PasswordHash = "$2a$11$/a9BJtyqekKH5CxtfkedAuHTnRWIC5GVh.Ht/qc3PzEexGG3CRpxW",
+                            PasswordHash = "$2a$11$VFkIDHfJScqtdUlRPYfVvOe7auc5YDlchtQcgysbas1aVn75BAcPe",
                             PhoneNumber = "PNumber 0",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "258ba2db-4205-4500-9597-a3fb6db83cfe",
-                            Status = "Unknown",
+                            SecurityStamp = "5ea82d85-23f2-43f4-875d-acd30652f8f8",
+                            Status = "Active",
                             TwoFactorEnabled = false,
                             UserName = "UserName 0"
                         },
@@ -2659,20 +3263,21 @@ namespace DataAccess.Migrations
                         {
                             Id = 2,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "23035c05-d4f7-4d62-93b3-d55efc6da981",
-                            CreatedDate = new DateTime(2002, 4, 13, 22, 38, 3, 0, DateTimeKind.Unspecified),
-                            CreatedID = "5cf80f86-f504-4579-bcf2-36d0549086a1",
+                            ConcurrencyStamp = "17941a9a-a51c-411f-8121-c071ac024b2e",
+                            CountryId = 5,
+                            CreatedDate = new DateTime(2001, 3, 11, 17, 26, 36, 0, DateTimeKind.Unspecified),
+                            CreatedID = "328f3fc5-00e0-4cb8-bac5-d5ce04ad1d65",
                             CreatedIPAddress = "CreatedIPAdress 1",
                             Email = "Email 1",
                             EmailConfirmed = false,
-                            Guid = "49ecff87-6bf3-4d78-8ebd-c4755fb7c0c5",
+                            Guid = "663b39fb-2e57-42a8-a5a4-d6dd9e60f7aa",
                             LockoutEnabled = false,
                             NormalizedEmail = "EMAİL 1",
                             NormalizedUserName = "USERNAME 1",
-                            PasswordHash = "$2a$11$/O7QMv5ZX6GomhhTxaGSfOH1IQ7kgyphUG0ltePufisGGEHxfkjDG",
+                            PasswordHash = "$2a$11$t4nm0fYMzxG0Pqa3pPttN.PN7gbhy2txi27tEAOaEnNXQQy33ScEW",
                             PhoneNumber = "PNumber 1",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "8fad04d7-6317-4026-9ca0-029b629bf135",
+                            SecurityStamp = "e65612b5-8244-475a-9c3a-49cbc6303921",
                             Status = "Active",
                             TwoFactorEnabled = false,
                             UserName = "UserName 1"
@@ -2681,21 +3286,22 @@ namespace DataAccess.Migrations
                         {
                             Id = 3,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e0bb9ede-1efb-45a4-8d3e-44a2ed1e052a",
-                            CreatedDate = new DateTime(2012, 9, 4, 4, 59, 44, 0, DateTimeKind.Unspecified),
-                            CreatedID = "e21d8e55-792f-4a8f-8145-408549206702",
+                            ConcurrencyStamp = "4bdd77a1-20e7-4ecc-99e3-a0e2075e8172",
+                            CountryId = 1,
+                            CreatedDate = new DateTime(2009, 9, 24, 13, 53, 5, 0, DateTimeKind.Unspecified),
+                            CreatedID = "ca11cd61-dece-4f86-80d0-f25a2b89a213",
                             CreatedIPAddress = "CreatedIPAdress 2",
                             Email = "Email 2",
                             EmailConfirmed = false,
-                            Guid = "155e95a9-6909-4f19-8561-0a83cacc34dc",
+                            Guid = "6ed4341d-1c0c-470a-bcc8-564e7f58b555",
                             LockoutEnabled = false,
                             NormalizedEmail = "EMAİL 2",
                             NormalizedUserName = "USERNAME 2",
-                            PasswordHash = "$2a$11$cidf7z5.RHp3jCbEEX/kQukLCo7.SuSv3t4xSJ2HrEygZH5c6jm2.",
+                            PasswordHash = "$2a$11$JUikYvo.nXBvFVDXjNRR3ua.UJzikHsSnsw7tpKG.eNSwxcashsD2",
                             PhoneNumber = "PNumber 2",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "ae44b540-2603-48c8-b38b-4b1fbad5bbdd",
-                            Status = "Passive",
+                            SecurityStamp = "fa1ffc7b-8694-4948-8ef4-81e636612206",
+                            Status = "Active",
                             TwoFactorEnabled = false,
                             UserName = "UserName 2"
                         },
@@ -2703,21 +3309,22 @@ namespace DataAccess.Migrations
                         {
                             Id = 4,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "50be9fe2-0a01-4775-b3c7-11bd08caf029",
-                            CreatedDate = new DateTime(2019, 7, 1, 16, 34, 46, 0, DateTimeKind.Unspecified),
-                            CreatedID = "94724bd5-89c5-46ae-827e-01645ceba40b",
+                            ConcurrencyStamp = "f9cbc646-0209-4546-b12f-835d956089b5",
+                            CountryId = 2,
+                            CreatedDate = new DateTime(2006, 4, 9, 2, 23, 37, 0, DateTimeKind.Unspecified),
+                            CreatedID = "0e7beb06-7767-42ca-9f41-abe60f9d811a",
                             CreatedIPAddress = "CreatedIPAdress 3",
                             Email = "Email 3",
                             EmailConfirmed = false,
-                            Guid = "78cb11f0-c5c9-465e-8330-8d281afc39b8",
+                            Guid = "639a0470-3db3-40d6-91aa-7fab12057f94",
                             LockoutEnabled = false,
                             NormalizedEmail = "EMAİL 3",
                             NormalizedUserName = "USERNAME 3",
-                            PasswordHash = "$2a$11$BXc91ZHTD95/UNpiKVkTJuIveOfa3LGS1mpi2v73cx1UsKuCJKPgi",
+                            PasswordHash = "$2a$11$qENvFRFGJFhQED7n7I33U.h.jsHwdY01EgEkuseIt6MHQiMVZ8D3O",
                             PhoneNumber = "PNumber 3",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "bc71b51a-9537-43c5-84bf-2ff84ba1d667",
-                            Status = "Active",
+                            SecurityStamp = "094083b3-bb54-4d8d-95db-ede168679b0a",
+                            Status = "Passive",
                             TwoFactorEnabled = false,
                             UserName = "UserName 3"
                         },
@@ -2725,20 +3332,21 @@ namespace DataAccess.Migrations
                         {
                             Id = 5,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8b121395-dfff-4d4c-a105-37000678cebd",
-                            CreatedDate = new DateTime(2000, 7, 26, 6, 26, 27, 0, DateTimeKind.Unspecified),
-                            CreatedID = "f197fc33-564a-463d-be04-016b05df5212",
+                            ConcurrencyStamp = "6314fbd4-cec5-4879-9a60-bf5818aa324f",
+                            CountryId = 6,
+                            CreatedDate = new DateTime(2013, 8, 13, 15, 34, 3, 0, DateTimeKind.Unspecified),
+                            CreatedID = "25ea0337-b7df-4e36-a141-2f433b80ef80",
                             CreatedIPAddress = "CreatedIPAdress 4",
                             Email = "Email 4",
                             EmailConfirmed = false,
-                            Guid = "35091155-9576-47c3-9549-991ade1bf622",
+                            Guid = "439ac808-589d-43d6-81ed-a9403de53ef1",
                             LockoutEnabled = false,
                             NormalizedEmail = "EMAİL 4",
                             NormalizedUserName = "USERNAME 4",
-                            PasswordHash = "$2a$11$hsEIuSoYktF0Lg85qXhyOuf9xHtVpPMEURDXAEzK96MV7Km9SJv/u",
+                            PasswordHash = "$2a$11$fcMurih.Vt.QnWGiuozqdeRHR/vLJXoKRRohnNPczubxJEgKVM5.m",
                             PhoneNumber = "PNumber 4",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "17750dab-02f9-43fc-9c14-ee66bf96db64",
+                            SecurityStamp = "f31ddac2-33a4-4b36-803f-eeedfb817f59",
                             Status = "Unknown",
                             TwoFactorEnabled = false,
                             UserName = "UserName 4"
@@ -2747,21 +3355,22 @@ namespace DataAccess.Migrations
                         {
                             Id = 6,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "07f693cd-0f4b-4800-a12f-a23161ab8cef",
-                            CreatedDate = new DateTime(2018, 6, 27, 4, 9, 15, 0, DateTimeKind.Unspecified),
-                            CreatedID = "c2b50fc1-7311-4b3e-8695-4edd8e37a143",
+                            ConcurrencyStamp = "6d57eb99-e0e6-47ae-8413-7c4ffa1562bd",
+                            CountryId = 8,
+                            CreatedDate = new DateTime(2021, 2, 10, 11, 38, 31, 0, DateTimeKind.Unspecified),
+                            CreatedID = "6d1a73f7-2f0d-44c6-a9f7-750b1dd7c213",
                             CreatedIPAddress = "CreatedIPAdress 5",
                             Email = "Email 5",
                             EmailConfirmed = false,
-                            Guid = "db4f1813-8d13-4ee5-8bb9-96c93272859d",
+                            Guid = "d6c1bd01-7565-4028-b824-24091a121018",
                             LockoutEnabled = false,
                             NormalizedEmail = "EMAİL 5",
                             NormalizedUserName = "USERNAME 5",
-                            PasswordHash = "$2a$11$fwky/Dmo6sCsnGRQqMzW8O9CBCZfrhVQvotPjgs4.IBZK9KrW3V3q",
+                            PasswordHash = "$2a$11$tZj8s/j1Th9p7NWyEbIkS.X1UzEC5aeT.YCsYxe3mtESrBy/XNGWC",
                             PhoneNumber = "PNumber 5",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "35ddb6f1-2ac2-400e-8115-48d918418c96",
-                            Status = "Active",
+                            SecurityStamp = "74b75989-da5c-4f4d-82e1-3ae701a0685d",
+                            Status = "Passive",
                             TwoFactorEnabled = false,
                             UserName = "UserName 5"
                         },
@@ -2769,21 +3378,22 @@ namespace DataAccess.Migrations
                         {
                             Id = 7,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "681afd18-fc6f-4b27-80b3-9a0e227cb70e",
-                            CreatedDate = new DateTime(2018, 6, 3, 17, 45, 38, 0, DateTimeKind.Unspecified),
-                            CreatedID = "eb3533eb-87d5-44d1-a8c4-d3b788637885",
+                            ConcurrencyStamp = "511869b6-d6a4-438a-805a-b71b9408b178",
+                            CountryId = 4,
+                            CreatedDate = new DateTime(2014, 7, 25, 4, 17, 47, 0, DateTimeKind.Unspecified),
+                            CreatedID = "239db730-c52c-4479-9adf-7d229fbd4abc",
                             CreatedIPAddress = "CreatedIPAdress 6",
                             Email = "Email 6",
                             EmailConfirmed = false,
-                            Guid = "b07ec015-e9c0-4d8c-9320-ef9fcc85fa99",
+                            Guid = "dd8bde81-dffd-4098-b0cb-e5ebafc576b4",
                             LockoutEnabled = false,
                             NormalizedEmail = "EMAİL 6",
                             NormalizedUserName = "USERNAME 6",
-                            PasswordHash = "$2a$11$UYxdxyWIiewFVAICG7qrhuxczmfIdb6Jv587aedTiy4BlsAnM2jaK",
+                            PasswordHash = "$2a$11$BqhQ6tTrUJyMXTKx.yvV6OQl1qBu3ygZki.F9u0.85qRm.0oMRlxK",
                             PhoneNumber = "PNumber 6",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "9cc29b21-c1ba-401f-8868-ddb3fba8407f",
-                            Status = "Active",
+                            SecurityStamp = "eeafaffb-ea17-4db0-81b3-353041fedce1",
+                            Status = "Unknown",
                             TwoFactorEnabled = false,
                             UserName = "UserName 6"
                         },
@@ -2791,21 +3401,22 @@ namespace DataAccess.Migrations
                         {
                             Id = 8,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "70660687-46f3-40c6-99fc-485fa95c3e0b",
-                            CreatedDate = new DateTime(2012, 10, 20, 6, 41, 17, 0, DateTimeKind.Unspecified),
-                            CreatedID = "bc63c3fd-cabb-460f-a9e0-3b7d0a47652c",
+                            ConcurrencyStamp = "a41df2aa-8aac-4bbc-8f2e-e03faff86748",
+                            CountryId = 10,
+                            CreatedDate = new DateTime(2007, 9, 16, 8, 57, 16, 0, DateTimeKind.Unspecified),
+                            CreatedID = "31a261de-8e9b-404d-8223-4deac1c25e49",
                             CreatedIPAddress = "CreatedIPAdress 7",
                             Email = "Email 7",
                             EmailConfirmed = false,
-                            Guid = "0e96755b-5500-4302-a77a-462c421296da",
+                            Guid = "48ff22b4-57e0-4cfd-b98f-1019c647eed2",
                             LockoutEnabled = false,
                             NormalizedEmail = "EMAİL 7",
                             NormalizedUserName = "USERNAME 7",
-                            PasswordHash = "$2a$11$2kJ14NeyGwWwn7mwojH7wO/farOoRmkkBugDAcEwxw0lUSciUtEJO",
+                            PasswordHash = "$2a$11$Rcb.xE/0Cc7uGq.zGpUM7uVsOFQ9aqXx2PlXlxK7VQo6M4/CnkOme",
                             PhoneNumber = "PNumber 7",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "eeef4721-dcce-4120-b195-1401a09bb974",
-                            Status = "Unknown",
+                            SecurityStamp = "d9659661-22f8-4f3c-a58b-7c33c451f051",
+                            Status = "Active",
                             TwoFactorEnabled = false,
                             UserName = "UserName 7"
                         },
@@ -2813,21 +3424,22 @@ namespace DataAccess.Migrations
                         {
                             Id = 9,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e80f39f7-2c74-4dd5-8192-be8fe635459d",
-                            CreatedDate = new DateTime(2004, 12, 9, 10, 23, 50, 0, DateTimeKind.Unspecified),
-                            CreatedID = "609e1f6f-0706-40ef-a339-ac651e21d49a",
+                            ConcurrencyStamp = "41150d06-38de-4ff9-83c4-980be23e1df5",
+                            CountryId = 6,
+                            CreatedDate = new DateTime(2020, 9, 6, 14, 54, 48, 0, DateTimeKind.Unspecified),
+                            CreatedID = "6240a421-3d67-4257-9ca6-d03a1df79c5e",
                             CreatedIPAddress = "CreatedIPAdress 8",
                             Email = "Email 8",
                             EmailConfirmed = false,
-                            Guid = "e668db5e-1438-459b-85c3-f0ae1146aaef",
+                            Guid = "9e9de176-9607-4979-a2db-4a7941fbd0c1",
                             LockoutEnabled = false,
                             NormalizedEmail = "EMAİL 8",
                             NormalizedUserName = "USERNAME 8",
-                            PasswordHash = "$2a$11$2MGZAVyCqpZpn9xlSrqpuekekOGzsXpufRjrc9Rr1OCe7JjiNK.NS",
+                            PasswordHash = "$2a$11$wmaqumeW1XjFcDTv299GlOISGKSQVBS5lfRgYQyarUdeGwg.vj4JW",
                             PhoneNumber = "PNumber 8",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "31268fd0-578d-49d2-a122-869b1f99393b",
-                            Status = "Unknown",
+                            SecurityStamp = "29c8da50-1e40-4c6a-a8fa-bfbd5a8332c4",
+                            Status = "Active",
                             TwoFactorEnabled = false,
                             UserName = "UserName 8"
                         },
@@ -2835,20 +3447,21 @@ namespace DataAccess.Migrations
                         {
                             Id = 10,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "042fab42-c5de-4a6e-8720-d4f9d39542f6",
-                            CreatedDate = new DateTime(2004, 4, 19, 10, 34, 45, 0, DateTimeKind.Unspecified),
-                            CreatedID = "bee24db9-dc81-4af7-b29f-db27f922d393",
+                            ConcurrencyStamp = "b8a39d24-70f7-4d76-b6e7-ebdc0435338f",
+                            CountryId = 10,
+                            CreatedDate = new DateTime(2018, 12, 6, 12, 28, 31, 0, DateTimeKind.Unspecified),
+                            CreatedID = "89661828-3772-4f62-b04d-837180a2356f",
                             CreatedIPAddress = "CreatedIPAdress 9",
                             Email = "Email 9",
                             EmailConfirmed = false,
-                            Guid = "fa927344-e5d1-45dc-b5fe-4740ea5bb852",
+                            Guid = "f55d67f0-b063-4ee5-acf2-67ebcdaa8e86",
                             LockoutEnabled = false,
                             NormalizedEmail = "EMAİL 9",
                             NormalizedUserName = "USERNAME 9",
-                            PasswordHash = "$2a$11$HC2yQqBj2D1sn6If3zRJPut2F8gPFojphsR9b8FAr2tE.7pmNGia.",
+                            PasswordHash = "$2a$11$/NEQ1zs4w8P8NdKGmfqzreacS927kmEvGVzSWtUVNkzSO0vWIxnma",
                             PhoneNumber = "PNumber 9",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "96d59572-f737-4823-976a-4022c595aea8",
+                            SecurityStamp = "079a9a27-de7b-48ab-a636-dc8a2faf0ec5",
                             Status = "Active",
                             TwoFactorEnabled = false,
                             UserName = "UserName 9"
@@ -2908,7 +3521,7 @@ namespace DataAccess.Migrations
                     b.Property<DateTime?>("UpdatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 3, 25, 3, 46, 59, 569, DateTimeKind.Local).AddTicks(752));
+                        .HasDefaultValue(new DateTime(2025, 3, 26, 4, 39, 28, 391, DateTimeKind.Local).AddTicks(8525));
 
                     b.HasKey("WebUserAccountId");
 
@@ -2919,8 +3532,8 @@ namespace DataAccess.Migrations
                         {
                             WebUserAccountId = 1,
                             Address = "Adress 0",
-                            Age = (byte)68,
-                            BirthDate = new DateTime(1956, 5, 16, 11, 17, 8, 0, DateTimeKind.Unspecified),
+                            Age = (byte)33,
+                            BirthDate = new DateTime(1991, 9, 15, 9, 17, 3, 0, DateTimeKind.Unspecified),
                             Email = "Email 0",
                             FirstName = "FirstName 0",
                             Gender = "Male",
@@ -2928,14 +3541,14 @@ namespace DataAccess.Migrations
                             PhoneNumber = "PNumber 0",
                             PhotoPath = "PhotoPath 0",
                             TCN_Passport = "TCN 0",
-                            UpdatedDate = new DateTime(2010, 4, 14, 22, 42, 36, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2007, 4, 2, 10, 27, 3, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             WebUserAccountId = 2,
                             Address = "Adress 1",
-                            Age = (byte)38,
-                            BirthDate = new DateTime(1986, 4, 16, 23, 16, 41, 0, DateTimeKind.Unspecified),
+                            Age = (byte)54,
+                            BirthDate = new DateTime(1970, 6, 12, 4, 46, 35, 0, DateTimeKind.Unspecified),
                             Email = "Email 1",
                             FirstName = "FirstName 1",
                             Gender = "Male",
@@ -2943,44 +3556,44 @@ namespace DataAccess.Migrations
                             PhoneNumber = "PNumber 1",
                             PhotoPath = "PhotoPath 1",
                             TCN_Passport = "TCN 1",
-                            UpdatedDate = new DateTime(2016, 2, 16, 17, 17, 23, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2010, 8, 6, 7, 44, 26, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             WebUserAccountId = 3,
                             Address = "Adress 2",
-                            Age = (byte)37,
-                            BirthDate = new DateTime(1988, 2, 13, 20, 19, 44, 0, DateTimeKind.Unspecified),
+                            Age = (byte)34,
+                            BirthDate = new DateTime(1990, 11, 4, 14, 10, 27, 0, DateTimeKind.Unspecified),
                             Email = "Email 2",
                             FirstName = "FirstName 2",
-                            Gender = "Unknown",
+                            Gender = "Male",
                             LastName = "LastName 2",
                             PhoneNumber = "PNumber 2",
                             PhotoPath = "PhotoPath 2",
                             TCN_Passport = "TCN 2",
-                            UpdatedDate = new DateTime(2017, 7, 9, 16, 43, 4, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2014, 6, 19, 2, 36, 20, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             WebUserAccountId = 4,
                             Address = "Adress 3",
-                            Age = (byte)21,
-                            BirthDate = new DateTime(2003, 4, 14, 12, 45, 24, 0, DateTimeKind.Unspecified),
+                            Age = (byte)32,
+                            BirthDate = new DateTime(1992, 5, 2, 16, 26, 34, 0, DateTimeKind.Unspecified),
                             Email = "Email 3",
                             FirstName = "FirstName 3",
-                            Gender = "Female",
+                            Gender = "Male",
                             LastName = "LastName 3",
                             PhoneNumber = "PNumber 3",
                             PhotoPath = "PhotoPath 3",
                             TCN_Passport = "TCN 3",
-                            UpdatedDate = new DateTime(2010, 9, 8, 22, 51, 23, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2021, 11, 4, 4, 55, 39, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             WebUserAccountId = 5,
                             Address = "Adress 4",
-                            Age = (byte)27,
-                            BirthDate = new DateTime(1997, 7, 3, 6, 36, 19, 0, DateTimeKind.Unspecified),
+                            Age = (byte)51,
+                            BirthDate = new DateTime(1973, 9, 8, 17, 49, 48, 0, DateTimeKind.Unspecified),
                             Email = "Email 4",
                             FirstName = "FirstName 4",
                             Gender = "Male",
@@ -2988,44 +3601,44 @@ namespace DataAccess.Migrations
                             PhoneNumber = "PNumber 4",
                             PhotoPath = "PhotoPath 4",
                             TCN_Passport = "TCN 4",
-                            UpdatedDate = new DateTime(2004, 12, 7, 17, 59, 38, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2010, 12, 2, 3, 8, 34, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             WebUserAccountId = 6,
                             Address = "Adress 5",
-                            Age = (byte)23,
-                            BirthDate = new DateTime(2001, 8, 22, 23, 10, 26, 0, DateTimeKind.Unspecified),
+                            Age = (byte)45,
+                            BirthDate = new DateTime(1979, 9, 6, 3, 48, 25, 0, DateTimeKind.Unspecified),
                             Email = "Email 5",
                             FirstName = "FirstName 5",
-                            Gender = "Male",
+                            Gender = "Female",
                             LastName = "LastName 5",
                             PhoneNumber = "PNumber 5",
                             PhotoPath = "PhotoPath 5",
                             TCN_Passport = "TCN 5",
-                            UpdatedDate = new DateTime(2007, 2, 4, 4, 35, 25, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2019, 7, 4, 9, 12, 15, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             WebUserAccountId = 7,
                             Address = "Adress 6",
-                            Age = (byte)36,
-                            BirthDate = new DateTime(1989, 1, 7, 4, 14, 48, 0, DateTimeKind.Unspecified),
+                            Age = (byte)24,
+                            BirthDate = new DateTime(2001, 3, 14, 16, 35, 5, 0, DateTimeKind.Unspecified),
                             Email = "Email 6",
                             FirstName = "FirstName 6",
-                            Gender = "Male",
+                            Gender = "Female",
                             LastName = "LastName 6",
                             PhoneNumber = "PNumber 6",
                             PhotoPath = "PhotoPath 6",
                             TCN_Passport = "TCN 6",
-                            UpdatedDate = new DateTime(2018, 11, 23, 15, 49, 52, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2014, 1, 24, 4, 25, 36, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             WebUserAccountId = 8,
                             Address = "Adress 7",
-                            Age = (byte)59,
-                            BirthDate = new DateTime(1965, 12, 22, 23, 46, 31, 0, DateTimeKind.Unspecified),
+                            Age = (byte)58,
+                            BirthDate = new DateTime(1966, 8, 9, 2, 26, 2, 0, DateTimeKind.Unspecified),
                             Email = "Email 7",
                             FirstName = "FirstName 7",
                             Gender = "Male",
@@ -3033,7 +3646,7 @@ namespace DataAccess.Migrations
                             PhoneNumber = "PNumber 7",
                             PhotoPath = "PhotoPath 7",
                             TCN_Passport = "TCN 7",
-                            UpdatedDate = new DateTime(2016, 3, 27, 1, 21, 31, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(2016, 6, 16, 4, 50, 16, 0, DateTimeKind.Unspecified)
                         });
                 });
 

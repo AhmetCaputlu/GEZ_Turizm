@@ -15,5 +15,15 @@ namespace DataAccess.SeedData.Randoms
             Array values = Enum.GetValues(typeof(DataStatus));
             return (DataStatus)values.GetValue(_random.Next(values.Length));
         }
+        internal static Continent GetRandomContinent()
+        {
+            Array values = Enum.GetValues(typeof(Continent));
+            return (Continent)values.GetValue(_random.Next(values.Length));
+        }
+        internal static Department GetRandomDepartment()
+        {
+            Array values = Enum.GetValues(typeof(Department));
+            return (Department)values.GetValue(_random.Next(values.Length));
+        }
     }
 }

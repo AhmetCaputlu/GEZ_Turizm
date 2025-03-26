@@ -33,7 +33,7 @@ namespace DataAccess.Entities.Abstracts
         public string? TCN_Passport { get; set; }
         //Custom
         public DateTime HireDate { get; set; }
-        public virtual DateTime EndContract { get { return HireDate.AddYears(1); } set { } }
+        public virtual DateTime? EndContract { get { return HireDate.AddYears(1); } set { } }
         public int Experience { get; set; }
     }
 }

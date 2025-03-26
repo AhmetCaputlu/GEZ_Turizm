@@ -13,9 +13,8 @@ namespace DataAccess.Configurations.Employees
         {
             base.Configure(builder);
            
-            builder.Property(x => x.CurrentPosition).IsRequired(true).HasConversion(x => x.ToString(), x => (Department)Enum.Parse(typeof(Department), x));
-            builder.Property(x => x.CurrentPosition).HasMaxLength(35);
-            builder.Property(x => x.CurrentPosition).HasMaxLength(50);
+            builder.Property(x => x.CurrentPosition).IsRequired(true).HasConversion(x => x.ToString(), x => (Department)Enum.Parse(typeof(Department), x)).HasMaxLength(35);
+            builder.Property(x => x.DaysWorked).IsRequired(false);
             //Mapping
 
             //Residence Region

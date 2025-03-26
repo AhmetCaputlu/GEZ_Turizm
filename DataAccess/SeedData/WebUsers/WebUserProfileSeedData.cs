@@ -6,9 +6,9 @@ using DataAccess.SeedData.Randoms;
 
 namespace DataAccess.SeedData.WebUsers
 {
-    public class WebUserProfileSeedData
+    internal class WebUserProfileSeedData
     {
-        public static List<WebUserProfile> GetUserProfiles(int count)
+        internal static List<WebUserProfile> GetUserProfiles(int count)
         {
             List<WebUserProfile> webUserProfiles = new List<WebUserProfile>();
             for (int i = 0; i < count; i++)

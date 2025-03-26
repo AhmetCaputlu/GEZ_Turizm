@@ -27,5 +27,16 @@ namespace DataAccess.SeedData.Randoms
                 _random.Next(1, 24), _random.Next(8, 60), _random.Next(2, 55));
             return today;
         }
+        /// <summary>
+        /// Bu metod geçmiş bir zaman için rastgele (işçiler için anlamlı) doğum tarihi üretmek için yazıldı.
+        /// </summary>
+        /// <returns></returns>
+        internal static DateTime GetEmployeeBirthDateTime()
+        {
+            DateTime today = new DateTime
+                (_random.Next(1960,1995), _random.Next(1, 13), _random.Next(1, 28),
+                _random.Next(1, 24), _random.Next(8, 60), _random.Next(2, 55));
+            return today;
+        }
     }
 }

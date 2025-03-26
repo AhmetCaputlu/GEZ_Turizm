@@ -35,13 +35,13 @@ namespace DataAccess.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CountryName = table.Column<string>(type: "nvarchar(80)", maxLength: 80, nullable: false),
-                    CountryCode = table.Column<string>(type: "nvarchar(3)", maxLength: 3, nullable: false),
+                    CountryCode = table.Column<string>(type: "nvarchar(8)", maxLength: 8, nullable: false),
                     CountryDescription = table.Column<string>(type: "nvarchar(190)", maxLength: 190, nullable: true),
                     CountryPhone = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: false),
                     Continent = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "77b160f8-132c-4860-aabd-d76406dbb203"),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 25, 3, 46, 59, 555, DateTimeKind.Local).AddTicks(8724)),
-                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "8d5211b7-0433-48ec-92c3-43d4efdb1e27"),
+                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "18f6d9bd-56f6-4bd9-96fd-5b537d714139"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 26, 4, 39, 28, 378, DateTimeKind.Local).AddTicks(3916)),
+                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "6029b8bf-c04f-4c62-a3b4-e228e344b57c"),
                     CreatedIPAddress = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false, defaultValue: ""),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: true),
@@ -60,9 +60,9 @@ namespace DataAccess.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     AcceptTickets = table.Column<bool>(type: "bit", nullable: false),
-                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "ee059693-9fb2-4e63-882e-a810614890d3"),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 25, 3, 46, 59, 553, DateTimeKind.Local).AddTicks(9088)),
-                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "66cdae2c-924f-4946-b3c2-c4a99e2bf459"),
+                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "360355d4-d898-4e84-9303-9a7d15b4b799"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 26, 4, 39, 28, 376, DateTimeKind.Local).AddTicks(4256)),
+                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "94d86e07-6ea6-49bb-a5ab-263e52cbf3c9"),
                     CreatedIPAddress = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false, defaultValue: ""),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: true),
@@ -89,9 +89,9 @@ namespace DataAccess.Migrations
                     CategoryName = table.Column<string>(type: "nvarchar(75)", maxLength: 75, nullable: false),
                     CategoryType = table.Column<string>(type: "nvarchar(75)", maxLength: 75, nullable: false, defaultValue: "Unknown"),
                     Description = table.Column<string>(type: "nvarchar(130)", maxLength: 130, nullable: false),
-                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "c89b4bad-0332-46a0-b413-77a42ed7344e"),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 25, 3, 46, 59, 563, DateTimeKind.Local).AddTicks(2862)),
-                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "59769ff2-e1ac-4fa6-9224-838a7dc70dc2"),
+                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "4ee1493e-6cd4-4157-8ac5-f9c2c8374555"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 26, 4, 39, 28, 385, DateTimeKind.Local).AddTicks(7550)),
+                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "ff3fdb15-3ce6-4cd9-bac4-88f36d8461f6"),
                     CreatedIPAddress = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false, defaultValue: ""),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: true),
@@ -109,9 +109,9 @@ namespace DataAccess.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "542453ca-2f48-4a3b-9be2-f6ba5783a7e8"),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 25, 3, 46, 59, 554, DateTimeKind.Local).AddTicks(6079)),
-                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "f6098cde-24c8-4118-ba78-2d1135212beb"),
+                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "dbb22484-f6e8-429a-a85c-6a789f357734"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 26, 4, 39, 28, 377, DateTimeKind.Local).AddTicks(1839)),
+                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "02701569-e44a-4772-be95-20a071178143"),
                     CreatedIPAddress = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false, defaultValue: ""),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: true),
@@ -135,9 +135,9 @@ namespace DataAccess.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "b2d29b7d-33d5-4196-af80-43d6252ade77"),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 25, 3, 46, 59, 554, DateTimeKind.Local).AddTicks(9921)),
-                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "4ed7dad2-0815-4500-a4eb-ed9ae47884ac"),
+                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "b137304e-9e2e-4987-b90b-826029a765eb"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 26, 4, 39, 28, 377, DateTimeKind.Local).AddTicks(5829)),
+                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "faae95a4-272d-4801-af74-6291083ef44b"),
                     CreatedIPAddress = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false, defaultValue: ""),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: true),
@@ -161,9 +161,9 @@ namespace DataAccess.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "524a4b77-65ab-4e41-a995-4d3e0ef46a2c"),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 25, 3, 46, 59, 564, DateTimeKind.Local).AddTicks(2284)),
-                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "a0f37f34-ad18-47f0-abb7-68d11cad98fb"),
+                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "eeeb7b03-8c85-4b72-93ff-fafdae9dd8fb"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 26, 4, 39, 28, 386, DateTimeKind.Local).AddTicks(6311)),
+                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "85135bd8-31c8-4267-8d55-3b3b245d6533"),
                     CreatedIPAddress = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false, defaultValue: ""),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: true),
@@ -187,9 +187,9 @@ namespace DataAccess.Migrations
                     TouristPopulation = table.Column<bool>(type: "bit", nullable: false),
                     HasAirport = table.Column<bool>(type: "bit", nullable: false),
                     HasHotelFacility = table.Column<bool>(type: "bit", nullable: false),
-                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "14b468cd-e768-4e13-89b1-081e5a48feb4"),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 25, 3, 46, 59, 564, DateTimeKind.Local).AddTicks(5355)),
-                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "fb597568-f565-4a4b-8f2c-94ba4c0bdc87"),
+                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "92274ba5-5bc8-4144-919c-b7ce649aa532"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 26, 4, 39, 28, 387, DateTimeKind.Local).AddTicks(2731)),
+                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "6f7c4442-30e4-4d12-a18e-20bfb2960eb9"),
                     CreatedIPAddress = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false, defaultValue: ""),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: true),
@@ -210,9 +210,9 @@ namespace DataAccess.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "92f1325e-c557-4af0-9b60-01515a3aa762"),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 25, 3, 46, 59, 555, DateTimeKind.Local).AddTicks(3784)),
-                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "05a40ddf-ccf6-45ae-be92-b5e01e9c8355"),
+                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "4b052ca8-e4c5-4033-b4bf-90abccfcf24e"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 26, 4, 39, 28, 377, DateTimeKind.Local).AddTicks(9695)),
+                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "cccd22c8-940d-4a97-8736-8ebdff7c2b0e"),
                     CreatedIPAddress = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false, defaultValue: ""),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: true),
@@ -258,7 +258,7 @@ namespace DataAccess.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 25, 3, 46, 59, 568, DateTimeKind.Local).AddTicks(5043)),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 26, 4, 39, 28, 391, DateTimeKind.Local).AddTicks(3396)),
                     CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false),
                     CreatedIPAddress = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false, defaultValue: "IP verilmedi"),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -301,9 +301,9 @@ namespace DataAccess.Migrations
                     Receive = table.Column<decimal>(type: "decimal(10,4)", nullable: false),
                     Balance = table.Column<decimal>(type: "decimal(10,4)", nullable: false),
                     PartnerCompanyId = table.Column<int>(type: "int", nullable: true),
-                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "163e79b5-084d-4a52-979b-af289d16ec5a"),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 25, 3, 46, 59, 554, DateTimeKind.Local).AddTicks(3319)),
-                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "991afde5-03bd-4bf8-b29c-5edc390f0f98"),
+                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "a87879cd-3abe-460b-87f6-92e96490d7c8"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 26, 4, 39, 28, 376, DateTimeKind.Local).AddTicks(8380)),
+                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "7b7b1d8b-e7f4-4cd4-859c-fbf3e797b423"),
                     CreatedIPAddress = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false, defaultValue: ""),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: true),
@@ -332,9 +332,9 @@ namespace DataAccess.Migrations
                     UnitsInStock = table.Column<short>(type: "smallint", nullable: false),
                     CategoryId = table.Column<int>(type: "int", nullable: true),
                     ProductSupplierId = table.Column<int>(type: "int", nullable: true),
-                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "5c3fe1b2-e4e9-43c0-bf2d-87ff5f97dd90"),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 25, 3, 46, 59, 563, DateTimeKind.Local).AddTicks(8878)),
-                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "0eface94-61c6-45e5-a30a-d97ee422703d"),
+                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "1d426c03-abc4-4a53-a0c3-8fc41f925796"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 26, 4, 39, 28, 386, DateTimeKind.Local).AddTicks(2983)),
+                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "13bd2640-8cd9-43d5-ab0a-48525694ce30"),
                     CreatedIPAddress = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false, defaultValue: ""),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: true),
@@ -362,14 +362,15 @@ namespace DataAccess.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    EndContract = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DaysWorked = table.Column<int>(type: "int", nullable: false),
-                    CurrentPosition = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    ContractCount = table.Column<int>(type: "int", nullable: true),
+                    EndContract = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DaysWorked = table.Column<int>(type: "int", nullable: true),
+                    CurrentPosition = table.Column<string>(type: "nvarchar(35)", maxLength: 35, nullable: false),
                     CountryId = table.Column<int>(type: "int", nullable: true),
                     ResidenceRegionId = table.Column<int>(type: "int", nullable: true),
-                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "9e965561-e256-4b0d-8329-2e3143f55013"),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 25, 3, 46, 59, 557, DateTimeKind.Local).AddTicks(4550)),
-                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "16dbd3aa-7309-4aad-8c87-4a69881c8935"),
+                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "f073d4fc-12c6-43de-95c3-d05639c4f968"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 26, 4, 39, 28, 380, DateTimeKind.Local).AddTicks(812)),
+                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "c7cc9243-bb54-4242-b5f3-ac2ef6ac8c9b"),
                     CreatedIPAddress = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false, defaultValue: ""),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: true),
@@ -410,9 +411,9 @@ namespace DataAccess.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     EventCategory = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "878e68fc-b30c-428d-8a32-4c0f12597cc8"),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 25, 3, 46, 59, 545, DateTimeKind.Local).AddTicks(8926)),
-                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "fa7cd605-f9c2-457c-97c5-3791e146b20b"),
+                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "75c4da58-4a60-4433-b885-35927487e651"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 26, 4, 39, 28, 375, DateTimeKind.Local).AddTicks(1308)),
+                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "4bca15e2-fb52-4570-ae5f-bef32a1ab002"),
                     CreatedIPAddress = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false, defaultValue: ""),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: true),
@@ -441,9 +442,9 @@ namespace DataAccess.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     TourCategory = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "8ff5ffe4-17d8-4957-a869-3a4136ca8e2a"),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 25, 3, 46, 59, 553, DateTimeKind.Local).AddTicks(1561)),
-                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "ac95461a-7f1f-4bc6-b2e7-cf276d2abb84"),
+                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "c25923aa-9db6-46a3-984a-3a62571ddbcc"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 26, 4, 39, 28, 375, DateTimeKind.Local).AddTicks(7826)),
+                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "0a750d89-0db7-4eb2-8006-664529727e44"),
                     CreatedIPAddress = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false, defaultValue: ""),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: true),
@@ -473,9 +474,9 @@ namespace DataAccess.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     DriverLicense = table.Column<string>(type: "nvarchar(5)", maxLength: 5, nullable: false, defaultValue: "None"),
                     SubContractWorkerSupplierId = table.Column<int>(type: "int", nullable: true),
-                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "81bcf5c7-e6d8-4dc9-8aff-5c7e7a8a8fa3"),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 25, 3, 46, 59, 556, DateTimeKind.Local).AddTicks(2518)),
-                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "4abe2a14-91d9-49fd-b863-87d6f1bd3726"),
+                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "1dd50b8d-e6d3-4a46-937a-2d9cb2d92d46"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 26, 4, 39, 28, 378, DateTimeKind.Local).AddTicks(7618)),
+                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "99e59d2e-f4d4-45a6-ab1e-095501f38012"),
                     CreatedIPAddress = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false, defaultValue: ""),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: true),
@@ -492,7 +493,7 @@ namespace DataAccess.Migrations
                     Email = table.Column<string>(type: "nvarchar(120)", maxLength: 120, nullable: true),
                     TCN_Passport = table.Column<string>(type: "nvarchar(11)", maxLength: 11, nullable: true),
                     HireDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    EndContract = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    EndContract = table.Column<DateTime>(type: "datetime2", nullable: true),
                     Experience = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -513,9 +514,9 @@ namespace DataAccess.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Language = table.Column<string>(type: "nvarchar(35)", maxLength: 35, nullable: false, defaultValue: "None"),
                     SubContractWorkerSupplierId = table.Column<int>(type: "int", nullable: true),
-                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "b6cab846-78d7-4bd6-805e-6121d64293e9"),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 25, 3, 46, 59, 556, DateTimeKind.Local).AddTicks(9097)),
-                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "f4eee1f4-d628-4c59-90ba-36f4b89981aa"),
+                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "0647fda9-27d3-4fa2-90eb-949cecd86af3"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 26, 4, 39, 28, 379, DateTimeKind.Local).AddTicks(5105)),
+                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "1a5cc952-05ec-4f77-9a63-2ede41b39fb2"),
                     CreatedIPAddress = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false, defaultValue: ""),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: true),
@@ -532,7 +533,7 @@ namespace DataAccess.Migrations
                     Email = table.Column<string>(type: "nvarchar(120)", maxLength: 120, nullable: true),
                     TCN_Passport = table.Column<string>(type: "nvarchar(11)", maxLength: 11, nullable: true),
                     HireDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    EndContract = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    EndContract = table.Column<DateTime>(type: "datetime2", nullable: true),
                     Experience = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -601,7 +602,7 @@ namespace DataAccess.Migrations
                     PhoneNumber = table.Column<string>(type: "nvarchar(11)", maxLength: 11, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(120)", maxLength: 120, nullable: true),
                     TCN_Passport = table.Column<string>(type: "nvarchar(11)", maxLength: 11, nullable: true),
-                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true, defaultValue: new DateTime(2025, 3, 25, 3, 46, 59, 569, DateTimeKind.Local).AddTicks(752))
+                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true, defaultValue: new DateTime(2025, 3, 26, 4, 39, 28, 391, DateTimeKind.Local).AddTicks(8525))
                 },
                 constraints: table =>
                 {
@@ -663,9 +664,9 @@ namespace DataAccess.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "faacd8ab-d416-4747-9a51-b8b5ad00fe09"),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 25, 3, 46, 59, 562, DateTimeKind.Local).AddTicks(764)),
-                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "aa93c43a-4a7c-4d45-bc53-80b94fc3a775"),
+                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "edd5e415-bac9-4fe7-a613-eff7734ff357"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 26, 4, 39, 28, 384, DateTimeKind.Local).AddTicks(7414)),
+                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "c0ef5483-abee-4131-9397-93035e3ecffa"),
                     CreatedIPAddress = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false, defaultValue: ""),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: true),
@@ -700,9 +701,9 @@ namespace DataAccess.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "09d0bd24-ba09-40a9-a5e3-0af7ff8e07ea"),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 25, 3, 46, 59, 562, DateTimeKind.Local).AddTicks(6371)),
-                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "51ec9a4e-47ce-4564-9c93-33236b8a0b20"),
+                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "b69b4d8b-d900-47b3-acb3-6e4d2952496a"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 26, 4, 39, 28, 385, DateTimeKind.Local).AddTicks(2744)),
+                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "288fe930-2970-48f7-9c4c-7e8a2822b642"),
                     CreatedIPAddress = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false, defaultValue: ""),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: true),
@@ -737,9 +738,9 @@ namespace DataAccess.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "6f2afed9-25ce-455a-9f5e-71cfaf98d85d"),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 25, 3, 46, 59, 560, DateTimeKind.Local).AddTicks(7566)),
-                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "9a4564c4-3dbf-4ee6-b142-0798cc0ef91c"),
+                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "052a6160-e18e-44ca-b58f-70836798a78c"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 26, 4, 39, 28, 383, DateTimeKind.Local).AddTicks(4672)),
+                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "681029f1-95f6-45dd-b9e7-1c33fea186a3"),
                     CreatedIPAddress = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false, defaultValue: ""),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: true),
@@ -771,9 +772,9 @@ namespace DataAccess.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "615900c1-d20b-4677-8df5-ee90199791c1"),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 25, 3, 46, 59, 561, DateTimeKind.Local).AddTicks(1866)),
-                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "7f5ffe7d-4b51-4565-8cf7-a836fd132267"),
+                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "c5c56012-1ad2-4686-a3e5-2974c9db44e8"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 26, 4, 39, 28, 383, DateTimeKind.Local).AddTicks(8845)),
+                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "0ed29365-f77f-41b7-878e-dbf9b6518c2f"),
                     CreatedIPAddress = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false, defaultValue: ""),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: true),
@@ -805,9 +806,9 @@ namespace DataAccess.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "0c313d3e-9335-4f69-97a1-307f11a61d3c"),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 25, 3, 46, 59, 561, DateTimeKind.Local).AddTicks(6425)),
-                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "aba21a6d-44fb-4a89-a40d-e3de88946973"),
+                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "b6db8268-8b0e-4d95-8e76-04b8349bb304"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 26, 4, 39, 28, 384, DateTimeKind.Local).AddTicks(3182)),
+                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "b0863706-a3c9-432c-92b6-5d2f86e7c75c"),
                     CreatedIPAddress = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false, defaultValue: ""),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: true),
@@ -840,9 +841,9 @@ namespace DataAccess.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     EventId = table.Column<int>(type: "int", nullable: true),
-                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "ef012513-6ed2-4fdb-8c0c-eee6a3467792"),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 25, 3, 46, 59, 564, DateTimeKind.Local).AddTicks(9248)),
-                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "8df58745-8928-4985-ac5d-3c868265b5fd"),
+                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "53a7937f-a75b-4130-a57e-356ecb49ec77"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 26, 4, 39, 28, 387, DateTimeKind.Local).AddTicks(6446)),
+                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "1f6b6df2-c03c-4c30-ba96-91e5d3ad321f"),
                     CreatedIPAddress = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false, defaultValue: ""),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: true),
@@ -881,9 +882,9 @@ namespace DataAccess.Migrations
                     TotalRentalDay = table.Column<int>(type: "int", nullable: false),
                     TotalPrice = table.Column<decimal>(type: "decimal(9,2)", nullable: false),
                     RentalVehicleSupplierId = table.Column<int>(type: "int", nullable: true),
-                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "5db011af-f978-46ed-80d1-0af2ecb06d7a"),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 25, 3, 46, 59, 565, DateTimeKind.Local).AddTicks(6466)),
-                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "53867f95-89b9-4eeb-a668-203e53936548"),
+                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "3976ff22-e4f9-49ed-b6e1-ad45d0bc2a26"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 26, 4, 39, 28, 388, DateTimeKind.Local).AddTicks(3753)),
+                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "2087acf8-65cf-421d-8145-c7c7ef6dcf5f"),
                     CreatedIPAddress = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false, defaultValue: ""),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: true),
@@ -925,9 +926,9 @@ namespace DataAccess.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     TourId = table.Column<int>(type: "int", nullable: true),
-                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "72f680de-df20-49c3-8b9c-8eb61c5a858b"),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 25, 3, 46, 59, 565, DateTimeKind.Local).AddTicks(2792)),
-                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "b1d17e8c-aed8-4dd2-9004-2c568bbd7093"),
+                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "078451a7-6020-468e-b1aa-9954a1c2e27f"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 26, 4, 39, 28, 388, DateTimeKind.Local).AddTicks(152)),
+                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "03e8d41f-da30-433f-b41f-2b252ee782d6"),
                     CreatedIPAddress = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false, defaultValue: ""),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: true),
@@ -962,9 +963,9 @@ namespace DataAccess.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     PurchaseDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     MarketValue = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
-                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "55c453ed-2505-4c11-9bfc-b21619973172"),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 25, 3, 46, 59, 566, DateTimeKind.Local).AddTicks(1983)),
-                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "d0cfc83e-dbc7-4737-9af4-a5e004841bda"),
+                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "d29423b3-e828-4819-b5d3-9a7b8c6ff00e"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 26, 4, 39, 28, 388, DateTimeKind.Local).AddTicks(9752)),
+                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "e32134e2-3520-422b-a803-d2d35c6dc5c5"),
                     CreatedIPAddress = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false, defaultValue: ""),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: true),
@@ -1046,9 +1047,9 @@ namespace DataAccess.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ProductId = table.Column<int>(type: "int", nullable: true),
                     ProductOrderId = table.Column<int>(type: "int", nullable: true),
-                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "fb5e64b8-b248-4f81-a7c6-eb6c0a665c14"),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 25, 3, 46, 59, 559, DateTimeKind.Local).AddTicks(8519)),
-                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "90071caa-a0d3-42de-a028-5b1f5ad67cae"),
+                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "da33c2ce-2a30-4df4-95df-a7ca5670d745"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 26, 4, 39, 28, 382, DateTimeKind.Local).AddTicks(4896)),
+                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "9a16466f-de8f-47ba-a9aa-549a9227d4da"),
                     CreatedIPAddress = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false, defaultValue: ""),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: true),
@@ -1082,9 +1083,9 @@ namespace DataAccess.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     EventTicketId = table.Column<int>(type: "int", nullable: true),
                     EventTicketOrderId = table.Column<int>(type: "int", nullable: true),
-                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "7d7f96a5-4040-46ea-84b8-e44f7ddf0cf4"),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 25, 3, 46, 59, 559, DateTimeKind.Local).AddTicks(3488)),
-                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "9a135857-cfb7-4fd8-83ce-654ffaacd6cd"),
+                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "2be557e2-9710-4184-86bf-ec02a55943cf"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 26, 4, 39, 28, 382, DateTimeKind.Local).AddTicks(317)),
+                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "b53e9814-df0f-4776-87b1-b7c3d507c86e"),
                     CreatedIPAddress = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false, defaultValue: ""),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: true),
@@ -1140,9 +1141,9 @@ namespace DataAccess.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     TourTicketId = table.Column<int>(type: "int", nullable: true),
                     TourTicketOrderId = table.Column<int>(type: "int", nullable: true),
-                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "15140d8e-0e37-43a0-a833-31d2a72e7f2c"),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 25, 3, 46, 59, 560, DateTimeKind.Local).AddTicks(3019)),
-                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "3ee79cb4-06a5-4f5a-8a0c-b8e6bba33d24"),
+                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "0d8ca37e-679b-463e-9271-849e0e1ae2fa"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 3, 26, 4, 39, 28, 382, DateTimeKind.Local).AddTicks(9844)),
+                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "0040877c-0869-4867-b728-74d08177da78"),
                     CreatedIPAddress = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false, defaultValue: ""),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: true),
@@ -1191,72 +1192,159 @@ namespace DataAccess.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "AspNetUsers",
-                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "CountryId", "CreatedDate", "CreatedID", "CreatedIPAddress", "Email", "EmailConfirmed", "Guid", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UpdatedDate", "UpdatedID", "UpdatedIPAddress", "UserName" },
-                values: new object[] { 1, 0, "014e084d-3a61-479f-b219-9dc3ceb7064a", null, new DateTime(2014, 4, 4, 12, 50, 21, 0, DateTimeKind.Unspecified), "510d9d12-a558-4ede-b4c2-e1f27b82fd70", "CreatedIPAdress 0", "Email 0", false, "ee7c8970-37e6-40ff-a2a3-6e2ac109eb75", false, null, "EMAİL 0", "USERNAME 0", "$2a$11$/a9BJtyqekKH5CxtfkedAuHTnRWIC5GVh.Ht/qc3PzEexGG3CRpxW", "PNumber 0", false, "258ba2db-4205-4500-9597-a3fb6db83cfe", false, null, null, null, "UserName 0" });
+                table: "Countries",
+                columns: new[] { "Id", "Continent", "CountryCode", "CountryDescription", "CountryName", "CountryPhone", "CreatedDate", "CreatedID", "CreatedIPAddress", "Guid", "Status", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
+                values: new object[,]
+                {
+                    { 1, "Australia", "X 0", "CountryDescription 0", "CountryName 0", "Cphone 0", new DateTime(2002, 5, 23, 10, 39, 3, 0, DateTimeKind.Unspecified), "30b8305a-140e-44c4-83be-2152e99339ca", "CreatedIPAdress 0", "ff9904d2-8e38-43f1-9f0c-9f8709f885b8", "Active", null, null, null },
+                    { 2, "Asia", "X 1", "CountryDescription 1", "CountryName 1", "Cphone 1", new DateTime(2016, 11, 9, 2, 18, 36, 0, DateTimeKind.Unspecified), "bd6fef1d-d59a-489c-85fa-db45be1a5dc1", "CreatedIPAdress 1", "e16090ce-4268-40db-bfc1-5c5c433446f3", "Passive", null, null, null },
+                    { 3, "Africa", "X 2", "CountryDescription 2", "CountryName 2", "Cphone 2", new DateTime(2018, 3, 10, 23, 52, 33, 0, DateTimeKind.Unspecified), "299dd26e-4f3f-4ea6-adb7-bcde5b3cf833", "CreatedIPAdress 2", "99324bf2-4fbf-4c87-af31-c235e6fad73f", "Passive", null, null, null }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Countries",
+                columns: new[] { "Id", "Continent", "CountryCode", "CountryDescription", "CountryName", "CountryPhone", "CreatedDate", "CreatedID", "CreatedIPAddress", "Guid", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
+                values: new object[,]
+                {
+                    { 4, "Australia", "X 3", "CountryDescription 3", "CountryName 3", "Cphone 3", new DateTime(2005, 4, 1, 16, 28, 41, 0, DateTimeKind.Unspecified), "298526df-e7fe-45b6-9098-3fa76c4c7b92", "CreatedIPAdress 3", "ccc27cae-4827-49c4-aabc-21575e03c642", null, null, null },
+                    { 5, "NorthAmerica", "X 4", "CountryDescription 4", "CountryName 4", "Cphone 4", new DateTime(2020, 12, 12, 17, 18, 29, 0, DateTimeKind.Unspecified), "792e025b-c17f-44a9-b33f-59db2a16e0cf", "CreatedIPAdress 4", "5e1c80ac-fe3b-47ff-aac6-3c2e3ce276d2", null, null, null },
+                    { 6, "None", "X 5", "CountryDescription 5", "CountryName 5", "Cphone 5", new DateTime(2001, 2, 16, 9, 50, 38, 0, DateTimeKind.Unspecified), "3a2970ba-5d62-457d-ba43-fdcedcef54a0", "CreatedIPAdress 5", "7e0e1015-352e-4162-8f9d-70cbce10cfbe", null, null, null },
+                    { 7, "NorthAmerica", "X 6", "CountryDescription 6", "CountryName 6", "Cphone 6", new DateTime(2013, 5, 24, 3, 47, 28, 0, DateTimeKind.Unspecified), "b9324d88-3d37-4340-b717-7a1abfef2faa", "CreatedIPAdress 6", "ca58a458-a25b-4291-8a09-285683566490", null, null, null },
+                    { 8, "NorthAmerica", "X 7", "CountryDescription 7", "CountryName 7", "Cphone 7", new DateTime(2013, 6, 16, 14, 43, 22, 0, DateTimeKind.Unspecified), "4f662fdf-bbd9-4d67-9e71-65caa5453db3", "CreatedIPAdress 7", "f410eec5-ff57-431b-839a-bc25786710bb", null, null, null },
+                    { 9, "NorthAmerica", "X 8", "CountryDescription 8", "CountryName 8", "Cphone 8", new DateTime(2013, 1, 16, 11, 47, 26, 0, DateTimeKind.Unspecified), "22a01582-e733-4a52-875f-fcf043d0757a", "CreatedIPAdress 8", "5552897f-218e-44e4-8905-d473ea5aba7d", null, null, null },
+                    { 10, "NorthAmerica", "X 9", "CountryDescription 9", "CountryName 9", "Cphone 9", new DateTime(2000, 11, 23, 13, 28, 38, 0, DateTimeKind.Unspecified), "54c38a20-56d3-4b2e-bab7-a25f04914312", "CreatedIPAdress 9", "6a0df0f5-ee9f-4409-8fa2-3effb130eedf", null, null, null }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Countries",
+                columns: new[] { "Id", "Continent", "CountryCode", "CountryDescription", "CountryName", "CountryPhone", "CreatedDate", "CreatedID", "CreatedIPAddress", "Guid", "Status", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
+                values: new object[,]
+                {
+                    { 11, "Africa", "X 10", "CountryDescription 10", "CountryName 10", "Cphone 10", new DateTime(2013, 6, 3, 23, 42, 50, 0, DateTimeKind.Unspecified), "39739f1c-8e32-42dd-8266-b7c052b7aa73", "CreatedIPAdress 10", "26155b80-4a34-45f4-abb0-a922f98fc151", "Passive", null, null, null },
+                    { 12, "Australia", "X 11", "CountryDescription 11", "CountryName 11", "Cphone 11", new DateTime(2014, 12, 16, 22, 19, 31, 0, DateTimeKind.Unspecified), "9ceede82-ba8d-4c6b-9d4f-dde32df8b233", "CreatedIPAdress 11", "3b7de206-ef11-49f3-bae3-7821c120d50e", "Active", null, null, null },
+                    { 13, "Europe", "X 12", "CountryDescription 12", "CountryName 12", "Cphone 12", new DateTime(2021, 4, 24, 3, 12, 18, 0, DateTimeKind.Unspecified), "bc9bef29-69c1-4a64-8fa5-70f4b35bae38", "CreatedIPAdress 12", "b0efad4d-7249-401c-840b-81970d6eba04", "Active", null, null, null },
+                    { 14, "NorthAmerica", "X 13", "CountryDescription 13", "CountryName 13", "Cphone 13", new DateTime(2003, 9, 16, 13, 26, 49, 0, DateTimeKind.Unspecified), "5326138d-1a07-4cd9-99e8-0a6968253b52", "CreatedIPAdress 13", "a216b16a-896e-4c32-8613-684836d7cb6c", "Active", null, null, null },
+                    { 15, "Africa", "X 14", "CountryDescription 14", "CountryName 14", "Cphone 14", new DateTime(2002, 12, 15, 4, 27, 54, 0, DateTimeKind.Unspecified), "52c3fe13-8495-4219-9c3d-d4902101ba6f", "CreatedIPAdress 14", "82791ed4-bfb9-49e8-8681-0172dd386a96", "Active", null, null, null }
+                });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "CountryId", "CreatedDate", "CreatedID", "CreatedIPAddress", "Email", "EmailConfirmed", "Guid", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "Status", "TwoFactorEnabled", "UpdatedDate", "UpdatedID", "UpdatedIPAddress", "UserName" },
                 values: new object[,]
                 {
-                    { 2, 0, "23035c05-d4f7-4d62-93b3-d55efc6da981", null, new DateTime(2002, 4, 13, 22, 38, 3, 0, DateTimeKind.Unspecified), "5cf80f86-f504-4579-bcf2-36d0549086a1", "CreatedIPAdress 1", "Email 1", false, "49ecff87-6bf3-4d78-8ebd-c4755fb7c0c5", false, null, "EMAİL 1", "USERNAME 1", "$2a$11$/O7QMv5ZX6GomhhTxaGSfOH1IQ7kgyphUG0ltePufisGGEHxfkjDG", "PNumber 1", false, "8fad04d7-6317-4026-9ca0-029b629bf135", "Active", false, null, null, null, "UserName 1" },
-                    { 3, 0, "e0bb9ede-1efb-45a4-8d3e-44a2ed1e052a", null, new DateTime(2012, 9, 4, 4, 59, 44, 0, DateTimeKind.Unspecified), "e21d8e55-792f-4a8f-8145-408549206702", "CreatedIPAdress 2", "Email 2", false, "155e95a9-6909-4f19-8561-0a83cacc34dc", false, null, "EMAİL 2", "USERNAME 2", "$2a$11$cidf7z5.RHp3jCbEEX/kQukLCo7.SuSv3t4xSJ2HrEygZH5c6jm2.", "PNumber 2", false, "ae44b540-2603-48c8-b38b-4b1fbad5bbdd", "Passive", false, null, null, null, "UserName 2" },
-                    { 4, 0, "50be9fe2-0a01-4775-b3c7-11bd08caf029", null, new DateTime(2019, 7, 1, 16, 34, 46, 0, DateTimeKind.Unspecified), "94724bd5-89c5-46ae-827e-01645ceba40b", "CreatedIPAdress 3", "Email 3", false, "78cb11f0-c5c9-465e-8330-8d281afc39b8", false, null, "EMAİL 3", "USERNAME 3", "$2a$11$BXc91ZHTD95/UNpiKVkTJuIveOfa3LGS1mpi2v73cx1UsKuCJKPgi", "PNumber 3", false, "bc71b51a-9537-43c5-84bf-2ff84ba1d667", "Active", false, null, null, null, "UserName 3" }
+                    { 1, 0, "175d0a82-f5ee-46db-8c43-24ea296c3afc", 4, new DateTime(2007, 4, 10, 20, 44, 29, 0, DateTimeKind.Unspecified), "d8776844-4d3c-4875-9167-ad0b7dd5460b", "CreatedIPAdress 0", "Email 0", false, "43ba0b84-5a55-478e-b36b-9114203eff0b", false, null, "EMAİL 0", "USERNAME 0", "$2a$11$VFkIDHfJScqtdUlRPYfVvOe7auc5YDlchtQcgysbas1aVn75BAcPe", "PNumber 0", false, "5ea82d85-23f2-43f4-875d-acd30652f8f8", "Active", false, null, null, null, "UserName 0" },
+                    { 2, 0, "17941a9a-a51c-411f-8121-c071ac024b2e", 5, new DateTime(2001, 3, 11, 17, 26, 36, 0, DateTimeKind.Unspecified), "328f3fc5-00e0-4cb8-bac5-d5ce04ad1d65", "CreatedIPAdress 1", "Email 1", false, "663b39fb-2e57-42a8-a5a4-d6dd9e60f7aa", false, null, "EMAİL 1", "USERNAME 1", "$2a$11$t4nm0fYMzxG0Pqa3pPttN.PN7gbhy2txi27tEAOaEnNXQQy33ScEW", "PNumber 1", false, "e65612b5-8244-475a-9c3a-49cbc6303921", "Active", false, null, null, null, "UserName 1" },
+                    { 3, 0, "4bdd77a1-20e7-4ecc-99e3-a0e2075e8172", 1, new DateTime(2009, 9, 24, 13, 53, 5, 0, DateTimeKind.Unspecified), "ca11cd61-dece-4f86-80d0-f25a2b89a213", "CreatedIPAdress 2", "Email 2", false, "6ed4341d-1c0c-470a-bcc8-564e7f58b555", false, null, "EMAİL 2", "USERNAME 2", "$2a$11$JUikYvo.nXBvFVDXjNRR3ua.UJzikHsSnsw7tpKG.eNSwxcashsD2", "PNumber 2", false, "fa1ffc7b-8694-4948-8ef4-81e636612206", "Active", false, null, null, null, "UserName 2" },
+                    { 4, 0, "f9cbc646-0209-4546-b12f-835d956089b5", 2, new DateTime(2006, 4, 9, 2, 23, 37, 0, DateTimeKind.Unspecified), "0e7beb06-7767-42ca-9f41-abe60f9d811a", "CreatedIPAdress 3", "Email 3", false, "639a0470-3db3-40d6-91aa-7fab12057f94", false, null, "EMAİL 3", "USERNAME 3", "$2a$11$qENvFRFGJFhQED7n7I33U.h.jsHwdY01EgEkuseIt6MHQiMVZ8D3O", "PNumber 3", false, "094083b3-bb54-4d8d-95db-ede168679b0a", "Passive", false, null, null, null, "UserName 3" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "CountryId", "CreatedDate", "CreatedID", "CreatedIPAddress", "Email", "EmailConfirmed", "Guid", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UpdatedDate", "UpdatedID", "UpdatedIPAddress", "UserName" },
-                values: new object[] { 5, 0, "8b121395-dfff-4d4c-a105-37000678cebd", null, new DateTime(2000, 7, 26, 6, 26, 27, 0, DateTimeKind.Unspecified), "f197fc33-564a-463d-be04-016b05df5212", "CreatedIPAdress 4", "Email 4", false, "35091155-9576-47c3-9549-991ade1bf622", false, null, "EMAİL 4", "USERNAME 4", "$2a$11$hsEIuSoYktF0Lg85qXhyOuf9xHtVpPMEURDXAEzK96MV7Km9SJv/u", "PNumber 4", false, "17750dab-02f9-43fc-9c14-ee66bf96db64", false, null, null, null, "UserName 4" });
+                values: new object[] { 5, 0, "6314fbd4-cec5-4879-9a60-bf5818aa324f", 6, new DateTime(2013, 8, 13, 15, 34, 3, 0, DateTimeKind.Unspecified), "25ea0337-b7df-4e36-a141-2f433b80ef80", "CreatedIPAdress 4", "Email 4", false, "439ac808-589d-43d6-81ed-a9403de53ef1", false, null, "EMAİL 4", "USERNAME 4", "$2a$11$fcMurih.Vt.QnWGiuozqdeRHR/vLJXoKRRohnNPczubxJEgKVM5.m", "PNumber 4", false, "f31ddac2-33a4-4b36-803f-eeedfb817f59", false, null, null, null, "UserName 4" });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUsers",
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "CountryId", "CreatedDate", "CreatedID", "CreatedIPAddress", "Email", "EmailConfirmed", "Guid", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "Status", "TwoFactorEnabled", "UpdatedDate", "UpdatedID", "UpdatedIPAddress", "UserName" },
+                values: new object[] { 6, 0, "6d57eb99-e0e6-47ae-8413-7c4ffa1562bd", 8, new DateTime(2021, 2, 10, 11, 38, 31, 0, DateTimeKind.Unspecified), "6d1a73f7-2f0d-44c6-a9f7-750b1dd7c213", "CreatedIPAdress 5", "Email 5", false, "d6c1bd01-7565-4028-b824-24091a121018", false, null, "EMAİL 5", "USERNAME 5", "$2a$11$tZj8s/j1Th9p7NWyEbIkS.X1UzEC5aeT.YCsYxe3mtESrBy/XNGWC", "PNumber 5", false, "74b75989-da5c-4f4d-82e1-3ae701a0685d", "Passive", false, null, null, null, "UserName 5" });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUsers",
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "CountryId", "CreatedDate", "CreatedID", "CreatedIPAddress", "Email", "EmailConfirmed", "Guid", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UpdatedDate", "UpdatedID", "UpdatedIPAddress", "UserName" },
+                values: new object[] { 7, 0, "511869b6-d6a4-438a-805a-b71b9408b178", 4, new DateTime(2014, 7, 25, 4, 17, 47, 0, DateTimeKind.Unspecified), "239db730-c52c-4479-9adf-7d229fbd4abc", "CreatedIPAdress 6", "Email 6", false, "dd8bde81-dffd-4098-b0cb-e5ebafc576b4", false, null, "EMAİL 6", "USERNAME 6", "$2a$11$BqhQ6tTrUJyMXTKx.yvV6OQl1qBu3ygZki.F9u0.85qRm.0oMRlxK", "PNumber 6", false, "eeafaffb-ea17-4db0-81b3-353041fedce1", false, null, null, null, "UserName 6" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "CountryId", "CreatedDate", "CreatedID", "CreatedIPAddress", "Email", "EmailConfirmed", "Guid", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "Status", "TwoFactorEnabled", "UpdatedDate", "UpdatedID", "UpdatedIPAddress", "UserName" },
                 values: new object[,]
                 {
-                    { 6, 0, "07f693cd-0f4b-4800-a12f-a23161ab8cef", null, new DateTime(2018, 6, 27, 4, 9, 15, 0, DateTimeKind.Unspecified), "c2b50fc1-7311-4b3e-8695-4edd8e37a143", "CreatedIPAdress 5", "Email 5", false, "db4f1813-8d13-4ee5-8bb9-96c93272859d", false, null, "EMAİL 5", "USERNAME 5", "$2a$11$fwky/Dmo6sCsnGRQqMzW8O9CBCZfrhVQvotPjgs4.IBZK9KrW3V3q", "PNumber 5", false, "35ddb6f1-2ac2-400e-8115-48d918418c96", "Active", false, null, null, null, "UserName 5" },
-                    { 7, 0, "681afd18-fc6f-4b27-80b3-9a0e227cb70e", null, new DateTime(2018, 6, 3, 17, 45, 38, 0, DateTimeKind.Unspecified), "eb3533eb-87d5-44d1-a8c4-d3b788637885", "CreatedIPAdress 6", "Email 6", false, "b07ec015-e9c0-4d8c-9320-ef9fcc85fa99", false, null, "EMAİL 6", "USERNAME 6", "$2a$11$UYxdxyWIiewFVAICG7qrhuxczmfIdb6Jv587aedTiy4BlsAnM2jaK", "PNumber 6", false, "9cc29b21-c1ba-401f-8868-ddb3fba8407f", "Active", false, null, null, null, "UserName 6" }
+                    { 8, 0, "a41df2aa-8aac-4bbc-8f2e-e03faff86748", 10, new DateTime(2007, 9, 16, 8, 57, 16, 0, DateTimeKind.Unspecified), "31a261de-8e9b-404d-8223-4deac1c25e49", "CreatedIPAdress 7", "Email 7", false, "48ff22b4-57e0-4cfd-b98f-1019c647eed2", false, null, "EMAİL 7", "USERNAME 7", "$2a$11$Rcb.xE/0Cc7uGq.zGpUM7uVsOFQ9aqXx2PlXlxK7VQo6M4/CnkOme", "PNumber 7", false, "d9659661-22f8-4f3c-a58b-7c33c451f051", "Active", false, null, null, null, "UserName 7" },
+                    { 9, 0, "41150d06-38de-4ff9-83c4-980be23e1df5", 6, new DateTime(2020, 9, 6, 14, 54, 48, 0, DateTimeKind.Unspecified), "6240a421-3d67-4257-9ca6-d03a1df79c5e", "CreatedIPAdress 8", "Email 8", false, "9e9de176-9607-4979-a2db-4a7941fbd0c1", false, null, "EMAİL 8", "USERNAME 8", "$2a$11$wmaqumeW1XjFcDTv299GlOISGKSQVBS5lfRgYQyarUdeGwg.vj4JW", "PNumber 8", false, "29c8da50-1e40-4c6a-a8fa-bfbd5a8332c4", "Active", false, null, null, null, "UserName 8" },
+                    { 10, 0, "b8a39d24-70f7-4d76-b6e7-ebdc0435338f", 10, new DateTime(2018, 12, 6, 12, 28, 31, 0, DateTimeKind.Unspecified), "89661828-3772-4f62-b04d-837180a2356f", "CreatedIPAdress 9", "Email 9", false, "f55d67f0-b063-4ee5-acf2-67ebcdaa8e86", false, null, "EMAİL 9", "USERNAME 9", "$2a$11$/NEQ1zs4w8P8NdKGmfqzreacS927kmEvGVzSWtUVNkzSO0vWIxnma", "PNumber 9", false, "079a9a27-de7b-48ab-a636-dc8a2faf0ec5", "Active", false, null, null, null, "UserName 9" }
                 });
 
             migrationBuilder.InsertData(
-                table: "AspNetUsers",
-                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "CountryId", "CreatedDate", "CreatedID", "CreatedIPAddress", "Email", "EmailConfirmed", "Guid", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UpdatedDate", "UpdatedID", "UpdatedIPAddress", "UserName" },
+                table: "Employees",
+                columns: new[] { "Id", "Address", "Age", "BirthDate", "ContractCount", "CountryId", "CreatedDate", "CreatedID", "CreatedIPAddress", "CurrentPosition", "DaysWorked", "Email", "EndContract", "Experience", "FirstName", "Guid", "HireDate", "LastName", "PhoneNumber", "PhotoPath", "ResidenceRegionId", "TCN_Passport", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
+                values: new object[] { 1, "Adress 0", (byte)30, new DateTime(1994, 9, 23, 22, 8, 36, 0, DateTimeKind.Unspecified), 6, 2, new DateTime(2000, 6, 12, 2, 43, 7, 0, DateTimeKind.Unspecified), "132ee9b6-2bb0-48e6-8734-35575f484754", "CreatedIPAdress 0", "Marketing", 5987, "Email 0", new DateTime(2026, 11, 2, 23, 20, 45, 0, DateTimeKind.Unspecified), 2, "FirstName 0", "c6eac58a-ed7b-4210-a058-3c8b74b940e0", new DateTime(2008, 11, 2, 23, 20, 45, 0, DateTimeKind.Unspecified), "LastName 0", "PNumber 0", "PhotoPath 0", null, "TCN 0", null, null, null });
+
+            migrationBuilder.InsertData(
+                table: "Employees",
+                columns: new[] { "Id", "Address", "Age", "BirthDate", "ContractCount", "CountryId", "CreatedDate", "CreatedID", "CreatedIPAddress", "CurrentPosition", "DaysWorked", "Email", "EndContract", "Experience", "FirstName", "Gender", "Guid", "HireDate", "LastName", "PhoneNumber", "PhotoPath", "ResidenceRegionId", "TCN_Passport", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
+                values: new object[] { 2, "Adress 1", (byte)56, new DateTime(1969, 3, 20, 18, 29, 40, 0, DateTimeKind.Unspecified), 8, 4, new DateTime(2012, 9, 2, 5, 10, 49, 0, DateTimeKind.Unspecified), "c39b4b17-a352-4bac-80e8-38ae4fbb23da", "CreatedIPAdress 1", "Administrative", 7418, "Email 1", new DateTime(2028, 12, 3, 4, 14, 10, 0, DateTimeKind.Unspecified), 3, "FirstName 1", "Male", "fcf42990-4c20-4ecd-a63f-790082f21946", new DateTime(2004, 12, 3, 4, 14, 10, 0, DateTimeKind.Unspecified), "LastName 1", "PNumber 1", "PhotoPath 1", null, "TCN 1", null, null, null });
+
+            migrationBuilder.InsertData(
+                table: "Employees",
+                columns: new[] { "Id", "Address", "Age", "BirthDate", "ContractCount", "CountryId", "CreatedDate", "CreatedID", "CreatedIPAddress", "CurrentPosition", "DaysWorked", "Email", "EndContract", "Experience", "FirstName", "Guid", "HireDate", "LastName", "PhoneNumber", "PhotoPath", "ResidenceRegionId", "TCN_Passport", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
+                values: new object[] { 3, "Adress 2", (byte)52, new DateTime(1972, 8, 1, 20, 14, 47, 0, DateTimeKind.Unspecified), 4, 5, new DateTime(2021, 7, 26, 11, 23, 43, 0, DateTimeKind.Unspecified), "bef9010b-e7a6-4add-8bb0-7b0f50d27aa4", "CreatedIPAdress 2", "Administrative", 3362, "Email 2", new DateTime(2028, 1, 10, 13, 8, 49, 0, DateTimeKind.Unspecified), 4, "FirstName 2", "482f335a-20cf-4156-8bae-336ae62f0cf9", new DateTime(2016, 1, 10, 13, 8, 49, 0, DateTimeKind.Unspecified), "LastName 2", "PNumber 2", "PhotoPath 2", null, "TCN 2", null, null, null });
+
+            migrationBuilder.InsertData(
+                table: "Employees",
+                columns: new[] { "Id", "Address", "Age", "BirthDate", "ContractCount", "CountryId", "CreatedDate", "CreatedID", "CreatedIPAddress", "CurrentPosition", "DaysWorked", "Email", "EndContract", "Experience", "FirstName", "Guid", "HireDate", "LastName", "PhoneNumber", "PhotoPath", "ResidenceRegionId", "Status", "TCN_Passport", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
+                values: new object[] { 4, "Adress 3", (byte)59, new DateTime(1965, 8, 11, 12, 50, 53, 0, DateTimeKind.Unspecified), 4, 7, new DateTime(2000, 11, 10, 10, 35, 12, 0, DateTimeKind.Unspecified), "37152d11-ccb4-4c22-8c5b-e61921d6f1e4", "CreatedIPAdress 3", "IT", 3912, "Email 3", new DateTime(2026, 7, 9, 12, 14, 33, 0, DateTimeKind.Unspecified), 5, "FirstName 3", "02ed7bf8-cdfd-47bc-a48f-30ce26681449", new DateTime(2014, 7, 9, 12, 14, 33, 0, DateTimeKind.Unspecified), "LastName 3", "PNumber 3", "PhotoPath 3", null, "Passive", "TCN 3", null, null, null });
+
+            migrationBuilder.InsertData(
+                table: "Employees",
+                columns: new[] { "Id", "Address", "Age", "BirthDate", "ContractCount", "CountryId", "CreatedDate", "CreatedID", "CreatedIPAddress", "CurrentPosition", "DaysWorked", "Email", "EndContract", "Experience", "FirstName", "Gender", "Guid", "HireDate", "LastName", "PhoneNumber", "PhotoPath", "ResidenceRegionId", "Status", "TCN_Passport", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
+                values: new object[] { 5, "Adress 4", (byte)57, new DateTime(1967, 4, 23, 23, 48, 3, 0, DateTimeKind.Unspecified), 6, 3, new DateTime(2004, 12, 21, 20, 37, 20, 0, DateTimeKind.Unspecified), "8b3a2a67-7770-4a2b-b303-18f9184e5cdd", "CreatedIPAdress 4", "Administrative", 6044, "Email 4", new DateTime(2026, 9, 6, 15, 27, 23, 0, DateTimeKind.Unspecified), 6, "FirstName 4", "Male", "1060f500-5ecc-4bbd-97a1-587f2a3377e6", new DateTime(2008, 9, 6, 15, 27, 23, 0, DateTimeKind.Unspecified), "LastName 4", "PNumber 4", "PhotoPath 4", null, "Active", "TCN 4", null, null, null });
+
+            migrationBuilder.InsertData(
+                table: "Employees",
+                columns: new[] { "Id", "Address", "Age", "BirthDate", "ContractCount", "CountryId", "CreatedDate", "CreatedID", "CreatedIPAddress", "CurrentPosition", "DaysWorked", "Email", "EndContract", "Experience", "FirstName", "Gender", "Guid", "HireDate", "LastName", "PhoneNumber", "PhotoPath", "ResidenceRegionId", "TCN_Passport", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
+                values: new object[] { 6, "Adress 5", (byte)58, new DateTime(1967, 1, 24, 18, 22, 10, 0, DateTimeKind.Unspecified), 4, 8, new DateTime(2015, 12, 9, 19, 14, 36, 0, DateTimeKind.Unspecified), "89e4ca11-472a-46f1-8f03-f236f5f41010", "CreatedIPAdress 5", "Marketing", 3600, "Email 5", new DateTime(2027, 5, 17, 11, 19, 50, 0, DateTimeKind.Unspecified), 7, "FirstName 5", "Female", "e0e5d83c-e72f-463a-97c9-166c5273f9a7", new DateTime(2015, 5, 17, 11, 19, 50, 0, DateTimeKind.Unspecified), "LastName 5", "PNumber 5", "PhotoPath 5", null, "TCN 5", null, null, null });
+
+            migrationBuilder.InsertData(
+                table: "Employees",
+                columns: new[] { "Id", "Address", "Age", "BirthDate", "ContractCount", "CountryId", "CreatedDate", "CreatedID", "CreatedIPAddress", "CurrentPosition", "DaysWorked", "Email", "EndContract", "Experience", "FirstName", "Gender", "Guid", "HireDate", "LastName", "PhoneNumber", "PhotoPath", "ResidenceRegionId", "Status", "TCN_Passport", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
+                values: new object[] { 7, "Adress 6", (byte)51, new DateTime(1973, 8, 9, 22, 16, 32, 0, DateTimeKind.Unspecified), 3, 4, new DateTime(2018, 3, 14, 10, 26, 51, 0, DateTimeKind.Unspecified), "7c758e99-c571-488b-be35-bffdb5670d91", "CreatedIPAdress 6", "Operations", 2997, "Email 6", new DateTime(2026, 1, 9, 12, 33, 13, 0, DateTimeKind.Unspecified), 8, "FirstName 6", "Male", "2101d0ab-3251-4c8c-8d76-5eecad2959fc", new DateTime(2017, 1, 9, 12, 33, 13, 0, DateTimeKind.Unspecified), "LastName 6", "PNumber 6", "PhotoPath 6", null, "Passive", "TCN 6", null, null, null });
+
+            migrationBuilder.InsertData(
+                table: "Employees",
+                columns: new[] { "Id", "Address", "Age", "BirthDate", "ContractCount", "CountryId", "CreatedDate", "CreatedID", "CreatedIPAddress", "CurrentPosition", "DaysWorked", "Email", "EndContract", "Experience", "FirstName", "Guid", "HireDate", "LastName", "PhoneNumber", "PhotoPath", "ResidenceRegionId", "Status", "TCN_Passport", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
                 values: new object[,]
                 {
-                    { 8, 0, "70660687-46f3-40c6-99fc-485fa95c3e0b", null, new DateTime(2012, 10, 20, 6, 41, 17, 0, DateTimeKind.Unspecified), "bc63c3fd-cabb-460f-a9e0-3b7d0a47652c", "CreatedIPAdress 7", "Email 7", false, "0e96755b-5500-4302-a77a-462c421296da", false, null, "EMAİL 7", "USERNAME 7", "$2a$11$2kJ14NeyGwWwn7mwojH7wO/farOoRmkkBugDAcEwxw0lUSciUtEJO", "PNumber 7", false, "eeef4721-dcce-4120-b195-1401a09bb974", false, null, null, null, "UserName 7" },
-                    { 9, 0, "e80f39f7-2c74-4dd5-8192-be8fe635459d", null, new DateTime(2004, 12, 9, 10, 23, 50, 0, DateTimeKind.Unspecified), "609e1f6f-0706-40ef-a339-ac651e21d49a", "CreatedIPAdress 8", "Email 8", false, "e668db5e-1438-459b-85c3-f0ae1146aaef", false, null, "EMAİL 8", "USERNAME 8", "$2a$11$2MGZAVyCqpZpn9xlSrqpuekekOGzsXpufRjrc9Rr1OCe7JjiNK.NS", "PNumber 8", false, "31268fd0-578d-49d2-a122-869b1f99393b", false, null, null, null, "UserName 8" }
+                    { 8, "Adress 7", (byte)64, new DateTime(1960, 8, 21, 10, 29, 24, 0, DateTimeKind.Unspecified), 9, 8, new DateTime(2018, 10, 22, 7, 10, 45, 0, DateTimeKind.Unspecified), "fc32ea57-f8c3-43da-9e58-108e81e85969", "CreatedIPAdress 7", "Accounting", 8710, "Email 7", new DateTime(2028, 5, 21, 3, 28, 43, 0, DateTimeKind.Unspecified), 9, "FirstName 7", "550eb782-1afe-41d7-9fa4-c863e87810af", new DateTime(2001, 5, 21, 3, 28, 43, 0, DateTimeKind.Unspecified), "LastName 7", "PNumber 7", "PhotoPath 7", null, "Passive", "TCN 7", null, null, null },
+                    { 9, "Adress 8", (byte)57, new DateTime(1967, 9, 1, 4, 45, 34, 0, DateTimeKind.Unspecified), 5, 2, new DateTime(2010, 8, 5, 23, 33, 24, 0, DateTimeKind.Unspecified), "5c19988b-6385-4a6e-972a-9f70c4686d2a", "CreatedIPAdress 8", "IT", 4584, "Email 8", new DateTime(2027, 9, 5, 12, 30, 23, 0, DateTimeKind.Unspecified), 10, "FirstName 8", "ed28b428-71a9-4d6d-b5b1-9cd55b1eba74", new DateTime(2012, 9, 5, 12, 30, 23, 0, DateTimeKind.Unspecified), "LastName 8", "PNumber 8", "PhotoPath 8", null, "Active", "TCN 8", null, null, null }
                 });
 
             migrationBuilder.InsertData(
-                table: "AspNetUsers",
-                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "CountryId", "CreatedDate", "CreatedID", "CreatedIPAddress", "Email", "EmailConfirmed", "Guid", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "Status", "TwoFactorEnabled", "UpdatedDate", "UpdatedID", "UpdatedIPAddress", "UserName" },
-                values: new object[] { 10, 0, "042fab42-c5de-4a6e-8720-d4f9d39542f6", null, new DateTime(2004, 4, 19, 10, 34, 45, 0, DateTimeKind.Unspecified), "bee24db9-dc81-4af7-b29f-db27f922d393", "CreatedIPAdress 9", "Email 9", false, "fa927344-e5d1-45dc-b5fe-4740ea5bb852", false, null, "EMAİL 9", "USERNAME 9", "$2a$11$HC2yQqBj2D1sn6If3zRJPut2F8gPFojphsR9b8FAr2tE.7pmNGia.", "PNumber 9", false, "96d59572-f737-4823-976a-4022c595aea8", "Active", false, null, null, null, "UserName 9" });
+                table: "Employees",
+                columns: new[] { "Id", "Address", "Age", "BirthDate", "ContractCount", "CountryId", "CreatedDate", "CreatedID", "CreatedIPAddress", "CurrentPosition", "DaysWorked", "Email", "EndContract", "Experience", "FirstName", "Gender", "Guid", "HireDate", "LastName", "PhoneNumber", "PhotoPath", "ResidenceRegionId", "Status", "TCN_Passport", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
+                values: new object[,]
+                {
+                    { 10, "Adress 9", (byte)31, new DateTime(1994, 2, 26, 6, 28, 6, 0, DateTimeKind.Unspecified), 2, 6, new DateTime(2004, 10, 10, 14, 25, 35, 0, DateTimeKind.Unspecified), "772ed110-08cb-4aae-ba92-29bc5c769b31", "CreatedIPAdress 9", "Consulting", 1906, "Email 9", new DateTime(2026, 1, 5, 9, 49, 23, 0, DateTimeKind.Unspecified), 11, "FirstName 9", "Female", "eddb7f52-0c4d-45f6-85bc-94cda3c1a4f4", new DateTime(2020, 1, 5, 9, 49, 23, 0, DateTimeKind.Unspecified), "LastName 9", "PNumber 9", "PhotoPath 9", null, "Active", "TCN 9", null, null, null },
+                    { 11, "Adress 10", (byte)42, new DateTime(1982, 12, 9, 17, 16, 52, 0, DateTimeKind.Unspecified), 7, 10, new DateTime(2004, 2, 22, 18, 10, 28, 0, DateTimeKind.Unspecified), "b7b36f63-45cd-424d-afdf-d7ea3727271b", "CreatedIPAdress 10", "IT", 6697, "Email 10", new DateTime(2027, 11, 23, 7, 55, 38, 0, DateTimeKind.Unspecified), 12, "FirstName 10", "Male", "2f295fb9-d361-43c7-8e5f-7bcb44dfdb4e", new DateTime(2006, 11, 23, 7, 55, 38, 0, DateTimeKind.Unspecified), "LastName 10", "PNumber 10", "PhotoPath 10", null, "Active", "TCN 10", null, null, null },
+                    { 12, "Adress 11", (byte)55, new DateTime(1969, 7, 23, 5, 42, 33, 0, DateTimeKind.Unspecified), 4, 8, new DateTime(2006, 7, 16, 14, 52, 26, 0, DateTimeKind.Unspecified), "a19795d9-7fbf-4790-81c7-e4597da2ea19", "CreatedIPAdress 11", "Operations", 3172, "Email 11", new DateTime(2028, 7, 18, 5, 47, 5, 0, DateTimeKind.Unspecified), 13, "FirstName 11", "Female", "65f34fb4-b275-40f3-8c45-1d5eda7e9e2d", new DateTime(2016, 7, 18, 5, 47, 5, 0, DateTimeKind.Unspecified), "LastName 11", "PNumber 11", "PhotoPath 11", null, "Passive", "TCN 11", null, null, null }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Employees",
+                columns: new[] { "Id", "Address", "Age", "BirthDate", "ContractCount", "CountryId", "CreatedDate", "CreatedID", "CreatedIPAddress", "CurrentPosition", "DaysWorked", "Email", "EndContract", "Experience", "FirstName", "Guid", "HireDate", "LastName", "PhoneNumber", "PhotoPath", "ResidenceRegionId", "Status", "TCN_Passport", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
+                values: new object[] { 13, "Adress 12", (byte)37, new DateTime(1987, 9, 8, 12, 29, 7, 0, DateTimeKind.Unspecified), 2, 8, new DateTime(2019, 1, 21, 18, 8, 37, 0, DateTimeKind.Unspecified), "9c0458eb-6873-4a10-b2e4-87993ebf322a", "CreatedIPAdress 12", "Operations", 1842, "Email 12", new DateTime(2026, 3, 9, 13, 58, 46, 0, DateTimeKind.Unspecified), 14, "FirstName 12", "b2254a52-fe65-4f47-98d4-f5cbf1b54dfd", new DateTime(2020, 3, 9, 13, 58, 46, 0, DateTimeKind.Unspecified), "LastName 12", "PNumber 12", "PhotoPath 12", null, "Active", "TCN 12", null, null, null });
+
+            migrationBuilder.InsertData(
+                table: "Employees",
+                columns: new[] { "Id", "Address", "Age", "BirthDate", "ContractCount", "CountryId", "CreatedDate", "CreatedID", "CreatedIPAddress", "CurrentPosition", "DaysWorked", "Email", "EndContract", "Experience", "FirstName", "Gender", "Guid", "HireDate", "LastName", "PhoneNumber", "PhotoPath", "ResidenceRegionId", "TCN_Passport", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
+                values: new object[] { 14, "Adress 13", (byte)38, new DateTime(1986, 5, 15, 4, 54, 22, 0, DateTimeKind.Unspecified), 9, 9, new DateTime(2015, 3, 2, 7, 52, 28, 0, DateTimeKind.Unspecified), "a0c47f71-50d3-4769-af56-b5529a8b049f", "CreatedIPAdress 13", "Marketing", 8528, "Email 13", new DateTime(2028, 11, 18, 10, 55, 39, 0, DateTimeKind.Unspecified), 15, "FirstName 13", "Female", "850a19b7-0016-4a4d-86df-4580df98623d", new DateTime(2001, 11, 18, 10, 55, 39, 0, DateTimeKind.Unspecified), "LastName 13", "PNumber 13", "PhotoPath 13", null, "TCN 13", null, null, null });
+
+            migrationBuilder.InsertData(
+                table: "Employees",
+                columns: new[] { "Id", "Address", "Age", "BirthDate", "ContractCount", "CountryId", "CreatedDate", "CreatedID", "CreatedIPAddress", "CurrentPosition", "DaysWorked", "Email", "EndContract", "Experience", "FirstName", "Gender", "Guid", "HireDate", "LastName", "PhoneNumber", "PhotoPath", "ResidenceRegionId", "Status", "TCN_Passport", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
+                values: new object[] { 15, "Adress 14", (byte)37, new DateTime(1987, 6, 10, 20, 14, 34, 0, DateTimeKind.Unspecified), 8, 2, new DateTime(2009, 6, 17, 9, 46, 52, 0, DateTimeKind.Unspecified), "24967eff-927c-4ad9-9636-c75258b7c60b", "CreatedIPAdress 14", "Operations", 7579, "Email 14", new DateTime(2028, 6, 24, 9, 38, 31, 0, DateTimeKind.Unspecified), 16, "FirstName 14", "Female", "462224e5-8159-4894-93e6-67496483a1fd", new DateTime(2004, 6, 24, 9, 38, 31, 0, DateTimeKind.Unspecified), "LastName 14", "PNumber 14", "PhotoPath 14", null, "Passive", "TCN 14", null, null, null });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserProfiles",
                 columns: new[] { "WebUserAccountId", "Address", "Age", "BirthDate", "Email", "FirstName", "Gender", "LastName", "PhoneNumber", "PhotoPath", "TCN_Passport", "UpdatedDate" },
                 values: new object[,]
                 {
-                    { 1, "Adress 0", (byte)68, new DateTime(1956, 5, 16, 11, 17, 8, 0, DateTimeKind.Unspecified), "Email 0", "FirstName 0", "Male", "LastName 0", "PNumber 0", "PhotoPath 0", "TCN 0", new DateTime(2010, 4, 14, 22, 42, 36, 0, DateTimeKind.Unspecified) },
-                    { 2, "Adress 1", (byte)38, new DateTime(1986, 4, 16, 23, 16, 41, 0, DateTimeKind.Unspecified), "Email 1", "FirstName 1", "Male", "LastName 1", "PNumber 1", "PhotoPath 1", "TCN 1", new DateTime(2016, 2, 16, 17, 17, 23, 0, DateTimeKind.Unspecified) }
-                });
-
-            migrationBuilder.InsertData(
-                table: "AspNetUserProfiles",
-                columns: new[] { "WebUserAccountId", "Address", "Age", "BirthDate", "Email", "FirstName", "LastName", "PhoneNumber", "PhotoPath", "TCN_Passport", "UpdatedDate" },
-                values: new object[] { 3, "Adress 2", (byte)37, new DateTime(1988, 2, 13, 20, 19, 44, 0, DateTimeKind.Unspecified), "Email 2", "FirstName 2", "LastName 2", "PNumber 2", "PhotoPath 2", "TCN 2", new DateTime(2017, 7, 9, 16, 43, 4, 0, DateTimeKind.Unspecified) });
-
-            migrationBuilder.InsertData(
-                table: "AspNetUserProfiles",
-                columns: new[] { "WebUserAccountId", "Address", "Age", "BirthDate", "Email", "FirstName", "Gender", "LastName", "PhoneNumber", "PhotoPath", "TCN_Passport", "UpdatedDate" },
-                values: new object[,]
-                {
-                    { 4, "Adress 3", (byte)21, new DateTime(2003, 4, 14, 12, 45, 24, 0, DateTimeKind.Unspecified), "Email 3", "FirstName 3", "Female", "LastName 3", "PNumber 3", "PhotoPath 3", "TCN 3", new DateTime(2010, 9, 8, 22, 51, 23, 0, DateTimeKind.Unspecified) },
-                    { 5, "Adress 4", (byte)27, new DateTime(1997, 7, 3, 6, 36, 19, 0, DateTimeKind.Unspecified), "Email 4", "FirstName 4", "Male", "LastName 4", "PNumber 4", "PhotoPath 4", "TCN 4", new DateTime(2004, 12, 7, 17, 59, 38, 0, DateTimeKind.Unspecified) },
-                    { 6, "Adress 5", (byte)23, new DateTime(2001, 8, 22, 23, 10, 26, 0, DateTimeKind.Unspecified), "Email 5", "FirstName 5", "Male", "LastName 5", "PNumber 5", "PhotoPath 5", "TCN 5", new DateTime(2007, 2, 4, 4, 35, 25, 0, DateTimeKind.Unspecified) },
-                    { 7, "Adress 6", (byte)36, new DateTime(1989, 1, 7, 4, 14, 48, 0, DateTimeKind.Unspecified), "Email 6", "FirstName 6", "Male", "LastName 6", "PNumber 6", "PhotoPath 6", "TCN 6", new DateTime(2018, 11, 23, 15, 49, 52, 0, DateTimeKind.Unspecified) },
-                    { 8, "Adress 7", (byte)59, new DateTime(1965, 12, 22, 23, 46, 31, 0, DateTimeKind.Unspecified), "Email 7", "FirstName 7", "Male", "LastName 7", "PNumber 7", "PhotoPath 7", "TCN 7", new DateTime(2016, 3, 27, 1, 21, 31, 0, DateTimeKind.Unspecified) }
+                    { 1, "Adress 0", (byte)33, new DateTime(1991, 9, 15, 9, 17, 3, 0, DateTimeKind.Unspecified), "Email 0", "FirstName 0", "Male", "LastName 0", "PNumber 0", "PhotoPath 0", "TCN 0", new DateTime(2007, 4, 2, 10, 27, 3, 0, DateTimeKind.Unspecified) },
+                    { 2, "Adress 1", (byte)54, new DateTime(1970, 6, 12, 4, 46, 35, 0, DateTimeKind.Unspecified), "Email 1", "FirstName 1", "Male", "LastName 1", "PNumber 1", "PhotoPath 1", "TCN 1", new DateTime(2010, 8, 6, 7, 44, 26, 0, DateTimeKind.Unspecified) },
+                    { 3, "Adress 2", (byte)34, new DateTime(1990, 11, 4, 14, 10, 27, 0, DateTimeKind.Unspecified), "Email 2", "FirstName 2", "Male", "LastName 2", "PNumber 2", "PhotoPath 2", "TCN 2", new DateTime(2014, 6, 19, 2, 36, 20, 0, DateTimeKind.Unspecified) },
+                    { 4, "Adress 3", (byte)32, new DateTime(1992, 5, 2, 16, 26, 34, 0, DateTimeKind.Unspecified), "Email 3", "FirstName 3", "Male", "LastName 3", "PNumber 3", "PhotoPath 3", "TCN 3", new DateTime(2021, 11, 4, 4, 55, 39, 0, DateTimeKind.Unspecified) },
+                    { 5, "Adress 4", (byte)51, new DateTime(1973, 9, 8, 17, 49, 48, 0, DateTimeKind.Unspecified), "Email 4", "FirstName 4", "Male", "LastName 4", "PNumber 4", "PhotoPath 4", "TCN 4", new DateTime(2010, 12, 2, 3, 8, 34, 0, DateTimeKind.Unspecified) },
+                    { 6, "Adress 5", (byte)45, new DateTime(1979, 9, 6, 3, 48, 25, 0, DateTimeKind.Unspecified), "Email 5", "FirstName 5", "Female", "LastName 5", "PNumber 5", "PhotoPath 5", "TCN 5", new DateTime(2019, 7, 4, 9, 12, 15, 0, DateTimeKind.Unspecified) },
+                    { 7, "Adress 6", (byte)24, new DateTime(2001, 3, 14, 16, 35, 5, 0, DateTimeKind.Unspecified), "Email 6", "FirstName 6", "Female", "LastName 6", "PNumber 6", "PhotoPath 6", "TCN 6", new DateTime(2014, 1, 24, 4, 25, 36, 0, DateTimeKind.Unspecified) },
+                    { 8, "Adress 7", (byte)58, new DateTime(1966, 8, 9, 2, 26, 2, 0, DateTimeKind.Unspecified), "Email 7", "FirstName 7", "Male", "LastName 7", "PNumber 7", "PhotoPath 7", "TCN 7", new DateTime(2016, 6, 16, 4, 50, 16, 0, DateTimeKind.Unspecified) }
                 });
 
             migrationBuilder.CreateIndex(

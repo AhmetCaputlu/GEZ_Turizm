@@ -12,6 +12,8 @@ using DataAccess.Entities.Models.Regions;
 using DataAccess.Entities.Models.Tickets;
 using DataAccess.Entities.Models.Vehicles;
 using DataAccess.Entities.Models.WebUsers;
+using DataAccess.SeedData.Countries;
+using DataAccess.SeedData.Employees;
 using DataAccess.SeedData.WebUsers;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -76,11 +78,11 @@ namespace DataAccess.Context
            
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(GezTurizmContext).Assembly);
 
-            //Bu mantıkla ekleyeceğiz.
-            //Yarın tüm veriler eklenmeli sırası belirlenmeli.
-            //Sonra da repository klasörüne geçeceğiz.
+            
             modelBuilder.Entity<WebUserAccount>().HasData(WebUserAccountSeedData.GetUserAccounts(10));
             modelBuilder.Entity<WebUserProfile>().HasData(WebUserProfileSeedData.GetUserProfiles(8));
+            modelBuilder.Entity<Country>().HasData(CountrySeedData.GetCountries(15));
+            modelBuilder.Entity<Employee>().HasData(EmployeeSeedData.GetEmployees(15));
             base.OnModelCreating(modelBuilder);
         }
     }

@@ -22,6 +22,7 @@ namespace DataAccess.Configurations.Abstracts
             builder.Property(x => x.Email).HasMaxLength(120).IsRequired(false);
             builder.Property(x => x.HireDate).IsRequired(true);
             builder.Property(x => x.Experience).IsRequired(true);
+            builder.Property(x => x.EndContract).IsRequired(false);
         }
     }
 }

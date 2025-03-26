@@ -2,8 +2,7 @@
 {
     public enum Department
     {
-        None = 0,
-        Marketing,//Pazarlama
+        Marketing = 1,//Pazarlama
         Operations,//Operasyon
         Accounting,//Muhasebe
         Administrative,//İdari birim
