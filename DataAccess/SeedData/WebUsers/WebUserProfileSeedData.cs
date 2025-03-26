@@ -1,4 +1,5 @@
 ﻿using System.Security.Cryptography;
+using Bogus;
 using DataAccess.Entities.Enums;
 using DataAccess.Entities.Models.WebUsers;
 using DataAccess.SeedData;
@@ -13,11 +14,12 @@ namespace DataAccess.SeedData.WebUsers
             List<WebUserProfile> webUserProfiles = new List<WebUserProfile>();
             for (int i = 0; i < count; i++)
             {
+                Faker faker = new Faker();
                 WebUserProfile webUserProfile = new WebUserProfile
                 {
                     WebUserAccountId = i + 1,
-                    FirstName = $"FirstName {i}",
-                    LastName = $"LastName {i}",
+                    FirstName =  faker.Name.FirstName() ,
+                    LastName = faker.Name.LastName(),
                     Gender = RandomEnum.GetRandomGender(),
                     BirthDate = RandomDatetime.GetBirthDateTime(),
                     PhoneNumber = $"PNumber {i}",
