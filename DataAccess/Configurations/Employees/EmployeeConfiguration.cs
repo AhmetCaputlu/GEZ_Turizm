@@ -2,6 +2,7 @@
 using DataAccess.Entities.Abstracts;
 using DataAccess.Entities.Enums;
 using DataAccess.Entities.Models.Employees;
+using DataAccess.SeedData.Employees;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -21,6 +22,8 @@ namespace DataAccess.Configurations.Employees
             builder.HasOne(x => x.ResidenceRegion).WithMany(x => x.Employees).HasForeignKey(x => x.ResidenceRegionId).OnDelete(DeleteBehavior.NoAction);
             //Country
             builder.HasOne(x => x.Country).WithMany(x => x.Employees).HasForeignKey(x => x.CountryId).OnDelete(DeleteBehavior.NoAction);
+            builder.HasData(EmployeeSeedData.GetEmployees(5));
+
         }
     }
 }

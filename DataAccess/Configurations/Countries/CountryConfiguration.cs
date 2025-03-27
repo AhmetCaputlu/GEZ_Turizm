@@ -1,6 +1,7 @@
 ﻿using DataAccess.Configurations.Abstracts;
 using DataAccess.Entities.Enums;
 using DataAccess.Entities.Models.Countries;
+using DataAccess.SeedData.Countries;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -20,6 +21,8 @@ namespace DataAccess.Configurations.Countries
 
             //WebUserAccount
             builder.HasMany(x => x.WebUserAccounts).WithOne(x => x.Country).HasForeignKey(x => x.CountryId).OnDelete(DeleteBehavior.NoAction);
+
+            builder.HasData(CountrySeedData.GetCountries(5));
         }
     }
 }
