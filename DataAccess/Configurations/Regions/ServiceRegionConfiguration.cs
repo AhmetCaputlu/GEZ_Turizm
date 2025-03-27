@@ -1,5 +1,6 @@
 ﻿using DataAccess.Configurations.Abstracts;
 using DataAccess.Entities.Models.Regions;
+using DataAccess.SeedData.Regions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -15,7 +16,7 @@ namespace DataAccess.Configurations.Regions
             builder.Property(x => x.HasHotelFacility).IsRequired(true);
             builder.HasMany(x => x.ContractTourGuides_ServiceRegions).WithOne(x => x.ServiceRegion).HasForeignKey(x => x.ServiceRegionId).OnDelete(DeleteBehavior.NoAction);
             builder.HasMany(x => x.Events).WithOne(x => x.ServiceRegion).HasForeignKey(x => x.RegionId).OnDelete(DeleteBehavior.NoAction);
-            
+            builder.HasData(ServiceRegionSeedData.GetServiceRegions(5));
         }
     }
 }

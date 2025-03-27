@@ -1,6 +1,7 @@
 ﻿using DataAccess.Configurations.Abstracts;
 using DataAccess.Entities.Enums;
 using DataAccess.Entities.Models.Activities;
+using DataAccess.SeedData.Activities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -15,7 +16,7 @@ namespace DataAccess.Configurations.Activities
             //builder.Property(x => x.EventCategory)
             builder.HasOne(x => x.ServiceRegion).WithMany(x => x.Events).HasForeignKey(x => x.RegionId).OnDelete(DeleteBehavior.NoAction);
             builder.HasMany(x => x.EventTickets).WithOne(x => x.Event).HasForeignKey(x => x.EventId).OnDelete(DeleteBehavior.NoAction);
-
+            builder.HasData(EventSeedData.GetEvents(5));
         }
     }
 }

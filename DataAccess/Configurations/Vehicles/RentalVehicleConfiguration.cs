@@ -1,5 +1,6 @@
 ﻿using DataAccess.Configurations.Abstracts;
 using DataAccess.Entities.Models.Vehicles;
+using DataAccess.SeedData.Vehicles;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -19,6 +20,7 @@ namespace DataAccess.Configurations.Vehicles
             builder.HasOne(x => x.RentalVehicleSupplier).WithMany(x => x.RentalVehicles).HasForeignKey(x => x.RentalVehicleSupplierId).OnDelete(DeleteBehavior.NoAction);
             builder.HasOne(x => x.Event).WithMany(x => x.RentalVehicles).HasForeignKey(x => x.EventId).OnDelete(DeleteBehavior.NoAction);
             builder.HasOne(x => x.Tour).WithMany(x => x.RentalVehicles).HasForeignKey(x => x.TourId).OnDelete(DeleteBehavior.NoAction);
+            builder.HasData(RentalVehiclesSeedData.GetRentalVehicles(5));
         }
     }
 }
