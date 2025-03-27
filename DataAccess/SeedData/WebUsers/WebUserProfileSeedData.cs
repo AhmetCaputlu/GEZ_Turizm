@@ -22,11 +22,11 @@ namespace DataAccess.SeedData.WebUsers
                     LastName = faker.Name.LastName(),
                     Gender = RandomEnum.GetRandomGender(),
                     BirthDate = RandomDatetime.GetBirthDateTime(),
-                    PhoneNumber = $"PNumber {i}",
-                    Address = $"Adress {i}",
-                    PhotoPath = $"PhotoPath {i}",
-                    TCN_Passport = $"TCN {i}",
-                    Email = $"Email {i}",
+                    PhoneNumber = faker.Phone.PhoneNumber("05#########"),
+                    Address = faker.Address.FullAddress(),
+                    PhotoPath = faker.Person.Website,
+                    TCN_Passport = faker.Random.ReplaceNumbers("###########"),
+                    Email = faker.Person.Email,
                     UpdatedDate = RandomDatetime.GetDateTime()
                 };
                 webUserProfiles.Add(webUserProfile);

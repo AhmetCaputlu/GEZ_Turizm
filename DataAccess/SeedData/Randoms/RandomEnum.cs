@@ -25,5 +25,20 @@ namespace DataAccess.SeedData.Randoms
             Array values = Enum.GetValues(typeof(Department));
             return (Department)values.GetValue(_random.Next(values.Length));
         }
+        internal static DriverLicense GetRandomDriverLicense()
+        {
+            Array values = Enum.GetValues(typeof(DriverLicense));
+            return (DriverLicense)values.GetValue(_random.Next(values.Length));
+        }
+        internal static Language GetRandomLanguage()
+        {
+            Array values = Enum.GetValues(typeof(Language));
+            return (Language)values.GetValue(_random.Next(values.Length));
+        }
+        internal static VehicleType GetRandomVehicleType()
+        {
+            Array values = Enum.GetValues(typeof(VehicleType));
+            return (VehicleType)values.GetValue(_random.Next(values.Length));
+        }
     }
 }

@@ -14,6 +14,7 @@ using DataAccess.Entities.Models.Vehicles;
 using DataAccess.Entities.Models.WebUsers;
 using DataAccess.SeedData.Countries;
 using DataAccess.SeedData.Employees;
+using DataAccess.SeedData.Regions;
 using DataAccess.SeedData.WebUsers;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -81,8 +82,11 @@ namespace DataAccess.Context
             
             modelBuilder.Entity<WebUserAccount>().HasData(WebUserAccountSeedData.GetUserAccounts(10));
             modelBuilder.Entity<WebUserProfile>().HasData(WebUserProfileSeedData.GetUserProfiles(8));
-            modelBuilder.Entity<Country>().HasData(CountrySeedData.GetCountries(15));
-            modelBuilder.Entity<Employee>().HasData(EmployeeSeedData.GetEmployees(15));
+            modelBuilder.Entity<Employee>().HasData(EmployeeSeedData.GetEmployees(5));
+            modelBuilder.Entity<ContractDriver>().HasData(ContractDriverSeedData.GetContractDrivers(5));
+            modelBuilder.Entity<ContractTourGuide>().HasData(ContractTourGuideSeedData.GetContractTourGuides(5));
+            modelBuilder.Entity<Country>().HasData(CountrySeedData.GetCountries(5));
+            modelBuilder.Entity<ResidenceRegion>().HasData(ResidenceRegionSeedData.GetResidenceRegions(5));
             base.OnModelCreating(modelBuilder);
         }
     }

@@ -5,15 +5,15 @@ using DataAccess.SeedData.Randoms;
 
 namespace DataAccess.SeedData.Employees
 {
-    internal class EmployeeSeedData
+    internal class ContractDriverSeedData
     {
-        internal static List<Employee> GetEmployees(int count)
+        internal static List<ContractDriver> GetContractDrivers(int count)
         {
-            List<Employee> employees = new List<Employee>();
+            List<ContractDriver> contractDrivers = new List<ContractDriver>();
+            Faker faker = new Faker();
             for (int i = 0; i < count; i++)
             {
-                Faker faker = new Faker();
-                Employee employee = new Employee
+                ContractDriver contractDriver = new ContractDriver
                 {
                     Id = i + 1,
                     Guid = Guid.NewGuid().ToString(),
@@ -32,13 +32,11 @@ namespace DataAccess.SeedData.Employees
                     TCN_Passport = faker.Random.ReplaceNumbers("###########"),
                     HireDate = RandomDatetime.GetDateTime(),
                     Experience = RandomNavId.GetNavIdMax5(),
-                    CurrentPosition = RandomEnum.GetRandomDepartment(),
-                    CountryId = RandomNavId.GetNavIdMax5(),
-                    ResidenceRegionId = RandomNavId.GetNavIdMax5()
+                    DriverLicense = RandomEnum.GetRandomDriverLicense()
                 };
-                employees.Add(employee);
+                contractDrivers.Add(contractDriver);
             }
-            return employees;
+            return contractDrivers;
         }
     }
 }

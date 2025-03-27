@@ -13,8 +13,8 @@ namespace DataAccess.Configurations.Countries
             base.Configure(builder);
             builder.Property(x=>x.CountryName).IsRequired(true).HasMaxLength(80);
             builder.Property(x=>x.CountryCode).IsRequired(true).HasMaxLength(8);
-            builder.Property(x=>x.CountryDescription).IsRequired(false).HasMaxLength(190);
-            builder.Property(x=>x.CountryPhone).IsRequired(true).HasMaxLength(15);
+            builder.Property(x=>x.CountryDescription).IsRequired(false).HasMaxLength(250);
+            builder.Property(x=>x.CountryPhone).IsRequired(true).HasMaxLength(7);
             builder.Property(x=>x.Continent).IsRequired(true).HasConversion(x => x.ToString(), x => (Continent)Enum.Parse(typeof(Continent), x)).HasMaxLength(50);
             //Mapping
 

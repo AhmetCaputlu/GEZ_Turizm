@@ -1,4 +1,5 @@
-﻿using DataAccess.Entities.Models.Countries;
+﻿using Bogus;
+using DataAccess.Entities.Models.Countries;
 using DataAccess.Entities.Models.WebUsers;
 using DataAccess.SeedData.Randoms;
 
@@ -8,10 +9,14 @@ namespace DataAccess.SeedData.Countries
     {
         internal static List<Country> GetCountries(int count)
         {
+            Faker faker = new Faker();
             List<Country> countries = new List<Country>();
+            string[] countryNames = { "Turkey", "Russia", "United States of America", "Kingdom of Saudi Arabia", "Germany" };
+            string[] countryCode = { "TR", "RU", "USA", "SA", "GER" };
+            string[] countryNumber = { "+90", "+7", "+1", "+966", "+49" };
             for (int i = 0; i < count; i++)
             {
-               
+                
                 Country country = new Country
                 {
 
@@ -19,12 +24,12 @@ namespace DataAccess.SeedData.Countries
                     Guid = Guid.NewGuid().ToString(),
                     CreatedDate = RandomDatetime.GetDateTime(),//Başlangıç verilerimiz rastgele olsun
                     CreatedID = Guid.NewGuid().ToString(),
-                    CreatedIPAddress = $"CreatedIPAdress {i}",
+                    CreatedIPAddress = faker.Internet.IpAddress().ToString(),
                     Status = RandomEnum.GetRandomStatus(),
-                    CountryName = $"CountryName {i}",
-                    CountryCode = $"X {i}",
-                    CountryDescription = $"CountryDescription {i}",
-                    CountryPhone = $"Cphone {i}",
+                    CountryName = countryNames[i],
+                    CountryCode = countryCode[i],
+                    CountryDescription = faker.Lorem.Sentence(6),
+                    CountryPhone = countryNumber[i],
                     Continent = RandomEnum.GetRandomContinent(),  
                 };
               

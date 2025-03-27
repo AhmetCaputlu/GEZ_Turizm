@@ -2,6 +2,7 @@
 using DataAccess.Entities.Models.WebUsers;
 using DataAccess.Entities.Enums;
 using DataAccess.SeedData.Randoms;
+using Bogus;
 
 namespace DataAccess.SeedData.WebUsers
 {
@@ -9,6 +10,7 @@ namespace DataAccess.SeedData.WebUsers
     {
         internal static List<WebUserAccount> GetUserAccounts(int count)
         {
+            Faker faker = new Faker();
             List<WebUserAccount> webUserAccounts = new List<WebUserAccount>();
             for (int i = 0; i < count; i++)
             {
@@ -19,14 +21,14 @@ namespace DataAccess.SeedData.WebUsers
                     Guid = Guid.NewGuid().ToString(),
                     CreatedDate = RandomDatetime.GetDateTime(),//Başlangıç verilerimiz rastgele olsun
                     CreatedID = Guid.NewGuid().ToString(),
-                    CreatedIPAddress = $"CreatedIPAdress {i}",
-                    UserName = $"UserName {i}",
+                    CreatedIPAddress = faker.Internet.IpAddress().ToString(),
+                    UserName = faker.Name.FirstName(),
                     PasswordHash = BCrypt.Net.BCrypt.HashPassword($"HashPassword {i}"),
-                    Email = $"Email {i}",
+                    Email = faker.Internet.Email(),
                     SecurityStamp = Guid.NewGuid().ToString(),
                     Status = RandomEnum.GetRandomStatus(),
-                    PhoneNumber = $"PNumber {i}",
-                    CountryId = RandomNavId.GetNavIdMax10(),
+                    PhoneNumber = faker.Phone.PhoneNumber("05#########"),
+                    CountryId = RandomNavId.GetNavIdMax5(),
                 };
                 webUserAccount.NormalizedUserName = webUserAccount.UserName.ToUpper();
                 webUserAccount.NormalizedEmail = webUserAccount.Email.ToUpper();
@@ -36,3 +38,7 @@ namespace DataAccess.SeedData.WebUsers
         }
     }
 }
+
+
+
+
