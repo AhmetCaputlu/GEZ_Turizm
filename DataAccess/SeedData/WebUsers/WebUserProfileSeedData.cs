@@ -27,7 +27,7 @@ namespace DataAccess.SeedData.WebUsers
                     PhotoPath = faker.Person.Website,
                     TCN_Passport = faker.Random.ReplaceNumbers("###########"),
                     Email = faker.Person.Email,
-                    UpdatedDate = RandomDatetime.GetDateTime()
+                    UpdatedDate = RandomDatetime.GetProfileUpdateDateTime()
                 };
                 webUserProfiles.Add(webUserProfile);
             }

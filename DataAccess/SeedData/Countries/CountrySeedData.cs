@@ -30,7 +30,7 @@ namespace DataAccess.SeedData.Countries
                     CountryCode = countryCode[i],
                     CountryDescription = faker.Lorem.Sentence(6),
                     CountryPhone = countryNumber[i],
-                    Continent = RandomEnum.GetRandomContinent(),  
+                    Continent = RandomEnum.GetRandomContinent(),  //Uyuşmazlık
                 };
               
                 countries.Add(country);

@@ -1,5 +1,6 @@
 ﻿using DataAccess.Configurations.Abstracts;
 using DataAccess.Entities.Models.Products;
+using DataAccess.SeedData.Products;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -17,7 +18,8 @@ namespace DataAccess.Configurations.Products
             builder.Property(x => x.Description).HasMaxLength(220).IsRequired(true);
             builder.Property(x => x.UnitPrice).IsRequired(true);
             builder.Property(x => x.UnitsInStock).IsRequired(true);
-            //Mapping
+
+            builder.HasData(ProductSeedData.GetProducts(500));
         }
     }
 }

@@ -84,3 +84,11 @@ namespace DataAccess.Context
         }
     }
 }
+
+//todo:BLL katmanında HttpContext nesnesi ile created ip ve updated ip bilgileri alınacak.
+//todo:BLL katmanında kullanıcının mail bilgisi order içerisine yazılacak.Örnek verilerde şimdilik rastgele
+//todo:BLL katmanında ürünün ve biletlerin fiyatları,ilgili ürünün fiyatına göre order detail içerisine yazılacak.Örnek verilerde şimdilik rastgele
+
+//Companies and Transactions
+//OrderDetails
+//PassTickets

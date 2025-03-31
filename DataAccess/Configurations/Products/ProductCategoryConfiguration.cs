@@ -1,6 +1,7 @@
 ﻿using DataAccess.Configurations.Abstracts;
 using DataAccess.Entities.Enums;
 using DataAccess.Entities.Models.Products;
+using DataAccess.SeedData.Products;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -15,6 +16,8 @@ namespace DataAccess.Configurations.Products
             builder.Property(x => x.CategoryName).HasMaxLength(75).IsRequired(true); 
             builder.Property(x => x.CategoryType).HasDefaultValue(CategoryType.Unknown).HasConversion(x=>x.ToString(),x=>(CategoryType)Enum.Parse(typeof(CategoryType),x)).IsRequired(true).HasMaxLength(75); 
             builder.Property(x => x.Description).HasMaxLength(130).IsRequired(true);
+
+            builder.HasData(ProductCategorySeedData.GetProductCategories(5));
         }
     }
 }

@@ -23,12 +23,14 @@ namespace DataAccess.SeedData.WebUsers
                     CreatedID = Guid.NewGuid().ToString(),
                     CreatedIPAddress = faker.Internet.IpAddress().ToString(),
                     UserName = faker.Name.FirstName(),
-                    PasswordHash = BCrypt.Net.BCrypt.HashPassword($"HashPassword {i}"),
+                    PasswordHash = BCrypt.Net.BCrypt.HashPassword(faker.Lorem.Word()),
                     Email = faker.Internet.Email(),
                     SecurityStamp = Guid.NewGuid().ToString(),
                     Status = RandomEnum.GetRandomStatus(),
                     PhoneNumber = faker.Phone.PhoneNumber("05#########"),
                     CountryId = RandomNavId.GetNavIdMax5(),
+                    LockoutEnabled = false,
+                    LockoutEnd = DateTime.Now.AddDays(7)
                 };
                 webUserAccount.NormalizedUserName = webUserAccount.UserName.ToUpper();
                 webUserAccount.NormalizedEmail = webUserAccount.Email.ToUpper();

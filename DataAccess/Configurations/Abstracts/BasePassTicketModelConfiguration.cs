@@ -13,6 +13,7 @@ namespace DataAccess.Configurations.Abstracts
             builder.Property(x => x.CommissionRate).IsRequired(true);
             builder.Property(x => x.Price).IsRequired(true).HasColumnType("decimal(6,2)");
             builder.Property(x => x.TotalCostwithCommission).IsRequired(true).HasColumnType("decimal(8,2)");
+            builder.Property(x => x.NetCost).IsRequired(false).HasColumnType("decimal(10,2)");
         }
     }
 }

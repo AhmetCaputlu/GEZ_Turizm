@@ -14,13 +14,12 @@ namespace DataAccess.Configurations.Abstracts
             builder.Property(x => x.Guid).HasMaxLength(36).IsRequired(true).HasDefaultValue(Guid.NewGuid().ToString());
             builder.Property(x => x.CreatedDate).IsRequired(true).HasDefaultValue(DateTime.Now);
             builder.Property(x => x.CreatedID).HasMaxLength(36).IsRequired(true).HasDefaultValue(Guid.NewGuid().ToString());
-            //todo:Kayıt oluşturan kullanıcının Guid bilgisi atanacak.
             builder.Property(x => x.CreatedIPAddress).HasMaxLength(20).IsRequired(true).HasDefaultValue("");
-            //todo:BLL katmanında kullanıcının IP bilgisi alınacak.(HttpContext)
             builder.Property(x => x.UpdatedDate).IsRequired(false);
             builder.Property(x => x.UpdatedID).HasMaxLength(36).IsRequired(false);
             builder.Property(x => x.UpdatedIPAddress).HasMaxLength(20).IsRequired(false);
-            builder.Property(x => x.Status).IsRequired(true).HasDefaultValue(DataStatus.Unknown).HasConversion(x => x.ToString(), x => (DataStatus)Enum.Parse(typeof(DataStatus), x));
+            builder.Property(x => x.Status).IsRequired(true).HasDefaultValue(DataStatus.Unknown)
+            .HasConversion(x => x.ToString(), x => (DataStatus)Enum.Parse(typeof(DataStatus), x));
             builder.Property(x => x.Status).HasMaxLength(20);
         }
     }

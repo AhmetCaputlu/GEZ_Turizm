@@ -30,6 +30,9 @@ namespace DataAccess.SeedData.Vehicles
                     Capacity = (short)faker.Random.Int(2, 100),
                     DailyRentalFee = faker.Random.Int(5000, 25000),
                     StartDate = RandomDatetime.GetDateTime(),
+                    RentalVehicleSupplierId = RandomNavId.GetNavIdMax5(),
+                    TourId = RandomNavId.GetNavIdMax5(),
+                    EventId = RandomNavId.GetNavIdMax5(),
                 };
                 rentalVehicle.ExpireDate = rentalVehicle.StartDate.AddDays(RandomNavId.GetNavIdMax5());
                 rentalVehicles.Add(rentalVehicle);

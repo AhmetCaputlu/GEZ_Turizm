@@ -50,5 +50,20 @@ namespace DataAccess.SeedData.Randoms
             Array values = Enum.GetValues(typeof(EventCategory));
             return (EventCategory)values.GetValue(_random.Next(values.Length));
         }
+        internal static CategoryType GetRandomCategoryType()
+        {
+            Array values = Enum.GetValues(typeof(CategoryType));
+            return (CategoryType)values.GetValue(_random.Next(values.Length));
+        }
+        internal static Currency GetRandomCurrency()
+        {
+            Array values = Enum.GetValues(typeof(Currency));
+            return (Currency)values.GetValue(_random.Next(values.Length));
+        }
+        internal static PaymentStatus GetRandomPaymentStatus()
+        {
+            Array values = Enum.GetValues(typeof(PaymentStatus));
+            return (PaymentStatus)values.GetValue(_random.Next(values.Length));
+        }
     }
 }

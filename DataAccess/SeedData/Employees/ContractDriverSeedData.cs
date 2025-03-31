@@ -32,7 +32,8 @@ namespace DataAccess.SeedData.Employees
                     TCN_Passport = faker.Random.ReplaceNumbers("###########"),
                     HireDate = RandomDatetime.GetDateTime(),
                     Experience = RandomNavId.GetNavIdMax5(),
-                    DriverLicense = RandomEnum.GetRandomDriverLicense()
+                    DriverLicense = RandomEnum.GetRandomDriverLicense(),
+                    SubContractWorkerSupplierId = RandomNavId.GetNavIdMax5()
                 };
                 contractDrivers.Add(contractDriver);
             }

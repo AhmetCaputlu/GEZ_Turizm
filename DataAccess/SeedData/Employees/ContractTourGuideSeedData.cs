@@ -33,6 +33,7 @@ namespace DataAccess.SeedData.Employees
                     HireDate = RandomDatetime.GetDateTime(),
                     Experience = RandomNavId.GetNavIdMax5(),
                     Language = RandomEnum.GetRandomLanguage(),
+                    SubContractWorkerSupplierId = RandomNavId.GetNavIdMax5()
                 };
                 contractTourGuides.Add(contractTourGuide);
             }

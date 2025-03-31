@@ -16,9 +16,7 @@ namespace DataAccess.Configurations.WebUsers
             builder.Property(x => x.Guid).HasMaxLength(36).IsRequired(true);
             builder.Property(x => x.CreatedDate).IsRequired(true).HasDefaultValue(DateTime.Now);
             builder.Property(x => x.CreatedID).IsRequired(true).HasMaxLength(36);
-            //todo:Kayıt oluşturan kullanıcının Guid bilgisi atanacak.
             builder.Property(x => x.CreatedIPAddress).HasMaxLength(20).IsRequired(true).HasDefaultValue("IP verilmedi");
-            //todo:BLL katmanında kullanıcının IP bilgisi alınacak.(HttpContext)
             builder.Property(x => x.UpdatedDate).IsRequired(false);
             builder.Property(x => x.UpdatedID).IsRequired(false).HasMaxLength(36);
             builder.Property(x => x.UpdatedIPAddress).HasMaxLength(20).IsRequired(false);

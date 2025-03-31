@@ -17,6 +17,17 @@ namespace DataAccess.SeedData.Randoms
             return today;
         }
         /// <summary>
+        /// Kullanıcı profillerinin güncellenme zamanı için anlamlı tarihler
+        /// </summary>
+        /// <returns></returns>
+        internal static DateTime GetProfileUpdateDateTime()
+        {
+            DateTime today = new DateTime
+                (_random.Next(2022, 2025), _random.Next(1, 13), _random.Next(1, 28),
+                _random.Next(1, 24), _random.Next(8, 60), _random.Next(2, 55));
+            return today;
+        }
+        /// <summary>
         /// Bu metod geçmiş bir zaman için rastgele (ve anlamlı) doğum tarihi üretmek için yazıldı.
         /// </summary>
         /// <returns></returns>

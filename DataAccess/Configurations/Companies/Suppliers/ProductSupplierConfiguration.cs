@@ -1,5 +1,6 @@
 ﻿using DataAccess.Configurations.Abstracts;
 using DataAccess.Entities.Models.Companies.Suppliers;
+using DataAccess.SeedData.Companies.Suppliers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -12,7 +13,7 @@ namespace DataAccess.Configurations.Companies.Suppliers
             base.Configure(builder);
             builder.HasMany(x => x.Products).WithOne(x => x.ProductSupplier).HasForeignKey(x => x.ProductSupplierId).OnDelete(DeleteBehavior.NoAction);
 
-
+            builder.HasData(ProductSupplierSeedData.GetProductSuppliers(5));
         }
     }
 }
