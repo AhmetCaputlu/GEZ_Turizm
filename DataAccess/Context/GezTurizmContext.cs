@@ -64,6 +64,7 @@ namespace DataAccess.Context
         public DbSet<TourTicketOrder> TourTicketOrders { get; set; }
         public DbSet<EventTicketOrder> EventTicketOrders { get; set; }
         public DbSet<EventTicketOrderDetail> EventTicketOrderDetails { get; set; }
+        public DbSet<TourTicketOrderDetail> TourTicketOrderDetails { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

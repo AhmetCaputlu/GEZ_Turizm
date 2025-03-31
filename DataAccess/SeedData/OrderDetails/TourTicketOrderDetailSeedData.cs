@@ -1,19 +1,18 @@
 ﻿using Bogus;
 using DataAccess.Entities.Models.OrderDetails;
-using DataAccess.SeedData.Products;
 using DataAccess.SeedData.Randoms;
 
 namespace DataAccess.SeedData.OrderDetails
 {
-    internal class ProductOrderDetailSeedData
+    internal class TourTicketOrderDetailSeedData
     {
-        internal static List<ProductOrderDetail> GetProductOrderDetails(int count)
+        internal static List<TourTicketOrderDetail> GetTourTicketOrderDetails(int count)
         {
-            List<ProductOrderDetail> productOrderDetails = new List<ProductOrderDetail>();
+            List<TourTicketOrderDetail> tourTicketOrderDetails = new List<TourTicketOrderDetail>();
             Faker faker = new Faker();
             for (int i = 0; i < count; i++)
             {
-                ProductOrderDetail productOrderDetail = new ProductOrderDetail
+                TourTicketOrderDetail tourTicketOrderDetail = new TourTicketOrderDetail
                 {
                     Id = i + 1,
                     Guid = Guid.NewGuid().ToString(),
@@ -24,13 +23,13 @@ namespace DataAccess.SeedData.OrderDetails
                     UnitPrice = faker.Random.Decimal(100m, 1200m),
                     Quantity = faker.Random.Byte(1, 4),
                     Discount = faker.Random.Decimal(0, 0.5m),
-                    ProductId = faker.Random.Int(1,500),
-                    ProductOrderId = faker.Random.Int(1,80)
+                    TourTicketId = faker.Random.Int(1,50),
+                    TourTicketOrderId = faker.Random.Int(1,130)
                 };
 
-                productOrderDetails.Add(productOrderDetail);
+                tourTicketOrderDetails.Add(tourTicketOrderDetail);
             }
-            return productOrderDetails;
+            return tourTicketOrderDetails;
         }
     }
 }

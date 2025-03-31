@@ -1,5 +1,6 @@
 ﻿using DataAccess.Configurations.Abstracts;
 using DataAccess.Entities.Models.OrderDetails;
+using DataAccess.SeedData.OrderDetails;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -12,6 +13,8 @@ namespace DataAccess.Configurations.OrderDetails
             base.Configure(builder);
             builder.HasOne(x => x.TourTicketOrder).WithMany(x => x.TourTicketOrderDetails).HasForeignKey(x => x.TourTicketOrderId).OnDelete(DeleteBehavior.NoAction);
             builder.HasOne(x => x.TourTicket).WithMany(x => x.TourTicketOrderDetails).HasForeignKey(x => x.TourTicketId).OnDelete(DeleteBehavior.NoAction);
+
+            builder.HasData(TourTicketOrderDetailSeedData.GetTourTicketOrderDetails(330));
         }
     }
 }
