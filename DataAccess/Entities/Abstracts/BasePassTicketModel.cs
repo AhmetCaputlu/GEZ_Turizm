@@ -3,10 +3,11 @@ using DataAccess.Entities.Models.Companies.PartnerCompanies;
 
 namespace DataAccess.Entities.Abstracts
 {
-    public abstract class BasePassTicketModel:BaseTicketModel
+    public abstract class BasePassTicketModel:BaseModel
     {
+        public decimal Price { get; set; }
         public byte CommissionRate { get; set; }
-        public virtual decimal TotalCostwithCommission { get; }
+        public decimal? TotalCostwithCommission { get { return (100 + CommissionRate) * Price / 100; } set { } }
         //Mapping
         public int? PartnerCompanyTransactionId { get; set; }
         public virtual PartnerCompanyTransaction? PartnerCompanyTransaction { get; set; }

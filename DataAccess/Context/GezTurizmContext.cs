@@ -12,10 +12,6 @@ using DataAccess.Entities.Models.Regions;
 using DataAccess.Entities.Models.Tickets;
 using DataAccess.Entities.Models.Vehicles;
 using DataAccess.Entities.Models.WebUsers;
-using DataAccess.SeedData.Countries;
-using DataAccess.SeedData.Employees;
-using DataAccess.SeedData.Regions;
-using DataAccess.SeedData.WebUsers;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -89,7 +85,7 @@ namespace DataAccess.Context
 //todo:BLL katmanında HttpContext nesnesi ile created ip ve updated ip bilgileri alınacak.
 //todo:BLL katmanında kullanıcının mail bilgisi order içerisine yazılacak.Örnek verilerde şimdilik rastgele
 //todo:BLL katmanında ürünün ve biletlerin fiyatları,ilgili ürünün fiyatına göre order detail içerisine yazılacak.Örnek verilerde şimdilik rastgele
+//todo:BLL katmanında transaction işlemleri alınan ve satılan biletler doğrultusunda yönlendirilecek.Örnek verilerde durum rastgele
 
-//Companies and Transactions
-//OrderDetails
-//PassTickets
+
+//Mappings(ara tablolar)

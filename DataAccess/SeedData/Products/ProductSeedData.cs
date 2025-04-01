@@ -20,10 +20,10 @@ namespace DataAccess.SeedData.Products
                     CreatedID = Guid.NewGuid().ToString(),
                     CreatedIPAddress = faker.Internet.IpAddress().ToString(),
                     Status = RandomEnum.GetRandomStatus(),
-                    ProductName = faker.Lorem.Word(),
+                    ProductName = faker.Lorem.Word() + faker.Lorem.Word() + faker.Lorem.Word(),
                     Description = string.Join(" ", faker.Lorem.Words(6)),
-                    UnitPrice = faker.Random.Float(min:100f,max:1200f),
-                    UnitsInStock = faker.Random.Byte(10,180),
+                    UnitPrice = faker.Random.Float(min: 100f, max: 1200f),
+                    UnitsInStock = faker.Random.Byte(10, 180),
                     ProductSupplierId = RandomNavId.GetNavIdMax5(),
                     CategoryId = RandomNavId.GetNavIdMax5(),
                 };

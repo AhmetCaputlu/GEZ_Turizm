@@ -65,5 +65,10 @@ namespace DataAccess.SeedData.Randoms
             Array values = Enum.GetValues(typeof(PaymentStatus));
             return (PaymentStatus)values.GetValue(_random.Next(values.Length));
         }
+        internal static TransactionType GetRandomTransactionType()
+        {
+            Array values = Enum.GetValues(typeof(TransactionType));
+            return (TransactionType)values.GetValue(_random.Next(values.Length));
+        }
     }
 }
