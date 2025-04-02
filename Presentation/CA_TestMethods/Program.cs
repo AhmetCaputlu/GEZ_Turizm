@@ -37,11 +37,11 @@ namespace CA_TestMethods
             //    Console.WriteLine(y.Id + "\n" + y.Email + "\n" + y.UserName);
             //}
 
-            var updated = webUserRepo.GetAllUpdated();
-            foreach (var y in updated)
-            {
-                Console.WriteLine(y.Id + "\n" + y.Email + "\n" + y.UserName);
-            }
+            //var updated = webUserRepo.GetAllUpdated();
+            //foreach (var y in updated)
+            //{
+            //    Console.WriteLine(y.Id + "\n" + y.Email + "\n" + y.UserName);
+            //}
 
 
 

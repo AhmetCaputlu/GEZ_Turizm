@@ -30,9 +30,3 @@ namespace DataAccess.Repositories.Abstracts
 
     }
 }
-//Bu sınıf webuserprofile hariç her sınıfa kontrol sağlayacak.
-//Webuser profile için özel bir arayüz oluştururuz.
-//Her abstract classımız için ayrı bir generic yazacağız.
-//Her somut sınıfımız için özel bir arayüz ve concrete repository oluşturacağız.
-//Yarın konsol ile testlerimizi gerçekleştiririz.
-//Repo yarın bitmeli =) ltfnn...

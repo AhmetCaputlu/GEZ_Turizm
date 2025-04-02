@@ -36,7 +36,7 @@ namespace DataAccess.Repositories.Concretes
         {
             return _dbset.Where(x => x.UpdatedID != null );
         }
-        #nullable disable//Çok sinir bozucu olduğu için koydum.
+        #nullable disable
         public async Task<T> GetByIdAsync(int Id)
         {
             return await _dbset.FindAsync(Id);
