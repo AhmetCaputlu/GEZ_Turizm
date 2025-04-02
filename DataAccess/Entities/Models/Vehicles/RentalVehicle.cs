@@ -14,7 +14,7 @@ namespace DataAccess.Entities.Models.Vehicles
         //Mapping
         public virtual ICollection<ContractDriver_RentalVehicle>? ContractDrivers_RentalVehicles { get; set; }
         public int? RentalVehicleSupplierId { get; set; }
-        public RentalVehicleSupplier? RentalVehicleSupplier { get; set; }
+        public virtual RentalVehicleSupplier? RentalVehicleSupplier { get; set; }
         //TourTicket
     }
 }

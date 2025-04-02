@@ -12,7 +12,7 @@ namespace DataAccess.Entities.Abstracts
         public string? Description { get; set; }
         //Mapping
         public int? RegionId { get; set; }
-        public ServiceRegion? ServiceRegion { get; set; }
+        public virtual ServiceRegion? ServiceRegion { get; set; }
         
         //Vehicles
         public virtual ICollection<Vehicle>? Vehicles { get; set; }

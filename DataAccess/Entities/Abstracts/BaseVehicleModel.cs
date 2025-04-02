@@ -14,8 +14,8 @@ namespace DataAccess.Entities.Abstracts
         public short Capacity { get; set; }
         //Mapping
         public int? TourId { get; set; }
-        public Tour? Tour { get; set; }
+        public virtual Tour? Tour { get; set; }
         public int? EventId { get; set; }
-        public Event? Event { get; set; }
+        public virtual Event? Event { get; set; }
     }
 }

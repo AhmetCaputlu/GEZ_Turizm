@@ -18,7 +18,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Context
 {
-    public class GezTurizmContext : IdentityDbContext<WebUserAccount,IdentityRole<int>,int>
+    public class GezTurizmContext : IdentityDbContext<WebUserAccount, IdentityRole<int>, int>
     {
         public GezTurizmContext()
         {
@@ -67,16 +67,18 @@ namespace DataAccess.Context
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer
-                    ("Server=.\\SQLEXPRESS;Database=GEZTurizmDB;Integrated Security=True;TrustServerCertificate=true;");}
+                optionsBuilder
+                    .UseLazyLoadingProxies()
+                    .UseSqlServer(Environment.GetEnvironmentVariable("Connection_String"));
+            }
             base.OnConfiguring(optionsBuilder);
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-           
+
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(GezTurizmContext).Assembly);
 
-            
+
             base.OnModelCreating(modelBuilder);
         }
     }

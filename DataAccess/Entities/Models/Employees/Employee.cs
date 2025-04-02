@@ -34,7 +34,7 @@ namespace DataAccess.Entities.Models.Employees
 
         //Residence Region
         public int? ResidenceRegionId { get; set; }
-        public ResidenceRegion? ResidenceRegion { get; set; }
+        public virtual ResidenceRegion? ResidenceRegion { get; set; }
         //TourTicketOrder
         public virtual ICollection<TourTicketOrder>? TourTicketOrders { get; set; }
         //EventTicketOrder
