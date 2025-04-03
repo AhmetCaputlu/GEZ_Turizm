@@ -23,6 +23,7 @@ namespace DataAccess.SeedData.Tickets
                     CreatedID = Guid.NewGuid().ToString(),
                     CreatedIPAddress = faker.Internet.IpAddress().ToString(),
                     Status = RandomEnum.GetRandomStatus(),
+                    IsUpdated = faker.Random.Bool(0.2f),
                     TicketName = faker.Name.FullName(),
                     SeatNumber = faker.Random.Char('A', 'D').ToString() + faker.Random.Byte(1,255),
                     DepartureAdress = faker.Random.Words(2),

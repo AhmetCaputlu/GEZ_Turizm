@@ -20,6 +20,7 @@ namespace DataAccess.SeedData.Activities
                     CreatedID = Guid.NewGuid().ToString(),
                     CreatedIPAddress = faker.Internet.IpAddress().ToString(),
                     Status = RandomEnum.GetRandomStatus(),
+                    IsUpdated = faker.Random.Bool(0.2f),
                     EventName = faker.Lorem.Word(),
                     StartDate = RandomDatetime.GetDateTime(),
                     Description = faker.Random.Words(8),

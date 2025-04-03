@@ -20,6 +20,7 @@ namespace DataAccess.SeedData.Companies.Suppliers
                     CreatedID = Guid.NewGuid().ToString(),
                     CreatedIPAddress = faker.Internet.IpAddress().ToString(),
                     Status = RandomEnum.GetRandomStatus(),
+                    IsUpdated = faker.Random.Bool(0.2f),
                     CompanyName = faker.Company.CompanyName() + " " + faker.Company.CompanySuffix(),
                     ContactName = faker.Name.FullName(),
                     ContactTitle = faker.Name.JobTitle(),

@@ -77,8 +77,6 @@ namespace DataAccess.Context
         {
 
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(GezTurizmContext).Assembly);
-
-
             base.OnModelCreating(modelBuilder);
         }
     }
@@ -90,4 +88,3 @@ namespace DataAccess.Context
 //todo:BLL katmanında transaction işlemleri alınan ve satılan biletler doğrultusunda yönlendirilecek.Örnek verilerde durum rastgele
 
 
-//Mappings(ara tablolar)

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using DataAccess.Entities.Enums;
 namespace DataAccess.Repositories.Concretes
 {
-    public class Repository<T> : IRepository<T> where T : class,IEntity
+    public class Repository<T> : IRepository<T> where T : class, IEntity
     {
         private readonly GezTurizmContext _context;
         private readonly DbSet<T> _dbset;
@@ -17,8 +17,8 @@ namespace DataAccess.Repositories.Concretes
 
         public IQueryable<T> GetAllEntities()
         {
-           return _dbset;
-            
+            return _dbset;
+
         }
         public IQueryable<T> GetAllActives()
         {
@@ -34,7 +34,7 @@ namespace DataAccess.Repositories.Concretes
         }
         public IQueryable<T> GetAllUpdated()
         {
-            return _dbset.Where(x => x.UpdatedID != null );
+            return _dbset.Where(x => x.IsUpdated == true);
         }
         #nullable disable
         public async Task<T> GetByIdAsync(int Id)

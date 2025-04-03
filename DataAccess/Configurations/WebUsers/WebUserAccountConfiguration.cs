@@ -20,8 +20,8 @@ namespace DataAccess.Configurations.WebUsers
             builder.Property(x => x.UpdatedDate).IsRequired(false);
             builder.Property(x => x.UpdatedID).IsRequired(false).HasMaxLength(36);
             builder.Property(x => x.UpdatedIPAddress).HasMaxLength(20).IsRequired(false);
-            builder.Property(x => x.Status).IsRequired(true).HasDefaultValue(DataStatus.Unknown).HasConversion(x => x.ToString(), x => (DataStatus)Enum.Parse(typeof(DataStatus), x));
-            builder.Property(x => x.Status).HasMaxLength(20);
+            builder.Property(x => x.Status).IsRequired(true).HasDefaultValue(DataStatus.Unknown).HasConversion(x => x.ToString(), x => (DataStatus)Enum.Parse(typeof(DataStatus), x)).HasMaxLength(20);
+            builder.Property(x => x.IsUpdated).IsRequired(true).HasConversion(x => x ? "Yes" : "No", x => x == "Yes");
 
             //AspNetUser
             #region Fluent API ile yapılandırma Migration'a yansımıyor.

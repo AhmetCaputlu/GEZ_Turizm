@@ -20,6 +20,7 @@ namespace DataAccess.SeedData.Vehicles
                     CreatedID = Guid.NewGuid().ToString(),
                     CreatedIPAddress = faker.Internet.IpAddress().ToString(),
                     Status = RandomEnum.GetRandomStatus(),
+                    IsUpdated = faker.Random.Bool(0.2f),
                     VehicleType = RandomEnum.GetRandomVehicleType(),
                     LicensePlate =
                     faker.Random.Int(1, 82) + " " + faker.Random.Char('a', 'z')

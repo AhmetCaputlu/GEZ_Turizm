@@ -15,7 +15,7 @@ namespace DataAccess.Configurations.Employees
             base.Configure(builder);
 
             builder.HasMany(x => x.ContractDrivers_Vehicles).WithOne(x => x.ContractDriver).HasForeignKey(x => x.ContractDriverId).OnDelete(DeleteBehavior.NoAction);
-            builder.HasMany(x => x.ContractDrivers_RentalVehicles).WithOne(x => x.ContractDriver).HasForeignKey(x => x.ContactDriverId).OnDelete(DeleteBehavior.NoAction);
+            builder.HasMany(x => x.ContractDrivers_RentalVehicles).WithOne(x => x.ContractDriver).HasForeignKey(x => x.ContractDriverId).OnDelete(DeleteBehavior.NoAction);
             builder.Property(x => x.DriverLicense).IsRequired(true).HasDefaultValue(DriverLicense.None).HasConversion(x => x.ToString(), x => (DriverLicense)Enum.Parse(typeof(DriverLicense), x));
             builder.Property(x => x.DriverLicense).HasMaxLength(5);
             builder.HasOne(x => x.SubContractWorkerSupplier).WithMany(x => x.ContractDrivers).HasForeignKey(x => x.SubContractWorkerSupplierId).OnDelete(DeleteBehavior.NoAction);

@@ -5,7 +5,7 @@ namespace DataAccess.Entities.Mappings
 {
     public class ContractDriver_RentalVehicle
     {
-        public int? ContactDriverId { get; set; }
+        public int? ContractDriverId { get; set; }
         public virtual ContractDriver? ContractDriver { get; set; }
         public int? RentalVehicleId { get; set; }
         public virtual RentalVehicle? RentalVehicle { get; set; }

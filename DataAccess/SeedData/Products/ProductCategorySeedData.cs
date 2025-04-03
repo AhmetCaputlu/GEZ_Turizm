@@ -20,6 +20,7 @@ namespace DataAccess.SeedData.Products
                     CreatedID = Guid.NewGuid().ToString(),
                     CreatedIPAddress = faker.Internet.IpAddress().ToString(),
                     Status = RandomEnum.GetRandomStatus(),
+                    IsUpdated = faker.Random.Bool(0.2f),
                     CategoryName = faker.Lorem.Word(),
                     CategoryType = RandomEnum.GetRandomCategoryType(),
                     Description = string.Join(" ",faker.Lorem.Words(4))

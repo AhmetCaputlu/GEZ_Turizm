@@ -20,6 +20,7 @@ namespace DataAccess.SeedData.PassTickets
                     CreatedID = Guid.NewGuid().ToString(),
                     CreatedIPAddress = faker.Internet.IpAddress().ToString(),
                     Status = RandomEnum.GetRandomStatus(),
+                    IsUpdated = faker.Random.Bool(0.2f),
                     Price = faker.Random.Decimal(100, 420),                    
                     CommissionRate = faker.Random.Byte(5, 10),
                     PartnerCompanyTransactionId = faker.Random.Int(1,35)

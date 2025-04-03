@@ -11,6 +11,7 @@ namespace DataAccess.Configurations.Mappings
             builder.HasKey(x => new { x.ContractTourGuideId, x.ServiceRegionId });
             builder.HasOne(x => x.ContractTourGuide).WithMany(x => x.ContractTourGuides_ServiceRegions).HasForeignKey(x => x.ContractTourGuideId).OnDelete(DeleteBehavior.NoAction);
             builder.HasOne(x => x.ServiceRegion).WithMany(x => x.ContractTourGuides_ServiceRegions).HasForeignKey(x => x.ServiceRegionId).OnDelete(DeleteBehavior.NoAction);
+           
         }
     }
 }

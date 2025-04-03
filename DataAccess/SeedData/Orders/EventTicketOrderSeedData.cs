@@ -20,6 +20,7 @@ namespace DataAccess.SeedData.Orders
                     CreatedID = Guid.NewGuid().ToString(),
                     CreatedIPAddress = faker.Internet.IpAddress().ToString(),
                     Status = RandomEnum.GetRandomStatus(),
+                    IsUpdated = faker.Random.Bool(0.2f),
                     Note = faker.Random.Words(4),
                     WebUserEmail = faker.Internet.Email(),
                     WebUserAccountId = RandomNavId.GetNavIdMax5(),

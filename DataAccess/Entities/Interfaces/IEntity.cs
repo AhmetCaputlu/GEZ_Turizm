@@ -9,6 +9,7 @@ namespace DataAccess.Entities.Interfaces
         DateTime CreatedDate { get; set; }
         string CreatedID { get; set; }
         string CreatedIPAddress { get; set; }
+        public bool IsUpdated { get; set; }
         DateTime? UpdatedDate { get; set; }
         string? UpdatedID { get; set; }
         string? UpdatedIPAddress { get; set; }

@@ -26,6 +26,7 @@ namespace DataAccess.SeedData.Countries
                     CreatedID = Guid.NewGuid().ToString(),
                     CreatedIPAddress = faker.Internet.IpAddress().ToString(),
                     Status = RandomEnum.GetRandomStatus(),
+                    IsUpdated = faker.Random.Bool(0.2f),
                     CountryName = countryNames[i],
                     CountryCode = countryCode[i],
                     CountryDescription = faker.Lorem.Sentence(6),

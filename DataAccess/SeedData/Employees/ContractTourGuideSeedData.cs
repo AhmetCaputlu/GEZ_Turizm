@@ -21,6 +21,7 @@ namespace DataAccess.SeedData.Employees
                     CreatedID = Guid.NewGuid().ToString(),
                     CreatedIPAddress = faker.Internet.IpAddress().ToString(),
                     Status = RandomEnum.GetRandomStatus(),
+                    IsUpdated = faker.Random.Bool(0.2f),
                     FirstName = faker.Name.FirstName(),
                     LastName = faker.Name.LastName(),
                     Gender = RandomEnum.GetRandomGender(),

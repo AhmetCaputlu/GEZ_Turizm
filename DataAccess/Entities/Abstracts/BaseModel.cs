@@ -11,6 +11,7 @@ namespace DataAccess.Entities.Abstracts
         public DateTime CreatedDate { get; set; }
         public string CreatedID { get; set; }
         public string CreatedIPAddress { get; set; }
+        public bool IsUpdated { get; set; }
         public DateTime? UpdatedDate { get; set; }
         public string? UpdatedID { get; set; }
         public string? UpdatedIPAddress { get; set; }

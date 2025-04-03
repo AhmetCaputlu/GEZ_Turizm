@@ -9,6 +9,7 @@ namespace DataAccess.Configurations.Mappings
         public void Configure(EntityTypeBuilder<ContractTourGuide_Tour> builder)
         {
             builder.HasKey(x => new { x.ContractTourGuideId, x.TourId });
+            
         }
     }
 }

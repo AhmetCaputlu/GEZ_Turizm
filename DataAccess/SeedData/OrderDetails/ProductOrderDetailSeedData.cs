@@ -21,6 +21,7 @@ namespace DataAccess.SeedData.OrderDetails
                     CreatedID = Guid.NewGuid().ToString(),
                     CreatedIPAddress = faker.Internet.IpAddress().ToString(),
                     Status = RandomEnum.GetRandomStatus(),
+                    IsUpdated = faker.Random.Bool(0.2f),
                     UnitPrice = faker.Random.Decimal(100m, 1200m),
                     Quantity = faker.Random.Byte(1, 4),
                     Discount = faker.Random.Decimal(0, 0.5m),

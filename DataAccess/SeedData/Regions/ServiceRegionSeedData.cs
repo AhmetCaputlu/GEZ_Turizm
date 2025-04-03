@@ -20,6 +20,7 @@ namespace DataAccess.SeedData.Regions
                     CreatedID = Guid.NewGuid().ToString(),
                     CreatedIPAddress = faker.Internet.IpAddress().ToString(),
                     Status = RandomEnum.GetRandomStatus(),
+                    IsUpdated = faker.Random.Bool(0.2f),
                     DistrictName = faker.Lorem.Word(),
                     ArrivalTime = TimeSpan.FromMinutes(faker.Random.Int(45, 180)),
                     TouristPopulation = faker.Random.Bool(),
