@@ -10,11 +10,12 @@ namespace DataAccess.Repositories.Abstracts
         IQueryable<T> GetAllPassives();
         IQueryable<T> GetAllUnknowns();
         IQueryable<T> GetAllUpdated();
+        IQueryable<T> GetAllNotUpdated();
         Task<T> GetByIdAsync(int Id);
-        Task<IQueryable<T>> GetEntitiesByCreatedDateAsync(DateTime dateTime);
-        Task<IQueryable<T>> GetEntitiesByUpdatedDateAsync(DateTime dateTime);
-        Task<IQueryable<T>> GetEntitiesBetweenCreatedDatesAsync(DateTime firstDate, DateTime lastDate);
-        Task<IQueryable<T>> GetEntitiesBetweenUpdatedDatesAsync(DateTime firstDate, DateTime lastDate); 
+        IQueryable<T> GetEntitiesByCreatedDate(DateTime dateTime);
+        IQueryable<T> GetEntitiesByUpdatedDate(DateTime dateTime);
+        IQueryable<T> GetEntitiesBetweenCreatedDates(DateTime firstDate, DateTime lastDate);
+        IQueryable<T> GetEntitiesBetweenUpdatedDates(DateTime firstDate, DateTime lastDate); 
         Task CreateAsync(T entity);
         Task CreateRangeAsync(IEnumerable<T> entities);
         Task CreateBulkAsync(IEnumerable<T> values);

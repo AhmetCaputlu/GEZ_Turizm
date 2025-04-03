@@ -2,14 +2,14 @@
 
 namespace DataAccess.SeedData.Randoms
 {
-    internal class RandomDatetime
+    public class RandomDatetime
     {
         private static readonly Random _random = new Random();
         /// <summary>
         ///Bu metod geçmiş bir zaman için rastgele bir veri üretmek için yazıldı.
         /// </summary>
         /// <returns></returns>
-        internal static DateTime GetDateTime()
+        public static DateTime GetDateTime()
         {
             DateTime today = new DateTime
                 (_random.Next(2000, 2022), _random.Next(1, 13), _random.Next(1, 28),
@@ -20,7 +20,7 @@ namespace DataAccess.SeedData.Randoms
         /// Kullanıcı profillerinin güncellenme zamanı için anlamlı tarihler
         /// </summary>
         /// <returns></returns>
-        internal static DateTime GetProfileUpdateDateTime()
+        public static DateTime GetProfileUpdateDateTime()
         {
             DateTime today = new DateTime
                 (_random.Next(2022, 2025), _random.Next(1, 13), _random.Next(1, 28),
@@ -31,7 +31,7 @@ namespace DataAccess.SeedData.Randoms
         /// Bu metod geçmiş bir zaman için rastgele (ve anlamlı) doğum tarihi üretmek için yazıldı.
         /// </summary>
         /// <returns></returns>
-        internal static DateTime GetBirthDateTime()
+        public static DateTime GetBirthDateTime()
         {
             DateTime today = new DateTime
                 (_random.Next(1950, 2007), _random.Next(1, 13), _random.Next(1, 28),
@@ -42,7 +42,7 @@ namespace DataAccess.SeedData.Randoms
         /// Bu metod geçmiş bir zaman için rastgele (işçiler için anlamlı) doğum tarihi üretmek için yazıldı.
         /// </summary>
         /// <returns></returns>
-        internal static DateTime GetEmployeeBirthDateTime()
+        public static DateTime GetEmployeeBirthDateTime()
         {
             DateTime today = new DateTime
                 (_random.Next(1960,1995), _random.Next(1, 13), _random.Next(1, 28),

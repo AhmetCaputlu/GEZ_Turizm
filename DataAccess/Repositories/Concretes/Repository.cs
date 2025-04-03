@@ -1,9 +1,11 @@
 ﻿using DataAccess.Context;
+using DataAccess.Entities.Enums;
 using DataAccess.Entities.Interfaces;
 using DataAccess.Repositories.Abstracts;
 using Microsoft.EntityFrameworkCore;
-using DataAccess.Entities.Enums;
+using EFCore.BulkExtensions;
 namespace DataAccess.Repositories.Concretes
+
 {
     public class Repository<T> : IRepository<T> where T : class, IEntity
     {
@@ -36,38 +38,45 @@ namespace DataAccess.Repositories.Concretes
         {
             return _dbset.Where(x => x.IsUpdated == true);
         }
-        #nullable disable
+        public IQueryable<T> GetAllNotUpdated()
+        {
+            return _dbset.Where(x => x.IsUpdated == false);
+        }
+#nullable disable
         public async Task<T> GetByIdAsync(int Id)
         {
             return await _dbset.FindAsync(Id);
         }
-        public Task<IQueryable<T>> GetEntitiesByCreatedDateAsync(DateTime dateTime)
+        public IQueryable<T> GetEntitiesByCreatedDate(DateTime dateTime)
         {
-            throw new NotImplementedException();
+            return _dbset.Where(x => x.CreatedDate.Date == dateTime.Date);
         }
-        public Task<IQueryable<T>> GetEntitiesByUpdatedDateAsync(DateTime dateTime)
+        public IQueryable<T> GetEntitiesByUpdatedDate(DateTime dateTime)
         {
-            throw new NotImplementedException();
+            return _dbset.Where(x => x.UpdatedDate.Value.Date == dateTime.Date);
         }
-        public Task<IQueryable<T>> GetEntitiesBetweenCreatedDatesAsync(DateTime firstDate, DateTime lastDate)
+        public IQueryable<T> GetEntitiesBetweenCreatedDates(DateTime firstDate, DateTime lastDate)
         {
-            throw new NotImplementedException();
+            return _dbset.Where(x => x.CreatedDate.Date >= firstDate.Date && x.CreatedDate.Date <= lastDate.Date);
         }
-        public Task<IQueryable<T>> GetEntitiesBetweenUpdatedDatesAsync(DateTime firstDate, DateTime lastDate)
+        public IQueryable<T> GetEntitiesBetweenUpdatedDates(DateTime firstDate, DateTime lastDate)
         {
-            throw new NotImplementedException();
+            return _dbset.Where(x => x.UpdatedDate.Value.Date >= firstDate.Date &&
+            x.UpdatedDate.Value.Date <= lastDate.Date);
         }
-        public Task CreateAsync(T entity)
+        public async Task CreateAsync(T entity)
         {
-            throw new NotImplementedException();
+            await _dbset.AddAsync(entity);
+            await _context.SaveChangesAsync();
         }
-        public Task CreateRangeAsync(IEnumerable<T> entities)
+        public async Task CreateRangeAsync(IEnumerable<T> entities)
         {
-            throw new NotImplementedException();
+            await _dbset.AddRangeAsync(entities);
+            await _context.SaveChangesAsync();
         }
-        public Task CreateBulkAsync(IEnumerable<T> values)
+        public async Task CreateBulkAsync(IEnumerable<T> values)
         {
-            throw new NotImplementedException();
+            await _context.BulkInsertAsync(values);
         }
         public Task UpdateAsync(T entity)
         {
