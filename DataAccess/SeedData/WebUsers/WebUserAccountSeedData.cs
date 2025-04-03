@@ -27,7 +27,6 @@ namespace DataAccess.SeedData.WebUsers
                     UserName = faker.Name.FirstName(),
                     PasswordHash = BCrypt.Net.BCrypt.HashPassword(faker.Lorem.Word()),
                     Email = faker.Internet.Email(),
-                    SecurityStamp = Guid.NewGuid().ToString(),
                     PhoneNumber = faker.Phone.PhoneNumber("05#########"),
                     CountryId = RandomNavId.GetNavIdMax5(),
                     LockoutEnabled = false,

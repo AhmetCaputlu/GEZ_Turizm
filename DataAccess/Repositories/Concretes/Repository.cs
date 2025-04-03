@@ -4,6 +4,7 @@ using DataAccess.Entities.Interfaces;
 using DataAccess.Repositories.Abstracts;
 using Microsoft.EntityFrameworkCore;
 using EFCore.BulkExtensions;
+using DataAccess.Entities.Models.WebUsers;
 namespace DataAccess.Repositories.Concretes
 
 {
@@ -76,43 +77,60 @@ namespace DataAccess.Repositories.Concretes
         }
         public async Task CreateBulkAsync(IEnumerable<T> values)
         {
-            await _context.BulkInsertAsync(values);
+            await _context.BulkInsertAsync(values);//Direkt SQL kaydı yapıyor
         }
-        public Task UpdateAsync(T entity)
+        public async Task Update(T entity)
         {
-            throw new NotImplementedException();
+            _dbset.Update(entity);
+            await _context.SaveChangesAsync();
+            #region Stack OverFlow neden UpdateAsync() yok!!
+            /*
+               Veri Güncelleme İhtiyacı ve Veri Boyutu: Bir veriyi güncellemek genellikle tek bir işlem olduğundan ve bellekteki bir nesneyi güncellemek çok hızlı gerçekleştiği için asenkron bir işleme gerek yoktur. Yani, güncelleme işlemi bellekte gerçekleşir ve bu işlem veritabanına yansıtılması için SaveChangesAsync gerekir.
+
+            CreateAsync ve DeleteAsync metodlarının asenkron versiyonlarının olmasının nedeni, bu işlemlerin veritabanı üzerinde IO-bound (giriş-çıkış odaklı) operasyonlar olmasından kaynaklanmaktadır. Update işlemi ise çoğunlukla bellekteki nesneleri değiştirme ile sınırlı kaldığı için, bu tür işlemler genellikle senkron olarak yapılabilir. Ancak veritabanına veri eklemek veya silmek gibi.
+
+            !!Asenkron işlemler özellikle I/O Bound ve veritabanı işlemleri gibi zaman alabilen işlemlerde önemli.
+            Update işlemi bellekte gerçekleşen bir işlem olduğu için zaten çok hızlı(kendi içinde gerçekleşiyor) dolayısıyla update metodunun create ve delete gibi (doğrudan veritabanına müdahale eden) asenkron modeli bulunmuyor.
+              */
+            #endregion
         }
-        public Task UpdateRangeAsync(IEnumerable<T> entities)
+        public async Task UpdateRangeAsync(IEnumerable<T> entities)
         {
-            throw new NotImplementedException();
+            _dbset.UpdateRange(entities);
+            await _context.SaveChangesAsync();
         }
-        public Task UpdateBulkAsync(IEnumerable<T> values)
+        public async Task UpdateBulkAsync(IEnumerable<T> values)
         {
-            throw new NotImplementedException();
+            await _context.BulkUpdateAsync(values);
         }
-        public Task DeleteAsync(int Id)
+        public async Task DeleteAsync(int Id)
         {
-            throw new NotImplementedException();
+            T entity = await _dbset.FindAsync(Id);
+            entity.Status = DataStatus.Passive;
+            await _context.SaveChangesAsync();
         }
-        public Task DeleteRangeAsync(IEnumerable<T> entities)
+        public async Task DeleteRangeAsync(IEnumerable<T> entities)
         {
-            throw new NotImplementedException();
+            foreach (T entity in entities)
+            {
+                entity.Status = DataStatus.Passive;
+            }
+            await _context.SaveChangesAsync();
         }
-        public Task DeleteBulkAsync(IEnumerable<T> values)
+        public async Task DestroyAsync(int Id)
         {
-            throw new NotImplementedException();
+            T entity = await _dbset.FindAsync(Id);
+            _context.Remove(entity);
+            await _context.SaveChangesAsync();
         }
-        public Task DestroyAsync(int Id)
+        public async Task DestroyRangeAsync(IEnumerable<T> entities)
         {
-            throw new NotImplementedException();
+            _dbset.RemoveRange(entities);
+            await _context.SaveChangesAsync();
         }
-        public Task DestroyRangeAsync(IEnumerable<T> entities)
+        public async Task DestroyBulkAsync(IEnumerable<T> values)
         {
-            throw new NotImplementedException();
-        }
-        public Task DestroyBulkRangeAsync(IEnumerable<T> values)
-        {
-            throw new NotImplementedException();
+            await _context.BulkDeleteAsync(values);
         }
     }
 }

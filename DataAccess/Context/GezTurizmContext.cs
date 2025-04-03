@@ -86,5 +86,5 @@ namespace DataAccess.Context
 //todo:BLL katmanında kullanıcının mail bilgisi order içerisine yazılacak.Örnek verilerde şimdilik rastgele
 //todo:BLL katmanında ürünün ve biletlerin fiyatları,ilgili ürünün fiyatına göre order detail içerisine yazılacak.Örnek verilerde şimdilik rastgele
 //todo:BLL katmanında transaction işlemleri alınan ve satılan biletler doğrultusunda yönlendirilecek.Örnek verilerde durum rastgele
-
+//todo:IsUpdated ve diğer güncelleme property'leri BLL katmanında atanacak.(Ip Adress ve diğer değerler)
 
