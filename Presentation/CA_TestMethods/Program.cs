@@ -1,11 +1,13 @@
 ﻿using System.Diagnostics;
 using Bogus;
+using Bogus.DataSets;
 using DataAccess.Context;
-using DataAccess.Entities.Abstracts;
-using DataAccess.Entities.Models.Products;
-using DataAccess.Entities.Models.WebUsers;
+using DataAccess.Entities.Enums;
+using DataAccess.Entities.Models.Activities;
+using DataAccess.Entities.Models.Employees;
+using DataAccess.Entities.Models.Regions;
+using DataAccess.Entities.Models.Vehicles;
 using DataAccess.Repositories.Concretes;
-using DataAccess.SeedData.Randoms;
 
 namespace CA_TestMethods
 {
@@ -13,14 +15,15 @@ namespace CA_TestMethods
     {
         static async Task Main(string[] args)
         {
-            GezTurizmContext gezTurizmContext = new GezTurizmContext();
-            Repository<WebUserAccount> webUserRepo = new Repository<WebUserAccount>(new GezTurizmContext());
-            Repository<Product> pro = new Repository<Product>(new GezTurizmContext());
-            Faker faker = new Faker();
-            var stopwatch = new Stopwatch();
+            #region IRepository Test
+            //GezTurizmContext gezTurizmContext = new GezTurizmContext();
+            //Repository<WebUserAccount> webUserRepo = new Repository<WebUserAccount>(new GezTurizmContext());
+            //Repository<Product> pro = new Repository<Product>(new GezTurizmContext());
+            //Faker faker = new Faker();
+            //var stopwatch = new Stopwatch();
 
 
-            stopwatch.Start();
+            //stopwatch.Start();
             //var all = webUserRepo.GetAllEntities();
             //var all = webUserRepo.GetAllActives();
             //var all = webUserRepo.GetAllPassives();
@@ -187,9 +190,59 @@ namespace CA_TestMethods
             //var x = pro.GetAllUnknowns();
             //await pro.DestroyRangeSelectAsync(500, 604);
             //stopwatch.Stop();
-            //Console.WriteLine(stopwatch.ElapsedMilliseconds);
+            //Console.WriteLine(stopwatch.ElapsedMilliseconds); 
+            #endregion
+            #region ICompanyRepositoryTest
+            //GezTurizmContext gezTurizmContext = new GezTurizmContext();
+            //CompanyRepository<ProductSupplier> productSupplierRepo =
+            //    new CompanyRepository<ProductSupplier>(new GezTurizmContext());
+            //Stopwatch stopwatch = new Stopwatch();
+            //Faker faker = new Faker();
 
+            ////stopwatch.Start();
+            ////List<ProductSupplier> products = new List<ProductSupplier>();
+            ////for (int i = 0; i < 50; i++)
+            ////{
+            ////    ProductSupplier supplier = new ProductSupplier
+            ////    {
+            ////        Guid = Guid.NewGuid().ToString(),
+            ////        CreatedDate = RandomDatetime.GetDateTime(),
+            ////        CreatedID = Guid.NewGuid().ToString(),
+            ////        CreatedIPAddress = faker.Internet.IpAddress().ToString(),
+            ////        Status = RandomEnum.GetRandomStatus(),
+            ////        IsUpdated = faker.Random.Bool(0.2f),
+            ////        CompanyName = faker.Company.CompanyName() + " " + faker.Company.CompanySuffix(),
+            ////        ContactName = faker.Name.FullName(),
+            ////        ContactTitle = faker.Name.JobTitle(),
+            ////        Email = faker.Internet.Email(),
+            ////        PhoneNumber = faker.Phone.PhoneNumber("021########"),
+            ////        Address = faker.Address.FullAddress(),
+            ////    };
+            ////    products.Add(supplier);
+            ////}
+            ////await productSupplierRepo.CreateRangeAsync(products);
+            ////stopwatch.Stop();
+            ////Console.WriteLine(stopwatch.ElapsedMilliseconds);
 
+            ////var x = productSupplierRepo.SearchByCompanyName("ah");
+            ////foreach (var item in x)
+            ////{
+            ////    Console.WriteLine(item.CompanyName+" "+item.Guid);
+            ////}
+
+            //stopwatch.Start();
+            //var x =  
+            #endregion
+            GezTurizmContext gezTurizmContext = new GezTurizmContext();
+            VehicleRepository<RentalVehicle> test = new VehicleRepository<RentalVehicle>(new GezTurizmContext());
+            Stopwatch stopwatch = new Stopwatch();
+            Faker faker = new Faker();
+
+            var x = test.GetVehicleByVehicleType(VehicleType.Minibus);
+            foreach (var item in x)
+            {
+                Console.WriteLine(item.Model);
+            }
 
 
 

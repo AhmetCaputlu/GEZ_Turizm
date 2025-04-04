@@ -1,9 +1,4 @@
 ﻿using DataAccess.Entities.Enums;
-using DataAccess.Entities.Models.Employees;
-using DataAccess.Entities.Models.Products;
-using DataAccess.Entities.Models.Regions;
-using DataAccess.Entities.Models.Vehicles;
-using DataAccess.Entities.Models.WebUsers;
 
 namespace DataAccess.Entities.Abstracts
 {

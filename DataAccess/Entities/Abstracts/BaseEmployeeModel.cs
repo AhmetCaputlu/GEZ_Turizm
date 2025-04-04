@@ -8,6 +8,7 @@ namespace DataAccess.Entities.Abstracts
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string FullName { get { return FirstName + LastName; } set { } }
         public Gender Gender { get; set; }
         public DateTime BirthDate { get; set; }
         public byte? Age
