@@ -48,6 +48,10 @@ namespace DataAccess.Repositories.Concretes
         {
             return await _dbset.FindAsync(Id);
         }
+        public IQueryable<T> GetEntitiesBetweenId(int firstId, int lastId)
+        {
+            return _dbset.Where(x => x.Id >= firstId && x.Id <= lastId);
+        }
         public IQueryable<T> GetEntitiesByCreatedDate(DateTime dateTime)
         {
             return _dbset.Where(x => x.CreatedDate.Date == dateTime.Date);
@@ -109,11 +113,23 @@ namespace DataAccess.Repositories.Concretes
             entity.Status = DataStatus.Passive;
             await _context.SaveChangesAsync();
         }
-        public async Task DeleteRangeAsync(IEnumerable<T> entities)
+        public async Task DeleteRangeAsync(IEnumerable<T> values)
         {
-            foreach (T entity in entities)
+            foreach (T entity in values)
             {
                 entity.Status = DataStatus.Passive;
+            }
+            await _context.SaveChangesAsync();
+        }
+        public async Task DeleteRangeSelectAsync(int first, int last)
+        {
+            var deletedItems = _dbset.Where(x => x.Id > first && x.Id < last);
+            #region Uyarı!!
+            /*Iqueryable sadece bir sorgu nesnesi oluşturur.Herhangi bir veritabanı işleminde bulunmadığı için await kullanımı hata verir.Tolistasync gibi bir metod ile bu sorgu veritabanından verileri bir Lİst<T> olarak geri döner.Bu noktada await kullanılır.*/
+            #endregion
+            foreach (var deletedItem in deletedItems)
+            {
+                deletedItem.Status = DataStatus.Passive;
             }
             await _context.SaveChangesAsync();
         }
@@ -126,6 +142,12 @@ namespace DataAccess.Repositories.Concretes
         public async Task DestroyRangeAsync(IEnumerable<T> entities)
         {
             _dbset.RemoveRange(entities);
+            await _context.SaveChangesAsync();
+        }
+        public async Task DestroyRangeSelectAsync(int first,int last)
+        {
+            var values = _dbset.Where(x => x.Id > first && x.Id < last);
+            _context.RemoveRange(values);
             await _context.SaveChangesAsync();
         }
         public async Task DestroyBulkAsync(IEnumerable<T> values)

@@ -67,6 +67,12 @@ namespace CA_TestMethods
             //var updated =await webUserRepo.GetByIdAsync(2);
             //Console.WriteLine(updated.Id+" "+updated.UserName+" "+updated.Email);
 
+
+            //var x = pro.GetEntitiesBetweenId(15, 55);
+            //foreach (var entity in x)
+            //{
+            //    Console.WriteLine(entity.Id+" "+entity.ProductName);
+            //}
             //var updated = webUserRepo.GetEntitiesByCreatedDate(new DateTime(2006, 01, 17));
             //foreach (var y in updated)
             //{
@@ -179,10 +185,10 @@ namespace CA_TestMethods
 
             //stopwatch.Start();
             //var x = pro.GetAllUnknowns();
-            //await pro.DeleteRangeAsync(x);
+            //await pro.DestroyRangeSelectAsync(500, 604);
             //stopwatch.Stop();
             //Console.WriteLine(stopwatch.ElapsedMilliseconds);
-           
+
 
 
 
