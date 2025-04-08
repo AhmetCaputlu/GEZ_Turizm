@@ -18,18 +18,18 @@ namespace DataAccess.Repositories.Abstracts
         IQueryable<T> GetEntitiesBetweenCreatedDates(DateTime firstDate, DateTime lastDate);
         IQueryable<T> GetEntitiesBetweenUpdatedDates(DateTime firstDate, DateTime lastDate); 
         Task CreateAsync(T entity);
-        Task CreateRangeAsync(IEnumerable<T> entities);
-        Task CreateBulkAsync(IEnumerable<T> values);
+        Task CreateRangeAsync(List<T> entities);
+        Task CreateBulkAsync(List<T> values);
         Task Update(T entity);
-        Task UpdateRangeAsync(IEnumerable<T> entities);
-        Task UpdateBulkAsync(IEnumerable<T> values);
+        Task UpdateRangeAsync(List<T> entities);
+        Task UpdateBulkAsync(List<T> values);
         Task DeleteAsync(int Id);
         Task DeleteRangeSelectAsync(int first,int last);
-        Task DeleteRangeAsync(IEnumerable<T> values);
+        Task DeleteRangeAsync(List<T> values);
         Task DestroyAsync(int Id);
         Task DestroyRangeSelectAsync(int first,int last);
-        Task DestroyRangeAsync(IEnumerable<T> entities);
-        Task DestroyBulkAsync(IEnumerable<T> values);
+        Task DestroyRangeAsync(List<T> entities);
+        Task DestroyBulkAsync(List<T> values);
 
     }
 }

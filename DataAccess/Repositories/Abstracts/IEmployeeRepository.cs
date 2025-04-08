@@ -3,7 +3,7 @@ using DataAccess.Entities.Enums;
 
 namespace DataAccess.Repositories.Abstracts
 {
-    internal interface IEmployeeRepository<T> : IRepository<T> where T : BaseEmployeeModel
+    public interface IEmployeeRepository<T> : IRepository<T> where T : BaseEmployeeModel
     {
         IQueryable<T> SearchEmployeeByName(string name);
         IQueryable<T> GetAllEmployeesbyGender(Gender gender);

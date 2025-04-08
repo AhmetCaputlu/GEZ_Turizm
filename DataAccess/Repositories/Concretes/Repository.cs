@@ -74,12 +74,12 @@ namespace DataAccess.Repositories.Concretes
             await _dbset.AddAsync(entity);
             await _context.SaveChangesAsync();
         }
-        public async Task CreateRangeAsync(IEnumerable<T> entities)
+        public async Task CreateRangeAsync(List<T> entities)
         {
             await _dbset.AddRangeAsync(entities);
             await _context.SaveChangesAsync();
         }
-        public async Task CreateBulkAsync(IEnumerable<T> values)
+        public async Task CreateBulkAsync(List<T> values)
         {
             await _context.BulkInsertAsync(values);//Direkt SQL kaydı yapıyor
         }
@@ -98,12 +98,12 @@ namespace DataAccess.Repositories.Concretes
               */
             #endregion
         }
-        public async Task UpdateRangeAsync(IEnumerable<T> entities)
+        public async Task UpdateRangeAsync(List<T> entities)
         {
             _dbset.UpdateRange(entities);
             await _context.SaveChangesAsync();
         }
-        public async Task UpdateBulkAsync(IEnumerable<T> values)
+        public async Task UpdateBulkAsync(List<T> values)
         {
             await _context.BulkUpdateAsync(values);
         }
@@ -113,7 +113,7 @@ namespace DataAccess.Repositories.Concretes
             entity.Status = DataStatus.Passive;
             await _context.SaveChangesAsync();
         }
-        public async Task DeleteRangeAsync(IEnumerable<T> values)
+        public async Task DeleteRangeAsync(List<T> values)
         {
             foreach (T entity in values)
             {
@@ -139,7 +139,7 @@ namespace DataAccess.Repositories.Concretes
             _context.Remove(entity);
             await _context.SaveChangesAsync();
         }
-        public async Task DestroyRangeAsync(IEnumerable<T> entities)
+        public async Task DestroyRangeAsync(List<T> entities)
         {
             _dbset.RemoveRange(entities);
             await _context.SaveChangesAsync();
@@ -150,7 +150,7 @@ namespace DataAccess.Repositories.Concretes
             _context.RemoveRange(values);
             await _context.SaveChangesAsync();
         }
-        public async Task DestroyBulkAsync(IEnumerable<T> values)
+        public async Task DestroyBulkAsync(List<T> values)
         {
             await _context.BulkDeleteAsync(values);
         }
