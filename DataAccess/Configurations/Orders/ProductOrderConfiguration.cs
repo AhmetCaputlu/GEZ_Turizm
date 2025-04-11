@@ -13,7 +13,7 @@ namespace DataAccess.Configurations.Orders
             base.Configure(builder);
             builder.HasOne(x => x.Employee).WithMany(x => x.ProductOrders).HasForeignKey(x => x.EmployeeId).OnDelete(DeleteBehavior.NoAction);
             builder.HasOne(x => x.WebUserAccount).WithMany(x => x.ProductOrders).HasForeignKey(x => x.WebUserAccountId).OnDelete(DeleteBehavior.NoAction);
-            builder.HasData(ProductOrderSeedData.GetProductOrders(80));
+            builder.HasData(ProductOrderSeedData.GetProductOrders(5));
         }
     }
 }

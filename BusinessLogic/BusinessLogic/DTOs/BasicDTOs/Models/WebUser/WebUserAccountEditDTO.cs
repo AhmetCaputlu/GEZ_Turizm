@@ -15,7 +15,7 @@ namespace BusinessLogic.DTOs.BasicDTOs.Models.WebUser
         [StringLength(15, ErrorMessage = "Lütfen geçerli bir telefon numarası girin !")]
         public string PhoneNumber { get; set; }
         [Required(ErrorMessage = "Ülke seçimini yapın!")]
-        public CountryDTO Country { get; set; }
+        //public CountryDTO Country { get; set; }
         public WebUserProfileDTO? WebUserProfile { get; set; }
         [Required(ErrorMessage = "Şifre boş geçilemez!")]
         [StringLength(34, MinimumLength = 16, ErrorMessage = "Şifre min 16,max 34 karakter olabilir!")]

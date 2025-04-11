@@ -68,8 +68,7 @@ namespace DataAccess.Context
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder
-                    .UseLazyLoadingProxies()
-                    .EnableSensitiveDataLogging().LogTo(Console.WriteLine)
+                    .UseLazyLoadingProxies()                   
                     .UseSqlServer(Environment.GetEnvironmentVariable("Connection_String"));
             }
             base.OnConfiguring(optionsBuilder);

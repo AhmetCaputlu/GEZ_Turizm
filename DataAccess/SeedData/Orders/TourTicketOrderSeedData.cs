@@ -23,8 +23,8 @@ namespace DataAccess.SeedData.Orders
                     IsUpdated = faker.Random.Bool(0.2f),
                     Note = faker.Random.Words(4),
                     WebUserEmail = faker.Internet.Email(),
-                    WebUserAccountId = RandomNavId.GetNavIdMax5(),
-                    EmployeeId = RandomNavId.GetNavIdMax5()
+                    WebUserAccountId = faker.Random.Int(1, 5),
+                    EmployeeId = faker.Random.Int(1, 5),
                 };
                 tourTicketOrders.Add(tourTicketOrder);
             }

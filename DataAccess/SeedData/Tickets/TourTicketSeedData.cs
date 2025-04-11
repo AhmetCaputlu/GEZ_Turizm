@@ -33,7 +33,7 @@ namespace DataAccess.SeedData.Tickets
                     DiscountRate = faker.Random.Byte(10,20),//Vip gibi indirim alıyorlar
                     Currency = RandomEnum.GetRandomCurrency(),
                     PaymentStatus = RandomEnum.GetRandomPaymentStatus(),
-                    TourId = RandomNavId.GetNavIdMax5(),
+                    TourId = faker.Random.Int(1, 5),
                 };
                 ticket.ArrivalDate = ticket.DepartureDate.AddHours(7);
                 tourTickets.Add(ticket);

@@ -12,7 +12,7 @@ namespace DataAccess.Configurations.Tickets
         {
             base.Configure(builder);
             builder.HasOne(x=>x.Event).WithMany(x=>x.EventTickets).HasForeignKey(x=>x.EventId).OnDelete(DeleteBehavior.NoAction);
-            builder.HasData(EventTicketSeedData.GetEventTickets(50));
+            builder.HasData(EventTicketSeedData.GetEventTickets(5));
 
         }
     }

@@ -24,8 +24,8 @@ namespace DataAccess.SeedData.OrderDetails
                     UnitPrice = faker.Random.Decimal(100m, 1200m),
                     Quantity = faker.Random.Byte(1, 4),
                     Discount = faker.Random.Decimal(0, 0.5m),
-                    TourTicketId = faker.Random.Int(1,50),
-                    TourTicketOrderId = faker.Random.Int(1,130)
+                    TourTicketId = faker.Random.Int(1,5),
+                    TourTicketOrderId = faker.Random.Int(1,5)
                 };
 
                 tourTicketOrderDetails.Add(tourTicketOrderDetail);

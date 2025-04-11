@@ -13,7 +13,7 @@ namespace DataAccess.Configurations.Tickets
             base.Configure(builder);
             builder.HasOne(x => x.Tour).WithMany(x => x.TourTickets).HasForeignKey(x => x.TourId).OnDelete(DeleteBehavior.NoAction);
 
-            builder.HasData(TourTicketSeedData.GetTourTickets(50));
+            builder.HasData(TourTicketSeedData.GetTourTickets(5));
         }
     }
 }

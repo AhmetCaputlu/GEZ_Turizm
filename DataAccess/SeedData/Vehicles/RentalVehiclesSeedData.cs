@@ -31,11 +31,11 @@ namespace DataAccess.SeedData.Vehicles
                     Capacity = (short)faker.Random.Int(2, 100),
                     DailyRentalFee = faker.Random.Int(5000, 25000),
                     StartDate = RandomDatetime.GetDateTime(),
-                    RentalVehicleSupplierId = RandomNavId.GetNavIdMax5(),
-                    TourId = RandomNavId.GetNavIdMax5(),
-                    EventId = RandomNavId.GetNavIdMax5(),
+                    RentalVehicleSupplierId = faker.Random.Int(1, 5),
+                    TourId = faker.Random.Int(1, 5),
+                    EventId = faker.Random.Int(1, 5),
                 };
-                rentalVehicle.ExpireDate = rentalVehicle.StartDate.AddDays(RandomNavId.GetNavIdMax5());
+                rentalVehicle.ExpireDate = rentalVehicle.StartDate.AddDays(faker.Random.Int(1, 5));
                 rentalVehicles.Add(rentalVehicle);
             }
             return rentalVehicles;

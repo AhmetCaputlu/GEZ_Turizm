@@ -1,6 +1,10 @@
-﻿using BusinessLogic.Services.Abstracts;
+﻿using AutoMapper;
+using BusinessLogic.DTOs.BasicDTOs.Abstracts;
+using BusinessLogic.DTOs.BasicDTOs.Models.WebUser;
+using BusinessLogic.Services.Abstracts;
 using DataAccess.Entities.Abstracts;
 using DataAccess.Entities.Interfaces;
+using DataAccess.Entities.Models.Products;
 using DataAccess.Repositories.Abstracts;
 
 namespace BusinessLogic.Services.Concretes
@@ -8,9 +12,11 @@ namespace BusinessLogic.Services.Concretes
     public class Service<T> : IService<T> where T : class, IEntity
     {
         private readonly IRepository<T> _repository;
-        public Service(IRepository<T> repository)
+        private readonly IMapper _mapper;
+        public Service(IRepository<T> repository,IMapper mapper)
         {
             _repository = repository;
+            _mapper = mapper;
         }
         public IEnumerable<T> GetAllEntities()
         {

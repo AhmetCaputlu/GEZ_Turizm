@@ -14,7 +14,7 @@ namespace DataAccess.Configurations.OrderDetails
             builder.HasOne(x => x.EventTicket).WithMany(x => x.EventTicketOrderDetails).HasForeignKey(x => x.EventTicketId).OnDelete(DeleteBehavior.NoAction);
             builder.HasOne(x => x.EventTicketOrder).WithMany(x=>x.EventTicketOrderDetails).HasForeignKey(x => x.EventTicketOrderId).OnDelete(DeleteBehavior.NoAction);
 
-            builder.HasData(EventTicketOrderDetailSeedData.GetEventTicketOrderDetails(330));
+            builder.HasData(EventTicketOrderDetailSeedData.GetEventTicketOrderDetails(5));
         }
     }
 }

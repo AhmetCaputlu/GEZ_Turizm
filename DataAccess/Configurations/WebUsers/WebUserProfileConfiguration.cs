@@ -37,7 +37,7 @@ namespace DataAccess.Configurations.WebUsers
 
             //WebUserAccount
             builder.HasOne(x => x.WebUserAccount).WithOne(x => x.WebUserProfile).HasForeignKey<WebUserProfile>(x => x.WebUserAccountId).OnDelete(DeleteBehavior.NoAction);
-            builder.HasData(WebUserProfileSeedData.GetUserProfiles(8));
+            builder.HasData(WebUserProfileSeedData.GetUserProfiles(5));
 
         }
     }

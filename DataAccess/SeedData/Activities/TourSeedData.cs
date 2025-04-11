@@ -24,10 +24,10 @@ namespace DataAccess.SeedData.Activities
                     EventName = faker.Lorem.Word(),
                     StartDate = RandomDatetime.GetDateTime(),
                     Description = faker.Random.Words(8),
-                    RegionId = RandomNavId.GetNavIdMax5(),
+                    RegionId = faker.Random.Int(1, 5),
                     TourCategory = RandomEnum.GetRandomTour()
                 };
-                tour.EndDate =tour.StartDate.AddHours(RandomNavId.GetNavIdMax5());
+                tour.EndDate =tour.StartDate.AddHours(faker.Random.Int(1, 5));
                 tours.Add(tour);
             }
             return tours;

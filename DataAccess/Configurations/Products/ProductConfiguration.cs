@@ -19,7 +19,7 @@ namespace DataAccess.Configurations.Products
             builder.Property(x => x.UnitPrice).IsRequired(true);
             builder.Property(x => x.UnitsInStock).IsRequired(true);
 
-            builder.HasData(ProductSeedData.GetProducts(500));
+            builder.HasData(ProductSeedData.GetProducts(5));
         }
     }
 }

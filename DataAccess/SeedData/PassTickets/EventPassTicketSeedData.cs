@@ -23,7 +23,7 @@ namespace DataAccess.SeedData.PassTickets
                     IsUpdated = faker.Random.Bool(0.2f),
                     Price = faker.Random.Decimal(100, 420),
                     CommissionRate = faker.Random.Byte(5, 20),
-                    PartnerCompanyTransactionId = faker.Random.Int(1, 35)
+                    PartnerCompanyTransactionId = faker.Random.Int(1, 5)
                 };
                 passEventTickets.Add(passEventTicket);
             }

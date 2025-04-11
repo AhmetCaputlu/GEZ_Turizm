@@ -25,8 +25,8 @@ namespace DataAccess.SeedData.Products
                     Description = string.Join(" ", faker.Lorem.Words(6)),
                     UnitPrice = faker.Random.Float(min: 100f, max: 1200f),
                     UnitsInStock = faker.Random.Byte(10, 180),
-                    ProductSupplierId = RandomNavId.GetNavIdMax5(),
-                    CategoryId = RandomNavId.GetNavIdMax5(),
+                    ProductSupplierId = faker.Random.Int(1, 5),
+                    CategoryId = faker.Random.Int(1, 5)
                 };
                 products.Add(product);
             }

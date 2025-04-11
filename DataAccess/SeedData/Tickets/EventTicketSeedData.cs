@@ -30,7 +30,7 @@ namespace DataAccess.SeedData.Tickets
                     DiscountRate = faker.Random.Byte(10, 20),//şimdilik Vip gibi tanımlansınlar.
                     Currency = RandomEnum.GetRandomCurrency(),
                     PaymentStatus = RandomEnum.GetRandomPaymentStatus(),
-                    EventId = RandomNavId.GetNavIdMax5(),
+                    EventId = faker.Random.Int(1, 5),
                 };
                 ticket.ArrivalDate = ticket.DepartureDate.AddHours(3);
                 eventTickets.Add(ticket);

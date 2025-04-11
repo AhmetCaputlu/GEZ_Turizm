@@ -13,7 +13,7 @@ namespace DataAccess.Configurations.PassTickets
             base.Configure(builder);
             builder.HasOne(x => x.PartnerCompanyTransaction).WithMany(x => x.PassTourTickets).HasForeignKey(x => x.PartnerCompanyTransactionId).OnDelete(DeleteBehavior.NoAction);
 
-            builder.HasData(TourPassTicketSeedData.GetPassTourTickets(100));
+            builder.HasData(TourPassTicketSeedData.GetPassTourTickets(5));
         }
     }
 }

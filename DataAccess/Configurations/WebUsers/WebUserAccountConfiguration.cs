@@ -44,7 +44,7 @@ namespace DataAccess.Configurations.WebUsers
             //Country
             builder.HasOne(x=>x.Country).WithMany(x=>x.WebUserAccounts).HasForeignKey(x=>x.CountryId).OnDelete(DeleteBehavior.NoAction);
 
-            builder.HasData(WebUserAccountSeedData.GetUserAccounts(10));
+            builder.HasData(WebUserAccountSeedData.GetUserAccounts(5));
 
 
         }

@@ -1,5 +1,8 @@
 ﻿using System.Reflection;
+using BusinessLogic.Services.Abstracts;
+using BusinessLogic.Services.Concretes;
 using DataAccess.Context;
+using DataAccess.Entities.Models.Products;
 using DataAccess.Entities.Models.WebUsers;
 using DataAccess.Repositories.Abstracts;
 using DataAccess.Repositories.Concretes;
@@ -19,7 +22,7 @@ namespace BusinessLogic.DependencyResolvers
         /// <returns></returns>
         public static IServiceCollection AddDbContext(this IServiceCollection collection)
         {
-            collection.AddDbContext<GezTurizmContext>(options => options.UseSqlServer(Environment.GetEnvironmentVariable("Connection_String")));
+            collection.AddDbContext<GezTurizmContext>(options => options.UseSqlServer(Environment.GetEnvironmentVariable("Connection_String")));        
             return collection;
         }
         /// <summary>
@@ -29,7 +32,7 @@ namespace BusinessLogic.DependencyResolvers
         /// <returns></returns>
         public static IServiceCollection AddIdentityServices(this IServiceCollection collection)
         {
-            collection.AddIdentity<WebUserAccount, IdentityRole>().AddEntityFrameworkStores<GezTurizmContext>();
+            collection.AddIdentity<WebUserAccount, IdentityRole<int>>().AddEntityFrameworkStores<GezTurizmContext>();
             return collection;
             //Benim WebUserAccount ve IdentityRole sınıflarımın verilerini GezTurizmContext üzerinden EF Core kullanarak veritabanında tut.
         }
@@ -38,8 +41,9 @@ namespace BusinessLogic.DependencyResolvers
         /// </summary>
         /// <param name="collection"></param>
         /// <returns></returns>
-        public static IServiceCollection AddScoped(this IServiceCollection collection)
+        public static IServiceCollection AddScopedServices(this IServiceCollection collection)
         {
+            collection.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             collection.AddScoped(typeof(IActivityRepository<>), typeof(ActivityRepository<>));
             collection.AddScoped(typeof(ICompanyRepository<>), typeof(CompanyRepository<>));
             collection.AddScoped(typeof(IEmployeeRepository<>), typeof(EmployeeRepository<>));
@@ -49,6 +53,7 @@ namespace BusinessLogic.DependencyResolvers
             collection.AddScoped(typeof(ITicketRepository<>), typeof(TicketRepository<>));
             collection.AddScoped(typeof(IRegionRepository<>), typeof(RegionRepository<>));
             collection.AddScoped(typeof(IVehicleRepository<>), typeof(VehicleRepository<>));
+            collection.AddScoped(typeof(IService<>),typeof(Service<>));
 
             return collection;
         }

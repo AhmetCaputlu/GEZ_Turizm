@@ -31,8 +31,8 @@ namespace DataAccess.SeedData.Vehicles
                     Capacity = (short)faker.Random.Int(2, 100),
                     PurchaseDate = RandomDatetime.GetDateTime(),
                     MarketValue = faker.Random.Int(8000000, 22000000),
-                    TourId = RandomNavId.GetNavIdMax5(),
-                    EventId = RandomNavId.GetNavIdMax5(),
+                    TourId = faker.Random.Int(1, 5),
+                    EventId = faker.Random.Int(1, 5)
                 };
                 vehicles.Add(vehicle);
             }

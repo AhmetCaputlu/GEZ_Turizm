@@ -14,7 +14,7 @@ namespace DataAccess.Configurations.Orders
             builder.HasOne(x => x.Employee).WithMany(x => x.TourTicketOrders).HasForeignKey(x => x.EmployeeId).OnDelete(DeleteBehavior.NoAction);
             builder.HasOne(x => x.WebUserAccount).WithMany(x => x.TourTicketOrders).HasForeignKey(x => x.WebUserAccountId).OnDelete(DeleteBehavior.NoAction);
 
-            builder.HasData(TourTicketOrderSeedData.GetTourTicketOrders(130));
+            builder.HasData(TourTicketOrderSeedData.GetTourTicketOrders(5));
         }
     }
 }

@@ -14,7 +14,7 @@ namespace DataAccess.Configurations.OrderDetails
             builder.HasOne(x => x.Product).WithMany(x => x.ProductOrderDetails).HasForeignKey(x => x.ProductId).OnDelete(DeleteBehavior.NoAction);
             builder.HasOne(x => x.ProductOrder).WithMany(x => x.ProductOrderDetails).HasForeignKey(x => x.ProductOrderId).OnDelete(DeleteBehavior.NoAction);
 
-            builder.HasData(ProductOrderDetailSeedData.GetProductOrderDetails(330));
+            builder.HasData(ProductOrderDetailSeedData.GetProductOrderDetails(5));
         }
     }
 }

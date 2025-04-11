@@ -23,7 +23,7 @@ namespace DataAccess.SeedData.Companies.PartnerCompanies
                     IsUpdated = faker.Random.Bool(0.2f),
                     Type = RandomEnum.GetRandomTransactionType(),
                     TotalCost = faker.Random.Decimal(1000, 15000),
-                    PartnerCompanyId = faker.Random.Int(1, 10)
+                    PartnerCompanyId = faker.Random.Int(1, 5)
                 };
                 partnerCompanyTransactions.Add(partnerCompanyTransaction);
             }

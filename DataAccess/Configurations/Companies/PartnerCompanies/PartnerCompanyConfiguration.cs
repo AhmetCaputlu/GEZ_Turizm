@@ -17,7 +17,7 @@ namespace DataAccess.Configurations.Companies.PartnerCompanies
             builder.Property(x => x.Balance).IsRequired(true).HasColumnType("decimal(10,4)");
             builder.HasMany(x=>x.PartnerCompanyTransactions).WithOne(x=>x.PartnerCompany).HasForeignKey(x=>x.PartnerCompanyId).OnDelete(DeleteBehavior.NoAction);
 
-            builder.HasData(PartnerCompaniesSeedData.GetPartnerCompanies(10));
+            builder.HasData(PartnerCompaniesSeedData.GetPartnerCompanies(5));
         }
     }
 }

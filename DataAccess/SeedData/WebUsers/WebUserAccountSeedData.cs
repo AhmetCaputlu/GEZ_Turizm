@@ -28,7 +28,7 @@ namespace DataAccess.SeedData.WebUsers
                     PasswordHash = BCrypt.Net.BCrypt.HashPassword(faker.Lorem.Word()),
                     Email = faker.Internet.Email(),
                     PhoneNumber = faker.Phone.PhoneNumber("05#########"),
-                    CountryId = RandomNavId.GetNavIdMax5(),
+                    CountryId = faker.Random.Int(1, 5),
                     LockoutEnabled = false,
                     LockoutEnd = DateTime.Now.AddDays(7)
                 };

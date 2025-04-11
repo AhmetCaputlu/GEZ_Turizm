@@ -16,7 +16,7 @@ namespace DataAccess.Configurations.Companies.PartnerCompanies
             builder.Property(x => x.TotalCost).IsRequired(true).HasColumnType("decimal(10,2)");
 
 
-            builder.HasData(PartnerCompanyTransactionSeedData.GetPartnerCompanyTransactions(35));
+            builder.HasData(PartnerCompanyTransactionSeedData.GetPartnerCompanyTransactions(5));
         }
     }
 }

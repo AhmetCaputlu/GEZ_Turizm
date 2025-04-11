@@ -32,10 +32,10 @@ namespace DataAccess.SeedData.Employees
                     Email = faker.Internet.Email(),
                     TCN_Passport = faker.Random.ReplaceNumbers("###########"),
                     HireDate = RandomDatetime.GetDateTime(),
-                    Experience = RandomNavId.GetNavIdMax5(),
+                    Experience = faker.Random.Int(5, 25),
                     CurrentPosition = RandomEnum.GetRandomDepartment(),
-                    CountryId = RandomNavId.GetNavIdMax5(),
-                    ResidenceRegionId = RandomNavId.GetNavIdMax5()
+                    CountryId = faker.Random.Int(1, 5),
+                    ResidenceRegionId = faker.Random.Int(1, 5)
                 };
                 employees.Add(employee);
             }

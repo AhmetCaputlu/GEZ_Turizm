@@ -24,10 +24,10 @@ namespace DataAccess.SeedData.Activities
                     EventName = faker.Lorem.Word(),
                     StartDate = RandomDatetime.GetDateTime(),
                     Description = faker.Random.Words(8),
-                    RegionId = RandomNavId.GetNavIdMax5(),
+                    RegionId = faker.Random.Int(1, 5),
                     EventCategory = RandomEnum.GetRandomEvent()
                 };
-                even.EndDate = even.StartDate.AddHours(RandomNavId.GetNavIdMax5());
+                even.EndDate = even.StartDate.AddHours(faker.Random.Int(1, 5));
                 events.Add(even);
             }
             return events;
