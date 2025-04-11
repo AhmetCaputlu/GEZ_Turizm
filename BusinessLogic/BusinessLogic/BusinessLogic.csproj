@@ -14,5 +14,10 @@
   <ItemGroup>
     <ProjectReference Include="..\..\DataAccess\DataAccess.csproj" />
   </ItemGroup>
+	
+  <ItemGroup>
+    <Folder Include="DTOs\ExpertDTOs\Abstracts\" />
+    <Folder Include="DTOs\ExpertDTOs\Models\" />
+  </ItemGroup>
 
 </Project>

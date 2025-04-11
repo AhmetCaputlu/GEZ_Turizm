@@ -27,11 +27,9 @@ namespace DataAccess.SeedData.WebUsers
                     LastName = faker.Name.LastName(),
                     Gender = RandomEnum.GetRandomGender(),
                     BirthDate = RandomDatetime.GetBirthDateTime(),
-                    PhoneNumber = faker.Phone.PhoneNumber("05#########"),
                     Address = faker.Address.FullAddress(),
                     PhotoPath = faker.Person.Website,
-                    TCN_Passport = faker.Random.ReplaceNumbers("###########"),
-                    Email = faker.Person.Email,
+                    TCN_Passport = faker.Random.ReplaceNumbers("###########"),                   
                     UpdatedDate = RandomDatetime.GetProfileUpdateDateTime()
                 };
                 webUserProfiles.Add(webUserProfile);

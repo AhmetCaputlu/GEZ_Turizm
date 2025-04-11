@@ -20,8 +20,8 @@ namespace DataAccess.Configurations.WebUsers
             builder.Property(x => x.TCN_Passport).HasMaxLength(15).IsRequired(false);
             builder.Property(x => x.Address).HasMaxLength(180).IsRequired(false);
             builder.Property(x => x.PhotoPath).HasMaxLength(255).IsRequired(false);
-            builder.Property(x => x.PhoneNumber).HasMaxLength(18).IsRequired(false);
-            builder.Property(x => x.Email).HasMaxLength(120).IsRequired(false);
+            builder.Ignore(x => x.PhoneNumber);
+            builder.Ignore(x => x.Email);
             builder.Ignore(x => x.Id);
             builder.Ignore(x => x.Guid);
             builder.Property(x => x.CreatedDate).IsRequired(true).HasDefaultValue(DateTime.Now);
