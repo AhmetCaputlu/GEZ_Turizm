@@ -1,7 +1,7 @@
 ﻿using DataAccess.Entities.Abstracts;
 using DataAccess.Entities.Enums;
 
-namespace DataAccess.Repositories.Abstracts
+namespace DataAccess.Repositories.Abstracts.Employee
 {
     public interface IEmployeeRepository<T> : IRepository<T> where T : BaseEmployeeModel
     {

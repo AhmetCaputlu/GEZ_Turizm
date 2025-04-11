@@ -1,7 +1,7 @@
 ﻿using DataAccess.Entities.Abstracts;
 using DataAccess.Entities.Enums;
 
-namespace DataAccess.Repositories.Abstracts
+namespace DataAccess.Repositories.Abstracts.Region
 {
     public interface IRegionRepository<T> : IRepository<T> where T : BaseRegionModel
     {

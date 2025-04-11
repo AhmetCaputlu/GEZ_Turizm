@@ -1,11 +1,11 @@
 ﻿using DataAccess.Context;
 using DataAccess.Entities.Abstracts;
 using DataAccess.Entities.Enums;
-using DataAccess.Repositories.Abstracts;
+using DataAccess.Repositories.Abstracts.Employee;
 using EFCore.BulkExtensions;
 using Microsoft.EntityFrameworkCore;
 
-namespace DataAccess.Repositories.Concretes
+namespace DataAccess.Repositories.Concretes.Employee
 {
     public class EmployeeRepository<T> : IEmployeeRepository<T> where T : BaseEmployeeModel
     {

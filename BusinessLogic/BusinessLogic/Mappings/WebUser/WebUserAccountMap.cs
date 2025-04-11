@@ -9,7 +9,8 @@ namespace BusinessLogic.Mappings.WebUser
         public WebUserAccountMap()
         {
             CreateMap<WebUserAccount,WebUserAccountDTO>().ReverseMap();
-            CreateMap<WebUserAccount,WebUserAccountDTO>().ForMember(x=>x.WebUserProfile,x=>x.MapFrom(x=>x.WebUserProfile));
+            CreateMap<WebUserAccount,WebUserAccountDTO>()
+                .ForMember(x=>x.WebUserProfile,x=>x.MapFrom(x=>x.WebUserProfile));
         }
     }
 }

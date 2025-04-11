@@ -1,17 +1,17 @@
 ﻿using DataAccess.Context;
 using DataAccess.Entities.Abstracts;
 using DataAccess.Entities.Enums;
-using DataAccess.Repositories.Abstracts;
+using DataAccess.Repositories.Abstracts.OrderDetail;
 using EFCore.BulkExtensions;
 using Microsoft.EntityFrameworkCore;
 
-namespace DataAccess.Repositories.Concretes
+namespace DataAccess.Repositories.Concretes.OrderDetail
 {
-    public class TicketRepository<T> : ITicketRepository<T> where T : BaseTicketModel
+    public class OrderDetailRepository<T> : IOrderDetailRepository<T> where T : BaseOrderDetailModel
     {
         private readonly GezTurizmContext _context;
         private readonly DbSet<T> _dbset;
-        public TicketRepository(GezTurizmContext context)
+        public OrderDetailRepository(GezTurizmContext context)
         {
             _context = context;
             _dbset = _context.Set<T>();
@@ -141,46 +141,19 @@ namespace DataAccess.Repositories.Concretes
             await _context.BulkDeleteAsync(values);
         }
 
-        public IQueryable<T> SearchByTicketName(string ticketName)
+        public IQueryable<T> GetDetailByUnitPriceDesc()
         {
-            return _dbset.Where(x => x.TicketName.ToLower().Contains(ticketName.ToLower()));
+            return _dbset.OrderByDescending(x => x.UnitPrice);
         }
 
-        public IQueryable<T> SearchBySeatNumber(string seatNumber)
+        public IQueryable<T> GetDetailByQuantityDesc()
         {
-            return _dbset.Where(x => x.SeatNumber.ToLower().Contains(seatNumber.ToLower()));
-
+            return _dbset.OrderByDescending(x => x.Quantity);
         }
 
-        public IQueryable<T> SearchByDepartureDate(DateTime dateTime)
+        public IQueryable<T> GetTotalCostRange(decimal low, decimal high)
         {
-            return _dbset.Where(x => x.DepartureDate.Date == dateTime.Date);
-        }
-
-        public IQueryable<T> SearchByArrivalDate(DateTime dateTime)
-        {
-            return _dbset.Where(x => x.ArrivalDate.Date == dateTime.Date);
-        }
-
-        public IQueryable<T> GetTicketBetweenPriceRange(decimal first, decimal last)
-        {
-            return _dbset.Where(x => x.Price >= first && x.Price <= last);
-        }
-
-        public IQueryable<T> GetTicketNetCostDesc()
-        {
-            return _dbset.OrderByDescending(x => x.NetCost);
-        }
-
-        public IQueryable<T> GetTicketByPaymentStatus(PaymentStatus paymentStatus)
-        {
-            return _dbset.Where(x => x.PaymentStatus == paymentStatus);
-        }
-
-        public IQueryable<T> GetTicketByCurrency(Currency currency)
-        {
-            return _dbset.Where(x => x.Currency == currency);
-
+            return _dbset.Where(x => x.UnitPrice <= high && x.UnitPrice >= low);
         }
     }
 }

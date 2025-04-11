@@ -7,7 +7,7 @@ using DataAccess.Entities.Models.Activities;
 using DataAccess.Entities.Models.Employees;
 using DataAccess.Entities.Models.Regions;
 using DataAccess.Entities.Models.Vehicles;
-using DataAccess.Repositories.Concretes;
+using DataAccess.Repositories.Concretes.Vehicle;
 
 namespace CA_TestMethods
 {

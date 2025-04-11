@@ -6,14 +6,20 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 
-builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Configuration.GetConnectionString(Environment.GetEnvironmentVariable("Connection_String"));
 
 //Dependency Resolver DBContext
 builder.Services.AddDbContext();
+
 //Dependency Resolver Identity
 builder.Services.AddIdentityServices();
+
 //Dependency Resolver Scoped
-builder.Services.AddScopedServices();
+builder.Services.AddDALServices();
+builder.Services.AddBLLServices();
+
+//Dependency Resolver Auto Mapper
+builder.Services.AddMapperServices();
 
 
 

@@ -1,18 +1,17 @@
-﻿using Azure.Core;
-using DataAccess.Context;
+﻿using DataAccess.Context;
 using DataAccess.Entities.Abstracts;
 using DataAccess.Entities.Enums;
-using DataAccess.Repositories.Abstracts;
+using DataAccess.Repositories.Abstracts.Region;
 using EFCore.BulkExtensions;
 using Microsoft.EntityFrameworkCore;
 
-namespace DataAccess.Repositories.Concretes
+namespace DataAccess.Repositories.Concretes.Region
 {
-    public class CompanyRepository<T> : ICompanyRepository<T> where T : BaseCompanyModel
+    public class RegionRepository<T> : IRegionRepository<T> where T : BaseRegionModel
     {
         private readonly GezTurizmContext _context;
         private readonly DbSet<T> _dbset;
-        public CompanyRepository(GezTurizmContext context)
+        public RegionRepository(GezTurizmContext context)
         {
             _context = context;
             _dbset = _context.Set<T>();
@@ -113,7 +112,7 @@ namespace DataAccess.Repositories.Concretes
         }
         public async Task DeleteRangeSelectAsync(int first, int last)
         {
-            var deletedItems = _dbset.Where(x => x.Id > first && x.Id < last);           
+            var deletedItems = _dbset.Where(x => x.Id > first && x.Id < last);
             foreach (var deletedItem in deletedItems)
             {
                 deletedItem.Status = DataStatus.Passive;
@@ -141,35 +140,20 @@ namespace DataAccess.Repositories.Concretes
         {
             await _context.BulkDeleteAsync(values);
         }
-        public IQueryable<T> SearchByCompanyName(string companyName)
+
+        public IQueryable<T> GetByDistrictName(string districtName)
         {
-            var selectedItems = _dbset.Where(x => x.CompanyName.ToLower().Contains(companyName.ToLower()));
-            return selectedItems;
+            return _dbset.Where(x => x.DistrictName.ToLower().Contains(districtName));
         }
-        public IQueryable<T> SearchByContactName(string contactName)
+
+        public IQueryable<T> GetByArrivalTimeDesc()
         {
-            var selectedItems = _dbset.Where(x => x.ContactName.ToLower().Contains(contactName.ToLower()));
-            return selectedItems;
+            return _dbset.OrderBy(x => x.ArrivalTime);
         }
-        public IQueryable<T> SearchByContactTitle(string contactTitle)
+
+        public IQueryable<T> GetByTransportType(VehicleType type)
         {
-            var selectedItems = _dbset.Where(x => x.ContactTitle.ToLower().Contains(contactTitle.ToLower()));
-            return selectedItems;
-        }
-        public IQueryable<T> SearchByEmail(string email)
-        {
-            var selectedItems = _dbset.Where(x => x.Email.ToLower().Contains(email.ToLower()));
-            return selectedItems;
-        }
-        public IQueryable<T> SearchByPhoneNumber(string phoneNumber)
-        {
-            var selectedItems = _dbset.Where(x => x.PhoneNumber.ToLower().Contains(phoneNumber.ToLower()));
-            return selectedItems;
-        }
-        public IQueryable<T> SearchByAdress(string address)
-        {
-            var selectedItems = _dbset.Where(x => x.Address.ToLower().Contains(address.ToLower()));
-            return selectedItems;
+            return _dbset.Where(x => x.TransportVehicle == type);
         }
     }
 }

@@ -1,9 +1,9 @@
 ﻿using DataAccess.Entities.Abstracts;
 using DataAccess.Entities.Models.Activities;
 
-namespace DataAccess.Repositories.Abstracts
+namespace DataAccess.Repositories.Abstracts.Activity
 {
-    public interface IActivityRepository<T>:IRepository<T> where T : BaseActivityModel
+    public interface IActivityRepository<T> : IRepository<T> where T : BaseActivityModel
     {
         IQueryable<T> SearchByActivityName(string activityName);
         IQueryable<T> GetActivitiesByStartDate(DateTime dateTime);

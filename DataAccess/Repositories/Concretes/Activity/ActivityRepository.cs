@@ -1,17 +1,19 @@
 ﻿using DataAccess.Context;
 using DataAccess.Entities.Abstracts;
 using DataAccess.Entities.Enums;
-using DataAccess.Repositories.Abstracts;
+using DataAccess.Entities.Models.Activities;
+using DataAccess.Repositories.Abstracts.Activity;
 using EFCore.BulkExtensions;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query;
 
-namespace DataAccess.Repositories.Concretes
+namespace DataAccess.Repositories.Concretes.Activity
 {
-    public class VehicleRepository<T> : IVehicleRepository<T> where T : BaseVehicleModel
+    public class ActivityRepository<T> : IActivityRepository<T> where T : BaseActivityModel
     {
         private readonly GezTurizmContext _context;
         private readonly DbSet<T> _dbset;
-        public VehicleRepository(GezTurizmContext context)
+        public ActivityRepository(GezTurizmContext context)
         {
             _context = context;
             _dbset = _context.Set<T>();
@@ -141,35 +143,28 @@ namespace DataAccess.Repositories.Concretes
             await _context.BulkDeleteAsync(values);
         }
 
-        public IQueryable<T> GetVehicleByVehicleType(VehicleType vehicleType)
+        public IQueryable<T> SearchByActivityName(string activityName)
         {
-            return _dbset.Where(x => x.VehicleType == vehicleType);
+            var selectedItems = _dbset.Where(x => x.EventName.ToLower().Contains(activityName.ToLower()));
+            return selectedItems;
         }
 
-        public IQueryable<T> GetVehicleByLicensePlate(string licensePlate)
+        public IQueryable<T> GetActivitiesByStartDate(DateTime dateTime)
         {
-            return _dbset.Where(x => x.LicensePlate.ToLower().Contains(licensePlate.ToLower()));
+            var selectedItems = _dbset.Where(x => x.StartDate.Date == dateTime.Date);
+            return selectedItems;
         }
 
-        public IQueryable<T> GetVehicleByModel(string model)
+        public IQueryable<T> SearchActivityByDescription(string description)
         {
-            return _dbset.Where(x => x.Model.ToLower().Contains(model.ToLower()));
+            var selectedItems = _dbset.Where(x => x.Description.ToLower().Contains(description.ToLower()));
+            return selectedItems;
         }
 
-        public IQueryable<T> GetVehicleByKilometerDesc()
+        public IQueryable<T> SearchActivityByRegionId(int regionId)
         {
-            return _dbset.OrderByDescending(x => x.Kilometer);
-        }
-
-        public IQueryable<T> GetVehicleByAgeDesc()
-        {
-            return _dbset.OrderByDescending(x => x.Age);
-
-        }
-
-        public IQueryable<T> GetVehicleByCapacityDesc()
-        {
-            return _dbset.OrderByDescending(x => x.Capacity);
+            var selectedItems = _dbset.Where(x => x.RegionId == regionId);
+            return selectedItems;
         }
     }
 }

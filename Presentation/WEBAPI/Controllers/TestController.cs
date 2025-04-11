@@ -1,6 +1,8 @@
-﻿using BusinessLogic.Services.Abstracts;
+﻿using BusinessLogic.DTOs.BasicDTOs.Models.WebUser;
+using BusinessLogic.Services.Abstracts;
 using DataAccess.Entities.Models.Products;
 using DataAccess.Entities.Models.WebUsers;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WEBAPI.Controllers
@@ -9,9 +11,8 @@ namespace WEBAPI.Controllers
     [ApiController]
     public class TestController : ControllerBase
     {
-        private readonly IService<WebUserAccount> _service;
-
-        public TestController(IService<WebUserAccount> service)
+        private readonly IService<WebUserAccount, WebUserAccountEditDTO> _service;
+        public TestController(IService<WebUserAccount, WebUserAccountEditDTO> service)
         {
             _service = service;
         }
@@ -25,6 +26,18 @@ namespace WEBAPI.Controllers
         public ActionResult pr()
         {
             return Ok(_service.GetAllEntities());
+        }
+        [HttpPut("update")]
+        public ActionResult w(WebUserAccountEditDTO webUserAccountDTO)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            else
+            {
+                return Ok(_service.Update(webUserAccountDTO));
+            }
         }
     }
 }

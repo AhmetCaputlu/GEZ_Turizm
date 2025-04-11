@@ -2,121 +2,119 @@
 using BusinessLogic.DTOs.BasicDTOs.Abstracts;
 using BusinessLogic.DTOs.BasicDTOs.Models.WebUser;
 using BusinessLogic.Services.Abstracts;
-using DataAccess.Entities.Abstracts;
 using DataAccess.Entities.Interfaces;
-using DataAccess.Entities.Models.Products;
 using DataAccess.Repositories.Abstracts;
 
 namespace BusinessLogic.Services.Concretes
 {
-    public class Service<T> : IService<T> where T : class, IEntity
+    public class Service<T, F> : IService<T, F> where T : class, IEntity where F : BaseModelDTO
     {
         private readonly IRepository<T> _repository;
         private readonly IMapper _mapper;
-        public Service(IRepository<T> repository,IMapper mapper)
+        public Service(IRepository<T> repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
         }
-        public IEnumerable<T> GetAllEntities()
+        public IEnumerable<F> GetAllEntities()
         {
-            return _repository.GetAllEntities();
+            return _mapper.Map<IEnumerable<F>>(_repository.GetAllEntities());
         }
-        public IEnumerable<T> GetAllActives()
+        public IEnumerable<F> GetAllActives()
         {
-            return _repository.GetAllActives();
+            return _mapper.Map<IEnumerable<F>>(_repository.GetAllActives());
         }
-        public IEnumerable<T> GetAllPassives()
+        public IEnumerable<F> GetAllPassives()
         {
-            return _repository.GetAllPassives();
+            return _mapper.Map<IEnumerable<F>>(_repository.GetAllPassives());
         }
-        public IEnumerable<T> GetAllUnknowns()
+        public IEnumerable<F> GetAllUnknowns()
         {
-            return _repository.GetAllUnknowns();
+            return _mapper.Map<IEnumerable<F>>(_repository.GetAllUnknowns());
         }
-        public IEnumerable<T> GetAllUpdated()
+        public IEnumerable<F> GetAllUpdated()
         {
-            return _repository.GetAllUpdated();
+            return _mapper.Map<IEnumerable<F>>(_repository.GetAllUpdated());
         }
-        public IEnumerable<T> GetAllNotUpdated()
+        public IEnumerable<F> GetAllNotUpdated()
         {
-            return _repository.GetAllNotUpdated();
+            return _mapper.Map<IEnumerable<F>>(_repository.GetAllNotUpdated());
         }
-        public Task<T> GetByIdAsync(int Id)
+        public async Task<F> GetByIdAsync(int Id)
         {
-            return _repository.GetByIdAsync(Id);
+            return _mapper.Map<F>(await _repository.GetByIdAsync(Id));
         }
-        public IEnumerable<T> GetEntitiesBetweenId(int firstId, int lastId)
+        public IEnumerable<F> GetEntitiesBetweenId(int firstId, int lastId)
         {
-            return _repository.GetEntitiesBetweenId(firstId, lastId);
+            return _mapper.Map<IEnumerable<F>>(_repository.GetEntitiesBetweenId(firstId, lastId));
         }
-        public IEnumerable<T> GetEntitiesByCreatedDate(DateTime dateTime)
+        public IEnumerable<F> GetEntitiesByCreatedDate(DateTime dateTime)
         {
-            return _repository.GetEntitiesByCreatedDate(dateTime);
+            return _mapper.Map<IEnumerable<F>>(_repository.GetEntitiesByCreatedDate(dateTime));
         }
-        public IEnumerable<T> GetEntitiesByUpdatedDate(DateTime dateTime)
+        public IEnumerable<F> GetEntitiesByUpdatedDate(DateTime dateTime)
         {
-            return _repository.GetEntitiesByUpdatedDate(dateTime);
+            return _mapper.Map<IEnumerable<F>>(_repository.GetEntitiesByUpdatedDate(dateTime));
         }
-        public IEnumerable<T> GetEntitiesBetweenCreatedDates(DateTime firstDate, DateTime lastDate)
+        public IEnumerable<F> GetEntitiesBetweenCreatedDates(DateTime firstDate, DateTime lastDate)
         {
-            return _repository.GetEntitiesBetweenCreatedDates(firstDate, lastDate);
+            return _mapper.Map<IEnumerable<F>>(_repository.GetEntitiesBetweenCreatedDates(firstDate, lastDate));
         }
-        public IEnumerable<T> GetEntitiesBetweenUpdatedDates(DateTime firstDate, DateTime lastDate)
+        public IEnumerable<F> GetEntitiesBetweenUpdatedDates(DateTime firstDate, DateTime lastDate)
         {
-            return _repository.GetEntitiesBetweenUpdatedDates(firstDate, lastDate);
+            return _mapper.Map<IEnumerable<F>>(_repository.GetEntitiesBetweenUpdatedDates(firstDate, lastDate));
         }
-        public Task CreateAsync(T entity)
+        public async Task CreateAsync(F DTO)
         {
-            return _repository.CreateAsync(entity);
+            await _repository.CreateAsync(_mapper.Map<T>(DTO));
         }
-        public Task CreateRangeAsync(List<T> entities)
+        public async Task CreateRangeAsync(List<F> DTOs)
         {
-            return _repository.CreateRangeAsync(entities);
+            await _repository.CreateRangeAsync(_mapper.Map<List<T>>(DTOs));
         }
-        public Task CreateBulkAsync(List<T> values)
+        public async Task CreateBulkAsync(List<F> DTOs)
         {
-            return _repository.CreateBulkAsync(values);
+            await _repository.CreateBulkAsync(_mapper.Map<List<T>>(DTOs));
         }
-        public Task Update(T entity)
+        public async Task Update(F DTO)
         {
-            return _repository.Update(entity);
+            await _repository.Update(_mapper.Map<T>(DTO));
         }
-        public Task UpdateRangeAsync(List<T> entities)
+        public async Task UpdateRangeAsync(List<F> DTOs)
         {
-            return _repository.UpdateRangeAsync(entities);
+            await _repository.UpdateRangeAsync(_mapper.Map<List<T>>(DTOs));
         }
-        public Task UpdateBulkAsync(List<T> values)
+        public async Task UpdateBulkAsync(List<F> DTOs)
         {
-            return _repository.UpdateBulkAsync(values);
+            await _repository.UpdateBulkAsync(_mapper.Map<List<T>>(DTOs));
         }
-        public Task DeleteAsync(int Id)
+        public async Task DeleteAsync(int Id)
         {
-            return _repository.DeleteAsync(Id);
+            await _repository.DeleteAsync(Id);
         }
-        public Task DeleteRangeSelectAsync(int first, int last)
+        public async Task DeleteRangeSelectAsync(int first, int last)
         {
-            return _repository.DeleteRangeSelectAsync(first, last);
+            await _repository.DeleteRangeSelectAsync(first, last);
         }
-        public Task DeleteRangeAsync(List<T> values)
+        public async Task DeleteRangeAsync(List<F> DTOs)
         {
-            return _repository.DeleteRangeAsync(values);
+            await _repository.DeleteRangeAsync(_mapper.Map<List<T>>(DTOs));
         }
-        public Task DestroyAsync(int Id)
+        public async Task DestroyAsync(int Id)
         {
-            return _repository.DestroyAsync(Id);
+            await _repository.DestroyAsync(Id);
         }
-        public Task DestroyRangeSelectAsync(int first, int last)
+        public async Task DestroyRangeSelectAsync(int first, int last)
         {
-            return _repository.DestroyRangeSelectAsync(first, last);
+            await _repository.DestroyRangeSelectAsync(first, last);
         }
-        public Task DestroyRangeAsync(List<T> entities)
+        public async Task DestroyRangeAsync(List<T> entities)
         {
-            return _repository.DestroyRangeAsync(entities);
+            await _repository.DestroyRangeAsync(entities);
         }
-        public Task DestroyBulkAsync(List<T> values)
+        public async Task DestroyBulkAsync(List<T> values)
         {
-            return _repository.DestroyBulkAsync(values);
+            await _repository.DestroyBulkAsync(values);
         }
     }
 }

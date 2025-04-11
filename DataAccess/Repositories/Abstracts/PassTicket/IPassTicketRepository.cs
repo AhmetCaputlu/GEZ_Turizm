@@ -1,6 +1,6 @@
 ﻿using DataAccess.Entities.Abstracts;
 
-namespace DataAccess.Repositories.Abstracts
+namespace DataAccess.Repositories.Abstracts.PassTicket
 {
     public interface IPassTicketRepository<T> : IRepository<T> where T : BasePassTicketModel
     {

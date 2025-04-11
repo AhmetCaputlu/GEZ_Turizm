@@ -1,6 +1,6 @@
 ﻿using DataAccess.Entities.Abstracts;
 
-namespace DataAccess.Repositories.Abstracts
+namespace DataAccess.Repositories.Abstracts.Company
 {
     public interface ICompanyRepository<T> : IRepository<T> where T : BaseCompanyModel
     {

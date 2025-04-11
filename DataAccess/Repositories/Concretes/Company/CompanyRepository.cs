@@ -1,17 +1,18 @@
-﻿using DataAccess.Context;
+﻿using Azure.Core;
+using DataAccess.Context;
 using DataAccess.Entities.Abstracts;
 using DataAccess.Entities.Enums;
-using DataAccess.Repositories.Abstracts;
+using DataAccess.Repositories.Abstracts.Company;
 using EFCore.BulkExtensions;
 using Microsoft.EntityFrameworkCore;
 
-namespace DataAccess.Repositories.Concretes
+namespace DataAccess.Repositories.Concretes.Company
 {
-    public class RegionRepository<T>:IRegionRepository<T> where T : BaseRegionModel
+    public class CompanyRepository<T> : ICompanyRepository<T> where T : BaseCompanyModel
     {
         private readonly GezTurizmContext _context;
         private readonly DbSet<T> _dbset;
-        public RegionRepository(GezTurizmContext context)
+        public CompanyRepository(GezTurizmContext context)
         {
             _context = context;
             _dbset = _context.Set<T>();
@@ -140,20 +141,35 @@ namespace DataAccess.Repositories.Concretes
         {
             await _context.BulkDeleteAsync(values);
         }
-
-        public IQueryable<T> GetByDistrictName(string districtName)
+        public IQueryable<T> SearchByCompanyName(string companyName)
         {
-            return _dbset.Where(x => x.DistrictName.ToLower().Contains(districtName));
+            var selectedItems = _dbset.Where(x => x.CompanyName.ToLower().Contains(companyName.ToLower()));
+            return selectedItems;
         }
-
-        public IQueryable<T> GetByArrivalTimeDesc()
+        public IQueryable<T> SearchByContactName(string contactName)
         {
-            return _dbset.OrderBy(x => x.ArrivalTime);
+            var selectedItems = _dbset.Where(x => x.ContactName.ToLower().Contains(contactName.ToLower()));
+            return selectedItems;
         }
-
-        public IQueryable<T> GetByTransportType(VehicleType type)
+        public IQueryable<T> SearchByContactTitle(string contactTitle)
         {
-            return _dbset.Where(x => x.TransportVehicle == type);
+            var selectedItems = _dbset.Where(x => x.ContactTitle.ToLower().Contains(contactTitle.ToLower()));
+            return selectedItems;
+        }
+        public IQueryable<T> SearchByEmail(string email)
+        {
+            var selectedItems = _dbset.Where(x => x.Email.ToLower().Contains(email.ToLower()));
+            return selectedItems;
+        }
+        public IQueryable<T> SearchByPhoneNumber(string phoneNumber)
+        {
+            var selectedItems = _dbset.Where(x => x.PhoneNumber.ToLower().Contains(phoneNumber.ToLower()));
+            return selectedItems;
+        }
+        public IQueryable<T> SearchByAdress(string address)
+        {
+            var selectedItems = _dbset.Where(x => x.Address.ToLower().Contains(address.ToLower()));
+            return selectedItems;
         }
     }
 }

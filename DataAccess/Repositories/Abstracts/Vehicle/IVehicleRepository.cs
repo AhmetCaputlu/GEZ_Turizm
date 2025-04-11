@@ -1,7 +1,7 @@
 ﻿using DataAccess.Entities.Abstracts;
 using DataAccess.Entities.Enums;
 
-namespace DataAccess.Repositories.Abstracts
+namespace DataAccess.Repositories.Abstracts.Vehicle
 {
     public interface IVehicleRepository<T> : IRepository<T> where T : BaseVehicleModel
     {

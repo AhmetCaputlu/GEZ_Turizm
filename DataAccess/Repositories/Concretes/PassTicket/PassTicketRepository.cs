@@ -1,11 +1,11 @@
 ﻿using DataAccess.Context;
 using DataAccess.Entities.Abstracts;
 using DataAccess.Entities.Enums;
-using DataAccess.Repositories.Abstracts;
+using DataAccess.Repositories.Abstracts.PassTicket;
 using EFCore.BulkExtensions;
 using Microsoft.EntityFrameworkCore;
 
-namespace DataAccess.Repositories.Concretes
+namespace DataAccess.Repositories.Concretes.PassTicket
 {
     public class PassTicketRepository<T> : IPassTicketRepository<T> where T : BasePassTicketModel
     {

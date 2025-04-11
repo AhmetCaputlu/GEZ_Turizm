@@ -1,17 +1,17 @@
 ﻿using DataAccess.Context;
 using DataAccess.Entities.Abstracts;
 using DataAccess.Entities.Enums;
-using DataAccess.Repositories.Abstracts;
+using DataAccess.Repositories.Abstracts.Vehicle;
 using EFCore.BulkExtensions;
 using Microsoft.EntityFrameworkCore;
 
-namespace DataAccess.Repositories.Concretes
+namespace DataAccess.Repositories.Concretes.Vehicle
 {
-    public class OrderRepository<T> : IOrderRepository<T> where T : BaseOrderModel
+    public class VehicleRepository<T> : IVehicleRepository<T> where T : BaseVehicleModel
     {
         private readonly GezTurizmContext _context;
         private readonly DbSet<T> _dbset;
-        public OrderRepository(GezTurizmContext context)
+        public VehicleRepository(GezTurizmContext context)
         {
             _context = context;
             _dbset = _context.Set<T>();
@@ -141,14 +141,35 @@ namespace DataAccess.Repositories.Concretes
             await _context.BulkDeleteAsync(values);
         }
 
-        public IQueryable<T> GetOrderByNote(string note)
+        public IQueryable<T> GetVehicleByVehicleType(VehicleType vehicleType)
         {
-            return _dbset.Where(x => x.Note.ToLower().Contains(note.ToLower()));
+            return _dbset.Where(x => x.VehicleType == vehicleType);
         }
 
-        public IQueryable<T> GetOrderByEmail(string email)
+        public IQueryable<T> GetVehicleByLicensePlate(string licensePlate)
         {
-            return _dbset.Where(x => x.WebUserEmail.ToLower().Contains(email.ToLower()));
+            return _dbset.Where(x => x.LicensePlate.ToLower().Contains(licensePlate.ToLower()));
+        }
+
+        public IQueryable<T> GetVehicleByModel(string model)
+        {
+            return _dbset.Where(x => x.Model.ToLower().Contains(model.ToLower()));
+        }
+
+        public IQueryable<T> GetVehicleByKilometerDesc()
+        {
+            return _dbset.OrderByDescending(x => x.Kilometer);
+        }
+
+        public IQueryable<T> GetVehicleByAgeDesc()
+        {
+            return _dbset.OrderByDescending(x => x.Age);
+
+        }
+
+        public IQueryable<T> GetVehicleByCapacityDesc()
+        {
+            return _dbset.OrderByDescending(x => x.Capacity);
         }
     }
 }

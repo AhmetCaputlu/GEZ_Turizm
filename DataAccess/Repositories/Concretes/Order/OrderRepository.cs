@@ -1,17 +1,17 @@
 ﻿using DataAccess.Context;
 using DataAccess.Entities.Abstracts;
 using DataAccess.Entities.Enums;
-using DataAccess.Repositories.Abstracts;
+using DataAccess.Repositories.Abstracts.Order;
 using EFCore.BulkExtensions;
 using Microsoft.EntityFrameworkCore;
 
-namespace DataAccess.Repositories.Concretes
+namespace DataAccess.Repositories.Concretes.Order
 {
-    public class OrderDetailRepository<T> : IOrderDetailRepository<T> where T : BaseOrderDetailModel
+    public class OrderRepository<T> : IOrderRepository<T> where T : BaseOrderModel
     {
         private readonly GezTurizmContext _context;
         private readonly DbSet<T> _dbset;
-        public OrderDetailRepository(GezTurizmContext context)
+        public OrderRepository(GezTurizmContext context)
         {
             _context = context;
             _dbset = _context.Set<T>();
@@ -141,19 +141,14 @@ namespace DataAccess.Repositories.Concretes
             await _context.BulkDeleteAsync(values);
         }
 
-        public IQueryable<T> GetDetailByUnitPriceDesc()
+        public IQueryable<T> GetOrderByNote(string note)
         {
-            return _dbset.OrderByDescending(x => x.UnitPrice);
+            return _dbset.Where(x => x.Note.ToLower().Contains(note.ToLower()));
         }
 
-        public IQueryable<T> GetDetailByQuantityDesc()
+        public IQueryable<T> GetOrderByEmail(string email)
         {
-            return _dbset.OrderByDescending(x => x.Quantity);
-        }
-
-        public IQueryable<T> GetTotalCostRange(decimal low, decimal high)
-        {
-            return _dbset.Where(x => x.UnitPrice <= high && x.UnitPrice >= low);
+            return _dbset.Where(x => x.WebUserEmail.ToLower().Contains(email.ToLower()));
         }
     }
 }
