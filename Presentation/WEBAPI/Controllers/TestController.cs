@@ -11,10 +11,12 @@ namespace WEBAPI.Controllers
     [ApiController]
     public class TestController : ControllerBase
     {
-        private readonly IService<WebUserAccount, WebUserAccountEditDTO> _service;
-        public TestController(IService<WebUserAccount, WebUserAccountEditDTO> service)
+        private readonly IService<WebUserAccount, WebUserAccountDTO> _service;
+        private readonly IService<WebUserAccount, WebUserAccountEditDTO> _edit;
+        public TestController(IService<WebUserAccount, WebUserAccountDTO> service, IService<WebUserAccount, WebUserAccountEditDTO> edit)
         {
             _service = service;
+            _edit = edit;
         }
 
         [HttpGet("get/{id}")]
@@ -28,7 +30,7 @@ namespace WEBAPI.Controllers
             return Ok(_service.GetAllEntities());
         }
         [HttpPut("update")]
-        public ActionResult w(WebUserAccountEditDTO webUserAccountDTO)
+        public ActionResult w(WebUserAccountDTO webUserAccountDTO)
         {
             if (!ModelState.IsValid)
             {

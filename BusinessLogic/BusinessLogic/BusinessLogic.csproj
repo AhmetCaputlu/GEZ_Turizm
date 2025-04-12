@@ -16,8 +16,7 @@
   </ItemGroup>
 	
   <ItemGroup>
-    <Folder Include="DTOs\ExpertDTOs\Abstracts\" />
-    <Folder Include="DTOs\ExpertDTOs\Models\" />
+    <Folder Include="DTOs\RequestDTOs\Models\" />
   </ItemGroup>
 
 </Project>
