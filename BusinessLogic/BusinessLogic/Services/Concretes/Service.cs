@@ -10,9 +10,9 @@ namespace BusinessLogic.Services.Concretes
     public class Service<TEntity, TResponse, TRequest>
         where TEntity : class, IEntity where TResponse : BaseResponseDTO where TRequest : BaseRequestDTO
     {
-        private readonly IRepository<TEntity> _repository;
+        private readonly IGenericRepository<TEntity> _repository;
         private readonly IMapper _mapper;
-        public Service(IRepository<TEntity> repository, IMapper mapper)
+        public Service(IGenericRepository<TEntity> repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;

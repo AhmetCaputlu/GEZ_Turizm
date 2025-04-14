@@ -1,9 +1,7 @@
-﻿using System.Reflection;
-using AutoMapper;
-using BusinessLogic.Services.Abstracts;
+﻿using BusinessLogic.Services.Abstracts;
 using BusinessLogic.Services.Concretes;
 using DataAccess.Context;
-using DataAccess.Entities.Models.Products;
+using DataAccess.Entities.Models.Activities;
 using DataAccess.Entities.Models.WebUsers;
 using DataAccess.Repositories.Abstracts;
 using DataAccess.Repositories.Abstracts.Activity;
@@ -27,7 +25,6 @@ using DataAccess.Repositories.Concretes.Ticket;
 using DataAccess.Repositories.Concretes.Vehicle;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace BusinessLogic.DependencyResolvers
@@ -56,22 +53,24 @@ namespace BusinessLogic.DependencyResolvers
             //Benim WebUserAccount ve IdentityRole sınıflarımın verilerini GezTurizmContext üzerinden EF Core kullanarak veritabanında tut.
         }
         /// <summary>
-        /// Generic Repository yapılarını Scoped olarak DI Container'e ekler
+        /// Tüm Repository sınıflarını Scoped olarak DI Container'e ekler
         /// </summary>
         /// <param name="collection"></param>
         /// <returns></returns>
         public static IServiceCollection AddDALServices(this IServiceCollection collection)
         {
-            collection.AddScoped(typeof(IRepository<>), typeof(Repository<>));
-            collection.AddScoped(typeof(IActivityRepository<>), typeof(ActivityRepository<>));
-            collection.AddScoped(typeof(ICompanyRepository<>), typeof(CompanyRepository<>));
-            collection.AddScoped(typeof(IEmployeeRepository<>), typeof(EmployeeRepository<>));
-            collection.AddScoped(typeof(IOrderDetailRepository<>), typeof(OrderDetailRepository<>));
-            collection.AddScoped(typeof(IOrderRepository<>), typeof(OrderRepository<>));
-            collection.AddScoped(typeof(IPassTicketRepository<>), typeof(PassTicketRepository<>));
-            collection.AddScoped(typeof(ITicketRepository<>), typeof(TicketRepository<>));
-            collection.AddScoped(typeof(IRegionRepository<>), typeof(RegionRepository<>));
-            collection.AddScoped(typeof(IVehicleRepository<>), typeof(VehicleRepository<>));
+            collection.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            collection.AddScoped(typeof(IGenericActivityRepository<>), typeof(GenericActivityRepository<>));
+            collection.AddScoped<ITourRepository, TourRepository>();
+            collection.AddScoped<IEventRepository, EventRepository>();
+            collection.AddScoped(typeof(IGenericCompanyRepository<>), typeof(GenericCompanyRepository<>));
+            collection.AddScoped(typeof(IGenericEmployeeRepository<>), typeof(GenericEmployeeRepository<>));
+            collection.AddScoped(typeof(IGenericOrderDetailRepository<>), typeof(GenericOrderDetailRepository<>));
+            collection.AddScoped(typeof(IGenericOrderRepository<>), typeof(GenericOrderRepository<>));
+            collection.AddScoped(typeof(IGenericPassTicketRepository<>), typeof(GenericPassTicketRepository<>));
+            collection.AddScoped(typeof(IGenericTicketRepository<>), typeof(GenericTicketRepository<>));
+            collection.AddScoped(typeof(IGenericRegionRepository<>), typeof(GenericRegionRepository<>));
+            collection.AddScoped(typeof(IGenericVehicleRepository<>), typeof(GenericVehicleRepository<>));
 
             return collection;
         }
@@ -82,7 +81,7 @@ namespace BusinessLogic.DependencyResolvers
         /// <returns></returns>
         public static IServiceCollection AddBLLServices(this IServiceCollection collection)
         {
-            collection.AddScoped(typeof(IService<,>), typeof(Service<,>));
+            collection.AddScoped(typeof(IService<,,>), typeof(Service<,,>));
 
             return collection;
         }

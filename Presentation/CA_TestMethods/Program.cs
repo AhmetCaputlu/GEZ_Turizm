@@ -234,7 +234,7 @@ namespace CA_TestMethods
             //var x =  
             #endregion
             GezTurizmContext gezTurizmContext = new GezTurizmContext();
-            VehicleRepository<RentalVehicle> test = new VehicleRepository<RentalVehicle>(new GezTurizmContext());
+            GenericVehicleRepository<RentalVehicle> test = new GenericVehicleRepository<RentalVehicle>(new GezTurizmContext());
             Stopwatch stopwatch = new Stopwatch();
             Faker faker = new Faker();
 
