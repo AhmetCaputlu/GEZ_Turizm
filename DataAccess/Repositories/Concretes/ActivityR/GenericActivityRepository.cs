@@ -33,7 +33,7 @@ namespace DataAccess.Repositories.Concretes.Activity
 
         public IQueryable<T> SearchActivityByDescription(string description)
         {
-            var selectedItems = _dbset.Where(x => x.Description.ToLower().Contains(description.ToLower()));
+            var selectedItems = _dbset.Where(x =>x.Description != null && x.Description.ToLower().Contains(description.ToLower()));
             return selectedItems;
         }
 

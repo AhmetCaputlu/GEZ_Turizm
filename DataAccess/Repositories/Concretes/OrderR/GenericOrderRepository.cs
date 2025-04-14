@@ -18,7 +18,7 @@ namespace DataAccess.Repositories.Concretes.Order
         }
         public IQueryable<T> GetOrderByNote(string note)
         {
-            return _dbset.Where(x => x.Note.ToLower().Contains(note.ToLower()));
+            return _dbset.Where(x => x.Note != null &&  x.Note.ToLower().Contains(note.ToLower()));
         }
 
         public IQueryable<T> GetOrderByEmail(string email)
