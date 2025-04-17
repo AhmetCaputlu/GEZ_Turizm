@@ -1,13 +1,13 @@
-﻿using DataAccess.Entities.Abstracts;
-using DataAccess.Entities.Models.Activities;
+﻿using DataAccess.Entities.Enums;
 
 namespace DataAccess.Repositories.Abstracts.Activity
 {
-    public interface IGenericActivityRepository<T> : IGenericRepository<T> where T : BaseActivityModel
+    public interface IGenericActivityRepository : IGenericRepository<Entities.Models.Activities.Activity> 
     {
-        IQueryable<T> SearchByActivityName(string activityName);
-        IQueryable<T> GetActivitiesByStartDate(DateTime dateTime);
-        IQueryable<T> SearchActivityByDescription(string description);
-        IQueryable<T> SearchActivityByRegionId(int regionId);
+        IQueryable<Entities.Models.Activities.Activity> SearchByActivityName(string activityName);
+        IQueryable<Entities.Models.Activities.Activity> GetActivitiesByStartDate(DateTime dateTime);
+        IQueryable<Entities.Models.Activities.Activity> SearchActivityByDescription(string description);
+        IQueryable<Entities.Models.Activities.Activity> SearchActivityByRegionId(int regionId);
+        IQueryable<Entities.Models.Activities.Activity> GetToursByEventCategory(ActivityCategory activityCategory);
     }
 }

@@ -12,10 +12,10 @@ namespace DataAccess.Entities.Abstracts
         public int Kilometer { get; set; }
         public int Age { get; set; }
         public short Capacity { get; set; }
+        public bool IsAvailable { get; set; }
         //Mapping
-        public int? TourId { get; set; }
-        public virtual Tour? Tour { get; set; }
-        public int? EventId { get; set; }
-        public virtual Event? Event { get; set; }
+        public int? ActivityId { get; set; }
+        public virtual Activity? Activity { get; set; }
+
     }
 }

@@ -1,11 +1,12 @@
 ﻿using DataAccess.Entities.Abstracts;
+using DataAccess.Entities.Models.OrderDetails;
 
 namespace DataAccess.Repositories.Abstracts.OrderDetail
 {
-    public interface IGenericOrderDetailRepository<T> : IGenericRepository<T> where T : BaseOrderDetailModel
+    public interface IGenericOrderDetailRepository : IGenericRepository<ActivityTicketOrderDetail>
     {
-        IQueryable<T> GetDetailByUnitPriceDesc();
-        IQueryable<T> GetDetailByQuantityDesc();
-        IQueryable<T> GetTotalCostRange(decimal low, decimal high);
+        IQueryable<ActivityTicketOrderDetail> GetDetailByUnitPriceDesc();
+        IQueryable<ActivityTicketOrderDetail> GetDetailByQuantityDesc();
+        IQueryable<ActivityTicketOrderDetail> GetTotalCostRange(decimal low, decimal high);
     }
 }

@@ -1,10 +1,11 @@
 ﻿using DataAccess.Entities.Abstracts;
+using DataAccess.Entities.Models.PassTickets;
 
 namespace DataAccess.Repositories.Abstracts.PassTicket
 {
-    public interface IGenericPassTicketRepository<T> : IGenericRepository<T> where T : BasePassTicketModel
+    public interface IGenericPassTicketRepository: IGenericRepository<ActivityPassTicket>
     {
-        IQueryable<T> GetPassTicketByPriceDesc();
-        IQueryable<T> GetPassTicketByTotalCostDesc();
+        IQueryable<ActivityPassTicket> GetPassTicketByPriceDesc();
+        IQueryable<ActivityPassTicket> GetPassTicketByTotalCostDesc();
     }
 }

@@ -11,5 +11,6 @@ namespace DataAccess.Repositories.Abstracts.Vehicle
         IQueryable<T> GetVehicleByKilometerDesc();
         IQueryable<T> GetVehicleByAgeDesc();
         IQueryable<T> GetVehicleByCapacityDesc();
+        IQueryable<T> GetVehiclesByAvailable(bool value);
     }
 }

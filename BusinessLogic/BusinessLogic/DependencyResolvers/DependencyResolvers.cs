@@ -1,7 +1,6 @@
 ﻿using BusinessLogic.Services.Abstracts;
 using BusinessLogic.Services.Concretes;
 using DataAccess.Context;
-using DataAccess.Entities.Models.Activities;
 using DataAccess.Entities.Models.WebUsers;
 using DataAccess.Repositories.Abstracts;
 using DataAccess.Repositories.Abstracts.Activity;
@@ -12,7 +11,6 @@ using DataAccess.Repositories.Abstracts.EmployeeR;
 using DataAccess.Repositories.Abstracts.Order;
 using DataAccess.Repositories.Abstracts.OrderDetail;
 using DataAccess.Repositories.Abstracts.PassTicket;
-using DataAccess.Repositories.Abstracts.ProductR;
 using DataAccess.Repositories.Abstracts.Region;
 using DataAccess.Repositories.Abstracts.Ticket;
 using DataAccess.Repositories.Abstracts.Vehicle;
@@ -26,8 +24,6 @@ using DataAccess.Repositories.Concretes.EmployeeR;
 using DataAccess.Repositories.Concretes.Order;
 using DataAccess.Repositories.Concretes.OrderDetail;
 using DataAccess.Repositories.Concretes.PassTicket;
-using DataAccess.Repositories.Concretes.ProductR;
-using DataAccess.Repositories.Concretes.Products;
 using DataAccess.Repositories.Concretes.Region;
 using DataAccess.Repositories.Concretes.Ticket;
 using DataAccess.Repositories.Concretes.Vehicle;
@@ -69,23 +65,18 @@ namespace BusinessLogic.DependencyResolvers
         public static IServiceCollection AddDALServices(this IServiceCollection collection)
         {
             collection.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-            collection.AddScoped(typeof(IGenericActivityRepository<>), typeof(GenericActivityRepository<>));
-            collection.AddScoped<ITourRepository, TourRepository>();
-            collection.AddScoped<IEventRepository, EventRepository>();
+            collection.AddScoped<IGenericActivityRepository, GenericActivityRepository>();
             collection.AddScoped(typeof(IGenericCompanyRepository<>), typeof(GenericCompanyRepository<>));
             collection.AddScoped<IPartnerCompanyRepository, PartnerCompanyRepository>();
             collection.AddScoped<ICountryRepository, CountryRepository>();
             collection.AddScoped(typeof(IGenericEmployeeRepository<>), typeof(GenericEmployeeRepository<>));
             collection.AddScoped<IEmployeeRepository, EmployeeRepository>();
-            collection.AddScoped<IContractDriverRepository, ContractDriverRepository>();
-            collection.AddScoped<ITourGuideRepository, TourGuideRepository>();
-            collection.AddScoped(typeof(IGenericOrderDetailRepository<>), typeof(GenericOrderDetailRepository<>));
-            collection.AddScoped(typeof(IGenericOrderRepository<>), typeof(GenericOrderRepository<>));
-            collection.AddScoped(typeof(IGenericPassTicketRepository<>), typeof(GenericPassTicketRepository<>));
-            collection.AddScoped<IProductRepository, ProductRepository>();
-            collection.AddScoped<IProductCategoryRepository, ProductCategoryRepository>();
-            collection.AddScoped(typeof(IGenericTicketRepository<>), typeof(GenericTicketRepository<>));
-            collection.AddScoped(typeof(IGenericRegionRepository<>), typeof(GenericRegionRepository<>));
+            collection.AddScoped<IContractEmployeeRepository, ContractEmployeeRepository>();
+            collection.AddScoped<IGenericOrderDetailRepository, GenericOrderDetailRepository>();
+            collection.AddScoped<IGenericOrderRepository, GenericOrderRepository>();
+            collection.AddScoped<IGenericPassTicketRepository, GenericPassTicketRepository>();
+            collection.AddScoped<IGenericTicketRepository, GenericTicketRepository>();
+            collection.AddScoped<IGenericRegionRepository, GenericRegionRepository>();
             collection.AddScoped(typeof(IGenericVehicleRepository<>), typeof(GenericVehicleRepository<>));
             collection.AddScoped<IVehicleRepository, VehicleRepository>();
             collection.AddScoped<IRentalVehicleRepository, RentalVehicleRepository>();
@@ -109,7 +100,7 @@ namespace BusinessLogic.DependencyResolvers
         /// <param name="collection"></param>
         /// <returns></returns>
         public static IServiceCollection AddMapperServices(this IServiceCollection collection)
-        {            
+        {
             collection.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             return collection;
         }

@@ -23,12 +23,7 @@ namespace DataAccess.Entities.Models.WebUsers
         //Country
         public int? CountryId { get; set; }
         public virtual Country? Country { get; set; }
-        //TourTicketOrder
-        public virtual ICollection<TourTicketOrder>? TourTicketOrders { get; set; }
-        //EventTicketOrder
-        public virtual ICollection<EventTicketOrder>? EventTicketOrders { get; set; }
-        //ProductOrder
-        public virtual ICollection<ProductOrder>? ProductOrders { get; set; }
-
+        //ActivityTicketOrder
+        public virtual ICollection<ActivityTicketOrder>? ActivityTicketOrders { get; set; }
     }
 }

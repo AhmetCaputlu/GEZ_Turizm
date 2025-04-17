@@ -1,32 +1,31 @@
 ﻿using DataAccess.Context;
 using DataAccess.Entities.Abstracts;
 using DataAccess.Entities.Enums;
+using DataAccess.Entities.Models.OrderDetails;
 using DataAccess.Repositories.Abstracts.OrderDetail;
 using EFCore.BulkExtensions;
 using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Repositories.Concretes.OrderDetail
 {
-    public class GenericOrderDetailRepository<T> : GenericRepository<T>, IGenericOrderDetailRepository<T> where T : BaseOrderDetailModel
+    public class GenericOrderDetailRepository : GenericRepository<ActivityTicketOrderDetail>, IGenericOrderDetailRepository
     {
         private readonly GezTurizmContext _context;
-        private readonly DbSet<T> _dbset;
         public GenericOrderDetailRepository(GezTurizmContext context) : base(context)
         {
             _context = context;
-            _dbset = _context.Set<T>();
         }
-        public IQueryable<T> GetDetailByUnitPriceDesc()
+        public IQueryable<ActivityTicketOrderDetail> GetDetailByUnitPriceDesc()
         {
-            return _dbset.OrderByDescending(x => x.UnitPrice);
+            return _context.ActivityTicketOrderDetails.OrderByDescending(x => x.UnitPrice);
         }
-        public IQueryable<T> GetDetailByQuantityDesc()
+        public IQueryable<ActivityTicketOrderDetail> GetDetailByQuantityDesc()
         {
-            return _dbset.OrderByDescending(x => x.Quantity);
+            return _context.ActivityTicketOrderDetails.OrderByDescending(x => x.Quantity);
         }
-        public IQueryable<T> GetTotalCostRange(decimal low, decimal high)
+        public IQueryable<ActivityTicketOrderDetail> GetTotalCostRange(decimal low, decimal high)
         {
-            return _dbset.Where(x => x.UnitPrice <= high && x.UnitPrice >= low);
+            return _context.ActivityTicketOrderDetails.Where(x => x.UnitPrice <= high && x.UnitPrice >= low);
         }
     }
 }

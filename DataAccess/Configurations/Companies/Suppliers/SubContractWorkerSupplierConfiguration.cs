@@ -11,8 +11,7 @@ namespace DataAccess.Configurations.Companies.Suppliers
         public override void Configure(EntityTypeBuilder<SubContractWorkerSupplier> builder)
         {
             base.Configure(builder);
-            builder.HasMany(x => x.ContractDrivers).WithOne(x => x.SubContractWorkerSupplier).HasForeignKey(x => x.SubContractWorkerSupplierId).OnDelete(DeleteBehavior.NoAction);
-            builder.HasMany(x => x.ContractTourGuides).WithOne(x => x.SubContractWorkerSupplier).HasForeignKey(x => x.SubContractWorkerSupplierId).OnDelete(DeleteBehavior.NoAction);
+            builder.HasMany(x => x.ContractEmployees).WithOne(x => x.SubContractWorkerSupplier).HasForeignKey(x => x.SupplierId).OnDelete(DeleteBehavior.NoAction);
 
             builder.HasData(SubWorkerSupplierSeedData.GetSubContractWorkerSuppliers(5));
         }

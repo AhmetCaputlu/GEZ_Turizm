@@ -1,12 +1,13 @@
 ﻿using DataAccess.Entities.Abstracts;
 using DataAccess.Entities.Enums;
+using DataAccess.Entities.Models.Regions;
 
 namespace DataAccess.Repositories.Abstracts.Region
 {
-    public interface IGenericRegionRepository<T> : IGenericRepository<T> where T : BaseRegionModel
+    public interface IGenericRegionRepository : IGenericRepository<ServiceRegion>
     {
-        IQueryable<T> GetByDistrictName(string districtName);
-        IQueryable<T> GetByArrivalTimeDesc();
-        IQueryable<T> GetByTransportType(VehicleType type);
+        IQueryable<ServiceRegion> GetByDistrictName(string districtName);
+        IQueryable<ServiceRegion> GetByArrivalTimeDesc();
+        IQueryable<ServiceRegion> GetByTransportType(VehicleType type);
     }
 }

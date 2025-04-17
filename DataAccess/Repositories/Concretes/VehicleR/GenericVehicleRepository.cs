@@ -41,5 +41,10 @@ namespace DataAccess.Repositories.Concretes.Vehicle
         {
             return _dbset.OrderByDescending(x => x.Capacity);
         }
+
+        public IQueryable<T> GetVehiclesByAvailable(bool value)
+        {
+            return _dbset.Where(x => x.IsAvailable == value);
+        }
     }
 }

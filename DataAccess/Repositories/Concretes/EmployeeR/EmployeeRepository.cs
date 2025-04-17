@@ -1,14 +1,12 @@
 ﻿using DataAccess.Context;
 using DataAccess.Entities.Enums;
-using DataAccess.Entities.Models.Employees;
-using DataAccess.Repositories.Abstracts.Employee;
 using DataAccess.Repositories.Abstracts.EmployeeR;
 using DataAccess.Repositories.Concretes.Employee;
 
 namespace DataAccess.Repositories.Concretes.EmployeeR
 {
     public class EmployeeRepository : GenericEmployeeRepository<DataAccess.Entities.Models.Employees.Employee>,
-         IGenericEmployeeRepository<DataAccess.Entities.Models.Employees.Employee>, IEmployeeRepository
+          IEmployeeRepository
     {
         private readonly GezTurizmContext _context;
 

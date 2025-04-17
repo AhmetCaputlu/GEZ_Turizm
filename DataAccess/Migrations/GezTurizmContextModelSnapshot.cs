@@ -25,67 +25,7 @@ namespace DataAccess.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("DataAccess.Entities.Mappings.ContractDriver_RentalVehicle", b =>
-                {
-                    b.Property<int?>("ContractDriverId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("RentalVehicleId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ContractDriverId", "RentalVehicleId");
-
-                    b.HasIndex("RentalVehicleId");
-
-                    b.ToTable("ContractDrivers_RentalVehicles");
-                });
-
-            modelBuilder.Entity("DataAccess.Entities.Mappings.ContractDriver_Vehicle", b =>
-                {
-                    b.Property<int?>("ContractDriverId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("VehicleId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ContractDriverId", "VehicleId");
-
-                    b.HasIndex("VehicleId");
-
-                    b.ToTable("ContractDrivers_Vehicles");
-                });
-
-            modelBuilder.Entity("DataAccess.Entities.Mappings.ContractTourGuide_ServiceRegion", b =>
-                {
-                    b.Property<int?>("ContractTourGuideId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("ServiceRegionId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ContractTourGuideId", "ServiceRegionId");
-
-                    b.HasIndex("ServiceRegionId");
-
-                    b.ToTable("ContractTourGuides_ServiceRegions");
-                });
-
-            modelBuilder.Entity("DataAccess.Entities.Mappings.ContractTourGuide_Tour", b =>
-                {
-                    b.Property<int?>("ContractTourGuideId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("TourId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ContractTourGuideId", "TourId");
-
-                    b.HasIndex("TourId");
-
-                    b.ToTable("ContractTourGuide_Tour");
-                });
-
-            modelBuilder.Entity("DataAccess.Entities.Models.Activities.Event", b =>
+            modelBuilder.Entity("DataAccess.Entities.Models.Activities.Activity", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -93,17 +33,27 @@ namespace DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("ActivityCategory")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("ActivityName")
+                        .IsRequired()
+                        .HasMaxLength(40)
+                        .HasColumnType("nvarchar(40)");
+
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 4, 11, 13, 41, 10, 975, DateTimeKind.Local).AddTicks(8200));
+                        .HasDefaultValue(new DateTime(2025, 4, 17, 16, 26, 31, 828, DateTimeKind.Local).AddTicks(6866));
 
                     b.Property<string>("CreatedID")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("842b332d-216c-4a7d-aec5-e94785954efe");
+                        .HasDefaultValue("ff337525-f9b1-4b98-9fe6-e236196caf4d");
 
                     b.Property<string>("CreatedIPAddress")
                         .IsRequired()
@@ -119,22 +69,12 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("EventCategory")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("EventName")
-                        .IsRequired()
-                        .HasMaxLength(40)
-                        .HasColumnType("nvarchar(40)");
-
                     b.Property<string>("Guid")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("8d5f3295-8484-4506-a584-cbdeddb5e715");
+                        .HasDefaultValue("58a3cf7e-c346-4749-814a-bb1fc61d68c7");
 
                     b.Property<string>("IsUpdated")
                         .IsRequired()
@@ -168,256 +108,88 @@ namespace DataAccess.Migrations
 
                     b.HasIndex("RegionId");
 
-                    b.ToTable("Events");
+                    b.ToTable("Activities");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2010, 4, 5, 15, 24, 26, 0, DateTimeKind.Unspecified),
-                            CreatedID = "86e45515-454a-45af-a304-4d0ee0936b50",
-                            CreatedIPAddress = "253.226.140.81",
-                            Description = "6th generation Agent Planner markets online Programmable Soft Generic Granite Tuna",
-                            EndDate = new DateTime(2010, 1, 6, 0, 44, 36, 0, DateTimeKind.Unspecified),
-                            EventCategory = "Safari",
-                            EventName = "dolorem",
-                            Guid = "f4979d8d-ec72-4db3-825c-1c8da1f6937c",
-                            IsUpdated = "No",
-                            RegionId = 5,
-                            StartDate = new DateTime(2010, 1, 5, 22, 44, 36, 0, DateTimeKind.Unspecified),
-                            Status = "Active"
+                            ActivityCategory = "BBQ_Camping",
+                            ActivityName = "quod",
+                            CreatedDate = new DateTime(2014, 9, 5, 19, 47, 15, 0, DateTimeKind.Unspecified),
+                            CreatedID = "789ee129-9c88-44b6-a333-f1d62856a205",
+                            CreatedIPAddress = "164.59.201.62",
+                            Description = "Handmade Plastic Shoes Cotton e-tailers Awesome Metal Hat firmware parsing Intelligent Tactics",
+                            EndDate = new DateTime(2019, 2, 17, 17, 21, 10, 0, DateTimeKind.Unspecified),
+                            Guid = "4e40c2e8-0b0e-43de-adb8-9f9bfbc83a46",
+                            IsUpdated = "Yes",
+                            RegionId = 1,
+                            StartDate = new DateTime(2019, 2, 17, 6, 21, 10, 0, DateTimeKind.Unspecified),
+                            Status = "Passive"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2001, 8, 12, 15, 37, 21, 0, DateTimeKind.Unspecified),
-                            CreatedID = "3d03de4a-3fd1-4ccc-860b-00d7800d7302",
-                            CreatedIPAddress = "222.220.43.102",
-                            Description = "override Parks Handcrafted Wooden Car e-business Specialist California Research neural-net",
-                            EndDate = new DateTime(2012, 6, 6, 21, 22, 41, 0, DateTimeKind.Unspecified),
-                            EventCategory = "NightWalk",
-                            EventName = "odio",
-                            Guid = "a91e6fa5-1f8f-4f81-8b98-8e2810e4a8e0",
+                            ActivityCategory = "AncientCity",
+                            ActivityName = "cumque",
+                            CreatedDate = new DateTime(2017, 10, 20, 14, 31, 6, 0, DateTimeKind.Unspecified),
+                            CreatedID = "89c70fbc-32d4-470d-95fc-eb6977625b1b",
+                            CreatedIPAddress = "126.114.175.136",
+                            Description = "Frozen Nebraska National Tanzanian Shilling Granite Tunisian Dinar Rapids payment",
+                            EndDate = new DateTime(2008, 5, 2, 12, 24, 34, 0, DateTimeKind.Unspecified),
+                            Guid = "fbcac298-ad12-4db8-8165-e63b8b5a2559",
                             IsUpdated = "No",
                             RegionId = 4,
-                            StartDate = new DateTime(2012, 6, 6, 17, 22, 41, 0, DateTimeKind.Unspecified),
-                            Status = "Active"
+                            StartDate = new DateTime(2008, 5, 2, 5, 24, 34, 0, DateTimeKind.Unspecified),
+                            Status = "Passive"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2000, 11, 16, 23, 18, 49, 0, DateTimeKind.Unspecified),
-                            CreatedID = "262ca957-359c-4de3-b0d6-e521f4689da8",
-                            CreatedIPAddress = "71.69.128.55",
-                            Description = "reboot sky blue International Incredible Rubber Chips calculating Surinam Dollar Avon Supervisor",
-                            EndDate = new DateTime(2002, 8, 1, 7, 32, 45, 0, DateTimeKind.Unspecified),
-                            EventCategory = "Workshops",
-                            EventName = "optio",
-                            Guid = "dc9d32ed-30d1-4924-b575-8afe5b0f28cb",
+                            ActivityCategory = "WayTrek",
+                            ActivityName = "possimus",
+                            CreatedDate = new DateTime(2006, 11, 5, 16, 31, 24, 0, DateTimeKind.Unspecified),
+                            CreatedID = "e040f2d4-a557-4827-9a7a-8b3eabb13d2a",
+                            CreatedIPAddress = "81.217.242.119",
+                            Description = "frame Rwanda Franc cross-platform Metal Intelligent Paradigm brand Home Loan Account",
+                            EndDate = new DateTime(2010, 9, 25, 2, 15, 27, 0, DateTimeKind.Unspecified),
+                            Guid = "837263ab-228e-46ed-9c04-78ba5e0e9e6c",
                             IsUpdated = "Yes",
-                            RegionId = 4,
-                            StartDate = new DateTime(2002, 8, 1, 3, 32, 45, 0, DateTimeKind.Unspecified),
-                            Status = "Unknown"
+                            RegionId = 3,
+                            StartDate = new DateTime(2010, 9, 24, 14, 15, 27, 0, DateTimeKind.Unspecified),
+                            Status = "Passive"
                         },
                         new
                         {
                             Id = 4,
-                            CreatedDate = new DateTime(2010, 12, 20, 2, 12, 37, 0, DateTimeKind.Unspecified),
-                            CreatedID = "d7818a2c-2e97-49f6-aefb-40a1c0f1cf5e",
-                            CreatedIPAddress = "14.224.65.77",
-                            Description = "payment task-force transmitting Nevada Automotive, Grocery & Baby Connecticut infrastructures optimizing",
-                            EndDate = new DateTime(2014, 3, 27, 5, 10, 10, 0, DateTimeKind.Unspecified),
-                            EventCategory = "BeachParty",
-                            EventName = "vitae",
-                            Guid = "c1de4547-0e8f-4305-a3c8-baaa86e79191",
-                            IsUpdated = "No",
-                            RegionId = 2,
-                            StartDate = new DateTime(2014, 3, 27, 3, 10, 10, 0, DateTimeKind.Unspecified),
-                            Status = "Active"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            CreatedDate = new DateTime(2010, 11, 15, 17, 18, 35, 0, DateTimeKind.Unspecified),
-                            CreatedID = "dfc830b2-2277-49ab-add2-cfeec0b6f167",
-                            CreatedIPAddress = "146.92.86.217",
-                            Description = "Land Buckinghamshire Delaware emulation Ouguiya Legacy Costa Rican Colon Checking Account",
-                            EndDate = new DateTime(2017, 8, 12, 18, 21, 39, 0, DateTimeKind.Unspecified),
-                            EventCategory = "BBQ_Camping",
-                            EventName = "mollitia",
-                            Guid = "b07e0ace-63eb-40bf-a976-62dc3b832113",
-                            IsUpdated = "No",
-                            RegionId = 2,
-                            StartDate = new DateTime(2017, 8, 12, 14, 21, 39, 0, DateTimeKind.Unspecified),
-                            Status = "Unknown"
-                        });
-                });
-
-            modelBuilder.Entity("DataAccess.Entities.Models.Activities.Tour", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("CreatedDate")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 4, 11, 13, 41, 10, 977, DateTimeKind.Local).AddTicks(5177));
-
-                    b.Property<string>("CreatedID")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(36)
-                        .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("f786cd13-7bff-4a53-9b4f-98b33937a6c6");
-
-                    b.Property<string>("CreatedIPAddress")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)")
-                        .HasDefaultValue("");
-
-                    b.Property<string>("Description")
-                        .HasMaxLength(180)
-                        .HasColumnType("nvarchar(180)");
-
-                    b.Property<DateTime>("EndDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("EventName")
-                        .IsRequired()
-                        .HasMaxLength(40)
-                        .HasColumnType("nvarchar(40)");
-
-                    b.Property<string>("Guid")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(36)
-                        .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("7e30047f-fe3f-4846-91b7-192c9dcfa0ea");
-
-                    b.Property<string>("IsUpdated")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("RegionId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("StartDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)")
-                        .HasDefaultValue("Unknown");
-
-                    b.Property<string>("TourCategory")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("UpdatedID")
-                        .HasMaxLength(36)
-                        .HasColumnType("nvarchar(36)");
-
-                    b.Property<string>("UpdatedIPAddress")
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("RegionId");
-
-                    b.ToTable("Tours");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CreatedDate = new DateTime(2002, 10, 11, 2, 17, 19, 0, DateTimeKind.Unspecified),
-                            CreatedID = "380981b2-fe5a-48d0-9eb3-5718037ad998",
-                            CreatedIPAddress = "67.48.87.157",
-                            Description = "Group networks JSON analyzing Licensed Rubber Gloves Rustic Plastic Tuna digital Garden",
-                            EndDate = new DateTime(2013, 3, 8, 21, 47, 12, 0, DateTimeKind.Unspecified),
-                            EventName = "dolore",
-                            Guid = "bb6f35b8-a307-46cc-bf66-2bb4a53ace35",
+                            ActivityCategory = "Theater",
+                            ActivityName = "sed",
+                            CreatedDate = new DateTime(2003, 11, 13, 8, 43, 51, 0, DateTimeKind.Unspecified),
+                            CreatedID = "e8fc4c18-d561-4bc1-8c8c-7d1668e84c25",
+                            CreatedIPAddress = "102.239.184.233",
+                            Description = "Virginia Generic e-tailers Music, Jewelery & Industrial Savings Account sky blue generate circuit",
+                            EndDate = new DateTime(2016, 10, 15, 4, 37, 34, 0, DateTimeKind.Unspecified),
+                            Guid = "e8c24d8e-9ddc-432d-8bd0-fe8011ee981b",
                             IsUpdated = "No",
                             RegionId = 1,
-                            StartDate = new DateTime(2013, 3, 8, 19, 47, 12, 0, DateTimeKind.Unspecified),
-                            Status = "Active",
-                            TourCategory = "Waterfall"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CreatedDate = new DateTime(2011, 12, 13, 17, 16, 28, 0, DateTimeKind.Unspecified),
-                            CreatedID = "f6a29851-e064-4c6c-8dad-0989f8186e3d",
-                            CreatedIPAddress = "1.95.221.248",
-                            Description = "Borders Rustic synthesize Fresh leverage Sri Lanka Rupee online Sleek",
-                            EndDate = new DateTime(2002, 2, 1, 23, 59, 16, 0, DateTimeKind.Unspecified),
-                            EventName = "repudiandae",
-                            Guid = "8ac9f662-54c9-4a13-8674-4142bca2c9df",
-                            IsUpdated = "No",
-                            RegionId = 3,
-                            StartDate = new DateTime(2002, 2, 1, 19, 59, 16, 0, DateTimeKind.Unspecified),
-                            Status = "Unknown",
-                            TourCategory = "AquaPark"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CreatedDate = new DateTime(2001, 5, 3, 9, 59, 20, 0, DateTimeKind.Unspecified),
-                            CreatedID = "fef59824-4ad2-4179-988b-e59abc033323",
-                            CreatedIPAddress = "119.68.75.168",
-                            Description = "generate 24/7 Refined Frozen Pizza withdrawal Refined Plastic Keyboard synergy SCSI Concrete",
-                            EndDate = new DateTime(2019, 8, 11, 5, 19, 33, 0, DateTimeKind.Unspecified),
-                            EventName = "numquam",
-                            Guid = "4eef6ab2-8593-4ca9-acd5-387f4794f000",
-                            IsUpdated = "No",
-                            RegionId = 3,
-                            StartDate = new DateTime(2019, 8, 11, 2, 19, 33, 0, DateTimeKind.Unspecified),
-                            Status = "Unknown",
-                            TourCategory = "Waterfall"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            CreatedDate = new DateTime(2009, 2, 3, 1, 49, 47, 0, DateTimeKind.Unspecified),
-                            CreatedID = "649d0b71-b4f9-4711-8f2e-663074ae1760",
-                            CreatedIPAddress = "69.247.139.206",
-                            Description = "clicks-and-mortar Tasty Fresh Keyboard withdrawal Virtual GB Technician dot-com initiatives",
-                            EndDate = new DateTime(2020, 7, 3, 23, 13, 23, 0, DateTimeKind.Unspecified),
-                            EventName = "debitis",
-                            Guid = "781779d1-ac1c-40e1-9d78-dadf2097596c",
-                            IsUpdated = "No",
-                            RegionId = 3,
-                            StartDate = new DateTime(2020, 7, 3, 19, 13, 23, 0, DateTimeKind.Unspecified),
-                            Status = "Unknown",
-                            TourCategory = "Cave"
+                            StartDate = new DateTime(2016, 10, 14, 19, 37, 34, 0, DateTimeKind.Unspecified),
+                            Status = "Passive"
                         },
                         new
                         {
                             Id = 5,
-                            CreatedDate = new DateTime(2017, 4, 14, 17, 8, 15, 0, DateTimeKind.Unspecified),
-                            CreatedID = "b80f4ec5-cedb-4a3f-b9dc-5550fd50d70e",
-                            CreatedIPAddress = "197.109.133.127",
-                            Description = "withdrawal leverage Small Wooden Car Illinois Bypass Sleek Cotton magenta",
-                            EndDate = new DateTime(2011, 3, 7, 13, 17, 12, 0, DateTimeKind.Unspecified),
-                            EventName = "magni",
-                            Guid = "e6edaacf-de69-4cd5-886a-9763869bfd22",
+                            ActivityCategory = "Canyon",
+                            ActivityName = "et",
+                            CreatedDate = new DateTime(2006, 12, 27, 23, 24, 19, 0, DateTimeKind.Unspecified),
+                            CreatedID = "1537857c-fb71-408e-8020-62d2737f963e",
+                            CreatedIPAddress = "87.193.105.111",
+                            Description = "Ramp Proactive extranet invoice Borders Realigned Awesome Wooden Table Barbados",
+                            EndDate = new DateTime(2013, 2, 9, 14, 51, 53, 0, DateTimeKind.Unspecified),
+                            Guid = "64bc0032-3502-41f5-bd22-713dca4629af",
                             IsUpdated = "No",
-                            RegionId = 5,
-                            StartDate = new DateTime(2011, 3, 7, 10, 17, 12, 0, DateTimeKind.Unspecified),
-                            Status = "Active",
-                            TourCategory = "Cave"
+                            RegionId = 4,
+                            StartDate = new DateTime(2013, 2, 9, 3, 51, 53, 0, DateTimeKind.Unspecified),
+                            Status = "Active"
                         });
                 });
 
@@ -459,14 +231,14 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 4, 11, 13, 41, 10, 979, DateTimeKind.Local).AddTicks(718));
+                        .HasDefaultValue(new DateTime(2025, 4, 17, 16, 26, 31, 830, DateTimeKind.Local).AddTicks(3338));
 
                     b.Property<string>("CreatedID")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("dcd3efc4-f9b6-46f0-ab58-b61b995faae0");
+                        .HasDefaultValue("3b04c4e1-ffed-481f-b37c-b940ce5961a7");
 
                     b.Property<string>("CreatedIPAddress")
                         .IsRequired()
@@ -491,7 +263,7 @@ namespace DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("7de86bf5-61a5-4021-a55f-7908373a2a07");
+                        .HasDefaultValue("d429e193-fb0a-4212-a6e6-ea0b879c7a73");
 
                     b.Property<string>("IsUpdated")
                         .IsRequired()
@@ -529,100 +301,100 @@ namespace DataAccess.Migrations
                         {
                             Id = 1,
                             AcceptTickets = "Yes",
-                            Address = "91175 Bergnaum Mission, Millsside, Bahrain",
-                            Balance = 11012.584116350970000m,
-                            CompanyName = "Feest, O'Connell and Gutmann Inc",
-                            ContactName = "Ryann Wisozk",
-                            ContactTitle = "Dynamic Implementation Consultant",
-                            CreatedDate = new DateTime(2009, 1, 15, 6, 52, 53, 0, DateTimeKind.Unspecified),
-                            CreatedID = "6dc84309-bafa-4f41-89c4-d78ace2a1a2a",
-                            CreatedIPAddress = "182.83.105.86",
-                            Credit = 88542.095136674950000m,
-                            Debit = 99554.679253025920000m,
-                            Email = "Jairo.Skiles98@gmail.com",
-                            Guid = "7ff21e54-8b34-4177-a4fb-bbeebd4c6ad9",
+                            Address = "95708 Jaida Lakes, East Sylviamouth, Austria",
+                            Balance = 7596.582791103990000m,
+                            CompanyName = "Gibson, Little and Stracke LLC",
+                            ContactName = "Brenden Marvin",
+                            ContactTitle = "Human Configuration Architect",
+                            CreatedDate = new DateTime(2015, 8, 1, 19, 30, 8, 0, DateTimeKind.Unspecified),
+                            CreatedID = "522f291b-cd4d-4f4e-8c1c-df4a3cac09a5",
+                            CreatedIPAddress = "196.218.71.157",
+                            Credit = 40810.286186332570000m,
+                            Debit = 48406.868977436560000m,
+                            Email = "Duane97@hotmail.com",
+                            Guid = "b8820587-1936-408b-9a13-18ca99653dd9",
                             IsUpdated = "No",
-                            PhoneNumber = "02122708346",
-                            Status = "Active"
+                            PhoneNumber = "02134156202",
+                            Status = "Unknown"
                         },
                         new
                         {
                             Id = 2,
                             AcceptTickets = "Yes",
-                            Address = "204 Collins Lodge, Maverickside, Ukraine",
-                            Balance = -25090.694021345850000m,
-                            CompanyName = "Schuster, Quitzon and Schneider and Sons",
-                            ContactName = "Augustus Monahan",
-                            ContactTitle = "Dynamic Identity Architect",
-                            CreatedDate = new DateTime(2006, 8, 3, 20, 19, 10, 0, DateTimeKind.Unspecified),
-                            CreatedID = "a76cf05d-6502-407e-9f44-73df7cde7f8f",
-                            CreatedIPAddress = "15.51.34.12",
-                            Credit = 98462.944902548440000m,
-                            Debit = 73372.250881202590000m,
-                            Email = "Howard_Langworth35@hotmail.com",
-                            Guid = "cdc45bc9-707d-4679-b5eb-aae1a2582e9d",
-                            IsUpdated = "Yes",
-                            PhoneNumber = "02110486294",
-                            Status = "Active"
+                            Address = "2290 Amir Corners, Andersontown, Kiribati",
+                            Balance = 31673.061953346420000m,
+                            CompanyName = "Rau, O'Reilly and Bernier LLC",
+                            ContactName = "Anabel Hoppe",
+                            ContactTitle = "Product Interactions Coordinator",
+                            CreatedDate = new DateTime(2015, 9, 5, 20, 30, 48, 0, DateTimeKind.Unspecified),
+                            CreatedID = "465b2666-338e-41f5-b368-ece66bfe75d3",
+                            CreatedIPAddress = "228.208.76.199",
+                            Credit = 46688.05143174250000m,
+                            Debit = 78361.113385088920000m,
+                            Email = "Yvonne.Gerhold72@yahoo.com",
+                            Guid = "6e08b735-c743-47aa-9bb7-b49d3066b828",
+                            IsUpdated = "No",
+                            PhoneNumber = "02168364046",
+                            Status = "Passive"
                         },
                         new
                         {
                             Id = 3,
                             AcceptTickets = "Yes",
-                            Address = "47618 Ally Course, North Bradlyside, Netherlands",
-                            Balance = 31324.770407317590000m,
-                            CompanyName = "Rodriguez, Mosciski and Swaniawski Group",
-                            ContactName = "Laisha Collier",
-                            ContactTitle = "Dynamic Interactions Strategist",
-                            CreatedDate = new DateTime(2019, 2, 16, 17, 48, 25, 0, DateTimeKind.Unspecified),
-                            CreatedID = "d76e6397-710b-4967-b16b-d42162b7ba14",
-                            CreatedIPAddress = "235.81.15.0",
-                            Credit = 19215.253203688630000m,
-                            Debit = 50540.023611006220000m,
-                            Email = "Vaughn_Kuvalis@hotmail.com",
-                            Guid = "8fedc167-dfc8-48a0-8072-ba30e3fde7f6",
+                            Address = "332 Edwina Shoal, North Rosie, Samoa",
+                            Balance = 64860.893956536480000m,
+                            CompanyName = "DuBuque, Cormier and Leannon and Sons",
+                            ContactName = "Eliseo Jaskolski",
+                            ContactTitle = "International Directives Supervisor",
+                            CreatedDate = new DateTime(2018, 6, 19, 9, 13, 33, 0, DateTimeKind.Unspecified),
+                            CreatedID = "78ff5ad8-5bd2-4e87-89fd-d5f621494f7b",
+                            CreatedIPAddress = "138.219.128.131",
+                            Credit = 27596.371776563080000m,
+                            Debit = 92457.265733099560000m,
+                            Email = "Novella_Goldner@gmail.com",
+                            Guid = "eae2af80-9501-46f7-b6b3-feb985eac26b",
                             IsUpdated = "No",
-                            PhoneNumber = "02127525823",
-                            Status = "Active"
+                            PhoneNumber = "02176806595",
+                            Status = "Passive"
                         },
                         new
                         {
                             Id = 4,
                             AcceptTickets = "No",
-                            Address = "189 Harber Track, Port Amayabury, Monaco",
-                            Balance = 54443.533150161360000m,
-                            CompanyName = "Kassulke, Grimes and Collier Inc",
-                            ContactName = "Trystan Mitchell",
-                            ContactTitle = "District Factors Representative",
-                            CreatedDate = new DateTime(2012, 5, 22, 16, 50, 27, 0, DateTimeKind.Unspecified),
-                            CreatedID = "4b724e3d-0bbb-4afa-9e4f-b1e47663afbd",
-                            CreatedIPAddress = "151.163.118.142",
-                            Credit = 32178.726615085390000m,
-                            Debit = 86622.259765246750000m,
-                            Email = "Vena.Kris22@yahoo.com",
-                            Guid = "e5dda6a9-85a2-4689-b4e1-51dcefcae56a",
-                            IsUpdated = "No",
-                            PhoneNumber = "02135200031",
-                            Status = "Passive"
+                            Address = "1826 Hahn Plain, South Marcellaburgh, Samoa",
+                            Balance = 27339.343459854750000m,
+                            CompanyName = "Stoltenberg, Parker and Hagenes and Sons",
+                            ContactName = "Brigitte Windler",
+                            ContactTitle = "Forward Solutions Consultant",
+                            CreatedDate = new DateTime(2003, 9, 5, 22, 59, 48, 0, DateTimeKind.Unspecified),
+                            CreatedID = "9d967eb1-29e0-4f44-a8e1-5a8b8f399ad8",
+                            CreatedIPAddress = "105.43.235.116",
+                            Credit = 43265.777391173440000m,
+                            Debit = 70605.120851028190000m,
+                            Email = "Toby60@gmail.com",
+                            Guid = "3b84fc99-285b-479d-9de3-6ba7932b0aeb",
+                            IsUpdated = "Yes",
+                            PhoneNumber = "02147003476",
+                            Status = "Active"
                         },
                         new
                         {
                             Id = 5,
                             AcceptTickets = "Yes",
-                            Address = "1009 Chaya Forges, West Jarrellland, Marshall Islands",
-                            Balance = 42103.996944787800000m,
-                            CompanyName = "Hane, Lang and Bergnaum and Sons",
-                            ContactName = "Stevie Larson",
-                            ContactTitle = "International Configuration Officer",
-                            CreatedDate = new DateTime(2012, 9, 15, 20, 55, 21, 0, DateTimeKind.Unspecified),
-                            CreatedID = "10598204-b2e8-4ec0-8484-b579d3fb46f7",
-                            CreatedIPAddress = "56.191.103.249",
-                            Credit = 28074.783462228820000m,
-                            Debit = 70178.780407016620000m,
-                            Email = "Cletus.Kertzmann91@yahoo.com",
-                            Guid = "e27cdd4f-4764-41a9-83b8-0e917ad60395",
-                            IsUpdated = "Yes",
-                            PhoneNumber = "02160725966",
+                            Address = "985 Jacobi Wall, South Mortimer, Bermuda",
+                            Balance = -4928.0955794841510000m,
+                            CompanyName = "Crooks, Medhurst and Witting Inc",
+                            ContactName = "Shyanne Witting",
+                            ContactTitle = "Central Markets Engineer",
+                            CreatedDate = new DateTime(2020, 3, 15, 21, 28, 54, 0, DateTimeKind.Unspecified),
+                            CreatedID = "bbf1c8e5-54ab-44e5-9a50-bbc900bbba6d",
+                            CreatedIPAddress = "74.236.55.80",
+                            Credit = 20111.720646627280000m,
+                            Debit = 15183.6250671431290000m,
+                            Email = "Wayne_Paucek@gmail.com",
+                            Guid = "880ec792-e175-4691-81e6-d34d8f74f71c",
+                            IsUpdated = "No",
+                            PhoneNumber = "02169564642",
                             Status = "Passive"
                         });
                 });
@@ -638,14 +410,14 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 4, 11, 13, 41, 10, 980, DateTimeKind.Local).AddTicks(4780));
+                        .HasDefaultValue(new DateTime(2025, 4, 17, 16, 26, 31, 831, DateTimeKind.Local).AddTicks(8831));
 
                     b.Property<string>("CreatedID")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("d72854ee-4b76-44aa-92c9-8c2ae5326399");
+                        .HasDefaultValue("058668eb-b5f0-4595-b362-b789e2f3a873");
 
                     b.Property<string>("CreatedIPAddress")
                         .IsRequired()
@@ -659,7 +431,7 @@ namespace DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("86adc428-1b67-4ac9-9bb3-33163656214f");
+                        .HasDefaultValue("cac16d0b-72a6-48b2-8b5d-eb77aef1bf28");
 
                     b.Property<string>("IsUpdated")
                         .IsRequired()
@@ -703,240 +475,67 @@ namespace DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2010, 2, 18, 6, 12, 19, 0, DateTimeKind.Unspecified),
-                            CreatedID = "e1d892ff-0945-4e7b-8b21-b2d8993edbc4",
-                            CreatedIPAddress = "96.174.206.191",
-                            Guid = "9b16551d-8f8e-4342-9243-a46a7d225224",
-                            IsUpdated = "Yes",
-                            PartnerCompanyId = 1,
-                            Status = "Active",
-                            TotalCost = 13432.289517350052000m,
-                            Type = "Purchase"
+                            CreatedDate = new DateTime(2006, 1, 25, 9, 15, 3, 0, DateTimeKind.Unspecified),
+                            CreatedID = "8415781c-9daa-4a83-bd86-47dcff21a2cf",
+                            CreatedIPAddress = "66.187.244.254",
+                            Guid = "c846fdc5-d0c3-4d5c-8bd3-38b53231e81d",
+                            IsUpdated = "No",
+                            PartnerCompanyId = 2,
+                            Status = "Unknown",
+                            TotalCost = 7688.61419264150000m,
+                            Type = "Sale"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2018, 1, 19, 12, 37, 2, 0, DateTimeKind.Unspecified),
-                            CreatedID = "03ec8077-b8d7-4645-ab54-182fa9d63eeb",
-                            CreatedIPAddress = "24.110.195.227",
-                            Guid = "3dcb1565-a017-494b-b5ab-8ca5ef8ae267",
-                            IsUpdated = "No",
-                            PartnerCompanyId = 3,
-                            Status = "Active",
-                            TotalCost = 1951.7584296330376000m,
-                            Type = "Purchase"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CreatedDate = new DateTime(2001, 7, 22, 1, 35, 10, 0, DateTimeKind.Unspecified),
-                            CreatedID = "09c43699-f5f1-4087-affa-cd1eae6ccfa1",
-                            CreatedIPAddress = "12.66.49.232",
-                            Guid = "194e9e3a-2326-4488-a7bd-f13809013964",
-                            IsUpdated = "No",
+                            CreatedDate = new DateTime(2015, 6, 1, 14, 47, 34, 0, DateTimeKind.Unspecified),
+                            CreatedID = "f21fa599-88a9-4b15-954e-4dac1e7cd493",
+                            CreatedIPAddress = "249.200.45.22",
+                            Guid = "2b372b22-2fbd-4ada-ad60-c2b10fa12eb2",
+                            IsUpdated = "Yes",
                             PartnerCompanyId = 1,
                             Status = "Passive",
-                            TotalCost = 13590.089077613334000m,
-                            Type = "Sale"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            CreatedDate = new DateTime(2015, 11, 24, 2, 8, 20, 0, DateTimeKind.Unspecified),
-                            CreatedID = "1244687f-d34f-4b33-9bf1-73ef9c977a0b",
-                            CreatedIPAddress = "225.245.159.80",
-                            Guid = "514666b0-8cae-43e7-ae53-a81c4380deac",
-                            IsUpdated = "Yes",
-                            PartnerCompanyId = 4,
-                            Status = "Unknown",
-                            TotalCost = 10930.682700149918000m,
-                            Type = "Sale"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            CreatedDate = new DateTime(2013, 5, 24, 9, 11, 30, 0, DateTimeKind.Unspecified),
-                            CreatedID = "6af0030b-9124-4789-bae3-454563b21fa3",
-                            CreatedIPAddress = "252.29.63.252",
-                            Guid = "78887177-ddf7-407f-a829-47f719bb2d23",
-                            IsUpdated = "No",
-                            PartnerCompanyId = 5,
-                            Status = "Active",
-                            TotalCost = 10394.408844726346000m,
-                            Type = "Sale"
-                        });
-                });
-
-            modelBuilder.Entity("DataAccess.Entities.Models.Companies.Suppliers.ProductSupplier", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Address")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<string>("CompanyName")
-                        .IsRequired()
-                        .HasMaxLength(90)
-                        .HasColumnType("nvarchar(90)");
-
-                    b.Property<string>("ContactName")
-                        .IsRequired()
-                        .HasMaxLength(40)
-                        .HasColumnType("nvarchar(40)");
-
-                    b.Property<string>("ContactTitle")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 4, 11, 13, 41, 10, 981, DateTimeKind.Local).AddTicks(5969));
-
-                    b.Property<string>("CreatedID")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(36)
-                        .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("c79312ef-066d-46c5-bb64-9d6c44574bfc");
-
-                    b.Property<string>("CreatedIPAddress")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)")
-                        .HasDefaultValue("");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<string>("Guid")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(36)
-                        .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("b2bf3707-7cda-4522-82ec-f406f102f15e");
-
-                    b.Property<string>("IsUpdated")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumber")
-                        .IsRequired()
-                        .HasMaxLength(11)
-                        .HasColumnType("nvarchar(11)");
-
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)")
-                        .HasDefaultValue("Unknown");
-
-                    b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("UpdatedID")
-                        .HasMaxLength(36)
-                        .HasColumnType("nvarchar(36)");
-
-                    b.Property<string>("UpdatedIPAddress")
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ProductSuppliers");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Address = "229 McClure Point, Port Caterinastad, Burkina Faso",
-                            CompanyName = "Runolfsdottir - Walter Group",
-                            ContactName = "Arthur Windler",
-                            ContactTitle = "Direct Interactions Assistant",
-                            CreatedDate = new DateTime(2019, 12, 12, 13, 54, 8, 0, DateTimeKind.Unspecified),
-                            CreatedID = "47e6595f-4e55-4d4e-9007-48eeab7139da",
-                            CreatedIPAddress = "253.107.114.53",
-                            Email = "Sammie.Marquardt@gmail.com",
-                            Guid = "97142efb-1534-4fd5-9f2d-71f6e3492ed3",
-                            IsUpdated = "No",
-                            PhoneNumber = "02122654954",
-                            Status = "Unknown"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Address = "4227 Emely View, Kassandrahaven, French Polynesia",
-                            CompanyName = "Corwin and Sons and Sons",
-                            ContactName = "Julia Wiza",
-                            ContactTitle = "Investor Security Administrator",
-                            CreatedDate = new DateTime(2004, 2, 16, 9, 44, 28, 0, DateTimeKind.Unspecified),
-                            CreatedID = "02279629-1af0-46cf-a4ce-bcba1cae10ba",
-                            CreatedIPAddress = "91.184.91.58",
-                            Email = "Kayley87@hotmail.com",
-                            Guid = "1ffcd9c0-ba2e-4a6c-94c3-eb26ee707179",
-                            IsUpdated = "No",
-                            PhoneNumber = "02154776961",
-                            Status = "Passive"
+                            TotalCost = 13990.106166410044000m,
+                            Type = "Purchase"
                         },
                         new
                         {
                             Id = 3,
-                            Address = "8499 Efrain Fork, Bernhardbury, Botswana",
-                            CompanyName = "Shields Inc and Sons",
-                            ContactName = "Tianna Schuppe",
-                            ContactTitle = "Senior Program Designer",
-                            CreatedDate = new DateTime(2018, 2, 16, 20, 11, 47, 0, DateTimeKind.Unspecified),
-                            CreatedID = "84c32b0c-f7c4-4fb3-9199-3dbdd5a82bbb",
-                            CreatedIPAddress = "106.14.38.0",
-                            Email = "Zetta_Altenwerth61@yahoo.com",
-                            Guid = "ffaa23a0-8341-459d-a5a8-99b0d0c51b81",
+                            CreatedDate = new DateTime(2000, 4, 23, 11, 46, 44, 0, DateTimeKind.Unspecified),
+                            CreatedID = "ed9ff8c2-9232-4cfe-b10e-1041747f9f58",
+                            CreatedIPAddress = "230.207.124.92",
+                            Guid = "e4cafd17-44b8-4e44-b7da-5f3011bf0568",
                             IsUpdated = "No",
-                            PhoneNumber = "02123562938",
-                            Status = "Passive"
+                            PartnerCompanyId = 1,
+                            Status = "Active",
+                            TotalCost = 3898.668758746236000m,
+                            Type = "Purchase"
                         },
                         new
                         {
                             Id = 4,
-                            Address = "54457 Cummings Centers, Prosaccoberg, Peru",
-                            CompanyName = "Braun, Herman and Bosco Inc",
-                            ContactName = "Zion Prosacco",
-                            ContactTitle = "Lead Data Analyst",
-                            CreatedDate = new DateTime(2004, 7, 2, 2, 59, 13, 0, DateTimeKind.Unspecified),
-                            CreatedID = "f65f29fa-6368-48a9-93c7-52272a4a177d",
-                            CreatedIPAddress = "184.90.98.164",
-                            Email = "Reagan.Mayer15@yahoo.com",
-                            Guid = "456d24ee-97e8-4fd9-ab6e-6607c474b077",
+                            CreatedDate = new DateTime(2004, 4, 17, 3, 10, 24, 0, DateTimeKind.Unspecified),
+                            CreatedID = "9b2676b9-41e0-4a91-95df-1062855bde3c",
+                            CreatedIPAddress = "165.176.242.61",
+                            Guid = "4dd468bc-b7d6-49e6-bfe3-517bb4946ccd",
                             IsUpdated = "Yes",
-                            PhoneNumber = "02162653061",
-                            Status = "Unknown"
+                            PartnerCompanyId = 1,
+                            Status = "Passive",
+                            TotalCost = 8720.100764284734000m,
+                            Type = "Sale"
                         },
                         new
                         {
                             Id = 5,
-                            Address = "180 Carter Key, Kirlinview, Costa Rica",
-                            CompanyName = "Reichert, Kunze and Abernathy and Sons",
-                            ContactName = "Kira Zboncak",
-                            ContactTitle = "Regional Web Administrator",
-                            CreatedDate = new DateTime(2021, 2, 25, 23, 19, 38, 0, DateTimeKind.Unspecified),
-                            CreatedID = "800dcf49-a0e8-4b89-b7d3-17bd91ee87e9",
-                            CreatedIPAddress = "61.187.70.164",
-                            Email = "Chance_Christiansen@gmail.com",
-                            Guid = "dbe2dd87-e9ff-4125-b225-3560e1211ec7",
+                            CreatedDate = new DateTime(2001, 2, 2, 22, 13, 48, 0, DateTimeKind.Unspecified),
+                            CreatedID = "acc8ea46-1a93-45fe-8069-7ad3e82e4f77",
+                            CreatedIPAddress = "225.114.235.242",
+                            Guid = "3224d704-8d0d-4fa0-9ac1-a359311ae1f2",
                             IsUpdated = "No",
-                            PhoneNumber = "02143786858",
-                            Status = "Active"
+                            PartnerCompanyId = 5,
+                            Status = "Unknown",
+                            TotalCost = 12039.459857420666000m,
+                            Type = "Purchase"
                         });
                 });
 
@@ -971,14 +570,14 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 4, 11, 13, 41, 10, 983, DateTimeKind.Local).AddTicks(5440));
+                        .HasDefaultValue(new DateTime(2025, 4, 17, 16, 26, 31, 835, DateTimeKind.Local).AddTicks(9045));
 
                     b.Property<string>("CreatedID")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("f8723e76-97dd-46a7-a7d1-113200f3fca2");
+                        .HasDefaultValue("363424f3-9de5-4b79-8a1d-4fdf16b76fcb");
 
                     b.Property<string>("CreatedIPAddress")
                         .IsRequired()
@@ -997,7 +596,7 @@ namespace DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("da86db57-f909-4d35-bba2-7214fb378a61");
+                        .HasDefaultValue("32525b8a-b8bd-4568-b862-1bd3b7c88b45");
 
                     b.Property<string>("IsUpdated")
                         .IsRequired()
@@ -1034,81 +633,81 @@ namespace DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            Address = "654 Cordia Parks, Hubertmouth, Bolivia",
-                            CompanyName = "Kutch, Boehm and Dickinson Group",
-                            ContactName = "Stacey Schmitt",
-                            ContactTitle = "Customer Directives Technician",
-                            CreatedDate = new DateTime(2000, 8, 20, 5, 18, 7, 0, DateTimeKind.Unspecified),
-                            CreatedID = "80e77529-3849-4ea7-88ed-dcf58313bebf",
-                            CreatedIPAddress = "180.131.219.134",
-                            Email = "Rosalia.Quitzon33@gmail.com",
-                            Guid = "6da52987-0489-46cf-a385-58eaee631ed8",
+                            Address = "354 Luettgen Mews, Port Manuelton, Gambia",
+                            CompanyName = "Kirlin, Kshlerin and Corwin Group",
+                            ContactName = "Elbert Turner",
+                            ContactTitle = "Direct Marketing Architect",
+                            CreatedDate = new DateTime(2007, 10, 18, 11, 38, 14, 0, DateTimeKind.Unspecified),
+                            CreatedID = "726cf753-ba24-4161-acba-f69bad8e0d4a",
+                            CreatedIPAddress = "255.3.7.179",
+                            Email = "Antwon1@gmail.com",
+                            Guid = "a22043e2-c050-4e3c-8506-79597a6269a4",
                             IsUpdated = "No",
-                            PhoneNumber = "02132257585",
-                            Status = "Active"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Address = "05608 Rippin Forges, Port Arlene, Pitcairn Islands",
-                            CompanyName = "Ankunding, Bauch and Conn Inc",
-                            ContactName = "Amos Nikolaus",
-                            ContactTitle = "Product Operations Agent",
-                            CreatedDate = new DateTime(2004, 1, 19, 2, 26, 51, 0, DateTimeKind.Unspecified),
-                            CreatedID = "88f88cd9-5c77-4a18-a0dd-ebc04e0f97d4",
-                            CreatedIPAddress = "170.202.188.187",
-                            Email = "Dereck.Pacocha16@gmail.com",
-                            Guid = "f8b58715-f8ee-421f-9894-8bdcf7a3a221",
-                            IsUpdated = "No",
-                            PhoneNumber = "02190767785",
+                            PhoneNumber = "02175633488",
                             Status = "Unknown"
                         },
                         new
                         {
-                            Id = 3,
-                            Address = "2366 Sage Brooks, Abbigailtown, Antarctica (the territory South of 60 deg S)",
-                            CompanyName = "Stanton Inc Group",
-                            ContactName = "Jaleel Lind",
-                            ContactTitle = "Product Assurance Strategist",
-                            CreatedDate = new DateTime(2001, 7, 9, 22, 42, 18, 0, DateTimeKind.Unspecified),
-                            CreatedID = "5ec028ea-7ee7-4749-8168-930f0dc1580c",
-                            CreatedIPAddress = "146.81.88.174",
-                            Email = "Frederick.Mayert57@hotmail.com",
-                            Guid = "691a15d0-ac29-4e21-9dd5-bb29b17429ea",
+                            Id = 2,
+                            Address = "3189 Gleason Bypass, Majorfort, Kazakhstan",
+                            CompanyName = "Crooks Group Group",
+                            ContactName = "Barbara Rippin",
+                            ContactTitle = "National Group Technician",
+                            CreatedDate = new DateTime(2006, 3, 20, 1, 56, 9, 0, DateTimeKind.Unspecified),
+                            CreatedID = "b2210fe6-3a92-4828-bed0-751d820ccb67",
+                            CreatedIPAddress = "208.77.67.151",
+                            Email = "Taryn52@hotmail.com",
+                            Guid = "7b402976-fd37-4ccc-9758-182e39de267c",
                             IsUpdated = "No",
-                            PhoneNumber = "02101626600",
-                            Status = "Passive"
+                            PhoneNumber = "02156790268",
+                            Status = "Active"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Address = "18394 Alana Mount, New Adalbertohaven, Mongolia",
+                            CompanyName = "Swift - Goyette Group",
+                            ContactName = "Fay Harber",
+                            ContactTitle = "Global Optimization Liaison",
+                            CreatedDate = new DateTime(2000, 9, 18, 22, 13, 18, 0, DateTimeKind.Unspecified),
+                            CreatedID = "2d50d8bb-647c-4c8f-8c98-0c98131dd58d",
+                            CreatedIPAddress = "114.238.104.21",
+                            Email = "Edna_Bartell85@gmail.com",
+                            Guid = "05da5a97-2a95-4dc5-804d-8a6831184837",
+                            IsUpdated = "No",
+                            PhoneNumber = "02194225082",
+                            Status = "Unknown"
                         },
                         new
                         {
                             Id = 4,
-                            Address = "34454 Stanton Shoal, Elwynchester, Honduras",
-                            CompanyName = "Osinski - Anderson LLC",
-                            ContactName = "Britney Feeney",
-                            ContactTitle = "Regional Metrics Analyst",
-                            CreatedDate = new DateTime(2000, 4, 7, 5, 34, 42, 0, DateTimeKind.Unspecified),
-                            CreatedID = "c18c7772-b92f-40e4-97cb-7fbb2693a336",
-                            CreatedIPAddress = "55.58.251.131",
-                            Email = "Maureen_Yost@hotmail.com",
-                            Guid = "913c5293-6088-4abd-a4f7-dd1eaafa79f5",
+                            Address = "5078 Glover Mountains, Maxieport, Virgin Islands, British",
+                            CompanyName = "Beer - Barrows LLC",
+                            ContactName = "Charlotte Turcotte",
+                            ContactTitle = "Customer Program Facilitator",
+                            CreatedDate = new DateTime(2006, 7, 18, 4, 38, 17, 0, DateTimeKind.Unspecified),
+                            CreatedID = "3c9442d3-ff56-4723-8afe-59eed0104c4d",
+                            CreatedIPAddress = "17.82.202.70",
+                            Email = "Verner.Marks@yahoo.com",
+                            Guid = "74b57350-5f64-47ae-971e-23f92c6735ae",
                             IsUpdated = "No",
-                            PhoneNumber = "02104205658",
-                            Status = "Passive"
+                            PhoneNumber = "02172857826",
+                            Status = "Unknown"
                         },
                         new
                         {
                             Id = 5,
-                            Address = "7354 Jamar Lake, Port Cristianhaven, Russian Federation",
-                            CompanyName = "Klein - Boyer and Sons",
-                            ContactName = "Cameron Sporer",
-                            ContactTitle = "Principal Web Associate",
-                            CreatedDate = new DateTime(2015, 4, 3, 1, 54, 53, 0, DateTimeKind.Unspecified),
-                            CreatedID = "c7c38d2d-82d5-4ba8-8901-4367bd6f8f00",
-                            CreatedIPAddress = "240.214.77.163",
-                            Email = "Claire77@yahoo.com",
-                            Guid = "334842d5-d8ee-44e9-9410-ac5db500e1f0",
+                            Address = "57314 Fritsch Curve, Idellmouth, Iceland",
+                            CompanyName = "Christiansen - Hettinger and Sons",
+                            ContactName = "Bell Fritsch",
+                            ContactTitle = "Internal Group Analyst",
+                            CreatedDate = new DateTime(2020, 4, 27, 2, 57, 41, 0, DateTimeKind.Unspecified),
+                            CreatedID = "d8fe8275-1a2b-4ffa-91c2-da24511d2c6f",
+                            CreatedIPAddress = "206.40.103.129",
+                            Email = "Herminio.Ebert0@gmail.com",
+                            Guid = "5a7d0e3d-eac9-4f5e-9e84-323af51320bb",
                             IsUpdated = "No",
-                            PhoneNumber = "02133262436",
+                            PhoneNumber = "02159467733",
                             Status = "Active"
                         });
                 });
@@ -1144,14 +743,14 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 4, 11, 13, 41, 10, 984, DateTimeKind.Local).AddTicks(9082));
+                        .HasDefaultValue(new DateTime(2025, 4, 17, 16, 26, 31, 837, DateTimeKind.Local).AddTicks(3216));
 
                     b.Property<string>("CreatedID")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("acfda68d-ede6-4e9b-a867-145c7fbcd751");
+                        .HasDefaultValue("bd4fc2fb-d474-47c2-997c-c35365da04c4");
 
                     b.Property<string>("CreatedIPAddress")
                         .IsRequired()
@@ -1170,7 +769,7 @@ namespace DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("9ec93433-869c-4b78-9941-3cdb27311d36");
+                        .HasDefaultValue("2af9df39-3433-4706-9c69-9369fc4ede64");
 
                     b.Property<string>("IsUpdated")
                         .IsRequired()
@@ -1207,81 +806,81 @@ namespace DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            Address = "45573 Kemmer Burg, Lake Americomouth, Malawi",
-                            CompanyName = "Bailey and Sons Group",
-                            ContactName = "Hellen Marvin",
-                            ContactTitle = "Forward Program Architect",
-                            CreatedDate = new DateTime(2021, 1, 7, 12, 14, 30, 0, DateTimeKind.Unspecified),
-                            CreatedID = "f42c9b65-8ef0-4eb5-91e6-2603db5847af",
-                            CreatedIPAddress = "145.68.121.54",
-                            Email = "Leta.Windler77@gmail.com",
-                            Guid = "575de5dc-b4c8-4f4e-9905-4a92fdc1d8f4",
+                            Address = "41882 Fadel Mountains, Port Hilario, Saint Vincent and the Grenadines",
+                            CompanyName = "Greenfelder and Sons Group",
+                            ContactName = "Rita Kilback",
+                            ContactTitle = "Regional Interactions Facilitator",
+                            CreatedDate = new DateTime(2015, 7, 14, 13, 47, 34, 0, DateTimeKind.Unspecified),
+                            CreatedID = "36b83ebe-91fc-41b6-9c23-8188dd2324a1",
+                            CreatedIPAddress = "139.12.108.182",
+                            Email = "Scotty.Haley@gmail.com",
+                            Guid = "7c97b498-b020-4e90-9040-8137082eb5ce",
                             IsUpdated = "No",
-                            PhoneNumber = "02157339530",
+                            PhoneNumber = "02130086167",
                             Status = "Unknown"
                         },
                         new
                         {
                             Id = 2,
-                            Address = "777 Larkin Run, North Elliot, Portugal",
-                            CompanyName = "Murray - Stiedemann Inc",
-                            ContactName = "Maritza Hettinger",
-                            ContactTitle = "Corporate Identity Architect",
-                            CreatedDate = new DateTime(2010, 9, 20, 6, 37, 47, 0, DateTimeKind.Unspecified),
-                            CreatedID = "c90ba7df-bc22-4b65-8981-b5d901dca9ef",
-                            CreatedIPAddress = "202.79.35.119",
-                            Email = "Emerson29@gmail.com",
-                            Guid = "a50be7dd-2c8f-4350-b2aa-d1a18d32bdae",
-                            IsUpdated = "No",
-                            PhoneNumber = "02166703582",
+                            Address = "158 Marisa Manors, New Cathyville, Bulgaria",
+                            CompanyName = "Wisozk, Shields and Schaefer LLC",
+                            ContactName = "Herbert Mitchell",
+                            ContactTitle = "Human Communications Representative",
+                            CreatedDate = new DateTime(2003, 1, 16, 14, 22, 8, 0, DateTimeKind.Unspecified),
+                            CreatedID = "9ffd4590-1a51-46ad-923e-68237e27971c",
+                            CreatedIPAddress = "252.220.26.180",
+                            Email = "Marcellus_Brekke60@gmail.com",
+                            Guid = "c5a97d01-663b-487f-85ba-9ef24c5fa694",
+                            IsUpdated = "Yes",
+                            PhoneNumber = "02142640631",
                             Status = "Unknown"
                         },
                         new
                         {
                             Id = 3,
-                            Address = "1053 Hayes Summit, Port Breannechester, Japan",
-                            CompanyName = "Williamson - Johns Group",
-                            ContactName = "Una Will",
-                            ContactTitle = "Chief Research Agent",
-                            CreatedDate = new DateTime(2005, 7, 11, 20, 55, 31, 0, DateTimeKind.Unspecified),
-                            CreatedID = "2800ac76-970f-4be9-bef9-7930a7774f36",
-                            CreatedIPAddress = "230.153.171.45",
-                            Email = "Cecilia.Renner@yahoo.com",
-                            Guid = "5c01f699-f7ee-4c1f-bd10-53f0c1b194fb",
+                            Address = "820 Reed Ford, North Jaquan, Guernsey",
+                            CompanyName = "Bruen, Rau and Gibson Inc",
+                            ContactName = "Ali White",
+                            ContactTitle = "District Branding Associate",
+                            CreatedDate = new DateTime(2013, 11, 27, 20, 24, 6, 0, DateTimeKind.Unspecified),
+                            CreatedID = "788a6b89-2136-49b4-9c42-4ce3cbdcf711",
+                            CreatedIPAddress = "91.39.106.182",
+                            Email = "Maybell_Mayer91@hotmail.com",
+                            Guid = "45d743d7-6a16-4d75-bbfb-e3241b8bde41",
                             IsUpdated = "No",
-                            PhoneNumber = "02142081000",
-                            Status = "Passive"
+                            PhoneNumber = "02141205996",
+                            Status = "Active"
                         },
                         new
                         {
                             Id = 4,
-                            Address = "99287 Santino Fork, South Aracely, Iran",
-                            CompanyName = "Kovacek - Marks LLC",
-                            ContactName = "Caesar Leffler",
-                            ContactTitle = "National Optimization Producer",
-                            CreatedDate = new DateTime(2016, 6, 5, 5, 13, 50, 0, DateTimeKind.Unspecified),
-                            CreatedID = "be1305d9-e56d-48d7-af60-2fda83da53b0",
-                            CreatedIPAddress = "95.108.197.66",
-                            Email = "Leanne96@yahoo.com",
-                            Guid = "18bc5316-df84-4faf-9067-18ed6a82a35a",
+                            Address = "969 Treva Trail, Altenwerthtown, Cyprus",
+                            CompanyName = "Blanda LLC Inc",
+                            ContactName = "Keven Stiedemann",
+                            ContactTitle = "Global Division Developer",
+                            CreatedDate = new DateTime(2002, 8, 20, 16, 13, 4, 0, DateTimeKind.Unspecified),
+                            CreatedID = "84387538-5f7c-4609-8b9e-d8a4590dfc35",
+                            CreatedIPAddress = "215.182.179.194",
+                            Email = "Angel.Dooley57@gmail.com",
+                            Guid = "27f3d4ee-5d54-4ca2-8db2-deec9251b8d8",
                             IsUpdated = "No",
-                            PhoneNumber = "02124921788",
-                            Status = "Unknown"
+                            PhoneNumber = "02165308557",
+                            Status = "Passive"
                         },
                         new
                         {
                             Id = 5,
-                            Address = "650 Denesik Cape, South Antoniettaport, United States of America",
-                            CompanyName = "Rodriguez - Mertz LLC",
-                            ContactName = "Rocky Bernhard",
-                            ContactTitle = "Human Brand Executive",
-                            CreatedDate = new DateTime(2016, 8, 16, 15, 55, 36, 0, DateTimeKind.Unspecified),
-                            CreatedID = "73770dc4-aeea-409c-846c-16dcf2f7340f",
-                            CreatedIPAddress = "2.126.78.55",
-                            Email = "Dangelo.Konopelski62@yahoo.com",
-                            Guid = "64073bb9-8f33-400f-a85c-d89733894e93",
+                            Address = "3356 Murphy Locks, New Angelburgh, Liechtenstein",
+                            CompanyName = "O'Keefe - Maggio and Sons",
+                            ContactName = "Stephanie Klocko",
+                            ContactTitle = "Legacy Security Executive",
+                            CreatedDate = new DateTime(2015, 9, 3, 10, 27, 25, 0, DateTimeKind.Unspecified),
+                            CreatedID = "10ba55fe-4f0d-4027-8c3b-5f7e99d13698",
+                            CreatedIPAddress = "4.197.17.106",
+                            Email = "Connie98@hotmail.com",
+                            Guid = "bb823185-fd74-418c-840f-61522af5f00f",
                             IsUpdated = "No",
-                            PhoneNumber = "02195773139",
+                            PhoneNumber = "02140545025",
                             Status = "Passive"
                         });
                 });
@@ -1321,14 +920,14 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 4, 11, 13, 41, 10, 986, DateTimeKind.Local).AddTicks(2751));
+                        .HasDefaultValue(new DateTime(2025, 4, 17, 16, 26, 31, 838, DateTimeKind.Local).AddTicks(8682));
 
                     b.Property<string>("CreatedID")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("1deaa56f-a8da-4473-ab2a-0d36e8f0807e");
+                        .HasDefaultValue("6fe0d1f8-cc6a-4245-a4f8-d8bc2a468579");
 
                     b.Property<string>("CreatedIPAddress")
                         .IsRequired()
@@ -1342,7 +941,7 @@ namespace DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("4c5d1da0-9d92-4352-bbe1-384fd3afcbd1");
+                        .HasDefaultValue("81e4597a-f451-4f40-849a-67321f2c3b2b");
 
                     b.Property<string>("IsUpdated")
                         .IsRequired()
@@ -1376,79 +975,79 @@ namespace DataAccess.Migrations
                             Id = 1,
                             Continent = "NorthAmerica",
                             CountryCode = "TR",
-                            CountryDescription = "Eveniet est sit cupiditate sint distinctio.",
+                            CountryDescription = "Ut molestiae ad incidunt voluptatibus fuga.",
                             CountryName = "Turkey",
                             CountryPhone = "+90",
-                            CreatedDate = new DateTime(2018, 7, 13, 14, 42, 33, 0, DateTimeKind.Unspecified),
-                            CreatedID = "961af1f2-1481-45e9-975d-12b8a80a9026",
-                            CreatedIPAddress = "237.128.183.152",
-                            Guid = "568d0b29-dc70-412e-85ae-8f426f6c16d5",
+                            CreatedDate = new DateTime(2017, 4, 19, 2, 55, 6, 0, DateTimeKind.Unspecified),
+                            CreatedID = "5ba44a3a-23ae-4cf5-a01f-079282197099",
+                            CreatedIPAddress = "47.180.117.87",
+                            Guid = "a2ab280f-018c-44d9-b3b7-f28341b06e9c",
                             IsUpdated = "No",
-                            Status = "Active"
+                            Status = "Passive"
                         },
                         new
                         {
                             Id = 2,
-                            Continent = "Asia",
+                            Continent = "NorthAmerica",
                             CountryCode = "RU",
-                            CountryDescription = "Nulla quo minus consequatur laboriosam perspiciatis.",
+                            CountryDescription = "Odit minus culpa est quod qui.",
                             CountryName = "Russia",
                             CountryPhone = "+7",
-                            CreatedDate = new DateTime(2017, 8, 12, 20, 56, 47, 0, DateTimeKind.Unspecified),
-                            CreatedID = "c648f32f-c3ed-4a5d-bbe7-44d14f24cd05",
-                            CreatedIPAddress = "28.51.58.28",
-                            Guid = "b6e26034-29a9-4235-89a0-da56872f60e7",
+                            CreatedDate = new DateTime(2005, 2, 7, 15, 27, 40, 0, DateTimeKind.Unspecified),
+                            CreatedID = "dfaceef4-6346-40a3-b680-7c6fad1e84db",
+                            CreatedIPAddress = "190.110.119.55",
+                            Guid = "f96f8c9d-739b-4f56-be04-5cd7caba49b7",
                             IsUpdated = "No",
                             Status = "Passive"
                         },
                         new
                         {
                             Id = 3,
-                            Continent = "None",
+                            Continent = "Africa",
                             CountryCode = "USA",
-                            CountryDescription = "Distinctio et quod nam doloremque non.",
+                            CountryDescription = "Dignissimos commodi aliquid est placeat harum.",
                             CountryName = "United States of America",
                             CountryPhone = "+1",
-                            CreatedDate = new DateTime(2009, 8, 16, 13, 31, 33, 0, DateTimeKind.Unspecified),
-                            CreatedID = "3de9a2cb-4d36-4d9d-9bdf-92f244ff6142",
-                            CreatedIPAddress = "189.158.152.9",
-                            Guid = "f086e13f-43ed-4132-a03a-57d226c19881",
-                            IsUpdated = "Yes",
-                            Status = "Passive"
+                            CreatedDate = new DateTime(2012, 6, 27, 2, 27, 39, 0, DateTimeKind.Unspecified),
+                            CreatedID = "ad71928b-f0fb-4afa-a2d6-e1cf80bb5806",
+                            CreatedIPAddress = "47.27.165.166",
+                            Guid = "36fbadce-4929-4f1a-9128-eb354f66c9f1",
+                            IsUpdated = "No",
+                            Status = "Unknown"
                         },
                         new
                         {
                             Id = 4,
-                            Continent = "Africa",
+                            Continent = "SouthAmerica",
                             CountryCode = "SA",
-                            CountryDescription = "İpsam laboriosam optio provident saepe voluptatem.",
+                            CountryDescription = "Nihil quae explicabo et ad adipisci.",
                             CountryName = "Kingdom of Saudi Arabia",
                             CountryPhone = "+966",
-                            CreatedDate = new DateTime(2013, 1, 23, 21, 49, 38, 0, DateTimeKind.Unspecified),
-                            CreatedID = "4c53b366-aaa8-4b64-8054-9f130a0ec625",
-                            CreatedIPAddress = "83.25.134.205",
-                            Guid = "078abc91-24f2-4472-b1a5-0553355cf8a5",
+                            CreatedDate = new DateTime(2013, 5, 4, 14, 15, 39, 0, DateTimeKind.Unspecified),
+                            CreatedID = "2491bcac-ce3b-4d3d-ad8a-a4c932beab7a",
+                            CreatedIPAddress = "251.127.247.188",
+                            Guid = "6df44975-f768-4b1d-bba6-74a0fc6466f6",
                             IsUpdated = "No",
-                            Status = "Active"
+                            Status = "Passive"
                         },
                         new
                         {
                             Id = 5,
-                            Continent = "Europe",
+                            Continent = "NorthAmerica",
                             CountryCode = "GER",
-                            CountryDescription = "Dolores est est vel sapiente ut.",
+                            CountryDescription = "Dolorem officiis voluptatem sint est dignissimos.",
                             CountryName = "Germany",
                             CountryPhone = "+49",
-                            CreatedDate = new DateTime(2012, 4, 18, 23, 52, 39, 0, DateTimeKind.Unspecified),
-                            CreatedID = "23ff024c-ef13-40d5-9696-ae97f7f37ad8",
-                            CreatedIPAddress = "69.82.7.19",
-                            Guid = "9fbe865c-3dfc-4259-947d-f2436953587d",
+                            CreatedDate = new DateTime(2009, 2, 3, 14, 50, 46, 0, DateTimeKind.Unspecified),
+                            CreatedID = "89b0f472-89eb-4d3f-bdf5-d6b75819bea5",
+                            CreatedIPAddress = "209.50.171.91",
+                            Guid = "5174840d-1c6f-45e9-8405-ec3f5681d93a",
                             IsUpdated = "No",
-                            Status = "Passive"
+                            Status = "Active"
                         });
                 });
 
-            modelBuilder.Entity("DataAccess.Entities.Models.Employees.ContractDriver", b =>
+            modelBuilder.Entity("DataAccess.Entities.Models.Employees.ContractEmployee", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1457,28 +1056,25 @@ namespace DataAccess.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Address")
-                        .HasMaxLength(180)
-                        .HasColumnType("nvarchar(180)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<byte?>("Age")
                         .HasColumnType("tinyint");
 
                     b.Property<DateTime>("BirthDate")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2000, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 4, 11, 13, 41, 10, 987, DateTimeKind.Local).AddTicks(9310));
+                        .HasDefaultValue(new DateTime(2025, 4, 17, 16, 26, 31, 840, DateTimeKind.Local).AddTicks(1414));
 
                     b.Property<string>("CreatedID")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("61890edf-eeb0-4eb4-a5b0-d3f1fa5c7b10");
+                        .HasDefaultValue("ceea44a6-a202-4a39-a381-6fa88f8fd7b1");
 
                     b.Property<string>("CreatedIPAddress")
                         .IsRequired()
@@ -1488,15 +1084,12 @@ namespace DataAccess.Migrations
                         .HasDefaultValue("");
 
                     b.Property<string>("DriverLicense")
-                        .IsRequired()
                         .ValueGeneratedOnAdd()
-                        .HasMaxLength(5)
-                        .HasColumnType("nvarchar(5)")
+                        .HasColumnType("nvarchar(max)")
                         .HasDefaultValue("None");
 
                     b.Property<string>("Email")
-                        .HasMaxLength(120)
-                        .HasColumnType("nvarchar(120)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("EndContract")
                         .HasColumnType("datetime2");
@@ -1506,282 +1099,21 @@ namespace DataAccess.Migrations
 
                     b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FullName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Gender")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)")
-                        .HasDefaultValue("Unknown");
+                    b.Property<int>("Gender")
+                        .HasColumnType("int");
 
                     b.Property<string>("Guid")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("08e4c0ce-bd21-4e3e-abf5-f8086669e5ba");
-
-                    b.Property<DateTime>("HireDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("IsUpdated")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
-
-                    b.Property<string>("PhoneNumber")
-                        .HasMaxLength(11)
-                        .HasColumnType("nvarchar(11)");
-
-                    b.Property<string>("PhotoPath")
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)")
-                        .HasDefaultValue("Unknown");
-
-                    b.Property<int?>("SubContractWorkerSupplierId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("TCN_Passport")
-                        .HasMaxLength(11)
-                        .HasColumnType("nvarchar(11)");
-
-                    b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("UpdatedID")
-                        .HasMaxLength(36)
-                        .HasColumnType("nvarchar(36)");
-
-                    b.Property<string>("UpdatedIPAddress")
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("SubContractWorkerSupplierId");
-
-                    b.ToTable("ContractDrivers");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Address = "Northern Ireland",
-                            Age = (byte)48,
-                            BirthDate = new DateTime(1976, 11, 25, 6, 55, 15, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2002, 3, 15, 2, 19, 16, 0, DateTimeKind.Unspecified),
-                            CreatedID = "349c5a23-3c9d-4a69-bda3-32ea7abd7a52",
-                            CreatedIPAddress = "90.219.127.251",
-                            DriverLicense = "ADB",
-                            Email = "Destinee91@yahoo.com",
-                            EndContract = new DateTime(2021, 4, 24, 15, 45, 9, 0, DateTimeKind.Unspecified),
-                            Experience = 2,
-                            FirstName = "Johnathan",
-                            FullName = "JohnathanFeest",
-                            Gender = "Male",
-                            Guid = "3ac5410a-32ec-432f-b0b6-7da8ed7fc30b",
-                            HireDate = new DateTime(2020, 4, 24, 15, 45, 9, 0, DateTimeKind.Unspecified),
-                            IsUpdated = "No",
-                            LastName = "Feest",
-                            PhoneNumber = "05200620451",
-                            PhotoPath = "https://gloria.info/argentina/borders",
-                            Status = "Passive",
-                            SubContractWorkerSupplierId = 3,
-                            TCN_Passport = "29892722508"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Address = "Scotland",
-                            Age = (byte)52,
-                            BirthDate = new DateTime(1973, 4, 5, 18, 48, 50, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2002, 2, 2, 6, 26, 16, 0, DateTimeKind.Unspecified),
-                            CreatedID = "b6da812b-e99b-46e4-a022-e66f09a637e5",
-                            CreatedIPAddress = "162.150.111.216",
-                            DriverLicense = "None",
-                            Email = "Aiden_Hudson43@gmail.com",
-                            EndContract = new DateTime(2008, 11, 21, 9, 18, 3, 0, DateTimeKind.Unspecified),
-                            Experience = 1,
-                            FirstName = "Angelina",
-                            FullName = "AngelinaTorphy",
-                            Gender = "Female",
-                            Guid = "b726a44e-f664-4d0a-acdc-a59fb86e98c0",
-                            HireDate = new DateTime(2007, 11, 21, 9, 18, 3, 0, DateTimeKind.Unspecified),
-                            IsUpdated = "Yes",
-                            LastName = "Torphy",
-                            PhoneNumber = "05394446513",
-                            PhotoPath = "http://alexa.biz/up-sized",
-                            Status = "Active",
-                            SubContractWorkerSupplierId = 3,
-                            TCN_Passport = "11082902605"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Address = "Wales",
-                            Age = (byte)33,
-                            BirthDate = new DateTime(1991, 10, 2, 21, 15, 23, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2009, 2, 5, 21, 42, 21, 0, DateTimeKind.Unspecified),
-                            CreatedID = "2610097b-10b0-492d-97dd-d4848bb92b2c",
-                            CreatedIPAddress = "143.113.40.44",
-                            DriverLicense = "B",
-                            Email = "Margot38@hotmail.com",
-                            EndContract = new DateTime(2015, 5, 12, 19, 14, 39, 0, DateTimeKind.Unspecified),
-                            Experience = 5,
-                            FirstName = "Alda",
-                            FullName = "AldaKuhic",
-                            Gender = "Male",
-                            Guid = "6f105756-a13e-48f7-ac2c-297e44f784c1",
-                            HireDate = new DateTime(2014, 5, 12, 19, 14, 39, 0, DateTimeKind.Unspecified),
-                            IsUpdated = "No",
-                            LastName = "Kuhic",
-                            PhoneNumber = "05122676461",
-                            PhotoPath = "https://aurelia.info/deposit/personal-loan-account/awesome-granite-cheese",
-                            Status = "Active",
-                            SubContractWorkerSupplierId = 5,
-                            TCN_Passport = "24105133989"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Address = "Scotland",
-                            Age = (byte)45,
-                            BirthDate = new DateTime(1980, 3, 16, 15, 11, 14, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2012, 11, 17, 6, 37, 16, 0, DateTimeKind.Unspecified),
-                            CreatedID = "c218c1e9-86f8-4acb-9195-b4b5bab37c51",
-                            CreatedIPAddress = "115.226.84.45",
-                            DriverLicense = "ADB",
-                            Email = "Cole.Dicki@yahoo.com",
-                            EndContract = new DateTime(2016, 10, 25, 17, 38, 9, 0, DateTimeKind.Unspecified),
-                            Experience = 3,
-                            FirstName = "Shemar",
-                            FullName = "ShemarSchroeder",
-                            Gender = "Unknown",
-                            Guid = "764d5749-1ea8-4829-96eb-aa7ebb3b797c",
-                            HireDate = new DateTime(2015, 10, 25, 17, 38, 9, 0, DateTimeKind.Unspecified),
-                            IsUpdated = "No",
-                            LastName = "Schroeder",
-                            PhoneNumber = "05192020772",
-                            PhotoPath = "http://jordi.com/licensed",
-                            Status = "Unknown",
-                            SubContractWorkerSupplierId = 4,
-                            TCN_Passport = "29570268528"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Address = "Wales",
-                            Age = (byte)50,
-                            BirthDate = new DateTime(1974, 7, 7, 12, 13, 6, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2021, 8, 25, 3, 45, 54, 0, DateTimeKind.Unspecified),
-                            CreatedID = "4c9a3b5c-85b7-4d8e-9b31-38a0da0f7bc5",
-                            CreatedIPAddress = "111.255.138.61",
-                            DriverLicense = "ADB",
-                            Email = "Mellie.Abbott@hotmail.com",
-                            EndContract = new DateTime(2006, 8, 17, 10, 11, 28, 0, DateTimeKind.Unspecified),
-                            Experience = 1,
-                            FirstName = "Winona",
-                            FullName = "WinonaWilliamson",
-                            Gender = "Male",
-                            Guid = "31039ce8-5f05-49fd-9582-f0e092928857",
-                            HireDate = new DateTime(2005, 8, 17, 10, 11, 28, 0, DateTimeKind.Unspecified),
-                            IsUpdated = "No",
-                            LastName = "Williamson",
-                            PhoneNumber = "05337986301",
-                            PhotoPath = "http://brad.biz/array/bypassing",
-                            Status = "Unknown",
-                            SubContractWorkerSupplierId = 1,
-                            TCN_Passport = "83214189125"
-                        });
-                });
-
-            modelBuilder.Entity("DataAccess.Entities.Models.Employees.ContractTourGuide", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Address")
-                        .HasMaxLength(180)
-                        .HasColumnType("nvarchar(180)");
-
-                    b.Property<byte?>("Age")
-                        .HasColumnType("tinyint");
-
-                    b.Property<DateTime>("BirthDate")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2000, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
-
-                    b.Property<DateTime>("CreatedDate")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 4, 11, 13, 41, 10, 989, DateTimeKind.Local).AddTicks(5420));
-
-                    b.Property<string>("CreatedID")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(36)
-                        .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("ed3968c9-acaa-4148-9480-d80a487bbbc2");
-
-                    b.Property<string>("CreatedIPAddress")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)")
-                        .HasDefaultValue("");
-
-                    b.Property<string>("Email")
-                        .HasMaxLength(120)
-                        .HasColumnType("nvarchar(120)");
-
-                    b.Property<DateTime?>("EndContract")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("Experience")
-                        .HasColumnType("int");
-
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
-
-                    b.Property<string>("FullName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Gender")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)")
-                        .HasDefaultValue("Unknown");
-
-                    b.Property<string>("Guid")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(36)
-                        .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("55afa8ca-96a6-4060-a150-425ac7e41b42");
+                        .HasDefaultValue("8566329a-4262-45ee-804f-748742a388b3");
 
                     b.Property<DateTime>("HireDate")
                         .HasColumnType("datetime2");
@@ -1791,24 +1123,19 @@ namespace DataAccess.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Language")
-                        .IsRequired()
                         .ValueGeneratedOnAdd()
-                        .HasMaxLength(35)
-                        .HasColumnType("nvarchar(35)")
+                        .HasColumnType("nvarchar(max)")
                         .HasDefaultValue("None");
 
                     b.Property<string>("LastName")
                         .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
-                        .HasMaxLength(11)
-                        .HasColumnType("nvarchar(11)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhotoPath")
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Status")
                         .IsRequired()
@@ -1817,12 +1144,11 @@ namespace DataAccess.Migrations
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValue("Unknown");
 
-                    b.Property<int?>("SubContractWorkerSupplierId")
+                    b.Property<int?>("SupplierId")
                         .HasColumnType("int");
 
                     b.Property<string>("TCN_Passport")
-                        .HasMaxLength(11)
-                        .HasColumnType("nvarchar(11)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
@@ -1837,140 +1163,145 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("SubContractWorkerSupplierId");
+                    b.HasIndex("SupplierId");
 
-                    b.ToTable("ContractTourGuides");
+                    b.ToTable("ContractEmployees");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            Address = "England",
-                            Age = (byte)39,
-                            BirthDate = new DateTime(1985, 6, 24, 3, 18, 6, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2018, 12, 5, 17, 37, 19, 0, DateTimeKind.Unspecified),
-                            CreatedID = "089a7d8b-f470-4928-a71c-a9a20a050436",
-                            CreatedIPAddress = "250.84.98.221",
-                            Email = "Anahi.Yost@hotmail.com",
-                            EndContract = new DateTime(2019, 1, 12, 1, 43, 30, 0, DateTimeKind.Unspecified),
-                            Experience = 3,
-                            FirstName = "Gabriel",
-                            FullName = "GabrielKeebler",
-                            Gender = "Male",
-                            Guid = "a76fa050-53bc-44bd-8ef8-7243d6914648",
-                            HireDate = new DateTime(2018, 1, 12, 1, 43, 30, 0, DateTimeKind.Unspecified),
+                            Address = "Northern Ireland",
+                            Age = (byte)37,
+                            BirthDate = new DateTime(1988, 1, 11, 7, 40, 52, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2017, 12, 3, 19, 31, 36, 0, DateTimeKind.Unspecified),
+                            CreatedID = "4514e170-4ebd-4b2e-b5a6-9438e9fbb433",
+                            CreatedIPAddress = "243.232.188.80",
+                            DriverLicense = "B",
+                            Email = "Jaeden_Green@gmail.com",
+                            EndContract = new DateTime(2013, 6, 17, 2, 12, 41, 0, DateTimeKind.Unspecified),
+                            Experience = 5,
+                            FirstName = "Jacques",
+                            FullName = "JacquesMayer",
+                            Gender = 1,
+                            Guid = "fa64abe0-dd77-41df-b611-4ca45bdd4888",
+                            HireDate = new DateTime(2012, 6, 17, 2, 12, 41, 0, DateTimeKind.Unspecified),
                             IsUpdated = "No",
-                            Language = "English",
-                            LastName = "Keebler",
-                            PhoneNumber = "05362103516",
-                            PhotoPath = "http://aubrey.biz/web-services",
-                            Status = "Passive",
-                            SubContractWorkerSupplierId = 3,
-                            TCN_Passport = "37756916503"
+                            Language = "Italian",
+                            LastName = "Mayer",
+                            PhoneNumber = "05540426632",
+                            PhotoPath = "https://lexi.biz/georgia/quality/dynamic",
+                            Status = "Unknown",
+                            SupplierId = 1,
+                            TCN_Passport = "03585983355"
                         },
                         new
                         {
                             Id = 2,
-                            Address = "Scotland",
-                            Age = (byte)64,
-                            BirthDate = new DateTime(1960, 12, 3, 12, 41, 52, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2005, 12, 26, 2, 26, 22, 0, DateTimeKind.Unspecified),
-                            CreatedID = "da3056cf-ae94-4032-9d6c-36ed52f43034",
-                            CreatedIPAddress = "18.163.180.183",
-                            Email = "Euna42@hotmail.com",
-                            EndContract = new DateTime(2004, 5, 22, 15, 26, 19, 0, DateTimeKind.Unspecified),
+                            Address = "England",
+                            Age = (byte)59,
+                            BirthDate = new DateTime(1965, 11, 11, 2, 14, 35, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2012, 3, 2, 17, 9, 14, 0, DateTimeKind.Unspecified),
+                            CreatedID = "9d35c6f2-9c34-4e4a-807c-fdde0fa1165f",
+                            CreatedIPAddress = "33.35.136.87",
+                            DriverLicense = "D",
+                            Email = "Declan.Schmidt75@gmail.com",
+                            EndContract = new DateTime(2001, 6, 26, 10, 23, 43, 0, DateTimeKind.Unspecified),
                             Experience = 3,
-                            FirstName = "Gilda",
-                            FullName = "GildaRobel",
-                            Gender = "Female",
-                            Guid = "e105b366-a12a-4daf-8069-1109a7eabd69",
-                            HireDate = new DateTime(2003, 5, 22, 15, 26, 19, 0, DateTimeKind.Unspecified),
+                            FirstName = "Ericka",
+                            FullName = "ErickaPrice",
+                            Gender = 1,
+                            Guid = "22b4a29e-7b70-4659-9703-702c7a43e9d0",
+                            HireDate = new DateTime(2000, 6, 26, 10, 23, 43, 0, DateTimeKind.Unspecified),
                             IsUpdated = "No",
-                            Language = "German",
-                            LastName = "Robel",
-                            PhoneNumber = "05978068698",
-                            PhotoPath = "https://ayana.net/camp",
+                            Language = "English",
+                            LastName = "Price",
+                            PhoneNumber = "05992554552",
+                            PhotoPath = "https://bertrand.net/colorado/ssl/granite",
                             Status = "Passive",
-                            SubContractWorkerSupplierId = 1,
-                            TCN_Passport = "18661989394"
+                            SupplierId = 5,
+                            TCN_Passport = "23302816133"
                         },
                         new
                         {
                             Id = 3,
                             Address = "Wales",
-                            Age = (byte)34,
-                            BirthDate = new DateTime(1991, 2, 9, 21, 40, 44, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2013, 11, 18, 3, 52, 13, 0, DateTimeKind.Unspecified),
-                            CreatedID = "1ecd1c8b-c297-40ce-a9b9-9794c0090207",
-                            CreatedIPAddress = "35.249.246.125",
-                            Email = "Anjali_OReilly99@hotmail.com",
-                            EndContract = new DateTime(2002, 10, 16, 5, 38, 43, 0, DateTimeKind.Unspecified),
+                            Age = (byte)64,
+                            BirthDate = new DateTime(1960, 6, 21, 17, 32, 17, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2006, 10, 3, 2, 24, 53, 0, DateTimeKind.Unspecified),
+                            CreatedID = "57b1b286-5bf1-408c-89a6-c7481f1fb532",
+                            CreatedIPAddress = "45.234.211.78",
+                            DriverLicense = "B",
+                            Email = "Maye42@gmail.com",
+                            EndContract = new DateTime(2020, 4, 26, 6, 32, 41, 0, DateTimeKind.Unspecified),
                             Experience = 3,
-                            FirstName = "Cristopher",
-                            FullName = "CristopherCollier",
-                            Gender = "Unknown",
-                            Guid = "1e8ac5f8-b3ff-4d88-a03f-819e8c830c73",
-                            HireDate = new DateTime(2001, 10, 16, 5, 38, 43, 0, DateTimeKind.Unspecified),
+                            FirstName = "Edythe",
+                            FullName = "EdytheSchinner",
+                            Gender = 2,
+                            Guid = "8fbfbaba-d892-4339-ba9d-2e2c5af433dd",
+                            HireDate = new DateTime(2019, 4, 26, 6, 32, 41, 0, DateTimeKind.Unspecified),
                             IsUpdated = "No",
-                            Language = "Italian",
-                            LastName = "Collier",
-                            PhoneNumber = "05644595393",
-                            PhotoPath = "http://ben.name/navigate/zero-defect",
+                            Language = "Spanish",
+                            LastName = "Schinner",
+                            PhoneNumber = "05413627085",
+                            PhotoPath = "https://max.org/1080p/haptic",
                             Status = "Unknown",
-                            SubContractWorkerSupplierId = 3,
-                            TCN_Passport = "57754268413"
+                            SupplierId = 1,
+                            TCN_Passport = "59166975502"
                         },
                         new
                         {
                             Id = 4,
-                            Address = "Northern Ireland",
-                            Age = (byte)65,
-                            BirthDate = new DateTime(1960, 1, 1, 8, 49, 52, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2004, 1, 15, 23, 29, 51, 0, DateTimeKind.Unspecified),
-                            CreatedID = "5e2bb1ad-52a5-4c4c-992c-61f3669ea01e",
-                            CreatedIPAddress = "20.29.165.167",
-                            Email = "Hassie89@yahoo.com",
-                            EndContract = new DateTime(2009, 8, 8, 8, 18, 10, 0, DateTimeKind.Unspecified),
-                            Experience = 2,
-                            FirstName = "Bryce",
-                            FullName = "BryceEmard",
-                            Gender = "Female",
-                            Guid = "17b8a833-4167-4e71-9114-5739f2dbb6db",
-                            HireDate = new DateTime(2008, 8, 8, 8, 18, 10, 0, DateTimeKind.Unspecified),
-                            IsUpdated = "Yes",
-                            Language = "English",
-                            LastName = "Emard",
-                            PhoneNumber = "05219573155",
-                            PhotoPath = "https://royce.name/forint/gorgeous/ıncredible",
-                            Status = "Unknown",
-                            SubContractWorkerSupplierId = 4,
-                            TCN_Passport = "69591936394"
+                            Address = "Wales",
+                            Age = (byte)45,
+                            BirthDate = new DateTime(1980, 2, 7, 6, 54, 25, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2014, 11, 16, 9, 15, 27, 0, DateTimeKind.Unspecified),
+                            CreatedID = "884fad6d-b6f5-4bb0-a1f3-c93730f60088",
+                            CreatedIPAddress = "36.150.119.143",
+                            DriverLicense = "B",
+                            Email = "Sasha_Bergnaum@hotmail.com",
+                            EndContract = new DateTime(2007, 1, 3, 21, 14, 40, 0, DateTimeKind.Unspecified),
+                            Experience = 3,
+                            FirstName = "Naomie",
+                            FullName = "NaomieJohns",
+                            Gender = 2,
+                            Guid = "6e69c2da-d918-4406-be78-988e240f2a73",
+                            HireDate = new DateTime(2006, 1, 3, 21, 14, 40, 0, DateTimeKind.Unspecified),
+                            IsUpdated = "No",
+                            Language = "French",
+                            LastName = "Johns",
+                            PhoneNumber = "05453502488",
+                            PhotoPath = "http://pearlie.org/plastic/asymmetric/tangible",
+                            Status = "Active",
+                            SupplierId = 2,
+                            TCN_Passport = "81096665658"
                         },
                         new
                         {
                             Id = 5,
-                            Address = "Northern Ireland",
-                            Age = (byte)37,
-                            BirthDate = new DateTime(1988, 1, 16, 17, 24, 52, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2015, 5, 11, 19, 29, 52, 0, DateTimeKind.Unspecified),
-                            CreatedID = "7b1114cd-329b-41a3-a271-33dfb8db1a19",
-                            CreatedIPAddress = "246.41.7.27",
-                            Email = "Kenton.Moore4@gmail.com",
-                            EndContract = new DateTime(2012, 3, 15, 22, 56, 47, 0, DateTimeKind.Unspecified),
+                            Address = "Wales",
+                            Age = (byte)45,
+                            BirthDate = new DateTime(1980, 3, 20, 17, 13, 7, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2001, 11, 20, 13, 8, 12, 0, DateTimeKind.Unspecified),
+                            CreatedID = "5f80baf6-a958-4a7d-8b76-e904de3ba154",
+                            CreatedIPAddress = "104.166.81.35",
+                            DriverLicense = "B",
+                            Email = "Lula_Morar14@hotmail.com",
+                            EndContract = new DateTime(2004, 5, 26, 15, 20, 9, 0, DateTimeKind.Unspecified),
                             Experience = 4,
-                            FirstName = "Wallace",
-                            FullName = "WallaceCasper",
-                            Gender = "Female",
-                            Guid = "e2645d29-3f0e-44a7-b25c-1ca4b29aea48",
-                            HireDate = new DateTime(2011, 3, 15, 22, 56, 47, 0, DateTimeKind.Unspecified),
+                            FirstName = "Elisabeth",
+                            FullName = "ElisabethEmmerich",
+                            Gender = 0,
+                            Guid = "9761e668-a8ee-4f95-9b2d-8d2e7cd7d8f9",
+                            HireDate = new DateTime(2003, 5, 26, 15, 20, 9, 0, DateTimeKind.Unspecified),
                             IsUpdated = "No",
-                            Language = "None",
-                            LastName = "Casper",
-                            PhoneNumber = "05235139205",
-                            PhotoPath = "https://amanda.net/product/withdrawal/refined-concrete-car",
-                            Status = "Passive",
-                            SubContractWorkerSupplierId = 3,
-                            TCN_Passport = "47226421073"
+                            Language = "Italian",
+                            LastName = "Emmerich",
+                            PhoneNumber = "05702684351",
+                            PhotoPath = "https://margret.name/quantifying/ftp",
+                            Status = "Active",
+                            SupplierId = 3,
+                            TCN_Passport = "42716919198"
                         });
                 });
 
@@ -2003,14 +1334,14 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 4, 11, 13, 41, 10, 991, DateTimeKind.Local).AddTicks(1157));
+                        .HasDefaultValue(new DateTime(2025, 4, 17, 16, 26, 31, 841, DateTimeKind.Local).AddTicks(4243));
 
                     b.Property<string>("CreatedID")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("9184cb67-6c81-41db-b77e-06a80f0e41df");
+                        .HasDefaultValue("8fb198ff-5a48-48cc-9a3d-79788d87025b");
 
                     b.Property<string>("CreatedIPAddress")
                         .IsRequired()
@@ -2058,7 +1389,7 @@ namespace DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("546f382e-1163-4493-b805-9a47ff44ad46");
+                        .HasDefaultValue("d7096914-76e9-4475-9e68-2e09110bbf78");
 
                     b.Property<DateTime>("HireDate")
                         .HasColumnType("datetime2");
@@ -2079,9 +1410,6 @@ namespace DataAccess.Migrations
                     b.Property<string>("PhotoPath")
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
-
-                    b.Property<int?>("ResidenceRegionId")
-                        .HasColumnType("int");
 
                     b.Property<string>("Status")
                         .IsRequired()
@@ -2109,159 +1437,152 @@ namespace DataAccess.Migrations
 
                     b.HasIndex("CountryId");
 
-                    b.HasIndex("ResidenceRegionId");
-
                     b.ToTable("Employees");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            Address = "England",
-                            Age = (byte)42,
-                            BirthDate = new DateTime(1982, 11, 4, 20, 26, 23, 0, DateTimeKind.Unspecified),
+                            Address = "Scotland",
+                            Age = (byte)51,
+                            BirthDate = new DateTime(1973, 5, 2, 11, 28, 46, 0, DateTimeKind.Unspecified),
                             ContractCount = 5,
-                            CountryId = 2,
-                            CreatedDate = new DateTime(2021, 2, 16, 23, 44, 29, 0, DateTimeKind.Unspecified),
-                            CreatedID = "31d2caf4-8e4b-4bd4-821e-ea7167c0b3a8",
-                            CreatedIPAddress = "73.147.47.88",
-                            CurrentPosition = "Operations",
-                            DaysWorked = 4170,
-                            Email = "Torrey.Hilll98@gmail.com",
-                            EndContract = new DateTime(2028, 11, 9, 23, 14, 14, 0, DateTimeKind.Unspecified),
-                            Experience = 5,
-                            FirstName = "Elouise",
-                            FullName = "ElouiseRohan",
-                            Gender = "Female",
-                            Guid = "4ce7ea95-190d-45ab-9c4b-06f8f7f9d3df",
-                            HireDate = new DateTime(2013, 11, 9, 23, 14, 14, 0, DateTimeKind.Unspecified),
+                            CountryId = 1,
+                            CreatedDate = new DateTime(2013, 6, 19, 19, 18, 36, 0, DateTimeKind.Unspecified),
+                            CreatedID = "4642fc15-11e1-42ab-af6c-15d0fddcac03",
+                            CreatedIPAddress = "101.146.108.159",
+                            CurrentPosition = "Consulting",
+                            DaysWorked = 4438,
+                            Email = "Franz12@hotmail.com",
+                            EndContract = new DateTime(2028, 2, 20, 17, 57, 29, 0, DateTimeKind.Unspecified),
+                            Experience = 15,
+                            FirstName = "Gerry",
+                            FullName = "GerryThiel",
+                            Gender = "Male",
+                            Guid = "15692b42-92e2-4aa6-83e6-9c1cd60b64f7",
+                            HireDate = new DateTime(2013, 2, 20, 17, 57, 29, 0, DateTimeKind.Unspecified),
                             IsUpdated = "No",
-                            LastName = "Rohan",
-                            PhoneNumber = "05179738725",
-                            PhotoPath = "http://ken.biz/practical/soft",
-                            ResidenceRegionId = 3,
+                            LastName = "Thiel",
+                            PhoneNumber = "05325060539",
+                            PhotoPath = "http://zack.org/hub/deposit/neural",
                             Status = "Unknown",
-                            TCN_Passport = "95965437624"
+                            TCN_Passport = "39209293183"
                         },
                         new
                         {
                             Id = 2,
-                            Address = "Northern Ireland",
-                            Age = (byte)51,
-                            BirthDate = new DateTime(1973, 12, 18, 18, 31, 44, 0, DateTimeKind.Unspecified),
-                            ContractCount = 8,
-                            CountryId = 5,
-                            CreatedDate = new DateTime(2000, 8, 9, 11, 32, 49, 0, DateTimeKind.Unspecified),
-                            CreatedID = "df830b89-163a-493f-8c59-2c3e1573f3b2",
-                            CreatedIPAddress = "145.13.50.169",
-                            CurrentPosition = "Accounting",
-                            DaysWorked = 7642,
-                            Email = "Beau.Schoen@hotmail.com",
-                            EndContract = new DateTime(2028, 5, 9, 7, 56, 25, 0, DateTimeKind.Unspecified),
-                            Experience = 23,
-                            FirstName = "Alberto",
-                            FullName = "AlbertoPrice",
-                            Gender = "Unknown",
-                            Guid = "abe57566-05cc-4f59-bc59-fc99c8703527",
-                            HireDate = new DateTime(2004, 5, 9, 7, 56, 25, 0, DateTimeKind.Unspecified),
-                            IsUpdated = "No",
-                            LastName = "Price",
-                            PhoneNumber = "05049000722",
-                            PhotoPath = "https://george.org/venezuela/withdrawal/forge",
-                            ResidenceRegionId = 5,
+                            Address = "Wales",
+                            Age = (byte)32,
+                            BirthDate = new DateTime(1992, 8, 8, 11, 37, 46, 0, DateTimeKind.Unspecified),
+                            ContractCount = 7,
+                            CountryId = 1,
+                            CreatedDate = new DateTime(2009, 9, 9, 21, 46, 39, 0, DateTimeKind.Unspecified),
+                            CreatedID = "6a38a55a-8607-4399-9fe7-19dde79087ee",
+                            CreatedIPAddress = "51.151.2.7",
+                            CurrentPosition = "Marketing",
+                            DaysWorked = 6407,
+                            Email = "Noemie52@yahoo.com",
+                            EndContract = new DateTime(2028, 10, 2, 1, 58, 45, 0, DateTimeKind.Unspecified),
+                            Experience = 19,
+                            FirstName = "Caleb",
+                            FullName = "CalebRutherford",
+                            Gender = "Female",
+                            Guid = "33a422c1-e660-456c-9606-7af8f4f44f0a",
+                            HireDate = new DateTime(2007, 10, 2, 1, 58, 45, 0, DateTimeKind.Unspecified),
+                            IsUpdated = "Yes",
+                            LastName = "Rutherford",
+                            PhoneNumber = "05437071807",
+                            PhotoPath = "https://prudence.net/fantastic-fresh-car",
                             Status = "Active",
-                            TCN_Passport = "71914909029"
+                            TCN_Passport = "41533871309"
                         },
                         new
                         {
                             Id = 3,
                             Address = "Wales",
-                            Age = (byte)30,
-                            BirthDate = new DateTime(1994, 11, 16, 2, 43, 16, 0, DateTimeKind.Unspecified),
+                            Age = (byte)49,
+                            BirthDate = new DateTime(1975, 9, 18, 15, 40, 43, 0, DateTimeKind.Unspecified),
+                            ContractCount = 5,
+                            CountryId = 3,
+                            CreatedDate = new DateTime(2011, 1, 2, 2, 12, 40, 0, DateTimeKind.Unspecified),
+                            CreatedID = "ac71831a-b0c1-4dda-894d-7fa2cb8acd8e",
+                            CreatedIPAddress = "136.39.119.107",
+                            CurrentPosition = "Consulting",
+                            DaysWorked = 4547,
+                            Email = "Julius.Stiedemann3@yahoo.com",
+                            EndContract = new DateTime(2027, 11, 4, 3, 22, 32, 0, DateTimeKind.Unspecified),
+                            Experience = 19,
+                            FirstName = "Jada",
+                            FullName = "JadaDavis",
+                            Gender = "Male",
+                            Guid = "84559cee-cb40-4595-b7fd-150354337ead",
+                            HireDate = new DateTime(2012, 11, 4, 3, 22, 32, 0, DateTimeKind.Unspecified),
+                            IsUpdated = "Yes",
+                            LastName = "Davis",
+                            PhoneNumber = "05225034338",
+                            PhotoPath = "http://brandi.name/object-oriented",
+                            Status = "Active",
+                            TCN_Passport = "90968527503"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Address = "England",
+                            Age = (byte)65,
+                            BirthDate = new DateTime(1960, 3, 9, 5, 10, 16, 0, DateTimeKind.Unspecified),
+                            ContractCount = 6,
+                            CountryId = 5,
+                            CreatedDate = new DateTime(2021, 11, 21, 14, 23, 4, 0, DateTimeKind.Unspecified),
+                            CreatedID = "c90696fb-7932-4b0a-95d7-027939df80ff",
+                            CreatedIPAddress = "160.128.110.80",
+                            CurrentPosition = "Consulting",
+                            DaysWorked = 5459,
+                            Email = "Jackeline97@yahoo.com",
+                            EndContract = new DateTime(2028, 5, 7, 4, 52, 12, 0, DateTimeKind.Unspecified),
+                            Experience = 14,
+                            FirstName = "Meggie",
+                            FullName = "MeggieBruen",
+                            Gender = "Female",
+                            Guid = "2ebe12e8-614e-4948-a971-0fa668dea79a",
+                            HireDate = new DateTime(2010, 5, 7, 4, 52, 12, 0, DateTimeKind.Unspecified),
+                            IsUpdated = "Yes",
+                            LastName = "Bruen",
+                            PhoneNumber = "05956077998",
+                            PhotoPath = "http://alison.com/automotive--movies/multi-channelled",
+                            Status = "Passive",
+                            TCN_Passport = "74542806200"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Address = "Wales",
+                            Age = (byte)54,
+                            BirthDate = new DateTime(1970, 12, 14, 11, 21, 21, 0, DateTimeKind.Unspecified),
                             ContractCount = 7,
                             CountryId = 5,
-                            CreatedDate = new DateTime(2011, 10, 8, 16, 24, 24, 0, DateTimeKind.Unspecified),
-                            CreatedID = "2da44c02-ba86-4a1e-88df-f833acb577cf",
-                            CreatedIPAddress = "192.238.234.132",
-                            CurrentPosition = "Operations",
-                            DaysWorked = 6511,
-                            Email = "Ward63@gmail.com",
-                            EndContract = new DateTime(2028, 6, 14, 12, 58, 50, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2003, 3, 1, 4, 9, 46, 0, DateTimeKind.Unspecified),
+                            CreatedID = "3e01c598-6d48-4f5f-9c97-edd124e12925",
+                            CreatedIPAddress = "104.197.110.96",
+                            CurrentPosition = "Marketing",
+                            DaysWorked = 6747,
+                            Email = "Samara.Schoen@gmail.com",
+                            EndContract = new DateTime(2027, 10, 27, 2, 58, 43, 0, DateTimeKind.Unspecified),
                             Experience = 23,
-                            FirstName = "Laurine",
-                            FullName = "LaurineWisoky",
-                            Gender = "Female",
-                            Guid = "ade51b22-a1ad-4e57-9d4e-92264fc7bd7f",
-                            HireDate = new DateTime(2007, 6, 14, 12, 58, 50, 0, DateTimeKind.Unspecified),
-                            IsUpdated = "No",
-                            LastName = "Wisoky",
-                            PhoneNumber = "05883654013",
-                            PhotoPath = "https://napoleon.name/credit-card-account",
-                            ResidenceRegionId = 1,
-                            Status = "Passive",
-                            TCN_Passport = "63980375554"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Address = "Northern Ireland",
-                            Age = (byte)35,
-                            BirthDate = new DateTime(1989, 4, 17, 23, 41, 12, 0, DateTimeKind.Unspecified),
-                            ContractCount = 6,
-                            CountryId = 1,
-                            CreatedDate = new DateTime(2018, 8, 21, 9, 11, 22, 0, DateTimeKind.Unspecified),
-                            CreatedID = "18ef83b1-c88a-41b6-8377-b0d01ab49f1a",
-                            CreatedIPAddress = "132.199.184.251",
-                            CurrentPosition = "Marketing",
-                            DaysWorked = 5649,
-                            Email = "Shane.Haag@gmail.com",
-                            EndContract = new DateTime(2027, 10, 22, 18, 8, 12, 0, DateTimeKind.Unspecified),
-                            Experience = 11,
-                            FirstName = "Gonzalo",
-                            FullName = "GonzaloPowlowski",
-                            Gender = "Female",
-                            Guid = "039e2eb8-64d8-4466-bc9a-13e0e9e5e610",
-                            HireDate = new DateTime(2009, 10, 22, 18, 8, 12, 0, DateTimeKind.Unspecified),
-                            IsUpdated = "No",
-                            LastName = "Powlowski",
-                            PhoneNumber = "05501029841",
-                            PhotoPath = "https://charles.net/direct/vermont/generating",
-                            ResidenceRegionId = 2,
-                            Status = "Passive",
-                            TCN_Passport = "33808852369"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Address = "Northern Ireland",
-                            Age = (byte)63,
-                            BirthDate = new DateTime(1961, 7, 4, 16, 58, 46, 0, DateTimeKind.Unspecified),
-                            ContractCount = 6,
-                            CountryId = 2,
-                            CreatedDate = new DateTime(2019, 12, 7, 13, 51, 16, 0, DateTimeKind.Unspecified),
-                            CreatedID = "116c7570-6c9d-4831-837c-786e1fb784a6",
-                            CreatedIPAddress = "117.94.5.69",
-                            CurrentPosition = "Marketing",
-                            DaysWorked = 5311,
-                            Email = "Kraig.Schowalter98@gmail.com",
-                            EndContract = new DateTime(2028, 9, 26, 5, 17, 15, 0, DateTimeKind.Unspecified),
-                            Experience = 7,
-                            FirstName = "Audie",
-                            FullName = "AudieJenkins",
+                            FirstName = "Eldora",
+                            FullName = "EldoraHermann",
                             Gender = "Male",
-                            Guid = "fe33e053-e211-41b6-b93e-078b14ef19f3",
-                            HireDate = new DateTime(2010, 9, 26, 5, 17, 15, 0, DateTimeKind.Unspecified),
+                            Guid = "23caec90-2471-4d20-b715-91d45bc7eff2",
+                            HireDate = new DateTime(2006, 10, 27, 2, 58, 43, 0, DateTimeKind.Unspecified),
                             IsUpdated = "No",
-                            LastName = "Jenkins",
-                            PhoneNumber = "05002786014",
-                            PhotoPath = "https://randi.name/interfaces/bandwidth/stream",
-                            ResidenceRegionId = 4,
-                            Status = "Unknown",
-                            TCN_Passport = "25459331282"
+                            LastName = "Hermann",
+                            PhoneNumber = "05492572316",
+                            PhotoPath = "https://edwardo.net/circuit/central/copying",
+                            Status = "Active",
+                            TCN_Passport = "27981274371"
                         });
                 });
 
-            modelBuilder.Entity("DataAccess.Entities.Models.OrderDetails.EventTicketOrderDetail", b =>
+            modelBuilder.Entity("DataAccess.Entities.Models.OrderDetails.ActivityTicketOrderDetail", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -2269,17 +1590,23 @@ namespace DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int?>("ActivityTicketId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ActivityTicketOrderId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 4, 11, 13, 41, 10, 998, DateTimeKind.Local).AddTicks(2565));
+                        .HasDefaultValue(new DateTime(2025, 4, 17, 16, 26, 31, 845, DateTimeKind.Local).AddTicks(9819));
 
                     b.Property<string>("CreatedID")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("40275a72-c161-4a55-a59f-a68b844b97fa");
+                        .HasDefaultValue("3a3ec3d8-d016-416b-905d-702393cdf77a");
 
                     b.Property<string>("CreatedIPAddress")
                         .IsRequired()
@@ -2291,18 +1618,12 @@ namespace DataAccess.Migrations
                     b.Property<decimal?>("Discount")
                         .HasColumnType("decimal(4,2)");
 
-                    b.Property<int?>("EventTicketId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("EventTicketOrderId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Guid")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("b0827d30-99fd-4692-8dcc-e9e9e04506be");
+                        .HasDefaultValue("3257238f-2a14-442b-959e-a9da8271d45d");
 
                     b.Property<string>("IsUpdated")
                         .IsRequired()
@@ -2337,261 +1658,96 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("EventTicketId");
+                    b.HasIndex("ActivityTicketId");
 
-                    b.HasIndex("EventTicketOrderId");
+                    b.HasIndex("ActivityTicketOrderId");
 
-                    b.ToTable("EventTicketOrderDetails");
+                    b.ToTable("ActivityTicketOrderDetails");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2021, 2, 27, 7, 34, 31, 0, DateTimeKind.Unspecified),
-                            CreatedID = "0a21c12e-fb40-4ad5-b86a-525f4b950192",
-                            CreatedIPAddress = "124.254.16.0",
-                            Discount = 0.1733332052049205m,
-                            EventTicketId = 1,
-                            EventTicketOrderId = 3,
-                            Guid = "2934d41d-5fd0-4418-a13d-53f1fd1150d6",
+                            ActivityTicketId = 5,
+                            ActivityTicketOrderId = 3,
+                            CreatedDate = new DateTime(2017, 9, 18, 19, 26, 24, 0, DateTimeKind.Unspecified),
+                            CreatedID = "b9aafebd-7a7b-4845-a369-b76944992e2d",
+                            CreatedIPAddress = "15.206.248.13",
+                            Discount = 0.4800361953999940m,
+                            Guid = "b9753312-051d-416c-aab8-fc4de6676eea",
                             IsUpdated = "No",
-                            Quantity = 3,
-                            Status = "Unknown",
-                            TotalCost = 2006.5364854085789089322153108m,
-                            UnitPrice = 809.087167099764200m
+                            Quantity = 4,
+                            Status = "Active",
+                            TotalCost = 1484.2799992075548980331972223m,
+                            UnitPrice = 713.645827880928700m
                         },
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2008, 1, 16, 20, 37, 29, 0, DateTimeKind.Unspecified),
-                            CreatedID = "165c9996-0479-48e9-b4eb-7e3230026d44",
-                            CreatedIPAddress = "89.144.33.250",
-                            Discount = 0.0751794662247765m,
-                            EventTicketId = 3,
-                            EventTicketOrderId = 3,
-                            Guid = "8cf34846-f591-44fe-be6d-3df0b2092eb8",
-                            IsUpdated = "Yes",
-                            Quantity = 1,
-                            Status = "Active",
-                            TotalCost = 264.41224794983419030941788745m,
-                            UnitPrice = 285.906549750223500m
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CreatedDate = new DateTime(2007, 1, 21, 7, 50, 24, 0, DateTimeKind.Unspecified),
-                            CreatedID = "c8cf0f25-e3e5-4739-a6f2-84d298dc8684",
-                            CreatedIPAddress = "185.230.58.97",
-                            Discount = 0.2728738006434890m,
-                            EventTicketId = 3,
-                            EventTicketOrderId = 4,
-                            Guid = "ef476278-2e55-459d-bd99-cadbfaeee161",
+                            ActivityTicketId = 3,
+                            ActivityTicketOrderId = 5,
+                            CreatedDate = new DateTime(2004, 5, 8, 5, 32, 11, 0, DateTimeKind.Unspecified),
+                            CreatedID = "60c48f63-c6d4-4ba6-a998-a7ec5642c6c8",
+                            CreatedIPAddress = "218.28.41.134",
+                            Discount = 0.1963128773413240m,
+                            Guid = "181a89cd-a525-40d1-93a9-2f12e3e48a61",
                             IsUpdated = "No",
-                            Quantity = 4,
+                            Quantity = 1,
                             Status = "Passive",
-                            TotalCost = 3330.7631527328649260800494590m,
-                            UnitPrice = 1145.180560018504800m
-                        },
-                        new
-                        {
-                            Id = 4,
-                            CreatedDate = new DateTime(2003, 1, 9, 23, 19, 5, 0, DateTimeKind.Unspecified),
-                            CreatedID = "ab5f53b2-4198-4d45-9eb4-2610ad093298",
-                            CreatedIPAddress = "176.188.200.175",
-                            Discount = 0.2086681455572125m,
-                            EventTicketId = 3,
-                            EventTicketOrderId = 5,
-                            Guid = "d13e2439-48c3-49a2-bf30-53d5ab1367af",
-                            IsUpdated = "No",
-                            Quantity = 4,
-                            Status = "Active",
-                            TotalCost = 2234.1594991534200050849380861m,
-                            UnitPrice = 705.822559337824400m
-                        },
-                        new
-                        {
-                            Id = 5,
-                            CreatedDate = new DateTime(2008, 11, 16, 7, 35, 48, 0, DateTimeKind.Unspecified),
-                            CreatedID = "56a22c82-9bf2-455c-8121-dacbbddc9eb9",
-                            CreatedIPAddress = "40.173.218.163",
-                            Discount = 0.1329951006008320m,
-                            EventTicketId = 4,
-                            EventTicketOrderId = 4,
-                            Guid = "36937422-0188-4885-9cb1-ddcfce0b779b",
-                            IsUpdated = "No",
-                            Quantity = 4,
-                            Status = "Active",
-                            TotalCost = 1083.6255082690739999157668463m,
-                            UnitPrice = 312.462337012173600m
-                        });
-                });
-
-            modelBuilder.Entity("DataAccess.Entities.Models.OrderDetails.ProductOrderDetail", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("CreatedDate")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 4, 11, 13, 41, 10, 999, DateTimeKind.Local).AddTicks(5600));
-
-                    b.Property<string>("CreatedID")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(36)
-                        .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("e670d4de-ba73-4a22-9b9e-e233e9135175");
-
-                    b.Property<string>("CreatedIPAddress")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)")
-                        .HasDefaultValue("");
-
-                    b.Property<decimal?>("Discount")
-                        .HasColumnType("decimal(4,2)");
-
-                    b.Property<string>("Guid")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(36)
-                        .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("fbd866dd-183c-4154-aa54-082f473e3529");
-
-                    b.Property<string>("IsUpdated")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("ProductOrderId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)")
-                        .HasDefaultValue("Unknown");
-
-                    b.Property<decimal?>("TotalCost")
-                        .HasColumnType("decimal(10,2)");
-
-                    b.Property<decimal>("UnitPrice")
-                        .HasColumnType("decimal(8,2)");
-
-                    b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("UpdatedID")
-                        .HasMaxLength(36)
-                        .HasColumnType("nvarchar(36)");
-
-                    b.Property<string>("UpdatedIPAddress")
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
-
-                    b.HasIndex("ProductOrderId");
-
-                    b.ToTable("ProductOrderDetails");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CreatedDate = new DateTime(2017, 9, 5, 8, 9, 26, 0, DateTimeKind.Unspecified),
-                            CreatedID = "cfd10f01-5103-41d6-ac5f-8ebdd6a03229",
-                            CreatedIPAddress = "227.90.240.56",
-                            Discount = 0.3305320098144885m,
-                            Guid = "0491d264-988e-468f-bf61-86aee8fb6134",
-                            IsUpdated = "No",
-                            ProductId = 3,
-                            ProductOrderId = 2,
-                            Quantity = 4,
-                            Status = "Unknown",
-                            TotalCost = 1860.8017121026311478866130335m,
-                            UnitPrice = 694.88076330094500m
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CreatedDate = new DateTime(2016, 9, 4, 15, 54, 34, 0, DateTimeKind.Unspecified),
-                            CreatedID = "2808dd28-bb0e-4464-baec-21a05f7649a0",
-                            CreatedIPAddress = "29.63.246.80",
-                            Discount = 0.0585227120251795m,
-                            Guid = "f7e592d4-ba54-401d-a9c8-792bd344107f",
-                            IsUpdated = "No",
-                            ProductId = 2,
-                            ProductOrderId = 5,
-                            Quantity = 4,
-                            Status = "Unknown",
-                            TotalCost = 2239.5747657567046943721979655m,
-                            UnitPrice = 594.69697101620400m
+                            TotalCost = 596.91710245460485062252250713m,
+                            UnitPrice = 742.723238466163800m
                         },
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2014, 1, 22, 16, 25, 53, 0, DateTimeKind.Unspecified),
-                            CreatedID = "ab2a7502-c219-4895-9ad3-22abf250e241",
-                            CreatedIPAddress = "72.206.148.103",
-                            Discount = 0.3956900358219805m,
-                            Guid = "26b4f725-282a-444d-b873-a0a7d80cd800",
+                            ActivityTicketId = 2,
+                            ActivityTicketOrderId = 3,
+                            CreatedDate = new DateTime(2010, 10, 9, 18, 44, 45, 0, DateTimeKind.Unspecified),
+                            CreatedID = "74961e58-28a2-4d8c-9aa1-b00f2b60d5fc",
+                            CreatedIPAddress = "222.105.169.91",
+                            Discount = 0.3560518107906130m,
+                            Guid = "60fff5b2-c142-453e-90ff-8dac2230db5b",
                             IsUpdated = "No",
-                            ProductId = 1,
-                            ProductOrderId = 5,
+                            Quantity = 2,
+                            Status = "Passive",
+                            TotalCost = 726.61555026364047897880471858m,
+                            UnitPrice = 564.187897752883700m
+                        },
+                        new
+                        {
+                            Id = 4,
+                            ActivityTicketId = 4,
+                            ActivityTicketOrderId = 1,
+                            CreatedDate = new DateTime(2002, 2, 18, 22, 46, 28, 0, DateTimeKind.Unspecified),
+                            CreatedID = "7ddc0d24-04bf-4b83-9340-bae2c0ec2ee6",
+                            CreatedIPAddress = "103.174.48.213",
+                            Discount = 0.1411787578237905m,
+                            Guid = "d637ba0b-5779-47a1-9375-e2687e19c54f",
+                            IsUpdated = "No",
+                            Quantity = 1,
+                            Status = "Unknown",
+                            TotalCost = 98.68019800485039830542087729m,
+                            UnitPrice = 114.9019064256023500m
+                        },
+                        new
+                        {
+                            Id = 5,
+                            ActivityTicketId = 1,
+                            ActivityTicketOrderId = 5,
+                            CreatedDate = new DateTime(2017, 1, 9, 18, 39, 42, 0, DateTimeKind.Unspecified),
+                            CreatedID = "7b2d822c-9fb9-42a5-8fd7-387811581f67",
+                            CreatedIPAddress = "226.73.167.24",
+                            Discount = 0.341885920412660m,
+                            Guid = "0d2cd2c5-2484-4062-8287-3b0d60b87464",
+                            IsUpdated = "No",
                             Quantity = 4,
                             Status = "Unknown",
-                            TotalCost = 1364.6347965267566893326131151m,
-                            UnitPrice = 564.542568143373500m
-                        },
-                        new
-                        {
-                            Id = 4,
-                            CreatedDate = new DateTime(2002, 9, 20, 10, 28, 54, 0, DateTimeKind.Unspecified),
-                            CreatedID = "00c9f685-7b5b-4493-b365-136d4d0b95e2",
-                            CreatedIPAddress = "108.90.21.242",
-                            Discount = 0.3361432196624215m,
-                            Guid = "f37e19d0-c3ff-46b1-af8d-44211d3a13a0",
-                            IsUpdated = "No",
-                            ProductId = 5,
-                            ProductOrderId = 1,
-                            Quantity = 1,
-                            Status = "Unknown",
-                            TotalCost = 326.46254890724935977528123396m,
-                            UnitPrice = 491.766535458505900m
-                        },
-                        new
-                        {
-                            Id = 5,
-                            CreatedDate = new DateTime(2011, 10, 11, 23, 49, 29, 0, DateTimeKind.Unspecified),
-                            CreatedID = "ebb534c2-06f4-4825-b1be-d32135e6c38d",
-                            CreatedIPAddress = "106.233.130.199",
-                            Discount = 0.3935082933933835m,
-                            Guid = "f792e5af-2716-4467-b8c4-d3c8cbbfcb8f",
-                            IsUpdated = "No",
-                            ProductId = 2,
-                            ProductOrderId = 2,
-                            Quantity = 2,
-                            Status = "Unknown",
-                            TotalCost = 676.85440110554757685004653090m,
-                            UnitPrice = 558.007960976595700m
+                            TotalCost = 1959.9420199250070702203456880m,
+                            UnitPrice = 744.529740631729700m
                         });
                 });
 
-            modelBuilder.Entity("DataAccess.Entities.Models.OrderDetails.TourTicketOrderDetail", b =>
+            modelBuilder.Entity("DataAccess.Entities.Models.Orders.ActivityTicketOrder", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -2602,179 +1758,14 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 4, 11, 13, 41, 11, 0, DateTimeKind.Local).AddTicks(8321));
+                        .HasDefaultValue(new DateTime(2025, 4, 17, 16, 26, 31, 847, DateTimeKind.Local).AddTicks(3872));
 
                     b.Property<string>("CreatedID")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("3ab2f3ec-66c0-4dd0-93c4-1a268d17aede");
-
-                    b.Property<string>("CreatedIPAddress")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)")
-                        .HasDefaultValue("");
-
-                    b.Property<decimal?>("Discount")
-                        .HasColumnType("decimal(4,2)");
-
-                    b.Property<string>("Guid")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(36)
-                        .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("9edd89ed-1130-4483-a025-0e1f514769a6");
-
-                    b.Property<string>("IsUpdated")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)")
-                        .HasDefaultValue("Unknown");
-
-                    b.Property<decimal?>("TotalCost")
-                        .HasColumnType("decimal(10,2)");
-
-                    b.Property<int?>("TourTicketId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("TourTicketOrderId")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("UnitPrice")
-                        .HasColumnType("decimal(8,2)");
-
-                    b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("UpdatedID")
-                        .HasMaxLength(36)
-                        .HasColumnType("nvarchar(36)");
-
-                    b.Property<string>("UpdatedIPAddress")
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("TourTicketId");
-
-                    b.HasIndex("TourTicketOrderId");
-
-                    b.ToTable("TourTicketOrderDetails");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CreatedDate = new DateTime(2013, 7, 2, 4, 40, 49, 0, DateTimeKind.Unspecified),
-                            CreatedID = "b4e8e824-27e6-44e6-9430-cf69221296eb",
-                            CreatedIPAddress = "164.191.195.180",
-                            Discount = 0.04642936870278985m,
-                            Guid = "7aa3f425-0421-4c4d-bae2-88c8b778d7de",
-                            IsUpdated = "No",
-                            Quantity = 2,
-                            Status = "Active",
-                            TotalCost = 1089.7897840481185348180880947m,
-                            TourTicketId = 3,
-                            TourTicketOrderId = 3,
-                            UnitPrice = 571.425832696629800m
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CreatedDate = new DateTime(2018, 11, 25, 20, 35, 40, 0, DateTimeKind.Unspecified),
-                            CreatedID = "6dd82c3b-fbea-47d7-a013-b942688a3bf5",
-                            CreatedIPAddress = "131.55.164.183",
-                            Discount = 0.2576593794562355m,
-                            Guid = "9d8d67f3-3f41-41b4-b246-9efabe12a260",
-                            IsUpdated = "No",
-                            Quantity = 1,
-                            Status = "Unknown",
-                            TotalCost = 812.6260926286018151857695228m,
-                            TourTicketId = 3,
-                            TourTicketOrderId = 5,
-                            UnitPrice = 1094.680891951397200m
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CreatedDate = new DateTime(2014, 10, 2, 3, 8, 32, 0, DateTimeKind.Unspecified),
-                            CreatedID = "83abaaa5-0730-4273-abf3-c45fae86d915",
-                            CreatedIPAddress = "161.252.156.55",
-                            Discount = 0.4731660183422160m,
-                            Guid = "262398a4-23ae-403f-8d5a-35a24c2a57fd",
-                            IsUpdated = "No",
-                            Quantity = 3,
-                            Status = "Unknown",
-                            TotalCost = 996.6904637810006890408034697m,
-                            TourTicketId = 5,
-                            TourTicketOrderId = 3,
-                            UnitPrice = 630.616410787020800m
-                        },
-                        new
-                        {
-                            Id = 4,
-                            CreatedDate = new DateTime(2018, 11, 27, 19, 18, 18, 0, DateTimeKind.Unspecified),
-                            CreatedID = "f59580b9-f6fd-4a4b-a908-36fef7678f78",
-                            CreatedIPAddress = "25.239.180.57",
-                            Discount = 0.01868928545370860m,
-                            Guid = "d01c95a1-f085-4748-8666-723b1aea4e72",
-                            IsUpdated = "No",
-                            Quantity = 1,
-                            Status = "Unknown",
-                            TotalCost = 619.35070213285369202882131259m,
-                            TourTicketId = 4,
-                            TourTicketOrderId = 5,
-                            UnitPrice = 631.146376934455700m
-                        },
-                        new
-                        {
-                            Id = 5,
-                            CreatedDate = new DateTime(2021, 10, 17, 21, 21, 41, 0, DateTimeKind.Unspecified),
-                            CreatedID = "0069ad7f-d84c-4161-960b-fa3e48fb1e84",
-                            CreatedIPAddress = "79.104.55.248",
-                            Discount = 0.4176272710426985m,
-                            Guid = "c9f1620a-47d4-45b7-b615-b56cd75d4bf6",
-                            IsUpdated = "No",
-                            Quantity = 2,
-                            Status = "Unknown",
-                            TotalCost = 458.76983169471037529065672732m,
-                            TourTicketId = 4,
-                            TourTicketOrderId = 1,
-                            UnitPrice = 393.879906186632700m
-                        });
-                });
-
-            modelBuilder.Entity("DataAccess.Entities.Models.Orders.EventTicketOrder", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("CreatedDate")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 4, 11, 13, 41, 11, 2, DateTimeKind.Local).AddTicks(631));
-
-                    b.Property<string>("CreatedID")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(36)
-                        .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("6b5c8965-802d-49f8-a506-9b7a78507aed");
+                        .HasDefaultValue("a98d8f6c-3b2c-4a1e-95de-2a81c9e5ea4b");
 
                     b.Property<string>("CreatedIPAddress")
                         .IsRequired()
@@ -2791,7 +1782,7 @@ namespace DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("f91aff1d-24c5-4832-b4a3-c377b48d5aff");
+                        .HasDefaultValue("c8582fc6-8311-4b3e-9f71-532e2a92a147");
 
                     b.Property<string>("IsUpdated")
                         .IsRequired()
@@ -2833,386 +1824,82 @@ namespace DataAccess.Migrations
 
                     b.HasIndex("WebUserAccountId");
 
-                    b.ToTable("EventTicketOrders");
+                    b.ToTable("ActivityTicketOrders");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2008, 6, 17, 22, 19, 30, 0, DateTimeKind.Unspecified),
-                            CreatedID = "d02f194d-1f1c-43c7-b803-37a3482a4c7c",
-                            CreatedIPAddress = "120.46.159.155",
+                            CreatedDate = new DateTime(2005, 1, 4, 2, 24, 37, 0, DateTimeKind.Unspecified),
+                            CreatedID = "3541bb02-2279-49da-8737-ebef44cfdcc7",
+                            CreatedIPAddress = "181.126.230.112",
                             EmployeeId = 3,
-                            Guid = "cb7ac8fc-027b-4380-8b8b-579ad1aabdf6",
+                            Guid = "2568ecf1-9197-4582-81de-e54532a477ea",
                             IsUpdated = "No",
-                            Note = "Refined Soft Shoes projection secured line Incredible Plastic Cheese",
-                            Status = "Passive",
-                            WebUserAccountId = 1,
-                            WebUserEmail = "Braden.Bashirian@hotmail.com"
+                            Note = "Handcrafted Plastic Chair Nauru Danish Krone 1080p",
+                            Status = "Active",
+                            WebUserAccountId = 5,
+                            WebUserEmail = "Lewis.Farrell81@hotmail.com"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2014, 8, 14, 7, 25, 8, 0, DateTimeKind.Unspecified),
-                            CreatedID = "fbbc8112-56e7-46c7-93c7-0e2ce483cb87",
-                            CreatedIPAddress = "21.161.71.135",
-                            EmployeeId = 4,
-                            Guid = "d275173c-1a0a-49f9-9bac-6c839788e12a",
+                            CreatedDate = new DateTime(2016, 5, 18, 2, 53, 40, 0, DateTimeKind.Unspecified),
+                            CreatedID = "4918d5c2-99d5-4f57-b70b-d689895a3a76",
+                            CreatedIPAddress = "98.204.143.78",
+                            EmployeeId = 3,
+                            Guid = "15f602c4-ddff-403f-ba4f-69bd4f6fdc24",
                             IsUpdated = "No",
-                            Note = "morph Dynamic Global mint green",
-                            Status = "Unknown",
-                            WebUserAccountId = 3,
-                            WebUserEmail = "Allie.Kilback@hotmail.com"
+                            Note = "Sao Tome and Principe Movies & Garden Intelligent Manor",
+                            Status = "Active",
+                            WebUserAccountId = 2,
+                            WebUserEmail = "Dagmar.Heidenreich@yahoo.com"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2011, 12, 6, 14, 49, 34, 0, DateTimeKind.Unspecified),
-                            CreatedID = "67b5b8ed-7d48-4dc1-ba4e-bb3d1287eb9c",
-                            CreatedIPAddress = "165.222.245.87",
+                            CreatedDate = new DateTime(2014, 12, 1, 23, 56, 4, 0, DateTimeKind.Unspecified),
+                            CreatedID = "ea6eb9e3-6a7b-4893-b5fd-08dee3c28b87",
+                            CreatedIPAddress = "51.254.125.6",
                             EmployeeId = 4,
-                            Guid = "43bd3bc7-354f-408b-a494-3f64e5065a9c",
+                            Guid = "eca3bbef-1ed7-4c79-93c0-58e277e0bd35",
                             IsUpdated = "No",
-                            Note = "repurpose Avon foreground invoice",
+                            Note = "1080p Sleek copy Granite",
                             Status = "Active",
-                            WebUserAccountId = 3,
-                            WebUserEmail = "Crystal36@yahoo.com"
+                            WebUserAccountId = 2,
+                            WebUserEmail = "Philip53@gmail.com"
                         },
                         new
                         {
                             Id = 4,
-                            CreatedDate = new DateTime(2013, 9, 21, 20, 57, 50, 0, DateTimeKind.Unspecified),
-                            CreatedID = "7791b466-542b-4e3d-9e39-630a9022f5e5",
-                            CreatedIPAddress = "133.153.56.43",
-                            EmployeeId = 5,
-                            Guid = "bc0534d9-6775-47d3-a2d9-a2f7cc354f33",
-                            IsUpdated = "No",
-                            Note = "Facilitator Surinam Dollar innovative access",
-                            Status = "Unknown",
-                            WebUserAccountId = 2,
-                            WebUserEmail = "Alexzander0@gmail.com"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            CreatedDate = new DateTime(2021, 6, 26, 21, 14, 41, 0, DateTimeKind.Unspecified),
-                            CreatedID = "a596629a-0390-492e-8268-eaec50006b9c",
-                            CreatedIPAddress = "127.253.193.246",
-                            EmployeeId = 3,
-                            Guid = "ef81deff-427e-4d85-9e80-59a174bd1d3f",
-                            IsUpdated = "No",
-                            Note = "e-enable eyeballs optical EXE",
-                            Status = "Unknown",
-                            WebUserAccountId = 1,
-                            WebUserEmail = "Isom.Kutch73@gmail.com"
-                        });
-                });
-
-            modelBuilder.Entity("DataAccess.Entities.Models.Orders.ProductOrder", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("CreatedDate")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 4, 11, 13, 41, 11, 3, DateTimeKind.Local).AddTicks(5804));
-
-                    b.Property<string>("CreatedID")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(36)
-                        .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("ade5c824-45af-42f1-8f26-cc4395f90f16");
-
-                    b.Property<string>("CreatedIPAddress")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)")
-                        .HasDefaultValue("");
-
-                    b.Property<int?>("EmployeeId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Guid")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(36)
-                        .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("ff7d49d3-229c-403d-83a5-4d3d311479a5");
-
-                    b.Property<string>("IsUpdated")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Note")
-                        .HasMaxLength(140)
-                        .HasColumnType("nvarchar(140)");
-
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)")
-                        .HasDefaultValue("Unknown");
-
-                    b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("UpdatedID")
-                        .HasMaxLength(36)
-                        .HasColumnType("nvarchar(36)");
-
-                    b.Property<string>("UpdatedIPAddress")
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.Property<int?>("WebUserAccountId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("WebUserEmail")
-                        .IsRequired()
-                        .HasMaxLength(120)
-                        .HasColumnType("nvarchar(120)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("EmployeeId");
-
-                    b.HasIndex("WebUserAccountId");
-
-                    b.ToTable("ProductOrders");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CreatedDate = new DateTime(2006, 6, 3, 8, 33, 29, 0, DateTimeKind.Unspecified),
-                            CreatedID = "5523bbc5-5166-4911-a80f-8c63ee510d28",
-                            CreatedIPAddress = "174.220.228.21",
-                            EmployeeId = 3,
-                            Guid = "4d56bc20-1c69-430f-9974-83c4a82681fb",
-                            IsUpdated = "No",
-                            Note = "mobile Generic Granite Car Michigan Generic Plastic Fish",
-                            Status = "Active",
-                            WebUserAccountId = 1,
-                            WebUserEmail = "Katelyn.Weissnat16@yahoo.com"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CreatedDate = new DateTime(2001, 5, 1, 23, 38, 52, 0, DateTimeKind.Unspecified),
-                            CreatedID = "747003ed-b145-4919-a79f-5df752bef21c",
-                            CreatedIPAddress = "67.128.167.225",
-                            EmployeeId = 1,
-                            Guid = "240e2539-4b91-4867-a8ec-9b3dae3f9e51",
-                            IsUpdated = "No",
-                            Note = "national withdrawal Mountains program",
-                            Status = "Passive",
-                            WebUserAccountId = 2,
-                            WebUserEmail = "Ansel47@gmail.com"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CreatedDate = new DateTime(2016, 7, 1, 15, 34, 5, 0, DateTimeKind.Unspecified),
-                            CreatedID = "55aded43-a8f4-4105-8139-64906066b03c",
-                            CreatedIPAddress = "120.234.73.131",
-                            EmployeeId = 3,
-                            Guid = "8104253d-0362-4023-bd05-821c8786fde1",
+                            CreatedDate = new DateTime(2015, 6, 18, 23, 49, 5, 0, DateTimeKind.Unspecified),
+                            CreatedID = "bf09d24a-85db-4a92-aaad-91a15736963d",
+                            CreatedIPAddress = "97.17.249.115",
+                            EmployeeId = 4,
+                            Guid = "1024a01c-7592-40ec-8aab-dea1cfd6c27c",
                             IsUpdated = "Yes",
-                            Note = "Industrial & Movies Kids & Automotive Plastic Corporate",
-                            Status = "Passive",
-                            WebUserAccountId = 2,
-                            WebUserEmail = "Karli64@gmail.com"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            CreatedDate = new DateTime(2003, 12, 6, 16, 44, 10, 0, DateTimeKind.Unspecified),
-                            CreatedID = "304c61c2-ee9e-44cd-9742-9f972d6d586e",
-                            CreatedIPAddress = "177.228.235.100",
-                            EmployeeId = 1,
-                            Guid = "7edfe152-9e06-42f7-bbef-daf5de2d3ab2",
-                            IsUpdated = "Yes",
-                            Note = "disintermediate Guam Progressive withdrawal",
-                            Status = "Unknown",
-                            WebUserAccountId = 4,
-                            WebUserEmail = "Josephine84@yahoo.com"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            CreatedDate = new DateTime(2003, 9, 25, 2, 12, 35, 0, DateTimeKind.Unspecified),
-                            CreatedID = "327d19b6-29dc-4a35-9cfb-1604fc3c05c7",
-                            CreatedIPAddress = "136.53.195.24",
-                            EmployeeId = 4,
-                            Guid = "9b9aebad-5ee0-4ccb-a6ee-a09ef4949933",
-                            IsUpdated = "No",
-                            Note = "primary Squares Germany override",
-                            Status = "Active",
-                            WebUserAccountId = 2,
-                            WebUserEmail = "Wilfrid29@yahoo.com"
-                        });
-                });
-
-            modelBuilder.Entity("DataAccess.Entities.Models.Orders.TourTicketOrder", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("CreatedDate")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 4, 11, 13, 41, 11, 4, DateTimeKind.Local).AddTicks(9214));
-
-                    b.Property<string>("CreatedID")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(36)
-                        .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("190c1380-232c-4be0-8aa7-0655d422050a");
-
-                    b.Property<string>("CreatedIPAddress")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)")
-                        .HasDefaultValue("");
-
-                    b.Property<int?>("EmployeeId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Guid")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(36)
-                        .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("e46697ad-6451-4535-b01f-f6a20f676b32");
-
-                    b.Property<string>("IsUpdated")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Note")
-                        .HasMaxLength(140)
-                        .HasColumnType("nvarchar(140)");
-
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)")
-                        .HasDefaultValue("Unknown");
-
-                    b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("UpdatedID")
-                        .HasMaxLength(36)
-                        .HasColumnType("nvarchar(36)");
-
-                    b.Property<string>("UpdatedIPAddress")
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.Property<int?>("WebUserAccountId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("WebUserEmail")
-                        .IsRequired()
-                        .HasMaxLength(120)
-                        .HasColumnType("nvarchar(120)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("EmployeeId");
-
-                    b.HasIndex("WebUserAccountId");
-
-                    b.ToTable("TourTicketOrders");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CreatedDate = new DateTime(2007, 8, 10, 9, 28, 44, 0, DateTimeKind.Unspecified),
-                            CreatedID = "76c0fe55-480d-4bc1-af2f-f207e2256bef",
-                            CreatedIPAddress = "235.44.246.172",
-                            EmployeeId = 4,
-                            Guid = "60673d4a-046e-4e88-8248-d4b39e55174b",
-                            IsUpdated = "No",
-                            Note = "Grocery, Clothing & Baby Gorgeous Wooden Bacon Rubber indexing",
-                            Status = "Passive",
-                            WebUserAccountId = 2,
-                            WebUserEmail = "Kellie.Kerluke46@hotmail.com"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CreatedDate = new DateTime(2003, 3, 1, 9, 16, 31, 0, DateTimeKind.Unspecified),
-                            CreatedID = "47a949e7-b116-4b1d-8654-3cddc4d48063",
-                            CreatedIPAddress = "42.145.20.135",
-                            EmployeeId = 2,
-                            Guid = "56fa24dd-d94f-493b-a61c-e721b984f50f",
-                            IsUpdated = "No",
-                            Note = "Awesome Concrete Chips Rustic Granite Cheese Money Market Account Incredible Cotton Cheese",
-                            Status = "Passive",
-                            WebUserAccountId = 2,
-                            WebUserEmail = "Jarred_Hodkiewicz94@gmail.com"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CreatedDate = new DateTime(2006, 3, 20, 15, 56, 50, 0, DateTimeKind.Unspecified),
-                            CreatedID = "68552977-45cb-44cb-b668-5afc8334dc84",
-                            CreatedIPAddress = "112.85.176.114",
-                            EmployeeId = 4,
-                            Guid = "a85e3106-1aca-40f5-8dd9-a345108920a6",
-                            IsUpdated = "No",
-                            Note = "teal Ergonomic Plastic Shoes Granite transmitting",
+                            Note = "Assurance Tasty Investor navigating",
                             Status = "Active",
                             WebUserAccountId = 3,
-                            WebUserEmail = "Monserrate10@hotmail.com"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            CreatedDate = new DateTime(2006, 11, 3, 2, 14, 41, 0, DateTimeKind.Unspecified),
-                            CreatedID = "6d5bdfd6-cb16-4190-a594-4a34df192230",
-                            CreatedIPAddress = "208.33.203.24",
-                            EmployeeId = 2,
-                            Guid = "ee48c2eb-8f1e-49c6-b002-39865229c8e0",
-                            IsUpdated = "No",
-                            Note = "violet Dynamic Terrace strategize",
-                            Status = "Unknown",
-                            WebUserAccountId = 4,
-                            WebUserEmail = "Miles68@gmail.com"
+                            WebUserEmail = "Jovani29@yahoo.com"
                         },
                         new
                         {
                             Id = 5,
-                            CreatedDate = new DateTime(2012, 10, 20, 16, 31, 33, 0, DateTimeKind.Unspecified),
-                            CreatedID = "1a61c5a9-05cc-417a-98a3-b5453b7eba40",
-                            CreatedIPAddress = "44.71.106.179",
-                            EmployeeId = 1,
-                            Guid = "516527d6-4eb9-4115-a097-29667559e92a",
+                            CreatedDate = new DateTime(2017, 8, 2, 6, 30, 20, 0, DateTimeKind.Unspecified),
+                            CreatedID = "4903603a-5eb7-406a-a4d5-c08d9aa452ab",
+                            CreatedIPAddress = "242.249.21.211",
+                            EmployeeId = 4,
+                            Guid = "8a1ce2ae-d84e-4c4d-b7f6-a0aad8e12ca6",
                             IsUpdated = "No",
-                            Note = "monitor Garden Officer Auto Loan Account",
-                            Status = "Unknown",
-                            WebUserAccountId = 2,
-                            WebUserEmail = "Lily72@yahoo.com"
+                            Note = "Buckinghamshire content-based invoice Books & Games",
+                            Status = "Active",
+                            WebUserAccountId = 3,
+                            WebUserEmail = "Garrett.Kohler1@hotmail.com"
                         });
                 });
 
-            modelBuilder.Entity("DataAccess.Entities.Models.PassTickets.PassEventTicket", b =>
+            modelBuilder.Entity("DataAccess.Entities.Models.PassTickets.ActivityPassTicket", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -3226,14 +1913,14 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 4, 11, 13, 41, 11, 6, DateTimeKind.Local).AddTicks(2038));
+                        .HasDefaultValue(new DateTime(2025, 4, 17, 16, 26, 31, 849, DateTimeKind.Local).AddTicks(2259));
 
                     b.Property<string>("CreatedID")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("b57eacce-71c6-4cb4-bc53-7b1dc7ce9c61");
+                        .HasDefaultValue("33405c96-e4c2-438e-b77e-fa262834b97f");
 
                     b.Property<string>("CreatedIPAddress")
                         .IsRequired()
@@ -3247,7 +1934,7 @@ namespace DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("8aa11dec-f687-4aa7-9143-86a3aae16aae");
+                        .HasDefaultValue("74fdf448-ea68-421f-9218-548aa95a0043");
 
                     b.Property<string>("IsUpdated")
                         .IsRequired()
@@ -3284,680 +1971,78 @@ namespace DataAccess.Migrations
 
                     b.HasIndex("PartnerCompanyTransactionId");
 
-                    b.ToTable("PassEventTickets");
+                    b.ToTable("ActivityPassTickets");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            CommissionRate = (byte)19,
-                            CreatedDate = new DateTime(2010, 6, 20, 23, 57, 11, 0, DateTimeKind.Unspecified),
-                            CreatedID = "acceef2f-f347-4c68-967a-731661a80d87",
-                            CreatedIPAddress = "39.76.183.101",
-                            Guid = "356ec363-7d27-4c61-b63a-c64114e1ad0b",
+                            CommissionRate = (byte)11,
+                            CreatedDate = new DateTime(2011, 12, 12, 11, 12, 25, 0, DateTimeKind.Unspecified),
+                            CreatedID = "3bb256d5-3c95-4d0a-852c-6b6ab60486a4",
+                            CreatedIPAddress = "88.0.202.163",
+                            Guid = "510a2eca-998c-4abe-84da-5347d79cd3c1",
                             IsUpdated = "No",
-                            PartnerCompanyTransactionId = 5,
-                            Price = 190.296253783128320m,
-                            Status = "Unknown",
-                            TotalCostwithCommission = 226.4525420019227008m
+                            PartnerCompanyTransactionId = 2,
+                            Price = 139.969996709981760m,
+                            Status = "Passive",
+                            TotalCostwithCommission = 155.3666963480797536m
                         },
                         new
                         {
                             Id = 2,
                             CommissionRate = (byte)8,
-                            CreatedDate = new DateTime(2019, 8, 23, 16, 42, 23, 0, DateTimeKind.Unspecified),
-                            CreatedID = "3ec33515-6cb6-423e-8380-d4b93ad46ebd",
-                            CreatedIPAddress = "101.213.159.160",
-                            Guid = "12ce5bae-8f88-4069-a817-43aed691c8e4",
-                            IsUpdated = "Yes",
+                            CreatedDate = new DateTime(2010, 4, 8, 7, 20, 16, 0, DateTimeKind.Unspecified),
+                            CreatedID = "fab0163c-f233-4499-84ea-e5d3fd65d6b0",
+                            CreatedIPAddress = "74.182.14.146",
+                            Guid = "a3171f3a-5d72-4d6c-a578-ddb765a139b1",
+                            IsUpdated = "No",
                             PartnerCompanyTransactionId = 1,
-                            Price = 119.2461381613053120m,
-                            Status = "Active",
-                            TotalCostwithCommission = 128.78582921420973696m
+                            Price = 330.933166558937280m,
+                            Status = "Passive",
+                            TotalCostwithCommission = 357.4078198836522624m
                         },
                         new
                         {
                             Id = 3,
-                            CommissionRate = (byte)10,
-                            CreatedDate = new DateTime(2013, 2, 27, 17, 45, 2, 0, DateTimeKind.Unspecified),
-                            CreatedID = "2a72f855-c6c2-428c-8ad9-ffbff8baad11",
-                            CreatedIPAddress = "149.131.101.234",
-                            Guid = "8a4e841b-3fa1-47ba-8b4b-24a8f7b56c9b",
-                            IsUpdated = "Yes",
-                            PartnerCompanyTransactionId = 1,
-                            Price = 342.747966502669760m,
-                            Status = "Active",
-                            TotalCostwithCommission = 377.022763152936736m
+                            CommissionRate = (byte)18,
+                            CreatedDate = new DateTime(2006, 5, 11, 8, 39, 47, 0, DateTimeKind.Unspecified),
+                            CreatedID = "0b7a24d2-2b63-416b-9248-e9be197aa589",
+                            CreatedIPAddress = "57.185.123.223",
+                            Guid = "addf427f-3e1a-4e4a-b6ed-9f7f052eaa87",
+                            IsUpdated = "No",
+                            PartnerCompanyTransactionId = 2,
+                            Price = 297.146132896583680m,
+                            Status = "Passive",
+                            TotalCostwithCommission = 350.6324368179687424m
                         },
                         new
                         {
                             Id = 4,
-                            CommissionRate = (byte)18,
-                            CreatedDate = new DateTime(2002, 9, 1, 14, 23, 31, 0, DateTimeKind.Unspecified),
-                            CreatedID = "0714a519-94f9-4b89-990e-2f409fcf828c",
-                            CreatedIPAddress = "118.167.63.208",
-                            Guid = "e8cca25e-31fb-43ab-8892-b150f47fa163",
-                            IsUpdated = "No",
-                            PartnerCompanyTransactionId = 2,
-                            Price = 195.760724508205120m,
-                            Status = "Active",
-                            TotalCostwithCommission = 230.9976549196820416m
-                        },
-                        new
-                        {
-                            Id = 5,
                             CommissionRate = (byte)9,
-                            CreatedDate = new DateTime(2000, 11, 15, 15, 22, 24, 0, DateTimeKind.Unspecified),
-                            CreatedID = "e1282b75-ab22-4ffa-9e2d-4edc96023461",
-                            CreatedIPAddress = "157.227.208.117",
-                            Guid = "b062a0a5-d1af-41a5-aee0-0366963c0492",
-                            IsUpdated = "No",
-                            PartnerCompanyTransactionId = 2,
-                            Price = 215.67966946212800m,
-                            Status = "Active",
-                            TotalCostwithCommission = 235.09083971371952m
-                        });
-                });
-
-            modelBuilder.Entity("DataAccess.Entities.Models.PassTickets.PassTourTicket", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<byte>("CommissionRate")
-                        .HasColumnType("tinyint");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 4, 11, 13, 41, 11, 7, DateTimeKind.Local).AddTicks(4275));
-
-                    b.Property<string>("CreatedID")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(36)
-                        .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("4f9ad1f5-4519-40d6-b070-450a44f70cb8");
-
-                    b.Property<string>("CreatedIPAddress")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)")
-                        .HasDefaultValue("");
-
-                    b.Property<string>("Guid")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(36)
-                        .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("9e1d76cc-c948-4ece-bbbc-ad02d7aac422");
-
-                    b.Property<string>("IsUpdated")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("PartnerCompanyTransactionId")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(8,2)");
-
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)")
-                        .HasDefaultValue("Unknown");
-
-                    b.Property<decimal?>("TotalCostwithCommission")
-                        .HasColumnType("decimal(8,2)");
-
-                    b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("UpdatedID")
-                        .HasMaxLength(36)
-                        .HasColumnType("nvarchar(36)");
-
-                    b.Property<string>("UpdatedIPAddress")
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PartnerCompanyTransactionId");
-
-                    b.ToTable("PassTourTickets");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CommissionRate = (byte)7,
-                            CreatedDate = new DateTime(2012, 9, 20, 3, 29, 50, 0, DateTimeKind.Unspecified),
-                            CreatedID = "15f4aaf5-1635-4337-b0b3-767f7274363c",
-                            CreatedIPAddress = "161.98.181.157",
-                            Guid = "1782ec60-049b-4eb1-8a34-5a2fb8d2b39f",
-                            IsUpdated = "No",
-                            PartnerCompanyTransactionId = 3,
-                            Price = 407.891461802152320m,
-                            Status = "Unknown",
-                            TotalCostwithCommission = 436.4438641283029824m
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CommissionRate = (byte)10,
-                            CreatedDate = new DateTime(2002, 5, 4, 21, 45, 19, 0, DateTimeKind.Unspecified),
-                            CreatedID = "198fd17b-3087-4d0a-a9d7-5fba65c84933",
-                            CreatedIPAddress = "245.234.152.174",
-                            Guid = "0b595120-77c0-4c77-bc32-eca1f1301fb0",
-                            IsUpdated = "No",
-                            PartnerCompanyTransactionId = 2,
-                            Price = 110.7495760461614720m,
-                            Status = "Passive",
-                            TotalCostwithCommission = 121.8245336507776192m
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CommissionRate = (byte)10,
-                            CreatedDate = new DateTime(2018, 10, 23, 21, 10, 40, 0, DateTimeKind.Unspecified),
-                            CreatedID = "be8722d5-e766-4822-92e4-80616714adf2",
-                            CreatedIPAddress = "34.117.232.46",
-                            Guid = "9cd77c5c-4b44-4ebd-8a15-74ea9f527a9e",
+                            CreatedDate = new DateTime(2011, 7, 17, 22, 57, 2, 0, DateTimeKind.Unspecified),
+                            CreatedID = "07d51307-c83f-404f-83bb-a02d937e77a3",
+                            CreatedIPAddress = "199.175.226.182",
+                            Guid = "05bcc263-9a42-4772-ae67-8ef14c1684c3",
                             IsUpdated = "No",
                             PartnerCompanyTransactionId = 5,
-                            Price = 250.112161924491840m,
-                            Status = "Passive",
-                            TotalCostwithCommission = 275.123378116941024m
-                        },
-                        new
-                        {
-                            Id = 4,
-                            CommissionRate = (byte)6,
-                            CreatedDate = new DateTime(2005, 3, 12, 5, 28, 38, 0, DateTimeKind.Unspecified),
-                            CreatedID = "7c6f10bf-09ab-445a-a36d-ec4b8ee551e7",
-                            CreatedIPAddress = "143.14.150.205",
-                            Guid = "02af24d7-7b35-4226-aab4-11e93957c4d9",
-                            IsUpdated = "Yes",
-                            PartnerCompanyTransactionId = 2,
-                            Price = 394.708075842975360m,
-                            Status = "Passive",
-                            TotalCostwithCommission = 418.3905603935538816m
+                            Price = 158.964389795940800m,
+                            Status = "Unknown",
+                            TotalCostwithCommission = 173.271184877575472m
                         },
                         new
                         {
                             Id = 5,
-                            CommissionRate = (byte)6,
-                            CreatedDate = new DateTime(2004, 2, 10, 21, 48, 54, 0, DateTimeKind.Unspecified),
-                            CreatedID = "c3b0ff7f-4eba-46c3-8970-cad4bb73291d",
-                            CreatedIPAddress = "223.189.39.126",
-                            Guid = "4c851bea-9104-498e-9267-7d3c46752625",
+                            CommissionRate = (byte)18,
+                            CreatedDate = new DateTime(2018, 9, 11, 9, 33, 49, 0, DateTimeKind.Unspecified),
+                            CreatedID = "bcf45486-6d45-4dba-aeb0-bddcd71e6a55",
+                            CreatedIPAddress = "206.47.179.118",
+                            Guid = "eb33c851-c020-4368-b39d-8c0dcff36523",
                             IsUpdated = "No",
-                            PartnerCompanyTransactionId = 3,
-                            Price = 207.997571281338560m,
+                            PartnerCompanyTransactionId = 5,
+                            Price = 218.669969224690880m,
                             Status = "Unknown",
-                            TotalCostwithCommission = 220.4774255582188736m
-                        });
-                });
-
-            modelBuilder.Entity("DataAccess.Entities.Models.Products.Product", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int?>("CategoryId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 4, 11, 13, 41, 11, 10, DateTimeKind.Local).AddTicks(2307));
-
-                    b.Property<string>("CreatedID")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(36)
-                        .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("adc83816-018e-4e33-a6e1-41ec48f688b3");
-
-                    b.Property<string>("CreatedIPAddress")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)")
-                        .HasDefaultValue("");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasMaxLength(220)
-                        .HasColumnType("nvarchar(220)");
-
-                    b.Property<string>("Guid")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(36)
-                        .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("8f842567-142c-4e07-b3dc-8de57ebfe6cc");
-
-                    b.Property<string>("IsUpdated")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ProductName")
-                        .IsRequired()
-                        .HasMaxLength(75)
-                        .HasColumnType("nvarchar(75)");
-
-                    b.Property<int?>("ProductSupplierId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)")
-                        .HasDefaultValue("Unknown");
-
-                    b.Property<float>("UnitPrice")
-                        .HasColumnType("real");
-
-                    b.Property<short>("UnitsInStock")
-                        .HasColumnType("smallint");
-
-                    b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("UpdatedID")
-                        .HasMaxLength(36)
-                        .HasColumnType("nvarchar(36)");
-
-                    b.Property<string>("UpdatedIPAddress")
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CategoryId");
-
-                    b.HasIndex("ProductSupplierId");
-
-                    b.ToTable("Products");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CategoryId = 4,
-                            CreatedDate = new DateTime(2007, 12, 21, 22, 55, 15, 0, DateTimeKind.Unspecified),
-                            CreatedID = "e521c6e1-5b92-4f07-8cf1-bfc69da7b102",
-                            CreatedIPAddress = "19.133.17.205",
-                            Description = "unde rem nam blanditiis et autem",
-                            Guid = "4dc72b77-7280-40c4-a236-5127db0959f0",
-                            IsUpdated = "No",
-                            ProductName = "dolorumfacilisquasi",
-                            ProductSupplierId = 1,
-                            Status = "Active",
-                            UnitPrice = 1059.8522f,
-                            UnitsInStock = (short)91
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CategoryId = 4,
-                            CreatedDate = new DateTime(2012, 8, 19, 18, 48, 13, 0, DateTimeKind.Unspecified),
-                            CreatedID = "3a793e4e-1075-4fa5-a2a4-7d62322d6c72",
-                            CreatedIPAddress = "162.52.134.91",
-                            Description = "error officiis atque harum incidunt et",
-                            Guid = "97ef0ed7-70cf-41ef-9560-319dde4a5354",
-                            IsUpdated = "Yes",
-                            ProductName = "quasidelenitimagnam",
-                            ProductSupplierId = 4,
-                            Status = "Unknown",
-                            UnitPrice = 153.90569f,
-                            UnitsInStock = (short)55
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CategoryId = 4,
-                            CreatedDate = new DateTime(2009, 2, 1, 21, 36, 32, 0, DateTimeKind.Unspecified),
-                            CreatedID = "466ff6db-35b3-4bcc-93d4-87675b4b71aa",
-                            CreatedIPAddress = "208.59.152.92",
-                            Description = "sint fugit et veritatis omnis error",
-                            Guid = "d149fb84-ec40-4c54-8430-86c7743c5512",
-                            IsUpdated = "Yes",
-                            ProductName = "totamdoloribuset",
-                            ProductSupplierId = 4,
-                            Status = "Unknown",
-                            UnitPrice = 1055.9794f,
-                            UnitsInStock = (short)158
-                        },
-                        new
-                        {
-                            Id = 4,
-                            CategoryId = 1,
-                            CreatedDate = new DateTime(2002, 7, 11, 14, 23, 46, 0, DateTimeKind.Unspecified),
-                            CreatedID = "b21be265-5a3f-43a4-b4cb-48a3a72d95b9",
-                            CreatedIPAddress = "98.202.251.128",
-                            Description = "qui aut et maxime voluptatem velit",
-                            Guid = "cf1c8e8a-0e98-4307-9de4-13e6734829f8",
-                            IsUpdated = "No",
-                            ProductName = "quidemreprehenderitenim",
-                            ProductSupplierId = 3,
-                            Status = "Active",
-                            UnitPrice = 699.2146f,
-                            UnitsInStock = (short)71
-                        },
-                        new
-                        {
-                            Id = 5,
-                            CategoryId = 3,
-                            CreatedDate = new DateTime(2005, 8, 1, 7, 38, 9, 0, DateTimeKind.Unspecified),
-                            CreatedID = "7cf73774-1f00-4c0a-a883-ad9b4b9fb599",
-                            CreatedIPAddress = "183.215.204.49",
-                            Description = "fugiat enim aliquid est libero laudantium",
-                            Guid = "f1bba5e0-1ebb-4f24-ba24-b88ab935171a",
-                            IsUpdated = "No",
-                            ProductName = "evenietlaborevoluptas",
-                            ProductSupplierId = 3,
-                            Status = "Active",
-                            UnitPrice = 589.5799f,
-                            UnitsInStock = (short)145
-                        });
-                });
-
-            modelBuilder.Entity("DataAccess.Entities.Models.Products.ProductCategory", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("CategoryName")
-                        .IsRequired()
-                        .HasMaxLength(75)
-                        .HasColumnType("nvarchar(75)");
-
-                    b.Property<string>("CategoryType")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(75)
-                        .HasColumnType("nvarchar(75)")
-                        .HasDefaultValue("Unknown");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 4, 11, 13, 41, 11, 8, DateTimeKind.Local).AddTicks(7741));
-
-                    b.Property<string>("CreatedID")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(36)
-                        .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("e20b5bc0-fb81-4d4f-b00c-36bdf0c11e8b");
-
-                    b.Property<string>("CreatedIPAddress")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)")
-                        .HasDefaultValue("");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasMaxLength(130)
-                        .HasColumnType("nvarchar(130)");
-
-                    b.Property<string>("Guid")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(36)
-                        .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("f1bcdee0-2e30-47b0-83f4-31df42b54b79");
-
-                    b.Property<string>("IsUpdated")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)")
-                        .HasDefaultValue("Unknown");
-
-                    b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("UpdatedID")
-                        .HasMaxLength(36)
-                        .HasColumnType("nvarchar(36)");
-
-                    b.Property<string>("UpdatedIPAddress")
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ProductCategories");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CategoryName = "omnis",
-                            CategoryType = "Camping_Hiking",
-                            CreatedDate = new DateTime(2001, 1, 11, 7, 53, 41, 0, DateTimeKind.Unspecified),
-                            CreatedID = "398683e5-e266-4d10-8485-be18e6067ac1",
-                            CreatedIPAddress = "171.47.157.92",
-                            Description = "provident minus ipsam ducimus",
-                            Guid = "04c7b4ba-580d-443a-b0bd-4a8f06bcae04",
-                            IsUpdated = "No",
-                            Status = "Passive"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CategoryName = "assumenda",
-                            CategoryType = "Souvenir",
-                            CreatedDate = new DateTime(2001, 9, 6, 12, 44, 31, 0, DateTimeKind.Unspecified),
-                            CreatedID = "2748c0c7-9a35-4232-afaa-c73faecc3b4b",
-                            CreatedIPAddress = "93.226.175.168",
-                            Description = "quis vero est nihil",
-                            Guid = "52306366-5e0d-4333-a876-15efe2ab466f",
-                            IsUpdated = "No",
-                            Status = "Active"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CategoryName = "at",
-                            CategoryType = "Camping_Hiking",
-                            CreatedDate = new DateTime(2006, 9, 10, 7, 15, 53, 0, DateTimeKind.Unspecified),
-                            CreatedID = "347244b5-5488-41fc-94d7-afcaac28a662",
-                            CreatedIPAddress = "233.123.94.119",
-                            Description = "ducimus reprehenderit facere et",
-                            Guid = "5162d613-720c-4b63-8ed6-ab0482ea9bc7",
-                            IsUpdated = "No",
-                            Status = "Active"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            CategoryName = "numquam",
-                            CategoryType = "Refreshment",
-                            CreatedDate = new DateTime(2013, 11, 2, 4, 30, 53, 0, DateTimeKind.Unspecified),
-                            CreatedID = "3b453100-7ce8-4678-8cdc-976e8aa93ddc",
-                            CreatedIPAddress = "8.69.230.70",
-                            Description = "repudiandae temporibus at iure",
-                            Guid = "7496b96f-41f3-4ac9-846a-42cd758825f3",
-                            IsUpdated = "No",
-                            Status = "Unknown"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            CategoryName = "itaque",
-                            CategoryType = "Camping_Hiking",
-                            CreatedDate = new DateTime(2017, 10, 26, 13, 46, 30, 0, DateTimeKind.Unspecified),
-                            CreatedID = "ea3c1dcd-36e4-45fb-a3e2-6cf6f7975361",
-                            CreatedIPAddress = "176.198.151.253",
-                            Description = "voluptatem mollitia eos ipsa",
-                            Guid = "dcbc814a-f1c8-44ce-acc7-9fd72c0442cd",
-                            IsUpdated = "No",
-                            Status = "Active"
-                        });
-                });
-
-            modelBuilder.Entity("DataAccess.Entities.Models.Regions.ResidenceRegion", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<TimeSpan>("ArrivalTime")
-                        .HasColumnType("TIME");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 4, 11, 13, 41, 11, 11, DateTimeKind.Local).AddTicks(4998));
-
-                    b.Property<string>("CreatedID")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(36)
-                        .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("d7e73fa2-092b-426b-b65a-2ceb1c4eaac6");
-
-                    b.Property<string>("CreatedIPAddress")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)")
-                        .HasDefaultValue("");
-
-                    b.Property<string>("DistrictName")
-                        .IsRequired()
-                        .HasMaxLength(120)
-                        .HasColumnType("nvarchar(120)");
-
-                    b.Property<string>("Guid")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(36)
-                        .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("b0405f8c-d668-43c4-910d-f6c9bd46050e");
-
-                    b.Property<string>("IsUpdated")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)")
-                        .HasDefaultValue("Unknown");
-
-                    b.Property<string>("TransportVehicle")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
-
-                    b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("UpdatedID")
-                        .HasMaxLength(36)
-                        .HasColumnType("nvarchar(36)");
-
-                    b.Property<string>("UpdatedIPAddress")
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ResidenceRegions");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            ArrivalTime = new TimeSpan(0, 2, 54, 0, 0),
-                            CreatedDate = new DateTime(2002, 4, 15, 3, 45, 30, 0, DateTimeKind.Unspecified),
-                            CreatedID = "42b7e510-2c33-40e0-8d9e-885637279a07",
-                            CreatedIPAddress = "135.224.190.65",
-                            DistrictName = "ut",
-                            Guid = "1649664c-063d-4d7c-8857-3d8059528e3f",
-                            IsUpdated = "No",
-                            Status = "Active",
-                            TransportVehicle = "Minibus"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            ArrivalTime = new TimeSpan(0, 1, 56, 0, 0),
-                            CreatedDate = new DateTime(2013, 10, 7, 13, 28, 53, 0, DateTimeKind.Unspecified),
-                            CreatedID = "c65daa94-625d-4377-a6c2-069e007f4ea5",
-                            CreatedIPAddress = "186.169.57.97",
-                            DistrictName = "et",
-                            Guid = "6e3e558a-433a-489e-90e4-ae540941f9ee",
-                            IsUpdated = "Yes",
-                            Status = "Active",
-                            TransportVehicle = "Minibus"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            ArrivalTime = new TimeSpan(0, 2, 54, 0, 0),
-                            CreatedDate = new DateTime(2008, 6, 18, 1, 27, 30, 0, DateTimeKind.Unspecified),
-                            CreatedID = "9a57a7a3-79b3-40e2-8209-f348777a0d65",
-                            CreatedIPAddress = "207.252.105.207",
-                            DistrictName = "accusantium",
-                            Guid = "0d129f54-447b-467e-93c4-a0d5525f73df",
-                            IsUpdated = "No",
-                            Status = "Passive",
-                            TransportVehicle = "Bus"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            ArrivalTime = new TimeSpan(0, 2, 6, 0, 0),
-                            CreatedDate = new DateTime(2007, 4, 16, 6, 49, 29, 0, DateTimeKind.Unspecified),
-                            CreatedID = "14edc0cb-5c4a-4807-9b1c-6804bbcedc98",
-                            CreatedIPAddress = "30.111.175.164",
-                            DistrictName = "rem",
-                            Guid = "8dacb2f2-61f2-4536-8ee5-037644619b75",
-                            IsUpdated = "Yes",
-                            Status = "Unknown",
-                            TransportVehicle = "Yacht"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            ArrivalTime = new TimeSpan(0, 1, 19, 0, 0),
-                            CreatedDate = new DateTime(2020, 2, 5, 1, 15, 37, 0, DateTimeKind.Unspecified),
-                            CreatedID = "7f8da685-112e-42b6-ac64-fd707627db0c",
-                            CreatedIPAddress = "96.26.100.173",
-                            DistrictName = "aut",
-                            Guid = "fef061ef-88b3-4853-a0b6-b96528e884c3",
-                            IsUpdated = "No",
-                            Status = "Active",
-                            TransportVehicle = "Yacht"
+                            TotalCostwithCommission = 258.0305636851352384m
                         });
                 });
 
@@ -3970,19 +2055,19 @@ namespace DataAccess.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<TimeSpan>("ArrivalTime")
-                        .HasColumnType("TIME");
+                        .HasColumnType("time");
 
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 4, 11, 13, 41, 11, 12, DateTimeKind.Local).AddTicks(6996));
+                        .HasDefaultValue(new DateTime(2025, 4, 17, 16, 26, 31, 850, DateTimeKind.Local).AddTicks(4288));
 
                     b.Property<string>("CreatedID")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("487b4637-26ae-41d3-b259-be39e539ded4");
+                        .HasDefaultValue("5d3dfced-3e83-4225-ad8d-ff5742950fc4");
 
                     b.Property<string>("CreatedIPAddress")
                         .IsRequired()
@@ -3993,15 +2078,14 @@ namespace DataAccess.Migrations
 
                     b.Property<string>("DistrictName")
                         .IsRequired()
-                        .HasMaxLength(120)
-                        .HasColumnType("nvarchar(120)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Guid")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("8d8a97f1-4ddb-4ea2-bdaa-b04f57611107");
+                        .HasDefaultValue("c02b9de0-aa18-422a-8d31-69ba43844d4c");
 
                     b.Property<string>("HasAirport")
                         .IsRequired()
@@ -4026,10 +2110,8 @@ namespace DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TransportVehicle")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
+                    b.Property<int>("TransportVehicle")
+                        .HasColumnType("int");
 
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
@@ -4050,524 +2132,303 @@ namespace DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            ArrivalTime = new TimeSpan(0, 1, 36, 0, 0),
-                            CreatedDate = new DateTime(2016, 1, 3, 11, 28, 52, 0, DateTimeKind.Unspecified),
-                            CreatedID = "759ffdf8-91a3-4ac9-966e-d71654cfc1ef",
-                            CreatedIPAddress = "103.10.163.44",
+                            ArrivalTime = new TimeSpan(0, 2, 56, 0, 0),
+                            CreatedDate = new DateTime(2018, 10, 26, 6, 19, 18, 0, DateTimeKind.Unspecified),
+                            CreatedID = "3d57b73a-91cd-4a4f-9e8f-92fc0196784f",
+                            CreatedIPAddress = "33.209.164.174",
                             DistrictName = "explicabo",
-                            Guid = "8587bff9-2eb2-4955-88a3-8b72f507ca42",
-                            HasAirport = "Yes",
+                            Guid = "4f2aabaf-8128-4788-a7f6-d1db8afe84c5",
+                            HasAirport = "No",
                             HasHotelFacility = "Yes",
                             IsUpdated = "No",
-                            Status = "Unknown",
+                            Status = "Passive",
                             TouristPopulation = "No",
-                            TransportVehicle = "ATV"
+                            TransportVehicle = 2
                         },
                         new
                         {
                             Id = 2,
-                            ArrivalTime = new TimeSpan(0, 1, 30, 0, 0),
-                            CreatedDate = new DateTime(2003, 12, 18, 9, 33, 5, 0, DateTimeKind.Unspecified),
-                            CreatedID = "ac649a8d-2f36-44c8-90d2-2b372355933a",
-                            CreatedIPAddress = "146.40.14.151",
-                            DistrictName = "accusamus",
-                            Guid = "6fac59ee-921c-4ba8-be58-866bdd353376",
-                            HasAirport = "No",
-                            HasHotelFacility = "Yes",
-                            IsUpdated = "No",
-                            Status = "Unknown",
-                            TouristPopulation = "No",
-                            TransportVehicle = "Minibus"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            ArrivalTime = new TimeSpan(0, 1, 24, 0, 0),
-                            CreatedDate = new DateTime(2005, 9, 6, 19, 49, 35, 0, DateTimeKind.Unspecified),
-                            CreatedID = "a6518b59-eb5f-416b-8b3c-1d0dc4fe9c44",
-                            CreatedIPAddress = "156.254.246.47",
-                            DistrictName = "consequuntur",
-                            Guid = "83295ddc-6fdc-4ec3-b53f-c5f6bc83817f",
+                            ArrivalTime = new TimeSpan(0, 2, 37, 0, 0),
+                            CreatedDate = new DateTime(2011, 7, 11, 17, 55, 25, 0, DateTimeKind.Unspecified),
+                            CreatedID = "001dc8ec-f8e2-4798-acb6-070cddd05f8e",
+                            CreatedIPAddress = "10.108.37.234",
+                            DistrictName = "perferendis",
+                            Guid = "6520f86b-0db2-4d24-9fa0-97af5d4abb61",
                             HasAirport = "No",
                             HasHotelFacility = "No",
                             IsUpdated = "No",
-                            Status = "Unknown",
-                            TouristPopulation = "Yes",
-                            TransportVehicle = "ATV"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            ArrivalTime = new TimeSpan(0, 2, 57, 0, 0),
-                            CreatedDate = new DateTime(2000, 5, 4, 10, 19, 34, 0, DateTimeKind.Unspecified),
-                            CreatedID = "f691b164-bf60-46c1-a98a-b93fdfa6c7db",
-                            CreatedIPAddress = "175.141.60.186",
-                            DistrictName = "perspiciatis",
-                            Guid = "fa7eaecc-d410-4bc8-862a-860f5b17ab6d",
-                            HasAirport = "No",
-                            HasHotelFacility = "No",
-                            IsUpdated = "No",
-                            Status = "Passive",
-                            TouristPopulation = "Yes",
-                            TransportVehicle = "Minibus"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            ArrivalTime = new TimeSpan(0, 1, 12, 0, 0),
-                            CreatedDate = new DateTime(2007, 11, 7, 6, 48, 19, 0, DateTimeKind.Unspecified),
-                            CreatedID = "00c9b7d4-2238-475a-9c12-cbfedd858762",
-                            CreatedIPAddress = "106.143.99.169",
-                            DistrictName = "neque",
-                            Guid = "768b89fe-89bb-4ece-b768-fad6ad6d4929",
-                            HasAirport = "Yes",
-                            HasHotelFacility = "No",
-                            IsUpdated = "No",
-                            Status = "Unknown",
-                            TouristPopulation = "Yes",
-                            TransportVehicle = "ATV"
-                        });
-                });
-
-            modelBuilder.Entity("DataAccess.Entities.Models.Tickets.EventTicket", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("ArrivalDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 4, 11, 13, 41, 11, 13, DateTimeKind.Local).AddTicks(8981));
-
-                    b.Property<string>("CreatedID")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(36)
-                        .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("820aa597-08f3-43a0-9646-1a7a02fbad2e");
-
-                    b.Property<string>("CreatedIPAddress")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)")
-                        .HasDefaultValue("");
-
-                    b.Property<string>("Currency")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DepartureAdress")
-                        .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
-
-                    b.Property<DateTime>("DepartureDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("DestinationAdress")
-                        .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
-
-                    b.Property<byte?>("DiscountRate")
-                        .HasColumnType("tinyint");
-
-                    b.Property<int?>("EventId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Guid")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(36)
-                        .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("604e0214-599a-4238-8117-2f227d448828");
-
-                    b.Property<string>("IsUpdated")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal?>("NetCost")
-                        .HasColumnType("decimal(10,2)");
-
-                    b.Property<string>("PaymentStatus")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(6,2)");
-
-                    b.Property<string>("SeatNumber")
-                        .IsRequired()
-                        .HasMaxLength(4)
-                        .HasColumnType("nvarchar(4)");
-
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)")
-                        .HasDefaultValue("Unknown");
-
-                    b.Property<string>("TicketName")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("UpdatedID")
-                        .HasMaxLength(36)
-                        .HasColumnType("nvarchar(36)");
-
-                    b.Property<string>("UpdatedIPAddress")
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("EventId");
-
-                    b.ToTable("EventTickets");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            ArrivalDate = new DateTime(2017, 4, 20, 22, 17, 2, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2021, 11, 12, 11, 29, 13, 0, DateTimeKind.Unspecified),
-                            CreatedID = "391e172c-028a-47ea-ac84-37614eabcd85",
-                            CreatedIPAddress = "179.151.175.110",
-                            Currency = "AED",
-                            DepartureAdress = "payment Checking Account",
-                            DepartureDate = new DateTime(2017, 4, 20, 19, 17, 2, 0, DateTimeKind.Unspecified),
-                            DestinationAdress = "Rubber Mobility",
-                            DiscountRate = (byte)12,
-                            EventId = 1,
-                            Guid = "474c142b-050b-4d76-9600-a3d58b29912a",
-                            IsUpdated = "No",
-                            NetCost = 192.2136491272692992m,
-                            PaymentStatus = "Pending",
-                            Price = 218.424601280987840m,
-                            SeatNumber = "D126",
-                            Status = "Passive",
-                            TicketName = "Naomi Collier"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            ArrivalDate = new DateTime(2005, 9, 19, 7, 43, 6, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2018, 3, 8, 1, 46, 30, 0, DateTimeKind.Unspecified),
-                            CreatedID = "73c84065-b936-4f52-81a3-6193eddb386c",
-                            CreatedIPAddress = "22.41.10.246",
-                            Currency = "GBP",
-                            DepartureAdress = "Cotton Internal",
-                            DepartureDate = new DateTime(2005, 9, 19, 4, 43, 6, 0, DateTimeKind.Unspecified),
-                            DestinationAdress = "Steel XML",
-                            DiscountRate = (byte)18,
-                            EventId = 3,
-                            Guid = "a54f7acc-dbcc-4031-936b-248366950be7",
-                            IsUpdated = "No",
-                            NetCost = 198.1490903150065152m,
-                            PaymentStatus = "PartialPaid",
-                            Price = 241.645232091471360m,
-                            SeatNumber = "C202",
-                            Status = "Unknown",
-                            TicketName = "Shaina Jacobson"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            ArrivalDate = new DateTime(2003, 7, 12, 10, 50, 5, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2006, 1, 18, 4, 21, 52, 0, DateTimeKind.Unspecified),
-                            CreatedID = "563c68a6-9e69-47e4-82d2-d5ae7e75f17c",
-                            CreatedIPAddress = "231.217.94.116",
-                            Currency = "CNY",
-                            DepartureAdress = "Orchestrator Graphical User Interface",
-                            DepartureDate = new DateTime(2003, 7, 12, 7, 50, 5, 0, DateTimeKind.Unspecified),
-                            DestinationAdress = "compressing Administrator",
-                            DiscountRate = (byte)20,
-                            EventId = 3,
-                            Guid = "774073ab-35d3-473d-92ed-237a7370cc64",
-                            IsUpdated = "No",
-                            NetCost = 226.283293494465024m,
-                            PaymentStatus = "PartialPaid",
-                            Price = 282.854116868081280m,
-                            SeatNumber = "B159",
-                            Status = "Unknown",
-                            TicketName = "Wanda Rodriguez"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            ArrivalDate = new DateTime(2021, 7, 14, 17, 37, 51, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2017, 8, 22, 22, 17, 6, 0, DateTimeKind.Unspecified),
-                            CreatedID = "f6df4ba4-97c2-4b3c-af43-9ec50401161b",
-                            CreatedIPAddress = "53.50.130.127",
-                            Currency = "GBP",
-                            DepartureAdress = "Fiji Dollar Branch",
-                            DepartureDate = new DateTime(2021, 7, 14, 14, 37, 51, 0, DateTimeKind.Unspecified),
-                            DestinationAdress = "optical synergies",
-                            DiscountRate = (byte)12,
-                            EventId = 4,
-                            Guid = "279fe871-995e-4b63-9325-1496ebf7900d",
-                            IsUpdated = "No",
-                            NetCost = 322.5916421744912896m,
-                            PaymentStatus = "FullyPaid",
-                            Price = 366.581411561921920m,
-                            SeatNumber = "A100",
-                            Status = "Unknown",
-                            TicketName = "Ashlynn Cummings"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            ArrivalDate = new DateTime(2021, 2, 9, 19, 59, 8, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2011, 10, 8, 21, 13, 42, 0, DateTimeKind.Unspecified),
-                            CreatedID = "8aab4627-bb0c-431a-800b-48b78c1c9f5b",
-                            CreatedIPAddress = "74.64.230.142",
-                            Currency = "USD",
-                            DepartureAdress = "Handcrafted Wooden Bike Lead",
-                            DepartureDate = new DateTime(2021, 2, 9, 16, 59, 8, 0, DateTimeKind.Unspecified),
-                            DestinationAdress = "payment virtual",
-                            DiscountRate = (byte)11,
-                            EventId = 1,
-                            Guid = "78bf018a-025d-42fa-bb81-caab13200bb1",
-                            IsUpdated = "Yes",
-                            NetCost = 152.6064062059078016m,
-                            PaymentStatus = "PartialPaid",
-                            Price = 171.467872141469440m,
-                            SeatNumber = "A13",
-                            Status = "Unknown",
-                            TicketName = "Madelyn Rowe"
-                        });
-                });
-
-            modelBuilder.Entity("DataAccess.Entities.Models.Tickets.TourTicket", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("ArrivalDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 4, 11, 13, 41, 11, 16, DateTimeKind.Local).AddTicks(2403));
-
-                    b.Property<string>("CreatedID")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(36)
-                        .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("e42751fc-7d12-4775-8137-b76dc767e825");
-
-                    b.Property<string>("CreatedIPAddress")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)")
-                        .HasDefaultValue("");
-
-                    b.Property<string>("Currency")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DepartureAdress")
-                        .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
-
-                    b.Property<DateTime>("DepartureDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("DestinationAdress")
-                        .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
-
-                    b.Property<byte?>("DiscountRate")
-                        .HasColumnType("tinyint");
-
-                    b.Property<string>("Guid")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(36)
-                        .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("e49c3f14-3ccd-4735-a503-eee2f4d0d1fb");
-
-                    b.Property<string>("IsUpdated")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal?>("NetCost")
-                        .HasColumnType("decimal(10,2)");
-
-                    b.Property<string>("PaymentStatus")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(6,2)");
-
-                    b.Property<string>("SeatNumber")
-                        .IsRequired()
-                        .HasMaxLength(4)
-                        .HasColumnType("nvarchar(4)");
-
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)")
-                        .HasDefaultValue("Unknown");
-
-                    b.Property<string>("TicketName")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<int?>("TourId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("UpdatedID")
-                        .HasMaxLength(36)
-                        .HasColumnType("nvarchar(36)");
-
-                    b.Property<string>("UpdatedIPAddress")
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("TourId");
-
-                    b.ToTable("TourTickets");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            ArrivalDate = new DateTime(2006, 2, 8, 20, 54, 51, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2021, 2, 7, 13, 17, 23, 0, DateTimeKind.Unspecified),
-                            CreatedID = "b07080a4-515d-4a94-bc29-b560e0fb33f4",
-                            CreatedIPAddress = "213.145.198.131",
-                            Currency = "USD",
-                            DepartureAdress = "Shore Forint",
-                            DepartureDate = new DateTime(2006, 2, 8, 13, 54, 51, 0, DateTimeKind.Unspecified),
-                            DestinationAdress = "Electronics & Tools Shoes & Clothing",
-                            DiscountRate = (byte)14,
-                            Guid = "9e371213-c641-43f9-b7d1-f1e24b973a73",
-                            IsUpdated = "No",
-                            NetCost = 215.3375651614846208m,
-                            PaymentStatus = "Pending",
-                            Price = 250.392517629633280m,
-                            SeatNumber = "B86",
                             Status = "Active",
-                            TicketName = "Kody Schroeder",
-                            TourId = 2
-                        },
-                        new
-                        {
-                            Id = 2,
-                            ArrivalDate = new DateTime(2010, 10, 14, 8, 33, 7, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2014, 7, 26, 18, 50, 32, 0, DateTimeKind.Unspecified),
-                            CreatedID = "2d78fa51-0a08-47f3-bc22-ba6f5419322d",
-                            CreatedIPAddress = "64.222.28.188",
-                            Currency = "JPY",
-                            DepartureAdress = "Cambridgeshire Auto Loan Account",
-                            DepartureDate = new DateTime(2010, 10, 14, 1, 33, 7, 0, DateTimeKind.Unspecified),
-                            DestinationAdress = "Port Gorgeous Frozen Shoes",
-                            DiscountRate = (byte)17,
-                            Guid = "0816b448-4861-4f0e-a6f4-bf8278c87a6e",
-                            IsUpdated = "No",
-                            NetCost = 217.4178162371140864m,
-                            PaymentStatus = "Pending",
-                            Price = 261.949176189294080m,
-                            SeatNumber = "C176",
-                            Status = "Passive",
-                            TicketName = "Dixie Jast",
-                            TourId = 5
+                            TouristPopulation = "No",
+                            TransportVehicle = 7
                         },
                         new
                         {
                             Id = 3,
-                            ArrivalDate = new DateTime(2002, 7, 21, 4, 49, 5, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2009, 6, 26, 20, 56, 46, 0, DateTimeKind.Unspecified),
-                            CreatedID = "7e3ebefb-c9ec-455b-b2f9-b8374c2548c8",
-                            CreatedIPAddress = "197.67.87.33",
-                            Currency = "JPY",
-                            DepartureAdress = "solid state even-keeled",
-                            DepartureDate = new DateTime(2002, 7, 20, 21, 49, 5, 0, DateTimeKind.Unspecified),
-                            DestinationAdress = "Sleek Metal Salad Handcrafted",
-                            DiscountRate = (byte)19,
-                            Guid = "9436e3c9-86dc-401e-8072-70c0adb9e0d1",
+                            ArrivalTime = new TimeSpan(0, 1, 15, 0, 0),
+                            CreatedDate = new DateTime(2006, 8, 16, 3, 56, 38, 0, DateTimeKind.Unspecified),
+                            CreatedID = "0ae01e4f-e974-488b-939a-5d463c3a2182",
+                            CreatedIPAddress = "106.42.56.232",
+                            DistrictName = "quia",
+                            Guid = "0c3d6579-74aa-448f-96d1-87efe0f5b356",
+                            HasAirport = "No",
+                            HasHotelFacility = "Yes",
                             IsUpdated = "No",
-                            NetCost = 283.1569556851410048m,
-                            PaymentStatus = "Pending",
-                            Price = 349.576488500174080m,
-                            SeatNumber = "A197",
-                            Status = "Passive",
-                            TicketName = "Emmet Hintz",
-                            TourId = 2
+                            Status = "Unknown",
+                            TouristPopulation = "No",
+                            TransportVehicle = 2
                         },
                         new
                         {
                             Id = 4,
-                            ArrivalDate = new DateTime(2006, 7, 17, 8, 42, 10, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2019, 8, 11, 17, 20, 35, 0, DateTimeKind.Unspecified),
-                            CreatedID = "d766f440-24db-4894-b1c2-6af8a6ab7d99",
-                            CreatedIPAddress = "221.76.137.33",
+                            ArrivalTime = new TimeSpan(0, 1, 21, 0, 0),
+                            CreatedDate = new DateTime(2008, 5, 4, 16, 33, 10, 0, DateTimeKind.Unspecified),
+                            CreatedID = "19bf7e82-7770-4c58-9dac-55d387be6c0f",
+                            CreatedIPAddress = "145.252.32.98",
+                            DistrictName = "culpa",
+                            Guid = "3dc81783-1dc1-4304-9f16-ff5f4745b2a5",
+                            HasAirport = "Yes",
+                            HasHotelFacility = "Yes",
+                            IsUpdated = "No",
+                            Status = "Unknown",
+                            TouristPopulation = "No",
+                            TransportVehicle = 4
+                        },
+                        new
+                        {
+                            Id = 5,
+                            ArrivalTime = new TimeSpan(0, 1, 31, 0, 0),
+                            CreatedDate = new DateTime(2019, 5, 27, 17, 20, 49, 0, DateTimeKind.Unspecified),
+                            CreatedID = "494177f5-a711-4a4c-b329-ca0e6065e211",
+                            CreatedIPAddress = "113.61.231.87",
+                            DistrictName = "tenetur",
+                            Guid = "7bdf4552-751f-469e-b556-a7cfd20ee59c",
+                            HasAirport = "No",
+                            HasHotelFacility = "No",
+                            IsUpdated = "No",
+                            Status = "Active",
+                            TouristPopulation = "Yes",
+                            TransportVehicle = 6
+                        });
+                });
+
+            modelBuilder.Entity("DataAccess.Entities.Models.Tickets.ActivityTicket", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("ActivityId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("ArrivalDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValue(new DateTime(2025, 4, 17, 16, 26, 31, 851, DateTimeKind.Local).AddTicks(8018));
+
+                    b.Property<string>("CreatedID")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasMaxLength(36)
+                        .HasColumnType("nvarchar(36)")
+                        .HasDefaultValue("72c147a2-f1f5-4fee-a004-448ff868a094");
+
+                    b.Property<string>("CreatedIPAddress")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)")
+                        .HasDefaultValue("");
+
+                    b.Property<string>("Currency")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DepartureAdress")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
+
+                    b.Property<DateTime>("DepartureDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DestinationAdress")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
+
+                    b.Property<byte?>("DiscountRate")
+                        .HasColumnType("tinyint");
+
+                    b.Property<string>("Guid")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasMaxLength(36)
+                        .HasColumnType("nvarchar(36)")
+                        .HasDefaultValue("64271c53-155e-44c4-8ce6-ad62bb75203f");
+
+                    b.Property<string>("IsUpdated")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal?>("NetCost")
+                        .HasColumnType("decimal(10,2)");
+
+                    b.Property<string>("PaymentStatus")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(6,2)");
+
+                    b.Property<string>("SeatNumber")
+                        .IsRequired()
+                        .HasMaxLength(4)
+                        .HasColumnType("nvarchar(4)");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)")
+                        .HasDefaultValue("Unknown");
+
+                    b.Property<string>("TicketHolderName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UpdatedID")
+                        .HasMaxLength(36)
+                        .HasColumnType("nvarchar(36)");
+
+                    b.Property<string>("UpdatedIPAddress")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ActivityId");
+
+                    b.ToTable("ActivityTickets");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ActivityId = 1,
+                            ArrivalDate = new DateTime(2012, 12, 4, 2, 28, 20, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2004, 9, 23, 1, 17, 6, 0, DateTimeKind.Unspecified),
+                            CreatedID = "56af52f0-555f-4b5f-8b8b-c7f90be3d793",
+                            CreatedIPAddress = "96.254.255.4",
                             Currency = "TRY",
-                            DepartureAdress = "Cotton Licensed",
-                            DepartureDate = new DateTime(2006, 7, 17, 1, 42, 10, 0, DateTimeKind.Unspecified),
-                            DestinationAdress = "Planner Object-based",
+                            DepartureAdress = "Light payment",
+                            DepartureDate = new DateTime(2012, 12, 3, 23, 28, 20, 0, DateTimeKind.Unspecified),
+                            DestinationAdress = "Re-contextualized pixel",
                             DiscountRate = (byte)17,
-                            Guid = "5365275d-6891-4197-9943-e8a32b1b5c49",
+                            Guid = "6a6926ed-7b53-4ae4-8ca8-e60de7c6bd66",
                             IsUpdated = "Yes",
-                            NetCost = 216.1586700715750816m,
-                            PaymentStatus = "FullyPaid",
-                            Price = 260.432132616355520m,
-                            SeatNumber = "D90",
-                            Status = "Active",
-                            TicketName = "Enrique Greenholt",
-                            TourId = 2
+                            NetCost = 310.422148248626144m,
+                            PaymentStatus = "PartialPaid",
+                            Price = 374.00258825135680m,
+                            SeatNumber = "C89",
+                            Status = "Passive",
+                            TicketHolderName = "Rickie Rowe"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            ActivityId = 2,
+                            ArrivalDate = new DateTime(2000, 5, 7, 22, 35, 11, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2005, 4, 7, 7, 22, 39, 0, DateTimeKind.Unspecified),
+                            CreatedID = "c23b1401-4571-4fb6-8114-68544ad4e7e2",
+                            CreatedIPAddress = "104.22.178.146",
+                            Currency = "EUR",
+                            DepartureAdress = "payment SAS",
+                            DepartureDate = new DateTime(2000, 5, 7, 19, 35, 11, 0, DateTimeKind.Unspecified),
+                            DestinationAdress = "Plastic Prairie",
+                            DiscountRate = (byte)15,
+                            Guid = "2d464c33-ce3b-43c9-876e-e3879207ebf2",
+                            IsUpdated = "No",
+                            NetCost = 321.308744150873632m,
+                            PaymentStatus = "PartialPaid",
+                            Price = 378.010287236321920m,
+                            SeatNumber = "A172",
+                            Status = "Passive",
+                            TicketHolderName = "Francesco Yundt"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            ActivityId = 5,
+                            ArrivalDate = new DateTime(2015, 3, 1, 13, 28, 28, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2006, 9, 20, 14, 20, 40, 0, DateTimeKind.Unspecified),
+                            CreatedID = "d8781b48-ccfd-4db4-a50a-091ce4683237",
+                            CreatedIPAddress = "154.193.205.25",
+                            Currency = "TRY",
+                            DepartureAdress = "non-volatile Profound",
+                            DepartureDate = new DateTime(2015, 3, 1, 10, 28, 28, 0, DateTimeKind.Unspecified),
+                            DestinationAdress = "Director Global",
+                            DiscountRate = (byte)19,
+                            Guid = "6165a699-4140-41ee-bf73-5466a859af31",
+                            IsUpdated = "No",
+                            NetCost = 181.2559458302139456m,
+                            PaymentStatus = "PartialPaid",
+                            Price = 223.772772629893760m,
+                            SeatNumber = "B58",
+                            Status = "Passive",
+                            TicketHolderName = "Itzel Rath"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            ActivityId = 4,
+                            ArrivalDate = new DateTime(2010, 11, 10, 22, 59, 29, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2013, 3, 3, 14, 37, 22, 0, DateTimeKind.Unspecified),
+                            CreatedID = "92a455ca-ab70-408e-82e9-488597a2faf7",
+                            CreatedIPAddress = "27.112.17.55",
+                            Currency = "CNY",
+                            DepartureAdress = "channels invoice",
+                            DepartureDate = new DateTime(2010, 11, 10, 19, 59, 29, 0, DateTimeKind.Unspecified),
+                            DestinationAdress = "leverage Practical Metal Computer",
+                            DiscountRate = (byte)13,
+                            Guid = "51418d8a-4771-4093-975b-391c56f1c252",
+                            IsUpdated = "Yes",
+                            NetCost = 207.2548947726233856m,
+                            PaymentStatus = "Pending",
+                            Price = 238.224016980026880m,
+                            SeatNumber = "A31",
+                            Status = "Passive",
+                            TicketHolderName = "Chelsea Herman"
                         },
                         new
                         {
                             Id = 5,
-                            ArrivalDate = new DateTime(2011, 8, 3, 21, 38, 42, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2002, 3, 7, 6, 17, 20, 0, DateTimeKind.Unspecified),
-                            CreatedID = "e96af050-a72e-4349-9849-cfb3ef6e1498",
-                            CreatedIPAddress = "173.182.191.50",
-                            Currency = "EUR",
-                            DepartureAdress = "deposit Markets",
-                            DepartureDate = new DateTime(2011, 8, 3, 14, 38, 42, 0, DateTimeKind.Unspecified),
-                            DestinationAdress = "British Indian Ocean Territory (Chagos Archipelago) red",
-                            DiscountRate = (byte)20,
-                            Guid = "93495f24-c51e-48f8-a99b-525cc955132e",
+                            ActivityId = 5,
+                            ArrivalDate = new DateTime(2018, 10, 8, 0, 49, 30, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2021, 8, 4, 17, 45, 54, 0, DateTimeKind.Unspecified),
+                            CreatedID = "bd968ab1-b94d-4665-8807-20577e6030fd",
+                            CreatedIPAddress = "1.155.23.231",
+                            Currency = "JPY",
+                            DepartureAdress = "Bangladesh Tasty",
+                            DepartureDate = new DateTime(2018, 10, 7, 21, 49, 30, 0, DateTimeKind.Unspecified),
+                            DestinationAdress = "neural Auto Loan Account",
+                            DiscountRate = (byte)19,
+                            Guid = "805caf60-af2f-4e4f-85c1-205fd45c15a9",
                             IsUpdated = "No",
-                            NetCost = 96.8457561051688192m,
+                            NetCost = 271.9420075892274912m,
                             PaymentStatus = "Pending",
-                            Price = 121.0571951314610240m,
-                            SeatNumber = "B136",
-                            Status = "Passive",
-                            TicketName = "Carlo Johns",
-                            TourId = 2
+                            Price = 335.730873566947520m,
+                            SeatNumber = "C170",
+                            Status = "Active",
+                            TicketHolderName = "Jaida Emard"
                         });
                 });
 
@@ -4578,6 +2439,9 @@ namespace DataAccess.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("ActivityId")
+                        .HasColumnType("int");
 
                     b.Property<int>("Age")
                         .HasMaxLength(2)
@@ -4590,14 +2454,14 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 4, 11, 13, 41, 11, 17, DateTimeKind.Local).AddTicks(5255));
+                        .HasDefaultValue(new DateTime(2025, 4, 17, 16, 26, 31, 860, DateTimeKind.Local).AddTicks(4243));
 
                     b.Property<string>("CreatedID")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("8e8fd032-fefe-48d1-b8bd-be994aabf861");
+                        .HasDefaultValue("ccd6c3fd-3a09-4049-bfcc-b85b58016d45");
 
                     b.Property<string>("CreatedIPAddress")
                         .IsRequired()
@@ -4609,9 +2473,6 @@ namespace DataAccess.Migrations
                     b.Property<decimal>("DailyRentalFee")
                         .HasColumnType("decimal(8,2)");
 
-                    b.Property<int?>("EventId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("ExpireDate")
                         .HasColumnType("datetime2");
 
@@ -4620,7 +2481,11 @@ namespace DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("b83d276b-6db0-4efd-a661-10436cbcda4d");
+                        .HasDefaultValue("8d1ccb47-37ea-4d9c-8c90-c8b454bac6ca");
+
+                    b.Property<string>("IsAvailable")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("IsUpdated")
                         .IsRequired()
@@ -4658,9 +2523,6 @@ namespace DataAccess.Migrations
                     b.Property<int>("TotalRentalDay")
                         .HasColumnType("int");
 
-                    b.Property<int?>("TourId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
 
@@ -4679,11 +2541,9 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("EventId");
+                    b.HasIndex("ActivityId");
 
                     b.HasIndex("RentalVehicleSupplierId");
-
-                    b.HasIndex("TourId");
 
                     b.ToTable("RentalVehicles");
 
@@ -4691,122 +2551,122 @@ namespace DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            Age = 12,
-                            Capacity = (short)24,
-                            CreatedDate = new DateTime(2019, 4, 20, 22, 9, 12, 0, DateTimeKind.Unspecified),
-                            CreatedID = "d81da796-d889-4cee-a402-c0d22f0a0c0c",
-                            CreatedIPAddress = "139.117.244.192",
-                            DailyRentalFee = 16684m,
-                            EventId = 5,
-                            ExpireDate = new DateTime(2001, 1, 10, 1, 21, 52, 0, DateTimeKind.Unspecified),
-                            Guid = "1942fdda-aef1-4efc-a2d0-7e3d21c851a0",
+                            ActivityId = 3,
+                            Age = 13,
+                            Capacity = (short)38,
+                            CreatedDate = new DateTime(2002, 7, 12, 17, 23, 12, 0, DateTimeKind.Unspecified),
+                            CreatedID = "ae70ab07-3e16-4a00-8617-a5ec93142fe7",
+                            CreatedIPAddress = "164.139.4.94",
+                            DailyRentalFee = 13222m,
+                            ExpireDate = new DateTime(2020, 10, 16, 12, 14, 50, 0, DateTimeKind.Unspecified),
+                            Guid = "990078c5-61c7-43ab-94f2-5b642dbc8c71",
+                            IsAvailable = "Busy",
                             IsUpdated = "No",
-                            Kilometer = 627180,
-                            LicensePlate = "62 jl 7063",
-                            Model = "Beetle",
-                            RentalVehicleSupplierId = 1,
-                            StartDate = new DateTime(2001, 1, 6, 1, 21, 52, 0, DateTimeKind.Unspecified),
-                            Status = "Unknown",
-                            TotalPrice = 66736m,
+                            Kilometer = 983909,
+                            LicensePlate = "67 uq 8191",
+                            Model = "Fiesta",
+                            RentalVehicleSupplierId = 4,
+                            StartDate = new DateTime(2020, 10, 12, 12, 14, 50, 0, DateTimeKind.Unspecified),
+                            Status = "Active",
+                            TotalPrice = 52888m,
                             TotalRentalDay = 4,
-                            TourId = 5,
-                            VehicleType = "Bus"
+                            VehicleType = "Jeep"
                         },
                         new
                         {
                             Id = 2,
-                            Age = 9,
-                            Capacity = (short)41,
-                            CreatedDate = new DateTime(2014, 9, 25, 13, 39, 29, 0, DateTimeKind.Unspecified),
-                            CreatedID = "9c8e4271-8ca4-4428-8053-bb078e282c6c",
-                            CreatedIPAddress = "66.117.128.148",
-                            DailyRentalFee = 19186m,
-                            EventId = 1,
-                            ExpireDate = new DateTime(2002, 1, 30, 18, 15, 10, 0, DateTimeKind.Unspecified),
-                            Guid = "59266388-0a3e-4736-b19a-1aa42d2fe6ab",
-                            IsUpdated = "Yes",
-                            Kilometer = 419151,
-                            LicensePlate = "13 yh 3165",
-                            Model = "Grand Caravan",
-                            RentalVehicleSupplierId = 1,
-                            StartDate = new DateTime(2002, 1, 26, 18, 15, 10, 0, DateTimeKind.Unspecified),
-                            Status = "Passive",
-                            TotalPrice = 76744m,
+                            ActivityId = 1,
+                            Age = 2,
+                            Capacity = (short)40,
+                            CreatedDate = new DateTime(2012, 2, 20, 21, 51, 17, 0, DateTimeKind.Unspecified),
+                            CreatedID = "3479b8b4-bcee-412a-92ae-3d3295a9b9a7",
+                            CreatedIPAddress = "190.224.169.166",
+                            DailyRentalFee = 20183m,
+                            ExpireDate = new DateTime(2019, 10, 15, 17, 23, 8, 0, DateTimeKind.Unspecified),
+                            Guid = "e680ca9c-a150-4dfe-ac53-ae40647f3990",
+                            IsAvailable = "Available",
+                            IsUpdated = "No",
+                            Kilometer = 898647,
+                            LicensePlate = "32 lz 3759",
+                            Model = "Silverado",
+                            RentalVehicleSupplierId = 4,
+                            StartDate = new DateTime(2019, 10, 11, 17, 23, 8, 0, DateTimeKind.Unspecified),
+                            Status = "Active",
+                            TotalPrice = 80732m,
                             TotalRentalDay = 4,
-                            TourId = 4,
-                            VehicleType = "Yacht"
+                            VehicleType = "Jeep"
                         },
                         new
                         {
                             Id = 3,
+                            ActivityId = 1,
                             Age = 5,
-                            Capacity = (short)75,
-                            CreatedDate = new DateTime(2007, 12, 10, 19, 34, 5, 0, DateTimeKind.Unspecified),
-                            CreatedID = "db545470-690f-4ff1-b872-d4bd63c4f566",
-                            CreatedIPAddress = "133.49.223.127",
-                            DailyRentalFee = 21741m,
-                            EventId = 4,
-                            ExpireDate = new DateTime(2013, 3, 16, 19, 25, 51, 0, DateTimeKind.Unspecified),
-                            Guid = "5815c0f3-8008-4c0a-8552-6c5904a6a005",
+                            Capacity = (short)72,
+                            CreatedDate = new DateTime(2016, 12, 9, 11, 47, 16, 0, DateTimeKind.Unspecified),
+                            CreatedID = "fc1ce96d-22a5-425f-9217-ce380c036654",
+                            CreatedIPAddress = "241.240.234.220",
+                            DailyRentalFee = 15475m,
+                            ExpireDate = new DateTime(2015, 4, 18, 21, 37, 8, 0, DateTimeKind.Unspecified),
+                            Guid = "b7ffeb95-93b9-400d-ab00-30af2380cafb",
+                            IsAvailable = "Busy",
                             IsUpdated = "No",
-                            Kilometer = 708941,
-                            LicensePlate = "17 iw 753",
-                            Model = "Silverado",
-                            RentalVehicleSupplierId = 5,
-                            StartDate = new DateTime(2013, 3, 11, 19, 25, 51, 0, DateTimeKind.Unspecified),
+                            Kilometer = 67936,
+                            LicensePlate = "26 ga 2762",
+                            Model = "Element",
+                            RentalVehicleSupplierId = 2,
+                            StartDate = new DateTime(2015, 4, 13, 21, 37, 8, 0, DateTimeKind.Unspecified),
                             Status = "Active",
-                            TotalPrice = 108705m,
+                            TotalPrice = 77375m,
                             TotalRentalDay = 5,
-                            TourId = 2,
-                            VehicleType = "Bus"
+                            VehicleType = "Motorbike"
                         },
                         new
                         {
                             Id = 4,
-                            Age = 2,
-                            Capacity = (short)36,
-                            CreatedDate = new DateTime(2018, 8, 4, 17, 20, 28, 0, DateTimeKind.Unspecified),
-                            CreatedID = "ece88878-4d39-4de3-9b79-ac8f47497f34",
-                            CreatedIPAddress = "180.34.109.205",
-                            DailyRentalFee = 9226m,
-                            EventId = 2,
-                            ExpireDate = new DateTime(2005, 12, 16, 4, 22, 53, 0, DateTimeKind.Unspecified),
-                            Guid = "ae871075-bade-4323-a0eb-bda430e5e014",
-                            IsUpdated = "No",
-                            Kilometer = 596760,
-                            LicensePlate = "7 xk 7659",
-                            Model = "1",
-                            RentalVehicleSupplierId = 3,
-                            StartDate = new DateTime(2005, 12, 11, 4, 22, 53, 0, DateTimeKind.Unspecified),
+                            ActivityId = 3,
+                            Age = 14,
+                            Capacity = (short)94,
+                            CreatedDate = new DateTime(2014, 10, 18, 22, 44, 28, 0, DateTimeKind.Unspecified),
+                            CreatedID = "ff66427d-16e0-4520-a785-389d1e49b566",
+                            CreatedIPAddress = "170.88.41.22",
+                            DailyRentalFee = 19270m,
+                            ExpireDate = new DateTime(2020, 12, 21, 20, 24, 52, 0, DateTimeKind.Unspecified),
+                            Guid = "b34b97dd-ae62-4b93-bdb8-a94eeb5966e9",
+                            IsAvailable = "Available",
+                            IsUpdated = "Yes",
+                            Kilometer = 757554,
+                            LicensePlate = "57 pf 9599",
+                            Model = "Spyder",
+                            RentalVehicleSupplierId = 1,
+                            StartDate = new DateTime(2020, 12, 16, 20, 24, 52, 0, DateTimeKind.Unspecified),
                             Status = "Unknown",
-                            TotalPrice = 46130m,
+                            TotalPrice = 96350m,
                             TotalRentalDay = 5,
-                            TourId = 5,
-                            VehicleType = "ATV"
+                            VehicleType = "Bus"
                         },
                         new
                         {
                             Id = 5,
-                            Age = 2,
-                            Capacity = (short)55,
-                            CreatedDate = new DateTime(2013, 7, 21, 4, 39, 27, 0, DateTimeKind.Unspecified),
-                            CreatedID = "3ddc30d6-4c9d-4c4f-a125-b163dfe253b8",
-                            CreatedIPAddress = "249.183.77.86",
-                            DailyRentalFee = 6987m,
-                            EventId = 2,
-                            ExpireDate = new DateTime(2018, 10, 15, 1, 45, 37, 0, DateTimeKind.Unspecified),
-                            Guid = "5808ae49-a050-4d90-8139-224d4028fc0e",
-                            IsUpdated = "No",
-                            Kilometer = 382793,
-                            LicensePlate = "48 ac 8150",
-                            Model = "Grand Cherokee",
-                            RentalVehicleSupplierId = 3,
-                            StartDate = new DateTime(2018, 10, 10, 1, 45, 37, 0, DateTimeKind.Unspecified),
-                            Status = "Passive",
-                            TotalPrice = 34935m,
-                            TotalRentalDay = 5,
-                            TourId = 1,
-                            VehicleType = "ATV"
+                            ActivityId = 1,
+                            Age = 8,
+                            Capacity = (short)84,
+                            CreatedDate = new DateTime(2009, 9, 26, 7, 51, 24, 0, DateTimeKind.Unspecified),
+                            CreatedID = "c655e979-2b3d-41fd-b0d4-154ad59b4521",
+                            CreatedIPAddress = "28.60.218.49",
+                            DailyRentalFee = 21932m,
+                            ExpireDate = new DateTime(2008, 9, 23, 19, 25, 9, 0, DateTimeKind.Unspecified),
+                            Guid = "515ad794-56f7-48db-aa85-11bb49787f4a",
+                            IsAvailable = "Busy",
+                            IsUpdated = "Yes",
+                            Kilometer = 622205,
+                            LicensePlate = "55 hj 7455",
+                            Model = "Prius",
+                            RentalVehicleSupplierId = 4,
+                            StartDate = new DateTime(2008, 9, 22, 19, 25, 9, 0, DateTimeKind.Unspecified),
+                            Status = "Active",
+                            TotalPrice = 21932m,
+                            TotalRentalDay = 1,
+                            VehicleType = "Minibus"
                         });
                 });
 
@@ -4817,6 +2677,9 @@ namespace DataAccess.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("ActivityId")
+                        .HasColumnType("int");
 
                     b.Property<int>("Age")
                         .HasMaxLength(2)
@@ -4829,14 +2692,14 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 4, 11, 13, 41, 11, 19, DateTimeKind.Local).AddTicks(734));
+                        .HasDefaultValue(new DateTime(2025, 4, 17, 16, 26, 31, 861, DateTimeKind.Local).AddTicks(8548));
 
                     b.Property<string>("CreatedID")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("2fa62cab-0261-40e1-b046-e29c9593d9a5");
+                        .HasDefaultValue("511751ac-b7b1-433c-911a-c8dd317792e1");
 
                     b.Property<string>("CreatedIPAddress")
                         .IsRequired()
@@ -4845,15 +2708,16 @@ namespace DataAccess.Migrations
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValue("");
 
-                    b.Property<int?>("EventId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Guid")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)")
-                        .HasDefaultValue("7df311e2-f922-4da0-bc63-30e69b1885ee");
+                        .HasDefaultValue("3b5fe694-c53e-4670-b2fb-8363197e0a8a");
+
+                    b.Property<string>("IsAvailable")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("IsUpdated")
                         .IsRequired()
@@ -4885,9 +2749,6 @@ namespace DataAccess.Migrations
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValue("Unknown");
 
-                    b.Property<int?>("TourId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
 
@@ -4906,9 +2767,7 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("EventId");
-
-                    b.HasIndex("TourId");
+                    b.HasIndex("ActivityId");
 
                     b.ToTable("Vehicles");
 
@@ -4916,102 +2775,102 @@ namespace DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            Age = 4,
-                            Capacity = (short)38,
-                            CreatedDate = new DateTime(2018, 5, 14, 23, 10, 40, 0, DateTimeKind.Unspecified),
-                            CreatedID = "97f09d15-45cd-4415-b889-f8faeb449351",
-                            CreatedIPAddress = "112.119.84.149",
-                            EventId = 1,
-                            Guid = "fca7fa72-3378-458f-9274-bcf6a3645d39",
-                            IsUpdated = "No",
-                            Kilometer = 768603,
-                            LicensePlate = "66 qj 8929",
-                            MarketValue = 14530896m,
-                            Model = "Civic",
-                            PurchaseDate = new DateTime(2010, 1, 14, 23, 45, 34, 0, DateTimeKind.Unspecified),
-                            Status = "Active",
-                            TourId = 5,
-                            VehicleType = "Sedan"
+                            ActivityId = 5,
+                            Age = 7,
+                            Capacity = (short)82,
+                            CreatedDate = new DateTime(2007, 3, 19, 3, 25, 48, 0, DateTimeKind.Unspecified),
+                            CreatedID = "3357308c-6870-424f-ad6f-0ece6f034d69",
+                            CreatedIPAddress = "109.207.106.109",
+                            Guid = "f2df94c4-aee1-4eb8-87bf-8bd98a5ad357",
+                            IsAvailable = "Busy",
+                            IsUpdated = "Yes",
+                            Kilometer = 148342,
+                            LicensePlate = "47 yr 1495",
+                            MarketValue = 17177848m,
+                            Model = "CTS",
+                            PurchaseDate = new DateTime(2005, 6, 13, 5, 11, 31, 0, DateTimeKind.Unspecified),
+                            Status = "Passive",
+                            VehicleType = "Jeep"
                         },
                         new
                         {
                             Id = 2,
-                            Age = 8,
-                            Capacity = (short)40,
-                            CreatedDate = new DateTime(2020, 3, 25, 11, 33, 8, 0, DateTimeKind.Unspecified),
-                            CreatedID = "2f0a4631-3bfe-4990-aa2a-66b56e118b21",
-                            CreatedIPAddress = "177.186.213.58",
-                            EventId = 4,
-                            Guid = "86cffca7-9c78-4777-8c26-fb6a63fe495f",
+                            ActivityId = 2,
+                            Age = 12,
+                            Capacity = (short)33,
+                            CreatedDate = new DateTime(2004, 10, 7, 11, 31, 26, 0, DateTimeKind.Unspecified),
+                            CreatedID = "790a286e-456c-46ea-ae54-666023c62e34",
+                            CreatedIPAddress = "169.106.77.118",
+                            Guid = "d011a69a-19a2-4154-b4ab-27e09a5f0de4",
+                            IsAvailable = "Busy",
                             IsUpdated = "No",
-                            Kilometer = 413104,
-                            LicensePlate = "58 gw 9454",
-                            MarketValue = 12280522m,
-                            Model = "XC90",
-                            PurchaseDate = new DateTime(2019, 7, 7, 19, 14, 6, 0, DateTimeKind.Unspecified),
-                            Status = "Passive",
-                            TourId = 3,
-                            VehicleType = "Bus"
+                            Kilometer = 6414,
+                            LicensePlate = "12 im 1632",
+                            MarketValue = 20208650m,
+                            Model = "Altima",
+                            PurchaseDate = new DateTime(2016, 11, 11, 16, 16, 43, 0, DateTimeKind.Unspecified),
+                            Status = "Unknown",
+                            VehicleType = "Yacht"
                         },
                         new
                         {
                             Id = 3,
-                            Age = 6,
-                            Capacity = (short)46,
-                            CreatedDate = new DateTime(2020, 5, 11, 15, 15, 22, 0, DateTimeKind.Unspecified),
-                            CreatedID = "6e17f057-638a-4544-bd60-9d78eb80e653",
-                            CreatedIPAddress = "123.126.88.212",
-                            EventId = 1,
-                            Guid = "860f0fea-d3dc-4def-99a0-715ea3683119",
+                            ActivityId = 4,
+                            Age = 7,
+                            Capacity = (short)3,
+                            CreatedDate = new DateTime(2012, 5, 2, 14, 46, 2, 0, DateTimeKind.Unspecified),
+                            CreatedID = "1187d115-a27f-498c-9668-2bed07e44e17",
+                            CreatedIPAddress = "98.102.64.16",
+                            Guid = "ea597ce8-89a7-4333-8550-7818a8352424",
+                            IsAvailable = "Busy",
                             IsUpdated = "No",
-                            Kilometer = 689843,
-                            LicensePlate = "40 jo 1229",
-                            MarketValue = 17525270m,
-                            Model = "Explorer",
-                            PurchaseDate = new DateTime(2020, 11, 1, 12, 51, 45, 0, DateTimeKind.Unspecified),
-                            Status = "Active",
-                            TourId = 4,
-                            VehicleType = "Jeep"
+                            Kilometer = 44403,
+                            LicensePlate = "80 hx 8415",
+                            MarketValue = 20328187m,
+                            Model = "Alpine",
+                            PurchaseDate = new DateTime(2009, 5, 13, 22, 28, 23, 0, DateTimeKind.Unspecified),
+                            Status = "Passive",
+                            VehicleType = "Motorbike"
                         },
                         new
                         {
                             Id = 4,
-                            Age = 7,
-                            Capacity = (short)31,
-                            CreatedDate = new DateTime(2003, 6, 6, 22, 36, 16, 0, DateTimeKind.Unspecified),
-                            CreatedID = "08b7461e-3736-4a39-873b-dcf26bf4d87c",
-                            CreatedIPAddress = "100.204.37.13",
-                            EventId = 3,
-                            Guid = "ce74e440-2c7c-4e57-9e2f-d4a11c34ece4",
+                            ActivityId = 4,
+                            Age = 11,
+                            Capacity = (short)30,
+                            CreatedDate = new DateTime(2019, 8, 11, 15, 28, 7, 0, DateTimeKind.Unspecified),
+                            CreatedID = "8a6511f3-b07e-47de-b5db-b24f845a1fcb",
+                            CreatedIPAddress = "215.134.192.209",
+                            Guid = "782fed40-11c3-427b-ac8d-2d89fc819f62",
+                            IsAvailable = "Available",
                             IsUpdated = "No",
-                            Kilometer = 104922,
-                            LicensePlate = "36 zr 9502",
-                            MarketValue = 18203728m,
-                            Model = "Model S",
-                            PurchaseDate = new DateTime(2002, 4, 26, 11, 29, 41, 0, DateTimeKind.Unspecified),
-                            Status = "Active",
-                            TourId = 5,
-                            VehicleType = "ATV"
+                            Kilometer = 781087,
+                            LicensePlate = "57 qk 3403",
+                            MarketValue = 8577622m,
+                            Model = "CX-9",
+                            PurchaseDate = new DateTime(2001, 5, 8, 18, 29, 12, 0, DateTimeKind.Unspecified),
+                            Status = "Unknown",
+                            VehicleType = "Bus"
                         },
                         new
                         {
                             Id = 5,
-                            Age = 6,
-                            Capacity = (short)49,
-                            CreatedDate = new DateTime(2018, 9, 24, 7, 19, 31, 0, DateTimeKind.Unspecified),
-                            CreatedID = "1e76fd1b-9917-4699-82d9-d90cce68d53a",
-                            CreatedIPAddress = "117.3.222.75",
-                            EventId = 5,
-                            Guid = "0fce7689-856a-42fb-b4f8-5b925d4e078e",
-                            IsUpdated = "Yes",
-                            Kilometer = 505125,
-                            LicensePlate = "30 wj 2523",
-                            MarketValue = 9448913m,
-                            Model = "A4",
-                            PurchaseDate = new DateTime(2017, 11, 2, 17, 22, 3, 0, DateTimeKind.Unspecified),
-                            Status = "Active",
-                            TourId = 1,
-                            VehicleType = "Jeep"
+                            ActivityId = 2,
+                            Age = 5,
+                            Capacity = (short)47,
+                            CreatedDate = new DateTime(2015, 1, 20, 20, 25, 21, 0, DateTimeKind.Unspecified),
+                            CreatedID = "fe3aac8d-84b8-440f-9877-aae98ba0bf52",
+                            CreatedIPAddress = "64.11.86.41",
+                            Guid = "22bc95c1-bf1e-4f84-9071-463b58971bf6",
+                            IsAvailable = "Busy",
+                            IsUpdated = "No",
+                            Kilometer = 718849,
+                            LicensePlate = "11 ei 2095",
+                            MarketValue = 9194070m,
+                            Model = "Expedition",
+                            PurchaseDate = new DateTime(2009, 4, 3, 21, 44, 33, 0, DateTimeKind.Unspecified),
+                            Status = "Unknown",
+                            VehicleType = "Motorbike"
                         });
                 });
 
@@ -5037,7 +2896,7 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 4, 11, 13, 41, 11, 22, DateTimeKind.Local).AddTicks(4557));
+                        .HasDefaultValue(new DateTime(2025, 4, 17, 16, 26, 31, 864, DateTimeKind.Local).AddTicks(3917));
 
                     b.Property<string>("CreatedID")
                         .IsRequired()
@@ -5142,121 +3001,121 @@ namespace DataAccess.Migrations
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ba2ca0ce-81cb-44a3-ac25-0012f395333c",
+                            ConcurrencyStamp = "9fc61ba3-050b-4cca-ba66-ef9160b8b053",
                             CountryId = 5,
-                            CreatedDate = new DateTime(2012, 12, 26, 8, 19, 8, 0, DateTimeKind.Unspecified),
-                            CreatedID = "0eb26d3e-462c-4845-96bb-0e110159ee8a",
-                            CreatedIPAddress = "59.142.66.26",
-                            Email = "Edyth6@hotmail.com",
+                            CreatedDate = new DateTime(2010, 4, 21, 21, 50, 47, 0, DateTimeKind.Unspecified),
+                            CreatedID = "eaf0220d-a33c-4c2a-ab52-757994b5513d",
+                            CreatedIPAddress = "101.87.159.213",
+                            Email = "Myrtle_Walker@gmail.com",
                             EmailConfirmed = false,
-                            Guid = "f6f88b4e-9c3a-4697-8b7b-0d0e34a1f83f",
-                            IsUpdated = "No",
+                            Guid = "ec52acec-a001-4782-b1a6-db7c5b4c0f52",
+                            IsUpdated = "Yes",
                             LockoutEnabled = false,
-                            LockoutEnd = new DateTimeOffset(new DateTime(2025, 4, 18, 13, 41, 11, 145, DateTimeKind.Unspecified).AddTicks(9394), new TimeSpan(0, 3, 0, 0, 0)),
-                            NormalizedEmail = "EDYTH6@HOTMAİL.COM",
-                            NormalizedUserName = "JERROLD",
-                            PasswordHash = "$2a$11$dQcwgtQCallzx2A5irsquuHB5nsc0Qj9sS3u3xn.iEXKPcxcB7aiy",
-                            PhoneNumber = "05656864681",
+                            LockoutEnd = new DateTimeOffset(new DateTime(2025, 4, 24, 16, 26, 31, 986, DateTimeKind.Unspecified).AddTicks(3984), new TimeSpan(0, 3, 0, 0, 0)),
+                            NormalizedEmail = "MYRTLE_WALKER@GMAİL.COM",
+                            NormalizedUserName = "ORLANDO",
+                            PasswordHash = "$2a$11$Tj3rN0S0hUHPfKSlw3tfSeqEu1vS1Vb0LtW7HfXfdF6wbKtpDhoSS",
+                            PhoneNumber = "05840848208",
                             PhoneNumberConfirmed = false,
-                            Status = "Active",
+                            Status = "Passive",
                             TwoFactorEnabled = false,
-                            UserName = "Jerrold"
+                            UserName = "Orlando"
                         },
                         new
                         {
                             Id = 2,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "0d8884e2-00f6-4bac-a479-fc78c55d10d5",
-                            CountryId = 2,
-                            CreatedDate = new DateTime(2003, 12, 2, 10, 15, 43, 0, DateTimeKind.Unspecified),
-                            CreatedID = "a1f2e760-05aa-4866-ba30-8d33e34c4675",
-                            CreatedIPAddress = "188.175.142.187",
-                            Email = "Verna9@hotmail.com",
+                            ConcurrencyStamp = "6166f4c4-2bf4-4176-acaf-025cbe85e015",
+                            CountryId = 4,
+                            CreatedDate = new DateTime(2003, 9, 25, 22, 17, 11, 0, DateTimeKind.Unspecified),
+                            CreatedID = "cdf312f6-e980-4edf-acb7-5d1cf69922a4",
+                            CreatedIPAddress = "6.202.27.176",
+                            Email = "Terrence45@hotmail.com",
                             EmailConfirmed = false,
-                            Guid = "c3c94eed-3959-4354-9591-547d4731721c",
-                            IsUpdated = "No",
+                            Guid = "9421f383-c262-4a52-b3e7-f5873b4af77a",
+                            IsUpdated = "Yes",
                             LockoutEnabled = false,
-                            LockoutEnd = new DateTimeOffset(new DateTime(2025, 4, 18, 13, 41, 11, 268, DateTimeKind.Unspecified).AddTicks(1492), new TimeSpan(0, 3, 0, 0, 0)),
-                            NormalizedEmail = "VERNA9@HOTMAİL.COM",
-                            NormalizedUserName = "RYLEİGH",
-                            PasswordHash = "$2a$11$pSbvjf06S3UDw8n.ybLfduh5dAmx0T4e5W9f6yLK/6Hbn6RM95NFu",
-                            PhoneNumber = "05916590958",
+                            LockoutEnd = new DateTimeOffset(new DateTime(2025, 4, 24, 16, 26, 32, 109, DateTimeKind.Unspecified).AddTicks(8876), new TimeSpan(0, 3, 0, 0, 0)),
+                            NormalizedEmail = "TERRENCE45@HOTMAİL.COM",
+                            NormalizedUserName = "QUİNCY",
+                            PasswordHash = "$2a$11$1j2BV5JamAEidlKQGorgFebe/ypW69wuciS0MCB6.bfnXH7GyOI2u",
+                            PhoneNumber = "05228399274",
                             PhoneNumberConfirmed = false,
-                            Status = "Active",
+                            Status = "Unknown",
                             TwoFactorEnabled = false,
-                            UserName = "Ryleigh"
+                            UserName = "Quincy"
                         },
                         new
                         {
                             Id = 3,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8f4a0947-baee-4534-acce-b39c39b3810d",
-                            CountryId = 2,
-                            CreatedDate = new DateTime(2021, 1, 1, 1, 9, 51, 0, DateTimeKind.Unspecified),
-                            CreatedID = "a6dadd62-e434-4a7f-a324-f32793b4a7ab",
-                            CreatedIPAddress = "154.70.210.77",
-                            Email = "Brady_Schuster43@hotmail.com",
+                            ConcurrencyStamp = "26715e22-e0af-4d31-ac6e-920fd801a469",
+                            CountryId = 4,
+                            CreatedDate = new DateTime(2007, 4, 27, 8, 34, 48, 0, DateTimeKind.Unspecified),
+                            CreatedID = "68a9878c-cd22-4ac7-921e-2aa7e135eecc",
+                            CreatedIPAddress = "5.158.217.176",
+                            Email = "Althea.Dickinson72@yahoo.com",
                             EmailConfirmed = false,
-                            Guid = "e7986163-0fb9-41c2-a7b9-5cd4a2fba0d5",
+                            Guid = "c3879779-62d6-4723-bfe0-ad93e7b08987",
                             IsUpdated = "No",
                             LockoutEnabled = false,
-                            LockoutEnd = new DateTimeOffset(new DateTime(2025, 4, 18, 13, 41, 11, 392, DateTimeKind.Unspecified).AddTicks(8181), new TimeSpan(0, 3, 0, 0, 0)),
-                            NormalizedEmail = "BRADY_SCHUSTER43@HOTMAİL.COM",
-                            NormalizedUserName = "KAYLİ",
-                            PasswordHash = "$2a$11$KLPizHVfp6bbwlVRRNbKreFWxTcj7Vljhavpd1e1ECyVCAk.jcx4e",
-                            PhoneNumber = "05097821944",
+                            LockoutEnd = new DateTimeOffset(new DateTime(2025, 4, 24, 16, 26, 32, 231, DateTimeKind.Unspecified).AddTicks(5095), new TimeSpan(0, 3, 0, 0, 0)),
+                            NormalizedEmail = "ALTHEA.DİCKİNSON72@YAHOO.COM",
+                            NormalizedUserName = "JACK",
+                            PasswordHash = "$2a$11$W.N3ueT1NSR0xYqlxxoD/e0S2EpnM96LB1UaCKiaQyYGFOjBnQqhq",
+                            PhoneNumber = "05791921456",
                             PhoneNumberConfirmed = false,
-                            Status = "Unknown",
+                            Status = "Active",
                             TwoFactorEnabled = false,
-                            UserName = "Kayli"
+                            UserName = "Jack"
                         },
                         new
                         {
                             Id = 4,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "bc4cd8af-4e1b-480a-87f8-25afe3c5abf0",
-                            CountryId = 4,
-                            CreatedDate = new DateTime(2010, 11, 27, 9, 22, 25, 0, DateTimeKind.Unspecified),
-                            CreatedID = "081a15b3-f748-4719-8952-b12cad935b19",
-                            CreatedIPAddress = "22.181.35.47",
-                            Email = "Isobel74@gmail.com",
+                            ConcurrencyStamp = "62dc063f-9213-451d-8c89-1fe38880a332",
+                            CountryId = 5,
+                            CreatedDate = new DateTime(2017, 9, 8, 23, 15, 5, 0, DateTimeKind.Unspecified),
+                            CreatedID = "573cd583-1fd6-4878-bbd1-aa340c42629e",
+                            CreatedIPAddress = "12.1.166.160",
+                            Email = "Gussie.Weissnat@yahoo.com",
                             EmailConfirmed = false,
-                            Guid = "584c705e-6e64-4f5d-b49b-491753acabc1",
+                            Guid = "02c9523c-57d5-4b6a-beaf-72edbc371b26",
                             IsUpdated = "No",
                             LockoutEnabled = false,
-                            LockoutEnd = new DateTimeOffset(new DateTime(2025, 4, 18, 13, 41, 11, 514, DateTimeKind.Unspecified).AddTicks(8330), new TimeSpan(0, 3, 0, 0, 0)),
-                            NormalizedEmail = "ISOBEL74@GMAİL.COM",
-                            NormalizedUserName = "NELS",
-                            PasswordHash = "$2a$11$3gHYqgpUaTmvCP8p292DFuQiGm2akonYXsTXxtiliGBkcBs8uUc7u",
-                            PhoneNumber = "05292370552",
+                            LockoutEnd = new DateTimeOffset(new DateTime(2025, 4, 24, 16, 26, 32, 354, DateTimeKind.Unspecified).AddTicks(3883), new TimeSpan(0, 3, 0, 0, 0)),
+                            NormalizedEmail = "GUSSİE.WEİSSNAT@YAHOO.COM",
+                            NormalizedUserName = "SCARLETT",
+                            PasswordHash = "$2a$11$vqASKuTeYG/7S8PotLzDgurDzyFMGKt57D2dbFbIdfKXUY4TQjfdy",
+                            PhoneNumber = "05733996090",
                             PhoneNumberConfirmed = false,
-                            Status = "Active",
+                            Status = "Passive",
                             TwoFactorEnabled = false,
-                            UserName = "Nels"
+                            UserName = "Scarlett"
                         },
                         new
                         {
                             Id = 5,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "0915ce06-1096-46ef-ba7e-8af6fa3e4675",
-                            CountryId = 5,
-                            CreatedDate = new DateTime(2009, 9, 9, 19, 52, 32, 0, DateTimeKind.Unspecified),
-                            CreatedID = "bb8500e0-b12f-4078-bdb0-737dd9193a3e",
-                            CreatedIPAddress = "55.51.239.152",
-                            Email = "Hannah.Hintz@hotmail.com",
+                            ConcurrencyStamp = "0e094a0f-46cc-4149-9e4d-45acdd7a3cec",
+                            CountryId = 2,
+                            CreatedDate = new DateTime(2017, 8, 19, 3, 35, 53, 0, DateTimeKind.Unspecified),
+                            CreatedID = "6158f234-9f23-4519-9042-633c54a4e497",
+                            CreatedIPAddress = "15.230.45.67",
+                            Email = "Syble_Crooks1@gmail.com",
                             EmailConfirmed = false,
-                            Guid = "e22bd6ad-6f9a-48c4-979c-67bb6ab3f487",
+                            Guid = "d187f43b-2475-4bc2-b19b-0614ed44ed26",
                             IsUpdated = "No",
                             LockoutEnabled = false,
-                            LockoutEnd = new DateTimeOffset(new DateTime(2025, 4, 18, 13, 41, 11, 636, DateTimeKind.Unspecified).AddTicks(6407), new TimeSpan(0, 3, 0, 0, 0)),
-                            NormalizedEmail = "HANNAH.HİNTZ@HOTMAİL.COM",
-                            NormalizedUserName = "FLO",
-                            PasswordHash = "$2a$11$hmUxn7KKVWJTkeFh/8xKsOUWkaA5dtKvZQUU5t6PDxt0gYaZXFMYC",
-                            PhoneNumber = "05147372049",
+                            LockoutEnd = new DateTimeOffset(new DateTime(2025, 4, 24, 16, 26, 32, 476, DateTimeKind.Unspecified).AddTicks(1649), new TimeSpan(0, 3, 0, 0, 0)),
+                            NormalizedEmail = "SYBLE_CROOKS1@GMAİL.COM",
+                            NormalizedUserName = "JESSİKA",
+                            PasswordHash = "$2a$11$/i5XV5DoLYk2OGiZsQZsFeO6WXVxj1TnzqtCiBG.8nDtJttmw8Ioq",
+                            PhoneNumber = "05571440242",
                             PhoneNumberConfirmed = false,
-                            Status = "Passive",
+                            Status = "Unknown",
                             TwoFactorEnabled = false,
-                            UserName = "Flo"
+                            UserName = "Jessika"
                         });
                 });
 
@@ -5278,7 +3137,7 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 4, 11, 13, 41, 11, 637, DateTimeKind.Local).AddTicks(4779));
+                        .HasDefaultValue(new DateTime(2025, 4, 17, 16, 26, 32, 477, DateTimeKind.Local).AddTicks(140));
 
                     b.Property<string>("CreatedID")
                         .IsRequired()
@@ -5346,92 +3205,92 @@ namespace DataAccess.Migrations
                         new
                         {
                             WebUserAccountId = 1,
-                            Address = "61227 Miller Expressway, Watsicafort, Slovenia",
-                            Age = (byte)36,
-                            BirthDate = new DateTime(1988, 10, 6, 19, 10, 16, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2016, 9, 2, 23, 53, 44, 0, DateTimeKind.Unspecified),
-                            CreatedID = "6ba481b9-5f25-43b2-b474-532bcb6bf110",
-                            CreatedIPAddress = "102.206.232.251",
-                            FirstName = "Oscar",
-                            Gender = "Unknown",
+                            Address = "4866 Fredrick Streets, New Eula, Democratic People's Republic of Korea",
+                            Age = (byte)69,
+                            BirthDate = new DateTime(1956, 2, 10, 3, 27, 33, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2003, 4, 23, 12, 48, 38, 0, DateTimeKind.Unspecified),
+                            CreatedID = "dd0eedbf-3b42-4223-87c4-5f978abbcd3b",
+                            CreatedIPAddress = "66.186.189.165",
+                            FirstName = "Jade",
+                            Gender = "Female",
                             IsUpdated = "No",
-                            LastName = "Bergnaum",
-                            PhotoPath = "lavon.com",
-                            Status = "Passive",
-                            TCN_Passport = "10458570385",
-                            UpdatedDate = new DateTime(2024, 3, 16, 19, 36, 27, 0, DateTimeKind.Unspecified)
+                            LastName = "Turcotte",
+                            PhotoPath = "riley.info",
+                            Status = "Unknown",
+                            TCN_Passport = "89056655421",
+                            UpdatedDate = new DateTime(2022, 1, 20, 20, 37, 36, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             WebUserAccountId = 2,
-                            Address = "689 Blanda Fords, South Imogenetown, Botswana",
-                            Age = (byte)73,
-                            BirthDate = new DateTime(1951, 11, 25, 21, 9, 36, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2013, 8, 23, 13, 46, 18, 0, DateTimeKind.Unspecified),
-                            CreatedID = "ea9ea95b-4e3f-43c7-87cc-7ab6732e1dbb",
-                            CreatedIPAddress = "78.191.12.189",
-                            FirstName = "Dave",
-                            Gender = "Female",
-                            IsUpdated = "No",
-                            LastName = "Schuppe",
-                            PhotoPath = "granville.com",
-                            Status = "Unknown",
-                            TCN_Passport = "91282742834",
-                            UpdatedDate = new DateTime(2024, 9, 10, 8, 9, 14, 0, DateTimeKind.Unspecified)
+                            Address = "0472 Shanel Shoals, Chaddfort, Mali",
+                            Age = (byte)25,
+                            BirthDate = new DateTime(1999, 12, 12, 15, 18, 22, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2021, 4, 14, 8, 35, 49, 0, DateTimeKind.Unspecified),
+                            CreatedID = "32bbf0fe-9b8f-4263-994c-87a31a22904f",
+                            CreatedIPAddress = "39.117.126.32",
+                            FirstName = "Benny",
+                            Gender = "Male",
+                            IsUpdated = "Yes",
+                            LastName = "Wisozk",
+                            PhotoPath = "brandyn.name",
+                            Status = "Passive",
+                            TCN_Passport = "91578846122",
+                            UpdatedDate = new DateTime(2023, 12, 22, 18, 39, 46, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             WebUserAccountId = 3,
-                            Address = "1733 Ervin Brook, New Brisa, Jersey",
-                            Age = (byte)63,
-                            BirthDate = new DateTime(1961, 10, 17, 20, 53, 30, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2014, 4, 6, 12, 36, 11, 0, DateTimeKind.Unspecified),
-                            CreatedID = "3031be05-561d-4658-9447-550e1bb38128",
-                            CreatedIPAddress = "171.138.76.186",
-                            FirstName = "Rhoda",
+                            Address = "41181 Yasmin Place, Bayerton, Myanmar",
+                            Age = (byte)21,
+                            BirthDate = new DateTime(2004, 2, 18, 3, 38, 20, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2008, 1, 13, 8, 44, 30, 0, DateTimeKind.Unspecified),
+                            CreatedID = "e2e26704-5579-41b8-8030-cfda88d2063e",
+                            CreatedIPAddress = "242.159.167.0",
+                            FirstName = "Alexys",
                             Gender = "Male",
-                            IsUpdated = "Yes",
-                            LastName = "Jacobson",
-                            PhotoPath = "sigrid.net",
+                            IsUpdated = "No",
+                            LastName = "Sporer",
+                            PhotoPath = "frederik.com",
                             Status = "Unknown",
-                            TCN_Passport = "88391886271",
-                            UpdatedDate = new DateTime(2023, 2, 21, 1, 58, 37, 0, DateTimeKind.Unspecified)
+                            TCN_Passport = "13381191120",
+                            UpdatedDate = new DateTime(2022, 9, 5, 23, 52, 50, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             WebUserAccountId = 4,
-                            Address = "60865 Gaston Falls, North Edison, Bosnia and Herzegovina",
-                            Age = (byte)67,
-                            BirthDate = new DateTime(1957, 6, 10, 10, 12, 27, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2018, 2, 26, 21, 21, 36, 0, DateTimeKind.Unspecified),
-                            CreatedID = "542893e9-0948-43f1-9062-a6c24e21ba34",
-                            CreatedIPAddress = "116.177.128.127",
-                            FirstName = "Rhoda",
+                            Address = "6373 Reece Heights, West Megane, Iceland",
+                            Age = (byte)23,
+                            BirthDate = new DateTime(2001, 8, 13, 14, 36, 40, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2009, 9, 2, 14, 22, 11, 0, DateTimeKind.Unspecified),
+                            CreatedID = "4444e4f6-474d-4f81-80cf-d13ef210aeca",
+                            CreatedIPAddress = "94.6.239.105",
+                            FirstName = "Patsy",
                             Gender = "Female",
-                            IsUpdated = "Yes",
-                            LastName = "Nolan",
-                            PhotoPath = "hayley.info",
+                            IsUpdated = "No",
+                            LastName = "Labadie",
+                            PhotoPath = "ayana.org",
                             Status = "Unknown",
-                            TCN_Passport = "52866187676",
-                            UpdatedDate = new DateTime(2023, 1, 23, 10, 16, 49, 0, DateTimeKind.Unspecified)
+                            TCN_Passport = "30544883057",
+                            UpdatedDate = new DateTime(2024, 6, 5, 17, 39, 6, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             WebUserAccountId = 5,
-                            Address = "437 Collins Isle, Port Shanny, China",
-                            Age = (byte)68,
-                            BirthDate = new DateTime(1957, 1, 12, 4, 45, 52, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2011, 4, 19, 19, 42, 30, 0, DateTimeKind.Unspecified),
-                            CreatedID = "1f4680c3-62a8-4eee-932c-791650edbb73",
-                            CreatedIPAddress = "71.21.25.194",
-                            FirstName = "Claudie",
+                            Address = "882 Edna Fields, Kuhnhaven, Netherlands Antilles",
+                            Age = (byte)49,
+                            BirthDate = new DateTime(1976, 2, 16, 18, 8, 49, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2007, 6, 8, 23, 57, 50, 0, DateTimeKind.Unspecified),
+                            CreatedID = "72b645d2-99d5-4832-a8dc-bf4daf931e6b",
+                            CreatedIPAddress = "201.66.64.197",
+                            FirstName = "Chloe",
                             Gender = "Male",
-                            IsUpdated = "No",
-                            LastName = "Donnelly",
-                            PhotoPath = "lola.com",
-                            Status = "Active",
-                            TCN_Passport = "40724852362",
-                            UpdatedDate = new DateTime(2023, 9, 13, 13, 10, 15, 0, DateTimeKind.Unspecified)
+                            IsUpdated = "Yes",
+                            LastName = "Heidenreich",
+                            PhotoPath = "johnson.biz",
+                            Status = "Unknown",
+                            TCN_Passport = "84472456655",
+                            UpdatedDate = new DateTime(2022, 6, 10, 13, 14, 11, 0, DateTimeKind.Unspecified)
                         });
                 });
 
@@ -5568,96 +3427,10 @@ namespace DataAccess.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("DataAccess.Entities.Mappings.ContractDriver_RentalVehicle", b =>
-                {
-                    b.HasOne("DataAccess.Entities.Models.Employees.ContractDriver", "ContractDriver")
-                        .WithMany("ContractDrivers_RentalVehicles")
-                        .HasForeignKey("ContractDriverId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.HasOne("DataAccess.Entities.Models.Vehicles.RentalVehicle", "RentalVehicle")
-                        .WithMany("ContractDrivers_RentalVehicles")
-                        .HasForeignKey("RentalVehicleId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.Navigation("ContractDriver");
-
-                    b.Navigation("RentalVehicle");
-                });
-
-            modelBuilder.Entity("DataAccess.Entities.Mappings.ContractDriver_Vehicle", b =>
-                {
-                    b.HasOne("DataAccess.Entities.Models.Employees.ContractDriver", "ContractDriver")
-                        .WithMany("ContractDrivers_Vehicles")
-                        .HasForeignKey("ContractDriverId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.HasOne("DataAccess.Entities.Models.Vehicles.Vehicle", "Vehicle")
-                        .WithMany("ContractDrivers_Vehicles")
-                        .HasForeignKey("VehicleId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.Navigation("ContractDriver");
-
-                    b.Navigation("Vehicle");
-                });
-
-            modelBuilder.Entity("DataAccess.Entities.Mappings.ContractTourGuide_ServiceRegion", b =>
-                {
-                    b.HasOne("DataAccess.Entities.Models.Employees.ContractTourGuide", "ContractTourGuide")
-                        .WithMany("ContractTourGuides_ServiceRegions")
-                        .HasForeignKey("ContractTourGuideId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.HasOne("DataAccess.Entities.Models.Regions.ServiceRegion", "ServiceRegion")
-                        .WithMany("ContractTourGuides_ServiceRegions")
-                        .HasForeignKey("ServiceRegionId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.Navigation("ContractTourGuide");
-
-                    b.Navigation("ServiceRegion");
-                });
-
-            modelBuilder.Entity("DataAccess.Entities.Mappings.ContractTourGuide_Tour", b =>
-                {
-                    b.HasOne("DataAccess.Entities.Models.Employees.ContractTourGuide", "ContractTourGuide")
-                        .WithMany("ContractTourGuides_Tours")
-                        .HasForeignKey("ContractTourGuideId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.HasOne("DataAccess.Entities.Models.Activities.Tour", "Tour")
-                        .WithMany("ContractTourGuides_Tours")
-                        .HasForeignKey("TourId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.Navigation("ContractTourGuide");
-
-                    b.Navigation("Tour");
-                });
-
-            modelBuilder.Entity("DataAccess.Entities.Models.Activities.Event", b =>
+            modelBuilder.Entity("DataAccess.Entities.Models.Activities.Activity", b =>
                 {
                     b.HasOne("DataAccess.Entities.Models.Regions.ServiceRegion", "ServiceRegion")
-                        .WithMany("Events")
-                        .HasForeignKey("RegionId")
-                        .OnDelete(DeleteBehavior.NoAction);
-
-                    b.Navigation("ServiceRegion");
-                });
-
-            modelBuilder.Entity("DataAccess.Entities.Models.Activities.Tour", b =>
-                {
-                    b.HasOne("DataAccess.Entities.Models.Regions.ServiceRegion", "ServiceRegion")
-                        .WithMany("Tours")
+                        .WithMany("Activities")
                         .HasForeignKey("RegionId")
                         .OnDelete(DeleteBehavior.NoAction);
 
@@ -5674,21 +3447,11 @@ namespace DataAccess.Migrations
                     b.Navigation("PartnerCompany");
                 });
 
-            modelBuilder.Entity("DataAccess.Entities.Models.Employees.ContractDriver", b =>
+            modelBuilder.Entity("DataAccess.Entities.Models.Employees.ContractEmployee", b =>
                 {
                     b.HasOne("DataAccess.Entities.Models.Companies.Suppliers.SubContractWorkerSupplier", "SubContractWorkerSupplier")
-                        .WithMany("ContractDrivers")
-                        .HasForeignKey("SubContractWorkerSupplierId")
-                        .OnDelete(DeleteBehavior.NoAction);
-
-                    b.Navigation("SubContractWorkerSupplier");
-                });
-
-            modelBuilder.Entity("DataAccess.Entities.Models.Employees.ContractTourGuide", b =>
-                {
-                    b.HasOne("DataAccess.Entities.Models.Companies.Suppliers.SubContractWorkerSupplier", "SubContractWorkerSupplier")
-                        .WithMany("ContractTourGuides")
-                        .HasForeignKey("SubContractWorkerSupplierId")
+                        .WithMany("ContractEmployees")
+                        .HasForeignKey("SupplierId")
                         .OnDelete(DeleteBehavior.NoAction);
 
                     b.Navigation("SubContractWorkerSupplier");
@@ -5701,76 +3464,35 @@ namespace DataAccess.Migrations
                         .HasForeignKey("CountryId")
                         .OnDelete(DeleteBehavior.NoAction);
 
-                    b.HasOne("DataAccess.Entities.Models.Regions.ResidenceRegion", "ResidenceRegion")
-                        .WithMany("Employees")
-                        .HasForeignKey("ResidenceRegionId")
-                        .OnDelete(DeleteBehavior.NoAction);
-
                     b.Navigation("Country");
-
-                    b.Navigation("ResidenceRegion");
                 });
 
-            modelBuilder.Entity("DataAccess.Entities.Models.OrderDetails.EventTicketOrderDetail", b =>
+            modelBuilder.Entity("DataAccess.Entities.Models.OrderDetails.ActivityTicketOrderDetail", b =>
                 {
-                    b.HasOne("DataAccess.Entities.Models.Tickets.EventTicket", "EventTicket")
-                        .WithMany("EventTicketOrderDetails")
-                        .HasForeignKey("EventTicketId")
+                    b.HasOne("DataAccess.Entities.Models.Tickets.ActivityTicket", "ActivityTicket")
+                        .WithMany("ActivityTicketOrderDetails")
+                        .HasForeignKey("ActivityTicketId")
                         .OnDelete(DeleteBehavior.NoAction);
 
-                    b.HasOne("DataAccess.Entities.Models.Orders.EventTicketOrder", "EventTicketOrder")
-                        .WithMany("EventTicketOrderDetails")
-                        .HasForeignKey("EventTicketOrderId")
+                    b.HasOne("DataAccess.Entities.Models.Orders.ActivityTicketOrder", "ActivityTicketOrder")
+                        .WithMany("ActivityTicketOrderDetails")
+                        .HasForeignKey("ActivityTicketOrderId")
                         .OnDelete(DeleteBehavior.NoAction);
 
-                    b.Navigation("EventTicket");
+                    b.Navigation("ActivityTicket");
 
-                    b.Navigation("EventTicketOrder");
+                    b.Navigation("ActivityTicketOrder");
                 });
 
-            modelBuilder.Entity("DataAccess.Entities.Models.OrderDetails.ProductOrderDetail", b =>
-                {
-                    b.HasOne("DataAccess.Entities.Models.Products.Product", "Product")
-                        .WithMany("ProductOrderDetails")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.NoAction);
-
-                    b.HasOne("DataAccess.Entities.Models.Orders.ProductOrder", "ProductOrder")
-                        .WithMany("ProductOrderDetails")
-                        .HasForeignKey("ProductOrderId")
-                        .OnDelete(DeleteBehavior.NoAction);
-
-                    b.Navigation("Product");
-
-                    b.Navigation("ProductOrder");
-                });
-
-            modelBuilder.Entity("DataAccess.Entities.Models.OrderDetails.TourTicketOrderDetail", b =>
-                {
-                    b.HasOne("DataAccess.Entities.Models.Tickets.TourTicket", "TourTicket")
-                        .WithMany("TourTicketOrderDetails")
-                        .HasForeignKey("TourTicketId")
-                        .OnDelete(DeleteBehavior.NoAction);
-
-                    b.HasOne("DataAccess.Entities.Models.Orders.TourTicketOrder", "TourTicketOrder")
-                        .WithMany("TourTicketOrderDetails")
-                        .HasForeignKey("TourTicketOrderId")
-                        .OnDelete(DeleteBehavior.NoAction);
-
-                    b.Navigation("TourTicket");
-
-                    b.Navigation("TourTicketOrder");
-                });
-
-            modelBuilder.Entity("DataAccess.Entities.Models.Orders.EventTicketOrder", b =>
+            modelBuilder.Entity("DataAccess.Entities.Models.Orders.ActivityTicketOrder", b =>
                 {
                     b.HasOne("DataAccess.Entities.Models.Employees.Employee", "Employee")
-                        .WithMany("EventTicketOrders")
+                        .WithMany("ActivityTicketOrders")
                         .HasForeignKey("EmployeeId")
                         .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("DataAccess.Entities.Models.WebUsers.WebUserAccount", "WebUserAccount")
-                        .WithMany("EventTicketOrders")
+                        .WithMany("ActivityTicketOrders")
                         .HasForeignKey("WebUserAccountId")
                         .OnDelete(DeleteBehavior.NoAction);
 
@@ -5779,102 +3501,30 @@ namespace DataAccess.Migrations
                     b.Navigation("WebUserAccount");
                 });
 
-            modelBuilder.Entity("DataAccess.Entities.Models.Orders.ProductOrder", b =>
-                {
-                    b.HasOne("DataAccess.Entities.Models.Employees.Employee", "Employee")
-                        .WithMany("ProductOrders")
-                        .HasForeignKey("EmployeeId")
-                        .OnDelete(DeleteBehavior.NoAction);
-
-                    b.HasOne("DataAccess.Entities.Models.WebUsers.WebUserAccount", "WebUserAccount")
-                        .WithMany("ProductOrders")
-                        .HasForeignKey("WebUserAccountId")
-                        .OnDelete(DeleteBehavior.NoAction);
-
-                    b.Navigation("Employee");
-
-                    b.Navigation("WebUserAccount");
-                });
-
-            modelBuilder.Entity("DataAccess.Entities.Models.Orders.TourTicketOrder", b =>
-                {
-                    b.HasOne("DataAccess.Entities.Models.Employees.Employee", "Employee")
-                        .WithMany("TourTicketOrders")
-                        .HasForeignKey("EmployeeId")
-                        .OnDelete(DeleteBehavior.NoAction);
-
-                    b.HasOne("DataAccess.Entities.Models.WebUsers.WebUserAccount", "WebUserAccount")
-                        .WithMany("TourTicketOrders")
-                        .HasForeignKey("WebUserAccountId")
-                        .OnDelete(DeleteBehavior.NoAction);
-
-                    b.Navigation("Employee");
-
-                    b.Navigation("WebUserAccount");
-                });
-
-            modelBuilder.Entity("DataAccess.Entities.Models.PassTickets.PassEventTicket", b =>
+            modelBuilder.Entity("DataAccess.Entities.Models.PassTickets.ActivityPassTicket", b =>
                 {
                     b.HasOne("DataAccess.Entities.Models.Companies.PartnerCompanies.PartnerCompanyTransaction", "PartnerCompanyTransaction")
-                        .WithMany("PassEventTickets")
+                        .WithMany("ActivityPassTickets")
                         .HasForeignKey("PartnerCompanyTransactionId")
                         .OnDelete(DeleteBehavior.NoAction);
 
                     b.Navigation("PartnerCompanyTransaction");
                 });
 
-            modelBuilder.Entity("DataAccess.Entities.Models.PassTickets.PassTourTicket", b =>
+            modelBuilder.Entity("DataAccess.Entities.Models.Tickets.ActivityTicket", b =>
                 {
-                    b.HasOne("DataAccess.Entities.Models.Companies.PartnerCompanies.PartnerCompanyTransaction", "PartnerCompanyTransaction")
-                        .WithMany("PassTourTickets")
-                        .HasForeignKey("PartnerCompanyTransactionId")
-                        .OnDelete(DeleteBehavior.NoAction);
+                    b.HasOne("DataAccess.Entities.Models.Activities.Activity", "Activity")
+                        .WithMany("ActivityTickets")
+                        .HasForeignKey("ActivityId");
 
-                    b.Navigation("PartnerCompanyTransaction");
-                });
-
-            modelBuilder.Entity("DataAccess.Entities.Models.Products.Product", b =>
-                {
-                    b.HasOne("DataAccess.Entities.Models.Products.ProductCategory", "ProductCategory")
-                        .WithMany("Products")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.NoAction);
-
-                    b.HasOne("DataAccess.Entities.Models.Companies.Suppliers.ProductSupplier", "ProductSupplier")
-                        .WithMany("Products")
-                        .HasForeignKey("ProductSupplierId")
-                        .OnDelete(DeleteBehavior.NoAction);
-
-                    b.Navigation("ProductCategory");
-
-                    b.Navigation("ProductSupplier");
-                });
-
-            modelBuilder.Entity("DataAccess.Entities.Models.Tickets.EventTicket", b =>
-                {
-                    b.HasOne("DataAccess.Entities.Models.Activities.Event", "Event")
-                        .WithMany("EventTickets")
-                        .HasForeignKey("EventId")
-                        .OnDelete(DeleteBehavior.NoAction);
-
-                    b.Navigation("Event");
-                });
-
-            modelBuilder.Entity("DataAccess.Entities.Models.Tickets.TourTicket", b =>
-                {
-                    b.HasOne("DataAccess.Entities.Models.Activities.Tour", "Tour")
-                        .WithMany("TourTickets")
-                        .HasForeignKey("TourId")
-                        .OnDelete(DeleteBehavior.NoAction);
-
-                    b.Navigation("Tour");
+                    b.Navigation("Activity");
                 });
 
             modelBuilder.Entity("DataAccess.Entities.Models.Vehicles.RentalVehicle", b =>
                 {
-                    b.HasOne("DataAccess.Entities.Models.Activities.Event", "Event")
+                    b.HasOne("DataAccess.Entities.Models.Activities.Activity", "Activity")
                         .WithMany("RentalVehicles")
-                        .HasForeignKey("EventId")
+                        .HasForeignKey("ActivityId")
                         .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("DataAccess.Entities.Models.Companies.Suppliers.RentalVehicleSupplier", "RentalVehicleSupplier")
@@ -5882,33 +3532,19 @@ namespace DataAccess.Migrations
                         .HasForeignKey("RentalVehicleSupplierId")
                         .OnDelete(DeleteBehavior.NoAction);
 
-                    b.HasOne("DataAccess.Entities.Models.Activities.Tour", "Tour")
-                        .WithMany("RentalVehicles")
-                        .HasForeignKey("TourId")
-                        .OnDelete(DeleteBehavior.NoAction);
-
-                    b.Navigation("Event");
+                    b.Navigation("Activity");
 
                     b.Navigation("RentalVehicleSupplier");
-
-                    b.Navigation("Tour");
                 });
 
             modelBuilder.Entity("DataAccess.Entities.Models.Vehicles.Vehicle", b =>
                 {
-                    b.HasOne("DataAccess.Entities.Models.Activities.Event", "Event")
+                    b.HasOne("DataAccess.Entities.Models.Activities.Activity", "Activity")
                         .WithMany("Vehicles")
-                        .HasForeignKey("EventId")
+                        .HasForeignKey("ActivityId")
                         .OnDelete(DeleteBehavior.NoAction);
 
-                    b.HasOne("DataAccess.Entities.Models.Activities.Tour", "Tour")
-                        .WithMany("Vehicles")
-                        .HasForeignKey("TourId")
-                        .OnDelete(DeleteBehavior.NoAction);
-
-                    b.Navigation("Event");
-
-                    b.Navigation("Tour");
+                    b.Navigation("Activity");
                 });
 
             modelBuilder.Entity("DataAccess.Entities.Models.WebUsers.WebUserAccount", b =>
@@ -5983,22 +3619,11 @@ namespace DataAccess.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("DataAccess.Entities.Models.Activities.Event", b =>
+            modelBuilder.Entity("DataAccess.Entities.Models.Activities.Activity", b =>
                 {
-                    b.Navigation("EventTickets");
+                    b.Navigation("ActivityTickets");
 
                     b.Navigation("RentalVehicles");
-
-                    b.Navigation("Vehicles");
-                });
-
-            modelBuilder.Entity("DataAccess.Entities.Models.Activities.Tour", b =>
-                {
-                    b.Navigation("ContractTourGuides_Tours");
-
-                    b.Navigation("RentalVehicles");
-
-                    b.Navigation("TourTickets");
 
                     b.Navigation("Vehicles");
                 });
@@ -6010,14 +3635,7 @@ namespace DataAccess.Migrations
 
             modelBuilder.Entity("DataAccess.Entities.Models.Companies.PartnerCompanies.PartnerCompanyTransaction", b =>
                 {
-                    b.Navigation("PassEventTickets");
-
-                    b.Navigation("PassTourTickets");
-                });
-
-            modelBuilder.Entity("DataAccess.Entities.Models.Companies.Suppliers.ProductSupplier", b =>
-                {
-                    b.Navigation("Products");
+                    b.Navigation("ActivityPassTickets");
                 });
 
             modelBuilder.Entity("DataAccess.Entities.Models.Companies.Suppliers.RentalVehicleSupplier", b =>
@@ -6027,9 +3645,7 @@ namespace DataAccess.Migrations
 
             modelBuilder.Entity("DataAccess.Entities.Models.Companies.Suppliers.SubContractWorkerSupplier", b =>
                 {
-                    b.Navigation("ContractDrivers");
-
-                    b.Navigation("ContractTourGuides");
+                    b.Navigation("ContractEmployees");
                 });
 
             modelBuilder.Entity("DataAccess.Entities.Models.Countries.Country", b =>
@@ -6039,95 +3655,29 @@ namespace DataAccess.Migrations
                     b.Navigation("WebUserAccounts");
                 });
 
-            modelBuilder.Entity("DataAccess.Entities.Models.Employees.ContractDriver", b =>
-                {
-                    b.Navigation("ContractDrivers_RentalVehicles");
-
-                    b.Navigation("ContractDrivers_Vehicles");
-                });
-
-            modelBuilder.Entity("DataAccess.Entities.Models.Employees.ContractTourGuide", b =>
-                {
-                    b.Navigation("ContractTourGuides_ServiceRegions");
-
-                    b.Navigation("ContractTourGuides_Tours");
-                });
-
             modelBuilder.Entity("DataAccess.Entities.Models.Employees.Employee", b =>
                 {
-                    b.Navigation("EventTicketOrders");
-
-                    b.Navigation("ProductOrders");
-
-                    b.Navigation("TourTicketOrders");
+                    b.Navigation("ActivityTicketOrders");
                 });
 
-            modelBuilder.Entity("DataAccess.Entities.Models.Orders.EventTicketOrder", b =>
+            modelBuilder.Entity("DataAccess.Entities.Models.Orders.ActivityTicketOrder", b =>
                 {
-                    b.Navigation("EventTicketOrderDetails");
-                });
-
-            modelBuilder.Entity("DataAccess.Entities.Models.Orders.ProductOrder", b =>
-                {
-                    b.Navigation("ProductOrderDetails");
-                });
-
-            modelBuilder.Entity("DataAccess.Entities.Models.Orders.TourTicketOrder", b =>
-                {
-                    b.Navigation("TourTicketOrderDetails");
-                });
-
-            modelBuilder.Entity("DataAccess.Entities.Models.Products.Product", b =>
-                {
-                    b.Navigation("ProductOrderDetails");
-                });
-
-            modelBuilder.Entity("DataAccess.Entities.Models.Products.ProductCategory", b =>
-                {
-                    b.Navigation("Products");
-                });
-
-            modelBuilder.Entity("DataAccess.Entities.Models.Regions.ResidenceRegion", b =>
-                {
-                    b.Navigation("Employees");
+                    b.Navigation("ActivityTicketOrderDetails");
                 });
 
             modelBuilder.Entity("DataAccess.Entities.Models.Regions.ServiceRegion", b =>
                 {
-                    b.Navigation("ContractTourGuides_ServiceRegions");
-
-                    b.Navigation("Events");
-
-                    b.Navigation("Tours");
+                    b.Navigation("Activities");
                 });
 
-            modelBuilder.Entity("DataAccess.Entities.Models.Tickets.EventTicket", b =>
+            modelBuilder.Entity("DataAccess.Entities.Models.Tickets.ActivityTicket", b =>
                 {
-                    b.Navigation("EventTicketOrderDetails");
-                });
-
-            modelBuilder.Entity("DataAccess.Entities.Models.Tickets.TourTicket", b =>
-                {
-                    b.Navigation("TourTicketOrderDetails");
-                });
-
-            modelBuilder.Entity("DataAccess.Entities.Models.Vehicles.RentalVehicle", b =>
-                {
-                    b.Navigation("ContractDrivers_RentalVehicles");
-                });
-
-            modelBuilder.Entity("DataAccess.Entities.Models.Vehicles.Vehicle", b =>
-                {
-                    b.Navigation("ContractDrivers_Vehicles");
+                    b.Navigation("ActivityTicketOrderDetails");
                 });
 
             modelBuilder.Entity("DataAccess.Entities.Models.WebUsers.WebUserAccount", b =>
                 {
-                    b.Navigation("EventTicketOrders");
-
-                    b.Navigation("ProductOrders");
-
-                    b.Navigation("TourTicketOrders");
+                    b.Navigation("ActivityTicketOrders");
 
                     b.Navigation("WebUserProfile");
                 });

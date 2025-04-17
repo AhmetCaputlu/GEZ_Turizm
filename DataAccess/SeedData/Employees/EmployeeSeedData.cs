@@ -34,8 +34,7 @@ namespace DataAccess.SeedData.Employees
                     HireDate = RandomDatetime.GetDateTime(),
                     Experience = faker.Random.Int(5, 25),
                     CurrentPosition = RandomEnum.GetRandomDepartment(),
-                    CountryId = faker.Random.Int(1, 5),
-                    ResidenceRegionId = faker.Random.Int(1, 5)
+                    CountryId = faker.Random.Int(1, 5)
                 };
                 employees.Add(employee);
             }

@@ -32,8 +32,8 @@ namespace DataAccess.SeedData.Vehicles
                     DailyRentalFee = faker.Random.Int(5000, 25000),
                     StartDate = RandomDatetime.GetDateTime(),
                     RentalVehicleSupplierId = faker.Random.Int(1, 5),
-                    TourId = faker.Random.Int(1, 5),
-                    EventId = faker.Random.Int(1, 5),
+                    ActivityId = faker.Random.Int(1, 5),
+                    IsAvailable = faker.Random.Bool(0.2f)
                 };
                 rentalVehicle.ExpireDate = rentalVehicle.StartDate.AddDays(faker.Random.Int(1, 5));
                 rentalVehicles.Add(rentalVehicle);

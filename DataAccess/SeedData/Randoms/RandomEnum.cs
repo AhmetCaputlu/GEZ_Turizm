@@ -40,15 +40,10 @@ namespace DataAccess.SeedData.Randoms
             Array values = Enum.GetValues(typeof(VehicleType));
             return (VehicleType)values.GetValue(_random.Next(values.Length));
         }
-        internal static TourCategory GetRandomTour()
+        internal static ActivityCategory GetRandomActivityCategory()
         {
-            Array values = Enum.GetValues(typeof(TourCategory));
-            return (TourCategory)values.GetValue(_random.Next(values.Length));
-        }
-        internal static EventCategory GetRandomEvent()
-        {
-            Array values = Enum.GetValues(typeof(EventCategory));
-            return (EventCategory)values.GetValue(_random.Next(values.Length));
+            Array values = Enum.GetValues(typeof(ActivityCategory));
+            return (ActivityCategory)values.GetValue(_random.Next(values.Length));
         }
         internal static CategoryType GetRandomCategoryType()
         {

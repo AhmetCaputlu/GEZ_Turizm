@@ -12,14 +12,12 @@ namespace DataAccess.Configurations.Vehicles
         {
             base.Configure(builder);
             //Mapping
-            builder.HasMany(x => x.ContractDrivers_RentalVehicles).WithOne(x => x.RentalVehicle).HasForeignKey(x => x.RentalVehicleId).OnDelete(DeleteBehavior.NoAction);
             builder.Property(x => x.DailyRentalFee).IsRequired(true).HasColumnType("decimal(8,2)");
             builder.Property(x => x.StartDate).IsRequired(true);
             builder.Property(x => x.ExpireDate).IsRequired(true);
             builder.Property(x => x.TotalPrice).IsRequired(true).HasColumnType("decimal(9,2)");
             builder.HasOne(x => x.RentalVehicleSupplier).WithMany(x => x.RentalVehicles).HasForeignKey(x => x.RentalVehicleSupplierId).OnDelete(DeleteBehavior.NoAction);
-            builder.HasOne(x => x.Event).WithMany(x => x.RentalVehicles).HasForeignKey(x => x.EventId).OnDelete(DeleteBehavior.NoAction);
-            builder.HasOne(x => x.Tour).WithMany(x => x.RentalVehicles).HasForeignKey(x => x.TourId).OnDelete(DeleteBehavior.NoAction);
+            builder.HasOne(x => x.Activity).WithMany(x => x.RentalVehicles).HasForeignKey(x => x.ActivityId).OnDelete(DeleteBehavior.NoAction);
             builder.HasData(RentalVehiclesSeedData.GetRentalVehicles(5));
         }
     }

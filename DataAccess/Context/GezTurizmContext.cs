@@ -1,5 +1,4 @@
-﻿using DataAccess.Entities.Mappings;
-using DataAccess.Entities.Models.Activities;
+﻿using DataAccess.Entities.Models.Activities;
 using DataAccess.Entities.Models.Companies.PartnerCompanies;
 using DataAccess.Entities.Models.Companies.Suppliers;
 using DataAccess.Entities.Models.Countries;
@@ -7,7 +6,6 @@ using DataAccess.Entities.Models.Employees;
 using DataAccess.Entities.Models.OrderDetails;
 using DataAccess.Entities.Models.Orders;
 using DataAccess.Entities.Models.PassTickets;
-using DataAccess.Entities.Models.Products;
 using DataAccess.Entities.Models.Regions;
 using DataAccess.Entities.Models.Tickets;
 using DataAccess.Entities.Models.Vehicles;
@@ -28,47 +26,30 @@ namespace DataAccess.Context
         {
 
         }
-
         public DbSet<WebUserAccount> AspNetUsers { get; set; }
         public DbSet<WebUserProfile> AspNetUserProfiles { get; set; }
-        public DbSet<Employee> Employees { get; set; }
-        public DbSet<ContractDriver> ContractDrivers { get; set; }
-        public DbSet<ContractTourGuide> ContractTourGuides { get; set; }
-        public DbSet<Vehicle> Vehicles { get; set; }
-        public DbSet<RentalVehicle> RentalVehicles { get; set; }
-        public DbSet<ContractDriver_Vehicle> ContractDrivers_Vehicles { get; set; }
-        public DbSet<ContractDriver_RentalVehicle> ContractDrivers_RentalVehicles { get; set; }
-        public DbSet<Country> Countries { get; set; }
-        public DbSet<ServiceRegion> ServiceRegions { get; set; }
-        public DbSet<ResidenceRegion> ResidenceRegions { get; set; }
-        public DbSet<ContractTourGuide_ServiceRegion> ContractTourGuides_ServiceRegions { get; set; }
-        public DbSet<Tour> Tours { get; set; }
-        public DbSet<Event> Events { get; set; }
+        public DbSet<Activity> Activities { get; set; }
         public DbSet<PartnerCompany> PartnerCompanies { get; set; }
         public DbSet<PartnerCompanyTransaction> PartnerCompanyTransactions { get; set; }
-        public DbSet<PassEventTicket> PassEventTickets { get; set; }
-        public DbSet<PassTourTicket> PassTourTickets { get; set; }
-        public DbSet<ProductSupplier> ProductSuppliers { get; set; }
-        public DbSet<SubContractWorkerSupplier> SubContractWorkerSuppliers { get; set; }
         public DbSet<RentalVehicleSupplier> RentalVehicleSuppliers { get; set; }
-        public DbSet<Product> Products { get; set; }
-        public DbSet<ProductOrder> ProductOrders { get; set; }
-        public DbSet<ProductOrderDetail> ProductOrderDetails { get; set; }
-        public DbSet<ProductCategory> ProductCategories { get; set; }
-        public DbSet<TourTicket> TourTickets { get; set; }
-        public DbSet<EventTicket> EventTickets { get; set; }
-        public DbSet<TourTicketOrder> TourTicketOrders { get; set; }
-        public DbSet<EventTicketOrder> EventTicketOrders { get; set; }
-        public DbSet<EventTicketOrderDetail> EventTicketOrderDetails { get; set; }
-        public DbSet<TourTicketOrderDetail> TourTicketOrderDetails { get; set; }
-
+        public DbSet<SubContractWorkerSupplier> SubContractWorkerSuppliers { get; set; }
+        public DbSet<Country> Countries { get; set; }
+        public DbSet<ContractEmployee> ContractEmployees { get; set; }
+        public DbSet<Employee> Employees { get; set; }
+        public DbSet<ActivityTicketOrderDetail> ActivityTicketOrderDetails { get; set; }
+        public DbSet<ActivityTicketOrder> ActivityTicketOrders { get; set; }
+        public DbSet<ActivityPassTicket> ActivityPassTickets { get; set; }
+        public DbSet<ServiceRegion> ServiceRegions { get; set; }
+        public DbSet<ActivityTicket> ActivityTickets { get; set; }
+        public DbSet<RentalVehicle> RentalVehicles { get; set; }
+        public DbSet<Vehicle> Vehicles { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder
-                    .UseLazyLoadingProxies()                   
+                    .UseLazyLoadingProxies()
                     .UseSqlServer(Environment.GetEnvironmentVariable("Connection_String"));
             }
             base.OnConfiguring(optionsBuilder);

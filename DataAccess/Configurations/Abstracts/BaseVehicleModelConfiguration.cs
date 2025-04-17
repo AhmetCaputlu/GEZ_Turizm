@@ -16,6 +16,7 @@ namespace DataAccess.Configurations.Abstracts
             builder.Property(x => x.Kilometer).HasMaxLength(7).IsRequired(true);
             builder.Property(x => x.Age).HasMaxLength(2).IsRequired(true);
             builder.Property(x => x.Capacity).HasMaxLength(2).IsRequired(true);
+            builder.Property(x => x.IsAvailable).IsRequired(true).HasConversion(x => x ? "Available" : "Busy", x => x == "Available");
         }
     }
 }

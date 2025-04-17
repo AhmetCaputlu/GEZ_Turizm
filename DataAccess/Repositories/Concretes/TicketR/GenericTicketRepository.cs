@@ -1,60 +1,59 @@
 ﻿using DataAccess.Context;
 using DataAccess.Entities.Abstracts;
 using DataAccess.Entities.Enums;
+using DataAccess.Entities.Models.Tickets;
 using DataAccess.Repositories.Abstracts.Ticket;
 using EFCore.BulkExtensions;
 using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Repositories.Concretes.Ticket
 {
-    public class GenericTicketRepository<T> : GenericRepository<T>, IGenericTicketRepository<T> where T : BaseTicketModel
+    public class GenericTicketRepository : GenericRepository<ActivityTicket>, IGenericTicketRepository
     {
         private readonly GezTurizmContext _context;
-        private readonly DbSet<T> _dbset;
         public GenericTicketRepository(GezTurizmContext context) : base(context)
         {
             _context = context;
-            _dbset = _context.Set<T>();
         }
-        public IQueryable<T> SearchByTicketName(string ticketName)
+        public IQueryable<ActivityTicket> SearchByTicketName(string ticketName)
         {
-            return _dbset.Where(x => x.TicketName.ToLower().Contains(ticketName.ToLower()));
-        }
-
-        public IQueryable<T> SearchBySeatNumber(string seatNumber)
-        {
-            return _dbset.Where(x => x.SeatNumber.ToLower().Contains(seatNumber.ToLower()));
-
+            return _context.ActivityTickets.Where(x => x.TicketHolderName.ToLower().Contains(ticketName.ToLower()));
         }
 
-        public IQueryable<T> SearchByDepartureDate(DateTime dateTime)
+        public IQueryable<ActivityTicket> SearchBySeatNumber(string seatNumber)
         {
-            return _dbset.Where(x => x.DepartureDate.Date == dateTime.Date);
+            return _context.ActivityTickets.Where(x => x.SeatNumber.ToLower().Contains(seatNumber.ToLower()));
+
         }
 
-        public IQueryable<T> SearchByArrivalDate(DateTime dateTime)
+        public IQueryable<ActivityTicket> SearchByDepartureDate(DateTime dateTime)
         {
-            return _dbset.Where(x => x.ArrivalDate.Date == dateTime.Date);
+            return _context.ActivityTickets.Where(x => x.DepartureDate.Date == dateTime.Date);
         }
 
-        public IQueryable<T> GetTicketBetweenPriceRange(decimal first, decimal last)
+        public IQueryable<ActivityTicket> SearchByArrivalDate(DateTime dateTime)
         {
-            return _dbset.Where(x => x.Price >= first && x.Price <= last);
+            return _context.ActivityTickets.Where(x => x.ArrivalDate.Date == dateTime.Date);
         }
 
-        public IQueryable<T> GetTicketNetCostDesc()
+        public IQueryable<ActivityTicket> GetTicketBetweenPriceRange(decimal first, decimal last)
         {
-            return _dbset.OrderByDescending(x => x.NetCost);
+            return _context.ActivityTickets.Where(x => x.Price >= first && x.Price <= last);
         }
 
-        public IQueryable<T> GetTicketByPaymentStatus(PaymentStatus paymentStatus)
+        public IQueryable<ActivityTicket> GetTicketNetCostDesc()
         {
-            return _dbset.Where(x => x.PaymentStatus == paymentStatus);
+            return _context.ActivityTickets.OrderByDescending(x => x.NetCost);
         }
 
-        public IQueryable<T> GetTicketByCurrency(Currency currency)
+        public IQueryable<ActivityTicket> GetTicketByPaymentStatus(PaymentStatus paymentStatus)
         {
-            return _dbset.Where(x => x.Currency == currency);
+            return _context.ActivityTickets.Where(x => x.PaymentStatus == paymentStatus);
+        }
+
+        public IQueryable<ActivityTicket> GetTicketByCurrency(Currency currency)
+        {
+            return _context.ActivityTickets.Where(x => x.Currency == currency);
 
         }
     }
