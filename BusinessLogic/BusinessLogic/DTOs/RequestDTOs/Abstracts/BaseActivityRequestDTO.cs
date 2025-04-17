@@ -1,6 +1,6 @@
 ﻿namespace BusinessLogic.DTOs.RequestDTOs.Abstracts
 {
-    public class BaseActivityRequestDTO:BaseRequestDTO
+    public abstract class BaseActivityRequestDTO:BaseRequestDTO
     {
         public string EventName { get; set; }
         public DateTime StartDate { get; set; }
