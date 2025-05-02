@@ -1,8 +1,8 @@
 ﻿using DataAccess.Entities.Enums;
 
-namespace BusinessLogic.DTOs.RequestDTOs.Abstracts
+namespace BusinessLogic.DTOs.Abstracts
 {
-    public abstract class BaseRequestDTO
+    public abstract class BaseRequestModelDTO
     {
         public int Id { get; set; }
         public DataStatus Status { get; set; }

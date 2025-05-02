@@ -1,14 +1,14 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
-using BusinessLogic.DTOs.RequestDTOs.Abstracts;
-using BusinessLogic.DTOs.ResponseDTOs.Abstracts;
+using BusinessLogic.DTOs.Abstracts;
+using BusinessLogic.Services.Abstracts;
 using DataAccess.Entities.Interfaces;
 using DataAccess.Repositories.Abstracts;
 
 namespace BusinessLogic.Services.Concretes
 {
-    public class Service<TEntity, TResponse, TRequest>
-        where TEntity : class, IEntity where TResponse : BaseResponseDTO where TRequest : BaseRequestDTO
+    public class Service<TEntity, TResponse, TRequest> : IService<TEntity, TResponse, TRequest>
+        where TEntity : class, IEntity where TResponse : BaseResponseModelDTO where TRequest : BaseRequestModelDTO
     {
         private readonly IGenericRepository<TEntity> _repository;
         private readonly IMapper _mapper;
@@ -19,7 +19,7 @@ namespace BusinessLogic.Services.Concretes
         }
         public IEnumerable<TResponse> GetAllEntities()
         {
-            return _repository.GetAllEntities().ProjectTo<TResponse>(_mapper.ConfigurationProvider);
+            return _repository.GetAllEntities().ProjectTo<TResponse>(_mapper.ConfigurationProvider).ToList();
         }
         public IEnumerable<TResponse> GetAllEntities2()
         {

@@ -53,7 +53,10 @@ namespace BusinessLogic.DependencyResolvers
         /// <returns></returns>
         public static IServiceCollection AddIdentityServices(this IServiceCollection collection)
         {
-            collection.AddIdentity<WebUserAccount, IdentityRole<int>>().AddEntityFrameworkStores<GezTurizmContext>();
+            collection.AddIdentity<WebUserAccount, IdentityRole<int>>(x =>
+            {
+                //Burada birtakım yapılandırmalar sağlanacak.
+            }).AddEntityFrameworkStores<GezTurizmContext>();
             return collection;
             //Benim WebUserAccount ve IdentityRole sınıflarımın verilerini GezTurizmContext üzerinden EF Core kullanarak veritabanında tut.
         }

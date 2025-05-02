@@ -1,12 +1,10 @@
-﻿using Azure.Core;
-using BusinessLogic.DTOs.RequestDTOs.Abstracts;
-using BusinessLogic.DTOs.ResponseDTOs.Abstracts;
+﻿using BusinessLogic.DTOs.Abstracts;
 using DataAccess.Entities.Interfaces;
 
 namespace BusinessLogic.Services.Abstracts
 {
     public interface IService<TEntity,TResponse,TRequest> 
-        where TEntity : class,IEntity where TResponse : BaseResponseDTO where TRequest : BaseRequestDTO
+        where TEntity : class,IEntity where TResponse : BaseResponseModelDTO where TRequest : BaseRequestModelDTO
     {
         IEnumerable<TResponse> GetAllEntities();
         IEnumerable<TResponse> GetAllActives();

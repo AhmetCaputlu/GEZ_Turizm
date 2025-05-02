@@ -1,0 +1,41 @@
+﻿@model List<WebUserAccountResponseDTO>
+<div class="card-body">
+	<table class="table-bordered">
+		<thead>
+			<tr>
+				<th>Identify</th>
+				<th>Unique Identify</th>
+				<th style="width:180px">User Name</th>
+				<th style="width: 280px">Email</th>
+				<th>Phone Number</th>
+				<th>Phone Number Confirmed</th>
+				<th style="width: 250px">Created Date</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr class="align-middle">
+					<td>@item.Id</td>
+					<td>@item.Guid</td>
+					<td>@item.UserName</td>
+					<td>@item.Email</td>
+					<td>@item.PhoneNumber</td>
+					<td>@item.PhoneNumberConfirmed</td>
+					<td>@item.CreatedDate</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>
+<style>
+	td {
+		text-align: center;
+		vertical-align: middle
+	}
+
+	th {
+		text-align: center;
+		vertical-align: middle
+	}
+</style>
