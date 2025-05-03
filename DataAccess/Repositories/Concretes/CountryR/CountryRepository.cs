@@ -15,9 +15,18 @@ namespace DataAccess.Repositories.Concretes.Countryy
             _context = context;
         }
 
-        public IQueryable<Country> GetCountriesByContinent(Continent continent)
+        public IQueryable<Country> GetDynamicCountryFilter(Continent? continent = null, bool? descending = null)
         {
-            return _context.Countries.Where(x => x.Continent == continent);
+            IQueryable<Country> filter = _context.Countries;
+            if (continent.HasValue)
+            {
+                filter = filter.Where(x => x.Continent == continent.Value);
+            }
+            if (descending == true)
+            {
+                filter = filter.OrderByDescending(x => x.Id);
+            }
+            return filter;
         }
     }
 }

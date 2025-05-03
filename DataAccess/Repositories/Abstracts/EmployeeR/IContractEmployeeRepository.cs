@@ -6,7 +6,7 @@ namespace DataAccess.Repositories.Abstracts.EmployeeR
 {
     public interface IContractEmployeeRepository : IGenericEmployeeRepository<ContractEmployee>
     {
-        IQueryable<ContractEmployee> GetDriversByLicense(DriverLicense driverLicense);
-        IQueryable<ContractEmployee> GetTourGuidesByLanguage(Language language);
+        IQueryable<ContractEmployee> GetDynamicContractEmployeeFilter
+            (DriverLicense? driverLicense = null, Language? language = null, bool? descending = null);
     }
 }

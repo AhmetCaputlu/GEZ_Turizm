@@ -6,8 +6,6 @@ namespace DataAccess.Repositories.Abstracts.Region
 {
     public interface IGenericRegionRepository : IGenericRepository<ServiceRegion>
     {
-        IQueryable<ServiceRegion> GetByDistrictName(string districtName);
-        IQueryable<ServiceRegion> GetByArrivalTimeDesc();
-        IQueryable<ServiceRegion> GetByTransportType(VehicleType type);
+        IQueryable<ServiceRegion> GetDynamicRegionFilter(string? districtName = null, bool? descendingArrivalDate = null, VehicleType? vehicleType = null, bool? descending = null);
     }
 }

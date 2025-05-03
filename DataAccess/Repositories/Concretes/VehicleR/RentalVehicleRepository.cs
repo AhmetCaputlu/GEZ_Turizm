@@ -14,14 +14,22 @@ namespace DataAccess.Repositories.Concretes.VehicleR
             _context = context;
         }
 
-        public IQueryable<RentalVehicle> GetRentalVehiclesByDailyRentalFeeDesc()
+        public IQueryable<RentalVehicle> GetDynamicRentalVehicleFilter(bool? descendingDay = null, bool? descendingFee = null, bool? descending = null)
         {
-            return _context.RentalVehicles.OrderByDescending(x => x.DailyRentalFee);
-        }
-
-        public IQueryable<RentalVehicle> GetRentalVehiclesByTotalRentDayDesc()
-        {
-            return _context.RentalVehicles.OrderByDescending(x => x.TotalRentalDay);
+            IQueryable<RentalVehicle> filter = _context.RentalVehicles;
+            if (descendingDay.HasValue)
+            {
+                filter = filter.OrderByDescending(x => x.TotalRentalDay);
+            }
+            else if (descendingFee.HasValue)
+            {
+                filter = filter.OrderByDescending(x => x.DailyRentalFee);
+            }
+            else if (descending.HasValue)
+            {
+                filter = filter.OrderByDescending(x => x.Id);
+            }
+            return filter;
         }
     }
 }

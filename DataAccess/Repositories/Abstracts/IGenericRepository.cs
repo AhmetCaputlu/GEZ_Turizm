@@ -27,9 +27,11 @@ namespace DataAccess.Repositories.Abstracts
             DateTime? firstUpdatedDate = null,
             DateTime? secondUpdatedDate = null,
             DataStatus? status = null,
-            bool? isUpdated = null);
+            bool? isUpdated = null,
+            bool? descending = null
+            );
             
-        Task<T> GetByIdAsync(int Id);
+        Task<T?> GetByIdAsync(int? Id);
         Task CreateAsync(T entity);
         Task CreateRangeAsync(List<T> entities);
         Task CreateBulkAsync(List<T> values);

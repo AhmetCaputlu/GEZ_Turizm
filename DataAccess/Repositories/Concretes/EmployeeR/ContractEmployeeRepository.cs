@@ -16,15 +16,22 @@ namespace DataAccess.Repositories.Concretes.EmployeeR
         {
             _context = context;
         }
-
-        public IQueryable<ContractEmployee> GetDriversByLicense(DriverLicense driverLicense)
+        public IQueryable<ContractEmployee> GetDynamicContractEmployeeFilter(DriverLicense? driverLicense = null, Language? language = null, bool? descending = null)
         {
-            return _context.ContractEmployees.Where(x => x.DriverLicense == driverLicense);
-        }
-
-        public IQueryable<ContractEmployee> GetTourGuidesByLanguage(Language language)
-        {
-            return _context.ContractEmployees.Where(x => x.Language == language);
+            IQueryable<ContractEmployee> filter = _context.ContractEmployees;
+            if (driverLicense.HasValue)
+            {
+                filter = filter.Where(x => (x.DriverLicense ?? DriverLicense.None) == driverLicense.Value);
+            }
+            if (language.HasValue)
+            {
+                filter = filter.Where(x => (x.Language ?? Language.None) == language.Value);
+            }
+            if (descending == true)
+            {
+                filter = filter.OrderByDescending(x => x.Id);
+            }
+            return filter;
         }
     }
 }

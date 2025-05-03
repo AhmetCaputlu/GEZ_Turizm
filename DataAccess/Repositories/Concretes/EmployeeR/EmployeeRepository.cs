@@ -15,14 +15,18 @@ namespace DataAccess.Repositories.Concretes.EmployeeR
             _context = context;
         }
 
-        public IQueryable<Entities.Models.Employees.Employee> GetEmployeesByCurrentPosition(Department department)
+        public IQueryable<Entities.Models.Employees.Employee> GetDynamicEmployeesFilter(Department? department = null, bool? descending = null)
         {
-            return _context.Employees.Where(x => x.CurrentPosition == department);
-        }
-
-        public IQueryable<Entities.Models.Employees.Employee> GetEmployeesByTotalDaysDesc()
-        {
-            return _context.Employees.OrderByDescending(x => x.DaysWorked);
+            IQueryable<Entities.Models.Employees.Employee> filter = _context.Employees;
+            if (department.HasValue)
+            {
+                filter = filter.Where(x => x.CurrentPosition == department.Value);
+            }
+            if (descending == true)
+            {
+                filter = filter.OrderByDescending(x => x.Id);
+            }
+            return filter;
         }
     }
 }

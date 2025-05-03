@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using BusinessLogic.DTOs.Abstracts;
+using BusinessLogic.DTOs.WebUser;
 using BusinessLogic.Services.Abstracts;
 using DataAccess.Entities.Enums;
 using DataAccess.Entities.Interfaces;
@@ -69,9 +70,18 @@ namespace BusinessLogic.Services.Concretes
 
         public IEnumerable<TResponse> GetDynamicFilteredEntities(int? firstId, int? lastId, DateTime? firstCreatedDate, DateTime? secondCreatedDate, DateTime? firstUpdatedDate, DateTime? secondUpdatedDate, DataStatus? status, bool? isUpdated)
         {
-            IEnumerable<TResponse> filter = 
+            IEnumerable<TResponse> filter =
                 _repository.GetDynamicFilteredEntities(firstId, lastId, firstCreatedDate, secondCreatedDate, firstUpdatedDate, secondUpdatedDate, status, isUpdated)
-                .ProjectTo<TResponse>(_mapper.ConfigurationProvider).ToList();
+                .ProjectTo<TResponse>(_mapper.ConfigurationProvider)
+                .ToList();
+
+            return filter;
+        }
+        public IEnumerable<TResponse> GetDynamicFilteredEntities2(int? firstId, int? lastId, DateTime? firstCreatedDate, DateTime? secondCreatedDate, DateTime? firstUpdatedDate, DateTime? secondUpdatedDate, DataStatus? status, bool? isUpdated)
+        {
+            IEnumerable<TResponse> filter =
+               _mapper.Map<IEnumerable<TResponse>>(_repository.GetDynamicFilteredEntities(firstId, lastId, firstCreatedDate, secondCreatedDate, firstUpdatedDate, secondUpdatedDate, status, isUpdated)
+                .ToList());
 
             return filter;
         }
@@ -131,7 +141,5 @@ namespace BusinessLogic.Services.Concretes
         {
             await _repository.DestroyBulkAsync(values);
         }
-
-
     }
 }

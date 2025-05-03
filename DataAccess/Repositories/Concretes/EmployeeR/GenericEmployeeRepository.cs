@@ -16,34 +16,40 @@ namespace DataAccess.Repositories.Concretes.Employee
             _context = context;
             _dbset = _context.Set<T>();
         }
-        public IQueryable<T> SearchEmployeeByName(string name)
-        {
-            return _dbset.Where(x => x.FullName.ToLower().Contains(name.ToLower()));
-        }
 
-        public IQueryable<T> GetAllEmployeesbyGender(Gender gender)
+        public IQueryable<T> GetDynamicEmployeeFilter(string? name = null, Gender? gender = null, DateTime? dateTimeBirth = null, int? age = null, DateTime? dateTimeHire = null, int? exp = null, bool? descending = null)
         {
-            return _dbset.Where(x => x.Gender == gender);
-        }
+            IQueryable<T> filter = _dbset;
 
-        public IQueryable<T> GetEmployeesByBirthDate(DateTime dateTime)
-        {
-            return _dbset.Where(x => x.BirthDate.Date == dateTime.Date);
-        }
-
-        public IQueryable<T> GetEmployeesByAge(int age)
-        {
-            return _dbset.Where(x => x.Age == age);
-        }
-
-        public IQueryable<T> GetEmployeesByHireDate(DateTime dateTime)
-        {
-            return _dbset.Where(x => x.HireDate.Date == dateTime.Date);
-        }
-
-        public IQueryable<T> GetEmployeesByHigherExperience(int exp)
-        {
-            return _dbset.Where(x => x.Experience > exp);
+            if (!string.IsNullOrEmpty(name))
+            {
+                filter = filter.Where(x => x.FullName.ToLower().Contains(name.ToLower()));
+            }
+            if (gender.HasValue)
+            {
+                filter = filter.Where(x => x.Gender == gender.Value);
+            }
+            if (dateTimeBirth.HasValue)
+            {
+                filter = filter.Where(x => x.BirthDate.Date == dateTimeBirth.Value.Date);
+            }
+            if (age.HasValue)
+            {
+                filter = filter.Where(x => (x.Age ?? 0) == age.Value);
+            }
+            if (dateTimeHire.HasValue)
+            {
+                filter = filter.Where(x => x.HireDate.Date == dateTimeHire.Value.Date);
+            }
+            if (exp.HasValue)
+            {
+                filter = filter.Where(x => x.Experience == exp.Value);
+            }
+            if (descending == true)
+            {
+                filter = filter.OrderByDescending(x => x.Id);
+            }
+            return filter;
         }
     }
 }

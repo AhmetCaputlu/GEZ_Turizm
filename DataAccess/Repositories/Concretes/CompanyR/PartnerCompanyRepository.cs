@@ -1,7 +1,7 @@
-﻿using DataAccess.Context;
+﻿using System.ComponentModel;
+using DataAccess.Context;
 using DataAccess.Entities.Models.Companies.PartnerCompanies;
 using DataAccess.Repositories.Abstracts.Company;
-using NetTopologySuite.IO;
 
 namespace DataAccess.Repositories.Concretes.Company
 {
@@ -14,14 +14,18 @@ namespace DataAccess.Repositories.Concretes.Company
             _context = context;
         }
 
-        public IQueryable<PartnerCompany> GetPartnersByBalanceDesc()
+        public IQueryable<PartnerCompany> GetDynamicPartnerFilter(bool? status = null,bool? descending = null)
         {
-            return _context.PartnerCompanies.OrderByDescending(x => x.Balance);
-        }
-
-        public IQueryable<PartnerCompany> GetPartnersForTradingStatus(bool status)
-        {
-            return _context.PartnerCompanies.Where(x => x.AcceptTickets == status);
+            IQueryable<PartnerCompany> filter = _context.PartnerCompanies;
+            if (status.HasValue)
+            {
+                filter = filter.Where(x => x.AcceptTickets == status);
+            }
+            if (descending == true)
+            {
+                filter = filter.OrderByDescending(x => x.Id);
+            }
+            return filter;
         }
     }
 }

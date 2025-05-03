@@ -15,19 +15,23 @@ namespace DataAccess.Repositories.Concretes.Region
         {
             _context = context;
         }
-        public IQueryable<ServiceRegion> GetByDistrictName(string districtName)
-        {
-            return _context.ServiceRegions.Where(x => x.DistrictName.ToLower().Contains(districtName));
-        }
 
-        public IQueryable<ServiceRegion> GetByArrivalTimeDesc()
+        public IQueryable<ServiceRegion> GetDynamicRegionFilter(string? districtName = null, bool? descendingArrivalDate = null, VehicleType? vehicleType = null, bool? descending = null)
         {
-            return _context.ServiceRegions.OrderBy(x => x.ArrivalTime);
-        }
-
-        public IQueryable<ServiceRegion> GetByTransportType(VehicleType type)
-        {
-            return _context.ServiceRegions.Where(x => x.TransportVehicle == type);
+            IQueryable<ServiceRegion> filter = _context.ServiceRegions;
+            if (!string.IsNullOrEmpty(districtName))
+            {
+                filter = filter.Where(x => x.DistrictName.ToLower().Contains(districtName.ToLower()));
+            }
+            if (descendingArrivalDate == true)
+            {
+                filter = filter.OrderBy(x => x.ArrivalTime);//En yakınından en uzağına
+            }
+            else if (descending == true)
+            {
+                filter = filter.OrderByDescending(x => x.Id);
+            }
+            return filter;
         }
     }
 }

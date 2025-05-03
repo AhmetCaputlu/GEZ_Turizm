@@ -5,6 +5,6 @@ namespace DataAccess.Repositories.Abstracts.Countryy//Sınıf adı ile çakışm
 {
     public interface ICountryRepository : IGenericRepository<Country>
     {
-        IQueryable<Country> GetCountriesByContinent(Continent continent);
+        IQueryable<Country> GetDynamicCountryFilter(Continent? continent = null,bool? descending = null);
     }
 }

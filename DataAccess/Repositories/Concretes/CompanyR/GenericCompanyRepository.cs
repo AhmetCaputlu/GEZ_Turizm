@@ -1,4 +1,5 @@
-﻿using Azure.Core;
+﻿using System;
+using Azure.Core;
 using DataAccess.Context;
 using DataAccess.Entities.Abstracts;
 using DataAccess.Entities.Enums;
@@ -17,35 +18,42 @@ namespace DataAccess.Repositories.Concretes.Company
             _context = context;
             _dbset = _context.Set<T>();
         }
-        public IQueryable<T> SearchByCompanyName(string companyName)
+
+        public IQueryable<T> GetDynamicCompanyFilter(string? companyName = null, string? contactName = null, string? contactTitle = null, string? email = null, string? phoneNumber = null, string? address = null,
+            bool? descending = null)
         {
-            var selectedItems = _dbset.Where(x => x.CompanyName.ToLower().Contains(companyName.ToLower()));
-            return selectedItems;
-        }
-        public IQueryable<T> SearchByContactName(string contactName)
-        {
-            var selectedItems = _dbset.Where(x => x.ContactName.ToLower().Contains(contactName.ToLower()));
-            return selectedItems;
-        }
-        public IQueryable<T> SearchByContactTitle(string contactTitle)
-        {
-            var selectedItems = _dbset.Where(x => x.ContactTitle.ToLower().Contains(contactTitle.ToLower()));
-            return selectedItems;
-        }
-        public IQueryable<T> SearchByEmail(string email)
-        {
-            var selectedItems = _dbset.Where(x => x.Email.ToLower().Contains(email.ToLower()));
-            return selectedItems;
-        }
-        public IQueryable<T> SearchByPhoneNumber(string phoneNumber)
-        {
-            var selectedItems = _dbset.Where(x => x.PhoneNumber.ToLower().Contains(phoneNumber.ToLower()));
-            return selectedItems;
-        }
-        public IQueryable<T> SearchByAdress(string address)
-        {
-            var selectedItems = _dbset.Where(x => x.Address.ToLower().Contains(address.ToLower()));
-            return selectedItems;
+            IQueryable<T> filter = _dbset;
+
+            if (!string.IsNullOrEmpty(companyName))
+            {
+                filter = filter.Where(x => x.CompanyName.ToLower().Contains(companyName.ToLower()));
+            }
+            if (!string.IsNullOrEmpty(contactName))
+            {
+                filter = filter.Where(x => x.ContactName.ToLower().Contains(contactName.ToLower()));
+            }
+            if (!string.IsNullOrEmpty(contactTitle))
+            {
+                filter = filter.Where(x => x.ContactName.ToLower().Contains(contactTitle.ToLower()));
+            }
+            if (!string.IsNullOrEmpty(email))
+            {
+                filter = filter.Where(x => x.Email.ToLower().Contains(email.ToLower()));
+            }
+            if (!string.IsNullOrEmpty(phoneNumber))
+            {
+                filter = filter.Where(x => x.PhoneNumber.ToLower().Contains(phoneNumber.ToLower()));
+            }
+            if (!string.IsNullOrEmpty(address))
+            {
+                filter = filter.Where(x => x.Address.ToLower().Contains(address.ToLower()));
+            }
+            if (descending == true)
+            {
+                filter = filter.OrderByDescending(x => x.Id);
+            }
+
+            return filter;
         }
     }
 }

@@ -5,12 +5,12 @@ namespace DataAccess.Repositories.Abstracts.Vehicle
 {
     public interface IGenericVehicleRepository<T> : IGenericRepository<T> where T : BaseVehicleModel
     {
-        IQueryable<T> GetVehicleByVehicleType(VehicleType vehicleType);
-        IQueryable<T> GetVehicleByLicensePlate(string licensePlate);
-        IQueryable<T> GetVehicleByModel(string model);
-        IQueryable<T> GetVehicleByKilometerDesc();
-        IQueryable<T> GetVehicleByAgeDesc();
-        IQueryable<T> GetVehicleByCapacityDesc();
-        IQueryable<T> GetVehiclesByAvailable(bool value);
+        IQueryable<T> GetDynamicVehicleFilter(
+            VehicleType? vehicleType = null,
+            string? licensePlate = null,
+            string? model = null,
+            bool? available = null,
+            bool? descending = null
+            );
     }
 }

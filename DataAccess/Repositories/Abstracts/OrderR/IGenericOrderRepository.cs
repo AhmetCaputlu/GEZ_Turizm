@@ -6,7 +6,6 @@ namespace DataAccess.Repositories.Abstracts.Order
 {
     public interface IGenericOrderRepository : IGenericRepository<ActivityTicketOrder>
     {
-        IQueryable<ActivityTicketOrder> GetOrderByNote(string note);
-        IQueryable<ActivityTicketOrder> GetOrderByEmail(string email);
+        IQueryable<ActivityTicketOrder> GetDynamicOrderFilter(string? note = null, string? email = null, bool? descending = null);
     }
 }

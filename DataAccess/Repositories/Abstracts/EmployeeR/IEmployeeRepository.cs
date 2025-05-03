@@ -6,7 +6,6 @@ namespace DataAccess.Repositories.Abstracts.EmployeeR
 {
     public interface IEmployeeRepository:IGenericEmployeeRepository<DataAccess.Entities.Models.Employees.Employee>
     {                                                                   //Ne yazık ki using etiketini tanımıyor.
-        IQueryable<DataAccess.Entities.Models.Employees.Employee> GetEmployeesByTotalDaysDesc();
-        IQueryable<DataAccess.Entities.Models.Employees.Employee> GetEmployeesByCurrentPosition(Department department);
+        IQueryable<DataAccess.Entities.Models.Employees.Employee> GetDynamicEmployeesFilter(Department? department = null, bool? descending = null);
     }
 }

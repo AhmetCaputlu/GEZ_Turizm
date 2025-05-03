@@ -5,7 +5,6 @@ namespace DataAccess.Repositories.Abstracts.PassTicket
 {
     public interface IGenericPassTicketRepository: IGenericRepository<ActivityPassTicket>
     {
-        IQueryable<ActivityPassTicket> GetPassTicketByPriceDesc();
-        IQueryable<ActivityPassTicket> GetPassTicketByTotalCostDesc();
+        IQueryable<ActivityPassTicket> GetDynamicPassTicketFilter(bool? descendingTotalCost = null, bool? descending = null);
     }
 }

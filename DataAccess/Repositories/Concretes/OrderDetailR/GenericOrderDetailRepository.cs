@@ -15,17 +15,31 @@ namespace DataAccess.Repositories.Concretes.OrderDetail
         {
             _context = context;
         }
-        public IQueryable<ActivityTicketOrderDetail> GetDetailByUnitPriceDesc()
+
+        public IQueryable<ActivityTicketOrderDetail> GetDynamicOrderDetailFilter(decimal? low = null, decimal? high = null, bool? descendingId = null, bool? descendingPrice = null)
         {
-            return _context.ActivityTicketOrderDetails.OrderByDescending(x => x.UnitPrice);
-        }
-        public IQueryable<ActivityTicketOrderDetail> GetDetailByQuantityDesc()
-        {
-            return _context.ActivityTicketOrderDetails.OrderByDescending(x => x.Quantity);
-        }
-        public IQueryable<ActivityTicketOrderDetail> GetTotalCostRange(decimal low, decimal high)
-        {
-            return _context.ActivityTicketOrderDetails.Where(x => x.UnitPrice <= high && x.UnitPrice >= low);
+            IQueryable<ActivityTicketOrderDetail> filter = _context.ActivityTicketOrderDetails;
+            if (low.HasValue && high.HasValue)
+            {
+                filter = filter.Where(x => (x.TotalCost ?? 0) >= low.Value && x.TotalCost <= high.Value);
+            }
+            else if (low.HasValue)
+            {
+                filter = filter.Where(x => (x.TotalCost ?? 0) >= low.Value);
+            }
+            else if (high.HasValue)
+            {
+                filter = filter.Where(x => (x.TotalCost ?? 0) <= high.Value);
+            }
+            if (descendingId == true)
+            {
+                filter = filter.OrderByDescending(x => x.Id);
+            }
+            else if (descendingPrice == true)
+            {
+                filter = filter.OrderByDescending(x => x.TotalCost);
+            }
+            return filter;
         }
     }
 }

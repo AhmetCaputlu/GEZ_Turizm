@@ -15,14 +15,19 @@ namespace DataAccess.Repositories.Concretes.PassTicket
         {
             _context = context;
         }
-        public IQueryable<ActivityPassTicket> GetPassTicketByPriceDesc()
-        {
-            return _context.ActivityPassTickets.OrderByDescending(x => x.Price);
-        }
 
-        public IQueryable<ActivityPassTicket> GetPassTicketByTotalCostDesc()
+        public IQueryable<ActivityPassTicket> GetDynamicPassTicketFilter(bool? descendingTotalCost = null, bool? descending = null)
         {
-            return _context.ActivityPassTickets.OrderByDescending(x => x.TotalCostwithCommission);
+            IQueryable<ActivityPassTicket> filter = _context.ActivityPassTickets;
+            if (descendingTotalCost == true)
+            {
+                filter = filter.OrderByDescending(x => x.TotalCostwithCommission);
+            }
+            else if (descending == true)
+            {
+                filter = filter.OrderByDescending(x => x.Id);
+            }
+            return filter;
         }
     }
 }

@@ -5,8 +5,6 @@ namespace DataAccess.Repositories.Abstracts.OrderDetail
 {
     public interface IGenericOrderDetailRepository : IGenericRepository<ActivityTicketOrderDetail>
     {
-        IQueryable<ActivityTicketOrderDetail> GetDetailByUnitPriceDesc();
-        IQueryable<ActivityTicketOrderDetail> GetDetailByQuantityDesc();
-        IQueryable<ActivityTicketOrderDetail> GetTotalCostRange(decimal low, decimal high);
+        IQueryable<ActivityTicketOrderDetail> GetDynamicOrderDetailFilter(decimal? low = null, decimal? high = null, bool? descendingId = null, bool? descendingPrice = null);
     }
 }

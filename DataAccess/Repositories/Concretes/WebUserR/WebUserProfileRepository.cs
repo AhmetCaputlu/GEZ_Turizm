@@ -15,19 +15,26 @@ namespace DataAccess.Repositories.Concretes.WebUserR
             _context = context;
         }
 
-        public IQueryable<WebUserProfile> GetUsersByAgeDesc()
+        public IQueryable<WebUserProfile> GetDynamicUserProfileFilter(string? name = null, Gender? gender = null, bool? descendingAge = null, bool? descending = null)
         {
-            return _context.AspNetUserProfiles.OrderByDescending(x => x.Age);
-        }
-
-        public IQueryable<WebUserProfile> GetUsersByGender(Gender gender)
-        {
-            return _context.AspNetUserProfiles.Where(x => x.Gender == gender);
-        }
-
-        public IQueryable<WebUserProfile> GetUsersByName(string name)
-        {
-            return _context.AspNetUserProfiles.Where(x => x.FirstName.ToLower().Contains(name.ToLower()));
+            IQueryable<WebUserProfile> filter = _context.AspNetUserProfiles;
+            if (!string.IsNullOrEmpty(name))
+            {
+                filter = filter.Where(x => x.LastName.ToLower().Contains(name.ToLower()));
+            }
+            if (gender.HasValue)
+            {
+                filter = filter.Where(x => x.Gender == gender.Value);
+            }
+            if (descendingAge.HasValue)
+            {
+                filter = filter.OrderByDescending(x => x.LastName);
+            }
+            else if (descending.HasValue)
+            {
+                filter = filter.OrderByDescending(x => x.WebUserAccountId);
+            }
+            return filter;
         }
     }
 }

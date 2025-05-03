@@ -15,46 +15,55 @@ namespace DataAccess.Repositories.Concretes.Ticket
         {
             _context = context;
         }
-        public IQueryable<ActivityTicket> SearchByTicketName(string ticketName)
+
+        public IQueryable<ActivityTicket> GetDynamicTicketFilter(string? ticketName = null, string? seatNnumber = null, DateTime? datetimeDeparture = null, DateTime? datetimeArrival = null, decimal? first = null, decimal? last = null, PaymentStatus? paymentStatus = null, Currency? currency = null, bool? descendingNetCost = null, bool? descending = null)
         {
-            return _context.ActivityTickets.Where(x => x.TicketHolderName.ToLower().Contains(ticketName.ToLower()));
-        }
-
-        public IQueryable<ActivityTicket> SearchBySeatNumber(string seatNumber)
-        {
-            return _context.ActivityTickets.Where(x => x.SeatNumber.ToLower().Contains(seatNumber.ToLower()));
-
-        }
-
-        public IQueryable<ActivityTicket> SearchByDepartureDate(DateTime dateTime)
-        {
-            return _context.ActivityTickets.Where(x => x.DepartureDate.Date == dateTime.Date);
-        }
-
-        public IQueryable<ActivityTicket> SearchByArrivalDate(DateTime dateTime)
-        {
-            return _context.ActivityTickets.Where(x => x.ArrivalDate.Date == dateTime.Date);
-        }
-
-        public IQueryable<ActivityTicket> GetTicketBetweenPriceRange(decimal first, decimal last)
-        {
-            return _context.ActivityTickets.Where(x => x.Price >= first && x.Price <= last);
-        }
-
-        public IQueryable<ActivityTicket> GetTicketNetCostDesc()
-        {
-            return _context.ActivityTickets.OrderByDescending(x => x.NetCost);
-        }
-
-        public IQueryable<ActivityTicket> GetTicketByPaymentStatus(PaymentStatus paymentStatus)
-        {
-            return _context.ActivityTickets.Where(x => x.PaymentStatus == paymentStatus);
-        }
-
-        public IQueryable<ActivityTicket> GetTicketByCurrency(Currency currency)
-        {
-            return _context.ActivityTickets.Where(x => x.Currency == currency);
-
+            IQueryable<ActivityTicket> filter = _context.ActivityTickets;
+            if (!string.IsNullOrEmpty(ticketName))
+            {
+                filter = filter.Where(x => x.TicketHolderName.ToLower().Contains(ticketName.ToLower()));
+            }
+            if (!string.IsNullOrEmpty(seatNnumber))
+            {
+                filter = filter.Where(x => x.SeatNumber.ToLower().Contains(seatNnumber.ToLower()));
+            }
+            if (datetimeDeparture.HasValue)
+            {
+                filter = filter.Where(x => x.DepartureDate.Date == datetimeDeparture.Value.Date);
+            }
+            if (datetimeArrival.HasValue)
+            {
+                filter = filter.Where(x => x.ArrivalDate.Date == datetimeArrival.Value.Date);
+            }
+            if (first.HasValue && last.HasValue)
+            {
+                filter = filter.Where(x => x.NetCost <= first.Value && x.NetCost >= last.Value);
+            }
+            else if (first.HasValue)
+            {
+                filter = filter.Where(x => x.NetCost >= first.Value);
+            }
+            else if (last.HasValue)
+            {
+                filter = filter.Where(x => x.NetCost <= last.Value);
+            }
+            if (paymentStatus.HasValue)
+            {
+                filter = filter.Where(x => x.PaymentStatus == paymentStatus.Value);
+            }
+            if (currency.HasValue)
+            {
+                filter = filter.Where(x => x.Currency == currency.Value);
+            }
+            if (descendingNetCost == true)
+            {
+                filter = filter.OrderByDescending(x => x.NetCost);
+            }
+            else if (descending == true)
+            {
+                filter = filter.OrderByDescending(x => x.Id);
+            }
+            return filter;
         }
     }
 }

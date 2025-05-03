@@ -5,8 +5,6 @@ namespace DataAccess.Repositories.Abstracts.WebUserR
 {
     public interface IWebUserProfileRepository : IGenericRepository<WebUserProfile>
     {
-        IQueryable<WebUserProfile> GetUsersByName(string name);
-        IQueryable<WebUserProfile> GetUsersByGender(Gender gender);
-        IQueryable<WebUserProfile> GetUsersByAgeDesc();
+        IQueryable<WebUserProfile> GetDynamicUserProfileFilter(string? name = null, Gender? gender = null, bool? descendingAge = null, bool? descending = null);
     }
 }

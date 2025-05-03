@@ -4,8 +4,6 @@ namespace DataAccess.Repositories.Abstracts.Company
 {
     public interface IPartnerCompanyRepository : IGenericCompanyRepository<PartnerCompany>
     {
-        IQueryable<PartnerCompany> GetPartnersByBalanceDesc();
-        IQueryable<PartnerCompany> GetPartnersForTradingStatus(bool status);
-
+        IQueryable<PartnerCompany> GetDynamicPartnerFilter(bool? status = null,bool? descending = null);
     }
 }

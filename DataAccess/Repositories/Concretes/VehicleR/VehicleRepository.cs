@@ -14,14 +14,22 @@ namespace DataAccess.Repositories.Concretes.VehicleR
             _context = context;
         }
 
-        public IQueryable<Entities.Models.Vehicles.Vehicle> GetVehiclesByPriceDesc()
+        public IQueryable<Entities.Models.Vehicles.Vehicle> GetDynamicVehiclesFilter(DateTime? dateTime = null, bool? descendingPrice = null, bool? descending = null)
         {
-            return _context.Vehicles.OrderByDescending(x => x.MarketValue);
-        }
-
-        public IQueryable<Entities.Models.Vehicles.Vehicle> GetVehiclesByPurchaseDate(DateTime dateTime)
-        {
-            return _context.Vehicles.Where(x => x.PurchaseDate.Date == dateTime.Date);
+            IQueryable<Entities.Models.Vehicles.Vehicle> filter = _context.Vehicles;
+            if (dateTime.HasValue)
+            {
+                filter = filter.Where(x => x.PurchaseDate.Date == dateTime.Value.Date);
+            }
+            if (descendingPrice == true)
+            {
+                filter = filter.OrderByDescending(x => x.MarketValue);
+            }
+            else if (descending == true)
+            {
+                filter = filter.OrderByDescending(x => x.Id);
+            }
+            return filter;
         }
     }
 }

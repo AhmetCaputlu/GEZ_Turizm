@@ -6,13 +6,17 @@ namespace DataAccess.Repositories.Abstracts.Ticket
 {
     public interface IGenericTicketRepository : IGenericRepository<ActivityTicket>
     {
-        IQueryable<ActivityTicket> SearchByTicketName(string ticketName);
-        IQueryable<ActivityTicket> SearchBySeatNumber(string seatNumber);
-        IQueryable<ActivityTicket> SearchByDepartureDate(DateTime dateTime);
-        IQueryable<ActivityTicket> SearchByArrivalDate(DateTime dateTime);
-        IQueryable<ActivityTicket> GetTicketBetweenPriceRange(decimal first, decimal last);
-        IQueryable<ActivityTicket> GetTicketNetCostDesc();
-        IQueryable<ActivityTicket> GetTicketByPaymentStatus(PaymentStatus paymentStatus);
-        IQueryable<ActivityTicket> GetTicketByCurrency(Currency currency);
+        IQueryable<ActivityTicket> GetDynamicTicketFilter(
+            string? ticketName = null,
+            string? seatNnumber = null,
+            DateTime? datetimeDeparture = null,
+            DateTime? datetimeArrival = null,
+            decimal? first = null,
+            decimal? last = null,
+            PaymentStatus? paymentStatus = null,
+            Currency? currency = null,
+            bool? descendingNetCost = null,
+            bool? descending = null
+            );
     }
 }

@@ -4,9 +4,6 @@ using DataAccess.Entities.Interfaces;
 using DataAccess.Repositories.Abstracts;
 using Microsoft.EntityFrameworkCore;
 using EFCore.BulkExtensions;
-using DataAccess.Entities.Models.WebUsers;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
-
 namespace DataAccess.Repositories.Concretes
 
 {
@@ -75,7 +72,9 @@ namespace DataAccess.Repositories.Concretes
             DateTime? firstUpdatedDate = null,
             DateTime? secondUpdatedDate = null,
             DataStatus? status = null,
-            bool? isUpdated = null)
+            bool? isUpdated = null,
+            bool? descending = null
+            )
         {
             IQueryable<T> filter = _dbset;
             if (firstId.HasValue && lastId.HasValue)
@@ -88,11 +87,11 @@ namespace DataAccess.Repositories.Concretes
                 x.CreatedDate.Date >= firstCreatedDate.Value.Date &&
                 x.CreatedDate.Date <= secondCreatedDate.Value.Date);
             }
-            if (firstCreatedDate.HasValue)
+            else if (firstCreatedDate.HasValue)
             {
                 filter = filter.Where(x => x.CreatedDate.Date == firstCreatedDate.Value.Date);
             }
-            if (secondCreatedDate.HasValue)
+            else if (secondCreatedDate.HasValue)
             {
                 filter = filter.Where(x => x.CreatedDate.Date == secondCreatedDate.Value.Date);
             }
@@ -102,13 +101,13 @@ namespace DataAccess.Repositories.Concretes
                 x.UpdatedDate.Value.Date >= firstUpdatedDate.Value.Date &&
                 x.UpdatedDate.Value.Date <= secondUpdatedDate.Value.Date);
             }
-            if (firstUpdatedDate.HasValue)
+            else if (firstUpdatedDate.HasValue)
             {
-                filter = filter.Where(x => x.UpdatedDate.Value.Date == firstUpdatedDate.Value.Date);
+                filter = filter.Where(x => x.UpdatedDate.HasValue && x.UpdatedDate.Value.Date == firstUpdatedDate.Value.Date);
             }
-            if (secondUpdatedDate.HasValue)
+            else if (secondUpdatedDate.HasValue)
             {
-                filter = filter.Where(x => x.UpdatedDate.Value.Date == secondUpdatedDate.Value.Date);
+                filter = filter.Where(x => x.UpdatedDate.HasValue && x.UpdatedDate.Value.Date == secondUpdatedDate.Value.Date);
             }
             if (status.HasValue)
             {
@@ -118,11 +117,12 @@ namespace DataAccess.Repositories.Concretes
             {
                 filter = filter.Where(x => x.IsUpdated == isUpdated.Value);
             }
+            if (descending == true)
+                filter = filter.OrderByDescending(x => x.Id);
 
             return filter;
         }
-
-        public async Task<T> GetByIdAsync(int Id)
+        public async Task<T?> GetByIdAsync(int? Id)
         {
             return await _dbset.FindAsync(Id);
         }
