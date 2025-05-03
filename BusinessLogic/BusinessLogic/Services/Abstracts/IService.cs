@@ -1,23 +1,27 @@
 ﻿using BusinessLogic.DTOs.Abstracts;
+using DataAccess.Entities.Enums;
 using DataAccess.Entities.Interfaces;
 
 namespace BusinessLogic.Services.Abstracts
 {
-    public interface IService<TEntity,TResponse,TRequest> 
-        where TEntity : class,IEntity where TResponse : BaseResponseModelDTO where TRequest : BaseRequestModelDTO
+    public interface IService<TEntity, TResponse, TRequest>
+        where TEntity : class, IEntity where TResponse : BaseResponseModelDTO where TRequest : BaseRequestModelDTO
     {
-        IEnumerable<TResponse> GetAllEntities();
-        IEnumerable<TResponse> GetAllActives();
-        IEnumerable<TResponse> GetAllPassives();
-        IEnumerable<TResponse> GetAllUnknowns();
-        IEnumerable<TResponse> GetAllUpdated();
-        IEnumerable<TResponse> GetAllNotUpdated();
+        #region Manuel Methods
+        //IEnumerable<TResponse> GetAllEntities();
+        //IEnumerable<TResponse> GetAllActives();
+        //IEnumerable<TResponse> GetAllPassives();
+        //IEnumerable<TResponse> GetAllUnknowns();
+        //IEnumerable<TResponse> GetAllUpdated();
+        //IEnumerable<TResponse> GetAllNotUpdated();
+        //IEnumerable<TResponse> GetEntitiesBetweenId(int firstId, int lastId);
+        //IEnumerable<TResponse> GetEntitiesByCreatedDate(DateTime dateTime);
+        //IEnumerable<TResponse> GetEntitiesByUpdatedDate(DateTime dateTime);
+        //IEnumerable<TResponse> GetEntitiesBetweenCreatedDates(DateTime firstDate, DateTime lastDate);
+        //IEnumerable<TResponse> GetEntitiesBetweenUpdatedDates(DateTime firstDate, DateTime lastDate); 
+        #endregion
+        IEnumerable<TResponse> GetDynamicFilteredEntities(int? firstId, int? lastId, DateTime? firstCreatedDate, DateTime? secondCreatedDate, DateTime? firstUpdatedDate, DateTime? secondUpdatedDate, DataStatus? status, bool? isUpdated);
         Task<TResponse> GetByIdAsync(int Id);
-        IEnumerable<TResponse> GetEntitiesBetweenId(int firstId, int lastId);
-        IEnumerable<TResponse> GetEntitiesByCreatedDate(DateTime dateTime);
-        IEnumerable<TResponse> GetEntitiesByUpdatedDate(DateTime dateTime);
-        IEnumerable<TResponse> GetEntitiesBetweenCreatedDates(DateTime firstDate, DateTime lastDate);
-        IEnumerable<TResponse> GetEntitiesBetweenUpdatedDates(DateTime firstDate, DateTime lastDate);
         Task CreateAsync(TRequest DTO);
         Task CreateRangeAsync(List<TRequest> DTOs);
         Task CreateBulkAsync(List<TRequest> DTOs);

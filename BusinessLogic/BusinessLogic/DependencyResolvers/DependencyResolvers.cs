@@ -43,7 +43,10 @@ namespace BusinessLogic.DependencyResolvers
         /// <returns></returns>
         public static IServiceCollection AddDbContext(this IServiceCollection collection)
         {
-            collection.AddDbContext<GezTurizmContext>(options => options.UseSqlServer(Environment.GetEnvironmentVariable("Connection_String")));
+            collection.AddDbContext<GezTurizmContext>(options => options
+            .UseLazyLoadingProxies()
+            .EnableSensitiveDataLogging()
+            .UseSqlServer(Environment.GetEnvironmentVariable("Connection_String")));
             return collection;
         }
         /// <summary>
@@ -55,10 +58,20 @@ namespace BusinessLogic.DependencyResolvers
         {
             collection.AddIdentity<WebUserAccount, IdentityRole<int>>(x =>
             {
-                //Burada birtakım yapılandırmalar sağlanacak.
+                //SignIn 
+                x.SignIn.RequireConfirmedEmail = false;
+                x.SignIn.RequireConfirmedPhoneNumber = false;
+                //Password
+                x.Password.RequireDigit = true;
+                x.Password.RequireLowercase = true;
+                x.Password.RequireUppercase = true;
+                x.Password.RequireNonAlphanumeric = true;
+                x.Password.RequiredLength = 8;           
+                x.Password.RequiredUniqueChars = 2;
+                //Email
+                x.User.RequireUniqueEmail = true;
             }).AddEntityFrameworkStores<GezTurizmContext>();
             return collection;
-            //Benim WebUserAccount ve IdentityRole sınıflarımın verilerini GezTurizmContext üzerinden EF Core kullanarak veritabanında tut.
         }
         /// <summary>
         /// Tüm Repository sınıflarını Scoped olarak DI Container'e ekler

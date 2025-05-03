@@ -5,6 +5,8 @@ using DataAccess.Repositories.Abstracts;
 using Microsoft.EntityFrameworkCore;
 using EFCore.BulkExtensions;
 using DataAccess.Entities.Models.WebUsers;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+
 namespace DataAccess.Repositories.Concretes
 
 {
@@ -17,57 +19,112 @@ namespace DataAccess.Repositories.Concretes
             _context = context;
             _dbset = _context.Set<T>();
         }
+        #region Manuel Methods
+        //public I_dbsetable<T> GetAllEntities()
+        //{
+        //    return _dbset;
 
-        public IQueryable<T> GetAllEntities()
+        //}
+        //public I_dbsetable<T> GetAllActives()
+        //{
+        //    return _dbset.Where(x => x.Status == DataStatus.Active);
+        //}
+        //public I_dbsetable<T> GetAllPassives()
+        //{
+        //    return _dbset.Where(x => x.Status == DataStatus.Passive);
+        //}
+        //public I_dbsetable<T> GetAllUnknowns()
+        //{
+        //    return _dbset.Where(x => x.Status == DataStatus.Unknown);
+        //}
+        //public I_dbsetable<T> GetAllUpdated()
+        //{
+        //    return _dbset.Where(x => x.IsUpdated == true);
+        //}
+        //public I_dbsetable<T> GetAllNotUpdated()
+        //{
+        //    return _dbset.Where(x => x.IsUpdated == false);
+        //}
+        //public I_dbsetable<T> GetEntitiesBetweenId(int firstId, int lastId)
+        //{
+        //    return _dbset.Where(x => x.Id >= firstId && x.Id <= lastId);
+        //}
+        //public I_dbsetable<T> GetEntitiesByCreatedDate(DateTime dateTime)
+        //{
+        //    return _dbset.Where(x => x.CreatedDate.Date == dateTime.Date);
+        //}
+        //public I_dbsetable<T> GetEntitiesByUpdatedDate(DateTime dateTime)
+        //{
+        //    return _dbset.Where(x => x.UpdatedDate.Value.Date == dateTime.Date);
+        //}
+        //public I_dbsetable<T> GetEntitiesBetweenCreatedDates(DateTime firstDate, DateTime lastDate)
+        //{
+        //    return _dbset.Where(x => x.CreatedDate.Date >= firstDate.Date && x.CreatedDate.Date <= lastDate.Date);
+        //}
+        //public I_dbsetable<T> GetEntitiesBetweenUpdatedDates(DateTime firstDate, DateTime lastDate)
+        //{
+        //    return _dbset.Where(x => x.UpdatedDate.Value.Date >= firstDate.Date &&
+        //    x.UpdatedDate.Value.Date <= lastDate.Date);
+        //} 
+        #endregion
+        public IQueryable<T> GetDynamicFilteredEntities(
+            int? firstId = null,
+            int? lastId = null,
+            DateTime? firstCreatedDate = null,
+            DateTime? secondCreatedDate = null,
+            DateTime? firstUpdatedDate = null,
+            DateTime? secondUpdatedDate = null,
+            DataStatus? status = null,
+            bool? isUpdated = null)
         {
-            return _dbset;
+            IQueryable<T> filter = _dbset;
+            if (firstId.HasValue && lastId.HasValue)
+            {
+                filter = filter.Where(x => x.Id >= firstId && x.Id <= lastId);
+            }
+            if (firstCreatedDate.HasValue && secondCreatedDate.HasValue)
+            {
+                filter = filter.Where(x =>
+                x.CreatedDate.Date >= firstCreatedDate.Value.Date &&
+                x.CreatedDate.Date <= secondCreatedDate.Value.Date);
+            }
+            if (firstCreatedDate.HasValue)
+            {
+                filter = filter.Where(x => x.CreatedDate.Date == firstCreatedDate.Value.Date);
+            }
+            if (secondCreatedDate.HasValue)
+            {
+                filter = filter.Where(x => x.CreatedDate.Date == secondCreatedDate.Value.Date);
+            }
+            if (firstUpdatedDate.HasValue && secondUpdatedDate.HasValue)
+            {
+                filter = filter.Where(x =>
+                x.UpdatedDate.Value.Date >= firstUpdatedDate.Value.Date &&
+                x.UpdatedDate.Value.Date <= secondUpdatedDate.Value.Date);
+            }
+            if (firstUpdatedDate.HasValue)
+            {
+                filter = filter.Where(x => x.UpdatedDate.Value.Date == firstUpdatedDate.Value.Date);
+            }
+            if (secondUpdatedDate.HasValue)
+            {
+                filter = filter.Where(x => x.UpdatedDate.Value.Date == secondUpdatedDate.Value.Date);
+            }
+            if (status.HasValue)
+            {
+                filter = filter.Where(x => x.Status == status.Value);
+            }
+            if (isUpdated.HasValue)
+            {
+                filter = filter.Where(x => x.IsUpdated == isUpdated.Value);
+            }
 
+            return filter;
         }
-        public IQueryable<T> GetAllActives()
-        {
-            return _dbset.Where(x => x.Status == DataStatus.Active);
-        }
-        public IQueryable<T> GetAllPassives()
-        {
-            return _dbset.Where(x => x.Status == DataStatus.Passive);
-        }
-        public IQueryable<T> GetAllUnknowns()
-        {
-            return _dbset.Where(x => x.Status == DataStatus.Unknown);
-        }
-        public IQueryable<T> GetAllUpdated()
-        {
-            return _dbset.Where(x => x.IsUpdated == true);
-        }
-        public IQueryable<T> GetAllNotUpdated()
-        {
-            return _dbset.Where(x => x.IsUpdated == false);
-        }
-#nullable disable
+
         public async Task<T> GetByIdAsync(int Id)
         {
             return await _dbset.FindAsync(Id);
-        }
-        public IQueryable<T> GetEntitiesBetweenId(int firstId, int lastId)
-        {
-            return _dbset.Where(x => x.Id >= firstId && x.Id <= lastId);
-        }
-        public IQueryable<T> GetEntitiesByCreatedDate(DateTime dateTime)
-        {
-            return _dbset.Where(x => x.CreatedDate.Date == dateTime.Date);
-        }
-        public IQueryable<T> GetEntitiesByUpdatedDate(DateTime dateTime)
-        {
-            return _dbset.Where(x => x.UpdatedDate.Value.Date == dateTime.Date);
-        }
-        public IQueryable<T> GetEntitiesBetweenCreatedDates(DateTime firstDate, DateTime lastDate)
-        {
-            return _dbset.Where(x => x.CreatedDate.Date >= firstDate.Date && x.CreatedDate.Date <= lastDate.Date);
-        }
-        public IQueryable<T> GetEntitiesBetweenUpdatedDates(DateTime firstDate, DateTime lastDate)
-        {
-            return _dbset.Where(x => x.UpdatedDate.Value.Date >= firstDate.Date &&
-            x.UpdatedDate.Value.Date <= lastDate.Date);
         }
         public async Task CreateAsync(T entity)
         {
@@ -125,7 +182,7 @@ namespace DataAccess.Repositories.Concretes
         {
             var deletedItems = _dbset.Where(x => x.Id > first && x.Id < last);
             #region Uyarı!!
-            /*Iqueryable sadece bir sorgu nesnesi oluşturur.Herhangi bir veritabanı işleminde bulunmadığı için await kullanımı hata verir.Tolistasync gibi bir metod ile bu sorgu veritabanından verileri bir Lİst<T> olarak geri döner.Bu noktada await kullanılır.*/
+            /*I_dbsetable sadece bir sorgu nesnesi oluşturur.Herhangi bir veritabanı işleminde bulunmadığı için await kullanımı hata verir.Tolistasync gibi bir metod ile bu sorgu veritabanından verileri bir Lİst<T> olarak geri döner.Bu noktada await kullanılır.*/
             #endregion
             foreach (var deletedItem in deletedItems)
             {
@@ -144,7 +201,7 @@ namespace DataAccess.Repositories.Concretes
             _dbset.RemoveRange(entities);
             await _context.SaveChangesAsync();
         }
-        public async Task DestroyRangeSelectAsync(int first,int last)
+        public async Task DestroyRangeSelectAsync(int first, int last)
         {
             var values = _dbset.Where(x => x.Id > first && x.Id < last);
             _context.RemoveRange(values);

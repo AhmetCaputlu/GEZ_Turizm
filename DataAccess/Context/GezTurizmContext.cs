@@ -22,6 +22,8 @@ namespace DataAccess.Context
         {
 
         }
+
+
         public DbSet<WebUserAccount> AspNetUsers { get; set; }
         public DbSet<WebUserProfile> AspNetUserProfiles { get; set; }
         public DbSet<Activity> Activities { get; set; }
@@ -40,17 +42,7 @@ namespace DataAccess.Context
         public DbSet<RentalVehicle> RentalVehicles { get; set; }
         public DbSet<Vehicle> Vehicles { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder
-                    .UseLazyLoadingProxies()
-                    //.EnableSensitiveDataLogging().LogTo(Console.WriteLine)
-                    .UseSqlServer(Environment.GetEnvironmentVariable("Connection_String"));
-            }
-            base.OnConfiguring(optionsBuilder);
-        }
+     
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 

@@ -1,10 +1,12 @@
 ﻿using System.Diagnostics;
+using System.Runtime.ConstrainedExecution;
 using BusinessLogic.DTOs.WebUser;
 using BusinessLogic.Services.Abstracts;
+using DataAccess.Entities.Enums;
 using DataAccess.Entities.Models.WebUsers;
 using Microsoft.AspNetCore.Mvc;
 using Presentation_MVC.Models;
- 
+
 namespace Presentation_MVC.Controllers
 {
     public class HomeController : Controller
@@ -15,7 +17,7 @@ namespace Presentation_MVC.Controllers
         //{
         //    _logger = logger;
         //}
-        private readonly IService<WebUserAccount,WebUserAccountResponseDTO,WebUserAccountRequestDTO> _service;
+        private readonly IService<WebUserAccount, WebUserAccountResponseDTO, WebUserAccountRequestDTO> _service;
         public HomeController(IService<WebUserAccount, WebUserAccountResponseDTO, WebUserAccountRequestDTO> service)
         {
             _service = service;
@@ -29,11 +31,14 @@ namespace Presentation_MVC.Controllers
         {
             return View();
         }
-        public IActionResult Test()
+
+        public IActionResult Test(int? firstId,int? lastId,DateTime? firstCreatedDate,DateTime? secondCreatedDate,
+            DateTime? firstUpdatedDate,DateTime? secondUpdatedDate,DataStatus? status,bool? isUpdated)
         {
-            var x = _service.GetAllEntities();
-            return View(x);
+            var filter = _service.GetDynamicFilteredEntities(firstId,lastId,firstCreatedDate,secondCreatedDate,firstUpdatedDate,secondUpdatedDate,status,isUpdated);
+            return View(filter);
         }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

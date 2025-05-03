@@ -2,8 +2,10 @@
 using AutoMapper.QueryableExtensions;
 using BusinessLogic.DTOs.Abstracts;
 using BusinessLogic.Services.Abstracts;
+using DataAccess.Entities.Enums;
 using DataAccess.Entities.Interfaces;
 using DataAccess.Repositories.Abstracts;
+using Microsoft.EntityFrameworkCore;
 
 namespace BusinessLogic.Services.Concretes
 {
@@ -17,57 +19,65 @@ namespace BusinessLogic.Services.Concretes
             _repository = repository;
             _mapper = mapper;
         }
-        public IEnumerable<TResponse> GetAllEntities()
+        #region Manuel Methods
+        //public IEnumerable<TResponse> GetAllEntities()
+        //{
+        //    return _repository.GetAllEntities().ProjectTo<TResponse>(_mapper.ConfigurationProvider).ToList();
+        //}
+        //public IEnumerable<TResponse> GetAllActives()
+        //{
+        //    return _repository.GetAllActives().ProjectTo<TResponse>(_mapper.ConfigurationProvider).ToList();
+        //}
+        //public IEnumerable<TResponse> GetAllPassives()
+        //{
+        //    return _repository.GetAllPassives().ProjectTo<TResponse>(_mapper.ConfigurationProvider).ToList();
+        //}
+        //public IEnumerable<TResponse> GetAllUnknowns()
+        //{
+        //    return _repository.GetAllUnknowns().ProjectTo<TResponse>(_mapper.ConfigurationProvider).ToList();
+        //}
+        //public IEnumerable<TResponse> GetAllUpdated()
+        //{
+        //    return _repository.GetAllUpdated().ProjectTo<TResponse>(_mapper.ConfigurationProvider).ToList();
+        //}
+        //public IEnumerable<TResponse> GetAllNotUpdated()
+        //{
+        //    return _repository.GetAllNotUpdated().ProjectTo<TResponse>(_mapper.ConfigurationProvider).ToList();
+        //}
+
+        //public IEnumerable<TResponse> GetEntitiesBetweenId(int firstId, int lastId)
+        //{
+        //    return _repository.GetEntitiesBetweenId(firstId,lastId).ProjectTo<TResponse>(_mapper.ConfigurationProvider).ToList();
+        //}
+        //public IEnumerable<TResponse> GetEntitiesByCreatedDate(DateTime dateTime)
+        //{
+        //    return _repository.GetEntitiesByCreatedDate(dateTime).ProjectTo<TResponse>(_mapper.ConfigurationProvider).ToList();
+        //}
+        //public IEnumerable<TResponse> GetEntitiesByUpdatedDate(DateTime dateTime)
+        //{
+        //    return _repository.GetEntitiesByUpdatedDate(dateTime).ProjectTo<TResponse>(_mapper.ConfigurationProvider).ToList();
+        //}
+        //public IEnumerable<TResponse> GetEntitiesBetweenCreatedDates(DateTime firstDate, DateTime lastDate)
+        //{
+        //    return _repository.GetEntitiesBetweenCreatedDates(firstDate, lastDate).ProjectTo<TResponse>(_mapper.ConfigurationProvider).ToList();
+        //}
+        //public IEnumerable<TResponse> GetEntitiesBetweenUpdatedDates(DateTime firstDate, DateTime lastDate)
+        //{
+        //    return _repository.GetEntitiesBetweenUpdatedDates(firstDate, lastDate).ProjectTo<TResponse>(_mapper.ConfigurationProvider).ToList();
+        //} 
+        #endregion
+
+        public IEnumerable<TResponse> GetDynamicFilteredEntities(int? firstId, int? lastId, DateTime? firstCreatedDate, DateTime? secondCreatedDate, DateTime? firstUpdatedDate, DateTime? secondUpdatedDate, DataStatus? status, bool? isUpdated)
         {
-            return _repository.GetAllEntities().ProjectTo<TResponse>(_mapper.ConfigurationProvider).ToList();
-        }
-        public IEnumerable<TResponse> GetAllEntities2()
-        {
-            return _mapper.Map<IEnumerable<TResponse>>(_repository.GetAllEntities());
-        }
-        public IEnumerable<TResponse> GetAllActives()
-        {
-            return _mapper.Map<IEnumerable<TResponse>>(_repository.GetAllActives());
-        }
-        public IEnumerable<TResponse> GetAllPassives()
-        {
-            return _mapper.Map<IEnumerable<TResponse>>(_repository.GetAllPassives());
-        }
-        public IEnumerable<TResponse> GetAllUnknowns()
-        {
-            return _mapper.Map<IEnumerable<TResponse>>(_repository.GetAllUnknowns());
-        }
-        public IEnumerable<TResponse> GetAllUpdated()
-        {
-            return _mapper.Map<IEnumerable<TResponse>>(_repository.GetAllUpdated());
-        }
-        public IEnumerable<TResponse> GetAllNotUpdated()
-        {
-            return _mapper.Map<IEnumerable<TResponse>>(_repository.GetAllNotUpdated());
+            IEnumerable<TResponse> filter = 
+                _repository.GetDynamicFilteredEntities(firstId, lastId, firstCreatedDate, secondCreatedDate, firstUpdatedDate, secondUpdatedDate, status, isUpdated)
+                .ProjectTo<TResponse>(_mapper.ConfigurationProvider).ToList();
+
+            return filter;
         }
         public async Task<TResponse> GetByIdAsync(int Id)
         {
             return _mapper.Map<TResponse>(await _repository.GetByIdAsync(Id));
-        }
-        public IEnumerable<TResponse> GetEntitiesBetweenId(int TResponseirstId, int lastId)
-        {
-            return _mapper.Map<IEnumerable<TResponse>>(_repository.GetEntitiesBetweenId(TResponseirstId, lastId));
-        }
-        public IEnumerable<TResponse> GetEntitiesByCreatedDate(DateTime dateTime)
-        {
-            return _mapper.Map<IEnumerable<TResponse>>(_repository.GetEntitiesByCreatedDate(dateTime));
-        }
-        public IEnumerable<TResponse> GetEntitiesByUpdatedDate(DateTime dateTime)
-        {
-            return _mapper.Map<IEnumerable<TResponse>>(_repository.GetEntitiesByUpdatedDate(dateTime));
-        }
-        public IEnumerable<TResponse> GetEntitiesBetweenCreatedDates(DateTime TResponseirstDate, DateTime lastDate)
-        {
-            return _mapper.Map<IEnumerable<TResponse>>(_repository.GetEntitiesBetweenCreatedDates(TResponseirstDate, lastDate));
-        }
-        public IEnumerable<TResponse> GetEntitiesBetweenUpdatedDates(DateTime TResponseirstDate, DateTime lastDate)
-        {
-            return _mapper.Map<IEnumerable<TResponse>>(_repository.GetEntitiesBetweenUpdatedDates(TResponseirstDate, lastDate));
         }
         public async Task CreateAsync(TRequest DTO)
         {
@@ -97,9 +107,9 @@ namespace BusinessLogic.Services.Concretes
         {
             await _repository.DeleteAsync(Id);
         }
-        public async Task DeleteRangeSelectAsync(int TResponseirst, int last)
+        public async Task DeleteRangeSelectAsync(int first, int last)
         {
-            await _repository.DeleteRangeSelectAsync(TResponseirst, last);
+            await _repository.DeleteRangeSelectAsync(first, last);
         }
         public async Task DeleteRangeAsync(List<TRequest> DTOs)
         {
@@ -121,5 +131,7 @@ namespace BusinessLogic.Services.Concretes
         {
             await _repository.DestroyBulkAsync(values);
         }
+
+
     }
 }
