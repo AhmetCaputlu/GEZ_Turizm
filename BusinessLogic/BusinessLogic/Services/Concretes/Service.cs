@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Threading.Tasks;
+using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using BusinessLogic.DTOs.Abstracts;
 using BusinessLogic.DTOs.WebUser;
@@ -7,6 +8,7 @@ using DataAccess.Entities.Enums;
 using DataAccess.Entities.Interfaces;
 using DataAccess.Repositories.Abstracts;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace BusinessLogic.Services.Concretes
 {
@@ -67,23 +69,12 @@ namespace BusinessLogic.Services.Concretes
         //    return _repository.GetEntitiesBetweenUpdatedDates(firstDate, lastDate).ProjectTo<TResponse>(_mapper.ConfigurationProvider).ToList();
         //} 
         #endregion
-
-        public IEnumerable<TResponse> GetDynamicFilteredEntities(int? firstId, int? lastId, DateTime? firstCreatedDate, DateTime? secondCreatedDate, DateTime? firstUpdatedDate, DateTime? secondUpdatedDate, DataStatus? status, bool? isUpdated)
+        public async Task<IEnumerable<TResponse>> GetDynamicFilteredEntities(int? firstId = null, int? lastId = null, DateTime? firstCreatedDate = null, DateTime? secondCreatedDate = null, DateTime? firstUpdatedDate = null, DateTime? secondUpdatedDate = null, DataStatus? status = null, bool? isUpdated = null, bool? descending = null)
         {
-            IEnumerable<TResponse> filter =
-                _repository.GetDynamicFilteredEntities(firstId, lastId, firstCreatedDate, secondCreatedDate, firstUpdatedDate, secondUpdatedDate, status, isUpdated)
-                .ProjectTo<TResponse>(_mapper.ConfigurationProvider)
-                .ToList();
-
-            return filter;
-        }
-        public IEnumerable<TResponse> GetDynamicFilteredEntities2(int? firstId, int? lastId, DateTime? firstCreatedDate, DateTime? secondCreatedDate, DateTime? firstUpdatedDate, DateTime? secondUpdatedDate, DataStatus? status, bool? isUpdated)
-        {
-            IEnumerable<TResponse> filter =
-               _mapper.Map<IEnumerable<TResponse>>(_repository.GetDynamicFilteredEntities(firstId, lastId, firstCreatedDate, secondCreatedDate, firstUpdatedDate, secondUpdatedDate, status, isUpdated)
-                .ToList());
-
-            return filter;
+            return await _repository.GetDynamicFilteredEntities
+             (firstId, lastId, firstCreatedDate, secondCreatedDate, firstUpdatedDate, secondUpdatedDate, status, isUpdated, descending)
+            .ProjectTo<TResponse>(_mapper.ConfigurationProvider)
+            .ToListAsync();
         }
         public async Task<TResponse> GetByIdAsync(int Id)
         {

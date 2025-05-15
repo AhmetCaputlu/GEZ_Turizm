@@ -22,6 +22,5 @@ namespace DataAccess.Entities.Models.Tickets
         public int? ActivityId { get; set; }
         public virtual Activity? Activity { get; set; }
         public virtual ICollection<ActivityTicketOrderDetail>? ActivityTicketOrderDetails { get; set; }
-
     }
 }

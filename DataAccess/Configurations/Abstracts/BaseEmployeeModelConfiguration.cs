@@ -14,7 +14,7 @@ namespace DataAccess.Configurations.Abstracts
             builder.Property(x => x.LastName).HasMaxLength(30).IsRequired(true);
             builder.Property(x => x.Gender).IsRequired(true).HasDefaultValue(Gender.Unknown).HasConversion(x => x.ToString(), x => (Gender)Enum.Parse(typeof(Gender), x));
             builder.Property(x => x.Gender).HasMaxLength(10);
-            builder.Property(x => x.BirthDate).IsRequired(true).HasDefaultValue(new DateTime(2000, 01, 01));
+            builder.Property(x => x.BirthDate).IsRequired(true).HasDefaultValue(new DateTime(1980, 01, 01));
             builder.Property(x => x.TCN_Passport).HasMaxLength(11).IsRequired(false);
             builder.Property(x => x.Address).HasMaxLength(180).IsRequired(false);
             builder.Property(x => x.PhotoPath).HasMaxLength(255).IsRequired(false);

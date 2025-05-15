@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Runtime.ConstrainedExecution;
+using System.Threading.Tasks;
 using BusinessLogic.DTOs.WebUser;
 using BusinessLogic.Services.Abstracts;
 using DataAccess.Entities.Enums;
@@ -32,10 +33,10 @@ namespace Presentation_MVC.Controllers
             return View();
         }
 
-        public IActionResult Test(int? firstId,int? lastId,DateTime? firstCreatedDate,DateTime? secondCreatedDate,
-            DateTime? firstUpdatedDate,DateTime? secondUpdatedDate,DataStatus? status,bool? isUpdated)
+        public async Task<IActionResult> Test(int? firstId, int? lastId, DateTime? firstCreatedDate, DateTime? secondCreatedDate,
+            DateTime? firstUpdatedDate, DateTime? secondUpdatedDate, DataStatus? status, bool? isUpdated, bool? descending)
         {
-            var filter = _service.GetDynamicFilteredEntities(firstId,lastId,firstCreatedDate,secondCreatedDate,firstUpdatedDate,secondUpdatedDate,status,isUpdated);
+            var filter =await _service.GetDynamicFilteredEntities(firstId, lastId, firstCreatedDate, secondCreatedDate, firstUpdatedDate, secondUpdatedDate, status, isUpdated, descending);
             return View(filter);
         }
 

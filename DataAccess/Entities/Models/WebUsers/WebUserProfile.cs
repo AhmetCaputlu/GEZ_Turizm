@@ -1,21 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using DataAccess.Entities.Abstracts;
 using DataAccess.Entities.Enums;
 using DataAccess.Entities.Interfaces;
 
 namespace DataAccess.Entities.Models.WebUsers
 {
-    public class WebUserProfile : IPersonDetail, IEntity
+    public class WebUserProfile :BaseModel, IPersonDetail
     {
-        public string Guid { get; set; }
-        public int Id { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public string CreatedID { get; set; }
-        public string CreatedIPAddress { get; set; }
-        public bool IsUpdated { get; set; }
-        public DateTime? UpdatedDate { get; set; }
-        public string? UpdatedID { get; set; }
-        public string? UpdatedIPAddress { get; set; }
-        public DataStatus Status { get; set; }
         //Custom
         public string FirstName { get; set; }
         public string LastName { get; set; }

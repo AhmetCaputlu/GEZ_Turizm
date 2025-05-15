@@ -11,7 +11,7 @@ namespace DataAccess.Repositories.Abstracts.Company
             string? email = null,
             string? phoneNumber = null,
             string? address = null,
-            bool? descending
+            bool? descending = null
             );
     }
 }

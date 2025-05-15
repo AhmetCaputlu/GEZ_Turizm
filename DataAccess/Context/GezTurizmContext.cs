@@ -58,3 +58,6 @@ namespace DataAccess.Context
 //todo:BLL katmanında transaction işlemleri alınan ve satılan biletler doğrultusunda yönlendirilecek.Örnek verilerde durum rastgele
 //todo:IsUpdated ve diğer güncelleme property'leri BLL katmanında atanacak.(Ip Adress ve diğer değerler)
 
+//todo: RequestDTO'lar içerisinde bulunan Navigation Id'leri doldurulacak. İş mantığında Id bilgisi ile veritabanı araması yapılacak.
+
+//todo: Employee bilgilerinde hiredate Request DTO lar için datetime.now atanacak ??RequestDTo içerisinde bu özellik olmicak

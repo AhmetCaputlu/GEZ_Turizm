@@ -8,7 +8,7 @@ namespace DataAccess.Entities.Abstracts
     {
         public VehicleType VehicleType { get; set; }
         public string LicensePlate { get; set; }
-        public string Model { get; set; }
+        public string? Model { get; set; }
         public int Kilometer { get; set; }
         public int Age { get; set; }
         public short Capacity { get; set; }

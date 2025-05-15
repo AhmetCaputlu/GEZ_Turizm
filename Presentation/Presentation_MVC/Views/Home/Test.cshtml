@@ -1,49 +1,66 @@
 ﻿@model List<WebUserAccountResponseDTO>
 
 <form method="get" asp-controller="Home" asp-action="Test">
-	<div class="form-group">
-		<label for="firstId">First Id</label>
-		<input type="number" name="firstId" class="form-control" id="firstId" />
-	</div>
-	<div class="form-group">
-		<label for="lastId">Last Id</label>
-		<input type="number" name="lastId" class="form-control" id="lastId" />
-	</div>
-	<div class="form-group">
-		<label for="firstCreatedDate">First Created Date</label>
-		<input type="date" name="firstCreatedDate" class="form-control" id="firstCreatedDate" />
-	</div>
-	<div class="form-group">
-		<label for="secondCreatedDate">Second Created Date</label>
-		<input type="date" name="secondCreatedDate" class="form-control" id="secondCreatedDate" />
-	</div>
-	<div class="form-group">
-		<label for="firstUpdatedDate">First Updated Date</label>
-		<input type="date" name="firstCreatedDate" class="form-control" id="firstCreatedDate" />
-	</div>
-	<div class="form-group">
-		<label for="secondUpdatedDate">Second Updated Date</label>
-		<input type="date" name="secondCreatedDate" class="form-control" id="secondCreatedDate" />
-	</div>
-	<div class="form-group">
-		<label for="isUpdated">Is Updated?</label>
-		<select name="isUpdated" class="form-control" id="isUpdated">
-			<option value="true">Yes</option>
-			<option value="false">No</option>
-		</select>
-	</div>
+    <div class="row mb-2">
+        <div class="col-md-6">
+            <label for="firstId">First Id</label>
+            <input type="number" name="firstId" class="form-control" id="firstId" />
+        </div>
+        <div class="col-md-6">
+            <label for="lastId">Last Id</label>
+            <input type="number" name="lastId" class="form-control" id="lastId" />
+        </div>
+    </div>
 
-	<div class="form-group">
-		<label for="status">Status</label>
-		<select name="status" class="form-control" id="status">
-			<option value="">--Select Status--</option>
-			<option value="@DataAccess.Entities.Enums.DataStatus.Unknown">Unknown</option>
-			<option value="@DataAccess.Entities.Enums.DataStatus.Active">Active</option>
-			<option value="@DataAccess.Entities.Enums.DataStatus.Passive">Passive</option>
-		</select>
-	</div>
-	<button type="submit" class="btn btn-primary">Filter</button>
+    <div class="row mb-2">
+        <div class="col-md-6">
+            <label for="firstCreatedDate">First Created Date</label>
+            <input type="date" name="firstCreatedDate" class="form-control" id="firstCreatedDate" />
+        </div>
+        <div class="col-md-6">
+            <label for="secondCreatedDate">Second Created Date</label>
+            <input type="date" name="secondCreatedDate" class="form-control" id="secondCreatedDate" />
+        </div>
+    </div>
+
+    <div class="row mb-2">
+        <div class="col-md-6">
+            <label for="firstUpdatedDate">First Updated Date</label>
+            <input type="date" name="firstUpdatedDate" class="form-control" id="firstUpdatedDate" />
+        </div>
+        <div class="col-md-6">
+            <label for="secondUpdatedDate">Second Updated Date</label>
+            <input type="date" name="secondUpdatedDate" class="form-control" id="secondUpdatedDate" />
+        </div>
+    </div>
+
+    <div class="row mb-2">
+        <div class="col-md-6">
+            <label for="isUpdated">Is Updated?</label>
+            <select name="isUpdated" class="form-control" id="isUpdated">
+                <option value="">-- Select --</option>
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </select>
+        </div>
+        <div class="col-md-6">
+            <label for="status">Status</label>
+            <select name="status" class="form-control" id="status">
+                <option value="">-- Select Status --</option>
+                <option value="@DataAccess.Entities.Enums.DataStatus.Unknown">Unknown</option>
+                <option value="@DataAccess.Entities.Enums.DataStatus.Active">Active</option>
+                <option value="@DataAccess.Entities.Enums.DataStatus.Passive">Passive</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col text-end">
+            <button type="submit" class="btn btn-primary">Filter</button>
+        </div>
+    </div>
 </form>
+
 
 
 

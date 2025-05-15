@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using BusinessLogic.DTOs.Abstracts;
+using BusinessLogic.DTOs.Countries;
+using BusinessLogic.DTOs.Regions;
 
 namespace BusinessLogic.DTOs.WebUser
 {
@@ -15,5 +17,7 @@ namespace BusinessLogic.DTOs.WebUser
         [Required(ErrorMessage = "Bu alan zorunludur!!")]
         [StringLength(11,MinimumLength =10,ErrorMessage ="Lütfen alan kodu olmadan tuşlayınız!!")]
         public string PhoneNumber { get; set; }
+        [Required(ErrorMessage = "Bu alan zorunludur!!")]
+        public CountryRequestDTO? CountryRequestDTO { get; set; }
     }
 }
