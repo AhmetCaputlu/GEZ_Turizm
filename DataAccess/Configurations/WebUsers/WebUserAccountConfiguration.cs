@@ -13,13 +13,13 @@ namespace DataAccess.Configurations.WebUsers
         {
             //IEntity
             builder.Ignore(x => x.Id);
-            builder.Property(x => x.Guid).HasMaxLength(36).IsRequired(true);
+            builder.Property(x => x.Guid).HasMaxLength(45).IsRequired(true);
             builder.Property(x => x.CreatedDate).IsRequired(true).HasDefaultValue(DateTime.Now);
             builder.Property(x => x.CreatedID).IsRequired(true).HasMaxLength(36);
-            builder.Property(x => x.CreatedIPAddress).HasMaxLength(20).IsRequired(true).HasDefaultValue("IP verilmedi");
+            builder.Property(x => x.CreatedIPAddress).HasMaxLength(30).IsRequired(true).HasDefaultValue("IP verilmedi");
             builder.Property(x => x.UpdatedDate).IsRequired(false);
             builder.Property(x => x.UpdatedID).IsRequired(false).HasMaxLength(36);
-            builder.Property(x => x.UpdatedIPAddress).HasMaxLength(20).IsRequired(false);
+            builder.Property(x => x.UpdatedIPAddress).HasMaxLength(30).IsRequired(false);
             builder.Property(x => x.Status).IsRequired(true).HasDefaultValue(DataStatus.Unknown).HasConversion(x => x.ToString(), x => (DataStatus)Enum.Parse(typeof(DataStatus), x)).HasMaxLength(20);
             builder.Property(x => x.IsUpdated).IsRequired(true).HasConversion(x => x ? "Yes" : "No", x => x == "Yes");
 
@@ -31,9 +31,9 @@ namespace DataAccess.Configurations.WebUsers
             //builder.Property(x => x.NormalizedEmail).HasMaxLength(120).IsRequired(false); 
             #endregion
 
-            builder.Property(x => x.PasswordHash).HasMaxLength(60).IsRequired(true);//BCrypt
-            builder.Property(x => x.SecurityStamp).HasMaxLength(36).IsRequired(false);
-            builder.Property(x => x.ConcurrencyStamp).HasMaxLength(36).IsRequired(false);
+            builder.Property(x => x.PasswordHash).HasMaxLength(240).IsRequired(true);//BCrypt
+            builder.Property(x => x.SecurityStamp).HasMaxLength(45).IsRequired(false);
+            builder.Property(x => x.ConcurrencyStamp).HasMaxLength(45).IsRequired(false);
             builder.Property(x => x.PhoneNumber).HasMaxLength(11).IsRequired(true);
             builder.Property(x => x.LockoutEnd).IsRequired(false);
 

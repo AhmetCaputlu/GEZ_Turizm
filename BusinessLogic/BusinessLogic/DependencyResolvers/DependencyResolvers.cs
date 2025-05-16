@@ -1,5 +1,7 @@
 ﻿using BusinessLogic.Services.Abstracts;
+using BusinessLogic.Services.Abstracts.Identity;
 using BusinessLogic.Services.Concretes;
+using BusinessLogic.Services.Concretes.Identity;
 using DataAccess.Context;
 using DataAccess.Entities.Models.WebUsers;
 using DataAccess.Repositories.Abstracts;
@@ -45,7 +47,7 @@ namespace BusinessLogic.DependencyResolvers
         {
             collection.AddDbContext<GezTurizmContext>(options => options
             .UseLazyLoadingProxies()
-            .EnableSensitiveDataLogging()
+            //.EnableSensitiveDataLogging()
             .UseSqlServer(Environment.GetEnvironmentVariable("Connection_String")));
             return collection;
         }
@@ -70,7 +72,8 @@ namespace BusinessLogic.DependencyResolvers
                 x.Password.RequiredUniqueChars = 2;
                 //Email
                 x.User.RequireUniqueEmail = true;
-            }).AddEntityFrameworkStores<GezTurizmContext>();
+            }).AddEntityFrameworkStores<GezTurizmContext>()
+            .AddRoleManager<RoleManager<IdentityRole<int>>>(); ;
             return collection;
         }
         /// <summary>
@@ -107,7 +110,7 @@ namespace BusinessLogic.DependencyResolvers
         public static IServiceCollection AddBLLServices(this IServiceCollection collection)
         {
             collection.AddScoped(typeof(IService<,,>), typeof(Service<,,>));
-
+            collection.AddScoped<IUserService, IdentityService>();
             return collection;
         }
         /// <summary>

@@ -39,9 +39,9 @@ namespace DataAccess.Migrations
                     CountryDescription = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: true),
                     CountryPhone = table.Column<string>(type: "nvarchar(7)", maxLength: 7, nullable: false),
                     Continent = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "81e4597a-f451-4f40-849a-67321f2c3b2b"),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 4, 17, 16, 26, 31, 838, DateTimeKind.Local).AddTicks(8682)),
-                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "6fe0d1f8-cc6a-4245-a4f8-d8bc2a468579"),
+                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "fba8120b-fd74-4d81-b58f-07c68d007968"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 5, 16, 3, 15, 14, 950, DateTimeKind.Local).AddTicks(1781)),
+                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "0c49896d-ae04-4b61-a70c-c8cdebff95ac"),
                     CreatedIPAddress = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false, defaultValue: ""),
                     IsUpdated = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -64,9 +64,9 @@ namespace DataAccess.Migrations
                     Debit = table.Column<decimal>(type: "decimal(10,4)", nullable: false),
                     Credit = table.Column<decimal>(type: "decimal(10,4)", nullable: false),
                     Balance = table.Column<decimal>(type: "decimal(10,4)", nullable: false),
-                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "d429e193-fb0a-4212-a6e6-ea0b879c7a73"),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 4, 17, 16, 26, 31, 830, DateTimeKind.Local).AddTicks(3338)),
-                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "3b04c4e1-ffed-481f-b37c-b940ce5961a7"),
+                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "54598841-3538-4539-89d7-ad3ecff1c764"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 5, 16, 3, 15, 14, 941, DateTimeKind.Local).AddTicks(7717)),
+                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "8ddc1671-90fc-431c-9da0-118f8403d514"),
                     CreatedIPAddress = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false, defaultValue: ""),
                     IsUpdated = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -91,9 +91,9 @@ namespace DataAccess.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "32525b8a-b8bd-4568-b862-1bd3b7c88b45"),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 4, 17, 16, 26, 31, 835, DateTimeKind.Local).AddTicks(9045)),
-                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "363424f3-9de5-4b79-8a1d-4fdf16b76fcb"),
+                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "c09d4a16-5fd7-44c7-9c32-4b1a42923814"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 5, 16, 3, 15, 14, 947, DateTimeKind.Local).AddTicks(1784)),
+                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "3a385473-9a07-4fb4-904f-1906c959c5e1"),
                     CreatedIPAddress = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false, defaultValue: ""),
                     IsUpdated = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -124,9 +124,9 @@ namespace DataAccess.Migrations
                     TouristPopulation = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     HasAirport = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     HasHotelFacility = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "c02b9de0-aa18-422a-8d31-69ba43844d4c"),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 4, 17, 16, 26, 31, 850, DateTimeKind.Local).AddTicks(4288)),
-                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "5d3dfced-3e83-4225-ad8d-ff5742950fc4"),
+                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "a19be872-ee98-42ba-9697-6c89caf97e35"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 5, 16, 3, 15, 14, 961, DateTimeKind.Local).AddTicks(6525)),
+                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "4aaadc2d-58e3-40cb-96ad-8e931e8f9147"),
                     CreatedIPAddress = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false, defaultValue: ""),
                     IsUpdated = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -145,9 +145,9 @@ namespace DataAccess.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "2af9df39-3433-4706-9c69-9369fc4ede64"),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 4, 17, 16, 26, 31, 837, DateTimeKind.Local).AddTicks(3216)),
-                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "bd4fc2fb-d474-47c2-997c-c35365da04c4"),
+                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "b1552cf8-26c7-4e44-9bdf-f52eb27950ad"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 5, 16, 3, 15, 14, 948, DateTimeKind.Local).AddTicks(6633)),
+                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "016b2f1a-f4b5-4dfe-b71e-7d342c12687f"),
                     CreatedIPAddress = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false, defaultValue: ""),
                     IsUpdated = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -193,14 +193,14 @@ namespace DataAccess.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 4, 17, 16, 26, 31, 864, DateTimeKind.Local).AddTicks(3917)),
+                    Guid = table.Column<string>(type: "nvarchar(45)", maxLength: 45, nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 5, 16, 3, 15, 14, 975, DateTimeKind.Local).AddTicks(7463)),
                     CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false),
-                    CreatedIPAddress = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false, defaultValue: "IP verilmedi"),
+                    CreatedIPAddress = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false, defaultValue: "IP verilmedi"),
                     IsUpdated = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: true),
-                    UpdatedIPAddress = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
+                    UpdatedIPAddress = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: true),
                     Status = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false, defaultValue: "Unknown"),
                     CountryId = table.Column<int>(type: "int", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -208,9 +208,9 @@ namespace DataAccess.Migrations
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedEmail = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     EmailConfirmed = table.Column<bool>(type: "bit", nullable: false),
-                    PasswordHash = table.Column<string>(type: "nvarchar(60)", maxLength: 60, nullable: false),
-                    SecurityStamp = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: true),
-                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: true),
+                    PasswordHash = table.Column<string>(type: "nvarchar(240)", maxLength: 240, nullable: false),
+                    SecurityStamp = table.Column<string>(type: "nvarchar(45)", maxLength: 45, nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(45)", maxLength: 45, nullable: true),
                     PhoneNumber = table.Column<string>(type: "nvarchar(11)", maxLength: 11, nullable: false),
                     PhoneNumberConfirmed = table.Column<bool>(type: "bit", nullable: false),
                     TwoFactorEnabled = table.Column<bool>(type: "bit", nullable: false),
@@ -239,9 +239,9 @@ namespace DataAccess.Migrations
                     DaysWorked = table.Column<int>(type: "int", nullable: true),
                     CurrentPosition = table.Column<string>(type: "nvarchar(35)", maxLength: 35, nullable: false),
                     CountryId = table.Column<int>(type: "int", nullable: true),
-                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "d7096914-76e9-4475-9e68-2e09110bbf78"),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 4, 17, 16, 26, 31, 841, DateTimeKind.Local).AddTicks(4243)),
-                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "8fb198ff-5a48-48cc-9a3d-79788d87025b"),
+                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "92e8f0b9-105a-432f-ae37-0514f76ece4f"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 5, 16, 3, 15, 14, 952, DateTimeKind.Local).AddTicks(6995)),
+                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "def3233b-3d49-43e2-b030-5fd61b0d360f"),
                     CreatedIPAddress = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false, defaultValue: ""),
                     IsUpdated = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -252,7 +252,7 @@ namespace DataAccess.Migrations
                     LastName = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
                     FullName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Gender = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false, defaultValue: "Unknown"),
-                    BirthDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2000, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)),
+                    BirthDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(1980, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)),
                     Age = table.Column<byte>(type: "tinyint", nullable: true),
                     Address = table.Column<string>(type: "nvarchar(180)", maxLength: 180, nullable: true),
                     PhotoPath = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
@@ -281,9 +281,9 @@ namespace DataAccess.Migrations
                     Type = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     TotalCost = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
                     PartnerCompanyId = table.Column<int>(type: "int", nullable: true),
-                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "cac16d0b-72a6-48b2-8b5d-eb77aef1bf28"),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 4, 17, 16, 26, 31, 831, DateTimeKind.Local).AddTicks(8831)),
-                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "058668eb-b5f0-4595-b362-b789e2f3a873"),
+                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "faa89186-8e1d-4e0d-984d-d1c1c28a6cd8"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 5, 16, 3, 15, 14, 943, DateTimeKind.Local).AddTicks(2650)),
+                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "0fa7f551-077e-40a1-8f08-c04580f30ba1"),
                     CreatedIPAddress = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false, defaultValue: ""),
                     IsUpdated = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -313,9 +313,9 @@ namespace DataAccess.Migrations
                     EndDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(180)", maxLength: 180, nullable: true),
                     RegionId = table.Column<int>(type: "int", nullable: true),
-                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "58a3cf7e-c346-4749-814a-bb1fc61d68c7"),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 4, 17, 16, 26, 31, 828, DateTimeKind.Local).AddTicks(6866)),
-                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "ff337525-f9b1-4b98-9fe6-e236196caf4d"),
+                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "6f3ac5db-30e3-497c-8173-e87ab56f8559"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 5, 16, 3, 15, 14, 940, DateTimeKind.Local).AddTicks(3026)),
+                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "6405741c-3afb-4584-8aa6-2808de4dd51e"),
                     CreatedIPAddress = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false, defaultValue: ""),
                     IsUpdated = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -342,9 +342,9 @@ namespace DataAccess.Migrations
                     DriverLicense = table.Column<string>(type: "nvarchar(max)", nullable: true, defaultValue: "None"),
                     Language = table.Column<string>(type: "nvarchar(max)", nullable: true, defaultValue: "None"),
                     SupplierId = table.Column<int>(type: "int", nullable: true),
-                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "8566329a-4262-45ee-804f-748742a388b3"),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 4, 17, 16, 26, 31, 840, DateTimeKind.Local).AddTicks(1414)),
-                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "ceea44a6-a202-4a39-a381-6fa88f8fd7b1"),
+                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "53afeadd-a546-4088-87a2-0e906c061e3e"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 5, 16, 3, 15, 14, 951, DateTimeKind.Local).AddTicks(4402)),
+                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "e32aff2e-28a6-4625-bdf9-dfb02a78ae3d"),
                     CreatedIPAddress = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false, defaultValue: ""),
                     IsUpdated = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -422,14 +422,6 @@ namespace DataAccess.Migrations
                 columns: table => new
                 {
                     WebUserAccountId = table.Column<int>(type: "int", nullable: false),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 4, 17, 16, 26, 32, 477, DateTimeKind.Local).AddTicks(140)),
-                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false),
-                    CreatedIPAddress = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false, defaultValue: "IP verilmedi"),
-                    IsUpdated = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: true),
-                    UpdatedIPAddress = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
-                    Status = table.Column<string>(type: "nvarchar(max)", nullable: false, defaultValue: "Unknown"),
                     FirstName = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
                     Gender = table.Column<string>(type: "nvarchar(35)", maxLength: 35, nullable: false, defaultValue: "Unknown"),
@@ -437,7 +429,15 @@ namespace DataAccess.Migrations
                     Age = table.Column<byte>(type: "tinyint", nullable: true),
                     Address = table.Column<string>(type: "nvarchar(180)", maxLength: 180, nullable: true),
                     PhotoPath = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
-                    TCN_Passport = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: true)
+                    TCN_Passport = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: true),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 5, 16, 3, 15, 15, 602, DateTimeKind.Local).AddTicks(5315)),
+                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false),
+                    CreatedIPAddress = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false, defaultValue: "IP verilmedi"),
+                    IsUpdated = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: true),
+                    UpdatedIPAddress = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
+                    Status = table.Column<string>(type: "nvarchar(max)", nullable: false, defaultValue: "Unknown")
                 },
                 constraints: table =>
                 {
@@ -503,9 +503,9 @@ namespace DataAccess.Migrations
                     WebUserEmail = table.Column<string>(type: "nvarchar(120)", maxLength: 120, nullable: false),
                     WebUserAccountId = table.Column<int>(type: "int", nullable: true),
                     EmployeeId = table.Column<int>(type: "int", nullable: true),
-                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "c8582fc6-8311-4b3e-9f71-532e2a92a147"),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 4, 17, 16, 26, 31, 847, DateTimeKind.Local).AddTicks(3872)),
-                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "a98d8f6c-3b2c-4a1e-95de-2a81c9e5ea4b"),
+                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "db619b49-c1c2-457f-a1ad-a32bb3c9da32"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 5, 16, 3, 15, 14, 958, DateTimeKind.Local).AddTicks(6219)),
+                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "96239f8a-0dac-4c6d-8aca-3aa4181a4c57"),
                     CreatedIPAddress = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false, defaultValue: ""),
                     IsUpdated = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -538,9 +538,9 @@ namespace DataAccess.Migrations
                     CommissionRate = table.Column<byte>(type: "tinyint", nullable: false),
                     TotalCostwithCommission = table.Column<decimal>(type: "decimal(8,2)", nullable: true),
                     PartnerCompanyTransactionId = table.Column<int>(type: "int", nullable: true),
-                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "74fdf448-ea68-421f-9218-548aa95a0043"),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 4, 17, 16, 26, 31, 849, DateTimeKind.Local).AddTicks(2259)),
-                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "33405c96-e4c2-438e-b77e-fa262834b97f"),
+                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "0893f6b4-300a-42d5-bff9-1c74be26353f"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 5, 16, 3, 15, 14, 960, DateTimeKind.Local).AddTicks(69)),
+                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "1720b87f-a77f-4063-bdb6-268fe43c1862"),
                     CreatedIPAddress = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false, defaultValue: ""),
                     IsUpdated = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -576,9 +576,9 @@ namespace DataAccess.Migrations
                     Currency = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PaymentStatus = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ActivityId = table.Column<int>(type: "int", nullable: true),
-                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "64271c53-155e-44c4-8ce6-ad62bb75203f"),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 4, 17, 16, 26, 31, 851, DateTimeKind.Local).AddTicks(8018)),
-                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "72c147a2-f1f5-4fee-a004-448ff868a094"),
+                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "b9e8d76c-e598-4222-810a-dbf3bb6ca513"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 5, 16, 3, 15, 14, 963, DateTimeKind.Local).AddTicks(1092)),
+                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "32182389-93ce-47aa-81a4-c7881da2eedc"),
                     CreatedIPAddress = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false, defaultValue: ""),
                     IsUpdated = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -608,9 +608,9 @@ namespace DataAccess.Migrations
                     TotalRentalDay = table.Column<int>(type: "int", nullable: false),
                     TotalPrice = table.Column<decimal>(type: "decimal(9,2)", nullable: false),
                     RentalVehicleSupplierId = table.Column<int>(type: "int", nullable: true),
-                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "8d1ccb47-37ea-4d9c-8c90-c8b454bac6ca"),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 4, 17, 16, 26, 31, 860, DateTimeKind.Local).AddTicks(4243)),
-                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "ccd6c3fd-3a09-4049-bfcc-b85b58016d45"),
+                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "9d73326f-f457-447d-a145-17df83322788"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 5, 16, 3, 15, 14, 971, DateTimeKind.Local).AddTicks(6683)),
+                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "0aaa7119-2b23-427f-ba2f-f0c2f80af1e3"),
                     CreatedIPAddress = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false, defaultValue: ""),
                     IsUpdated = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -649,9 +649,9 @@ namespace DataAccess.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     PurchaseDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     MarketValue = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
-                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "3b5fe694-c53e-4670-b2fb-8363197e0a8a"),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 4, 17, 16, 26, 31, 861, DateTimeKind.Local).AddTicks(8548)),
-                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "511751ac-b7b1-433c-911a-c8dd317792e1"),
+                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "8025f371-2f3a-4869-9b9d-a29de8105ffe"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 5, 16, 3, 15, 14, 973, DateTimeKind.Local).AddTicks(2001)),
+                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "e617b3fd-960d-4574-9eef-4feacf2166e3"),
                     CreatedIPAddress = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false, defaultValue: ""),
                     IsUpdated = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -689,9 +689,9 @@ namespace DataAccess.Migrations
                     TotalCost = table.Column<decimal>(type: "decimal(10,2)", nullable: true),
                     ActivityTicketId = table.Column<int>(type: "int", nullable: true),
                     ActivityTicketOrderId = table.Column<int>(type: "int", nullable: true),
-                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "3257238f-2a14-442b-959e-a9da8271d45d"),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 4, 17, 16, 26, 31, 845, DateTimeKind.Local).AddTicks(9819)),
-                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "3a3ec3d8-d016-416b-905d-702393cdf77a"),
+                    Guid = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "aff252dd-95eb-43b6-b9be-5ca98e22ec77"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2025, 5, 16, 3, 15, 14, 957, DateTimeKind.Local).AddTicks(2095)),
+                    CreatedID = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false, defaultValue: "be0cf1f5-baac-4882-86b7-240066c08c3e"),
                     CreatedIPAddress = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false, defaultValue: ""),
                     IsUpdated = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -719,219 +719,218 @@ namespace DataAccess.Migrations
                 columns: new[] { "Id", "Continent", "CountryCode", "CountryDescription", "CountryName", "CountryPhone", "CreatedDate", "CreatedID", "CreatedIPAddress", "Guid", "IsUpdated", "Status", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
                 values: new object[,]
                 {
-                    { 1, "NorthAmerica", "TR", "Ut molestiae ad incidunt voluptatibus fuga.", "Turkey", "+90", new DateTime(2017, 4, 19, 2, 55, 6, 0, DateTimeKind.Unspecified), "5ba44a3a-23ae-4cf5-a01f-079282197099", "47.180.117.87", "a2ab280f-018c-44d9-b3b7-f28341b06e9c", "No", "Passive", null, null, null },
-                    { 2, "NorthAmerica", "RU", "Odit minus culpa est quod qui.", "Russia", "+7", new DateTime(2005, 2, 7, 15, 27, 40, 0, DateTimeKind.Unspecified), "dfaceef4-6346-40a3-b680-7c6fad1e84db", "190.110.119.55", "f96f8c9d-739b-4f56-be04-5cd7caba49b7", "No", "Passive", null, null, null }
-                });
-
-            migrationBuilder.InsertData(
-                table: "Countries",
-                columns: new[] { "Id", "Continent", "CountryCode", "CountryDescription", "CountryName", "CountryPhone", "CreatedDate", "CreatedID", "CreatedIPAddress", "Guid", "IsUpdated", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
-                values: new object[] { 3, "Africa", "USA", "Dignissimos commodi aliquid est placeat harum.", "United States of America", "+1", new DateTime(2012, 6, 27, 2, 27, 39, 0, DateTimeKind.Unspecified), "ad71928b-f0fb-4afa-a2d6-e1cf80bb5806", "47.27.165.166", "36fbadce-4929-4f1a-9128-eb354f66c9f1", "No", null, null, null });
-
-            migrationBuilder.InsertData(
-                table: "Countries",
-                columns: new[] { "Id", "Continent", "CountryCode", "CountryDescription", "CountryName", "CountryPhone", "CreatedDate", "CreatedID", "CreatedIPAddress", "Guid", "IsUpdated", "Status", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
-                values: new object[,]
-                {
-                    { 4, "SouthAmerica", "SA", "Nihil quae explicabo et ad adipisci.", "Kingdom of Saudi Arabia", "+966", new DateTime(2013, 5, 4, 14, 15, 39, 0, DateTimeKind.Unspecified), "2491bcac-ce3b-4d3d-ad8a-a4c932beab7a", "251.127.247.188", "6df44975-f768-4b1d-bba6-74a0fc6466f6", "No", "Passive", null, null, null },
-                    { 5, "NorthAmerica", "GER", "Dolorem officiis voluptatem sint est dignissimos.", "Germany", "+49", new DateTime(2009, 2, 3, 14, 50, 46, 0, DateTimeKind.Unspecified), "89b0f472-89eb-4d3f-bdf5-d6b75819bea5", "209.50.171.91", "5174840d-1c6f-45e9-8405-ec3f5681d93a", "No", "Active", null, null, null }
+                    { 1, "SouthAmerica", "TR", "Excepturi fugiat molestiae voluptas ut perferendis.", "Turkey", "+90", new DateTime(2014, 9, 26, 10, 16, 12, 0, DateTimeKind.Unspecified), "01a48e92-48eb-42c4-8754-1227b2b5359d", "230.121.200.170", "14a5d4a0-807d-40f8-9c90-395f48b8203f", "No", "Passive", null, null, null },
+                    { 2, "Australia", "RU", "Rerum placeat sint odit et voluptatem.", "Russia", "+7", new DateTime(2005, 7, 2, 12, 36, 52, 0, DateTimeKind.Unspecified), "5ac423f0-c458-4cbc-9a66-06109ccffafe", "240.173.15.150", "dcae8653-4ece-42ea-b621-a0935b8e44ad", "No", "Active", null, null, null },
+                    { 3, "None", "USA", "Sunt aut non est enim est.", "United States of America", "+1", new DateTime(2011, 5, 10, 21, 26, 10, 0, DateTimeKind.Unspecified), "f7725082-59e3-45e8-9544-6c2ae7379a02", "144.140.233.46", "ae4b7f2c-5c9f-4c4a-b9b5-6e0241f85246", "No", "Active", null, null, null },
+                    { 4, "Australia", "SA", "Reiciendis velit occaecati aliquam molestiae ea.", "Kingdom of Saudi Arabia", "+966", new DateTime(2016, 11, 6, 11, 38, 45, 0, DateTimeKind.Unspecified), "18cfd02e-2ed3-419a-bb6a-4e26c4d34d9d", "101.198.125.25", "fb06dc59-6194-40e5-b730-2b0ba8b70160", "No", "Passive", null, null, null },
+                    { 5, "Europe", "GER", "Ratione aut voluptate qui quos suscipit.", "Germany", "+49", new DateTime(2014, 1, 4, 10, 25, 35, 0, DateTimeKind.Unspecified), "1356f891-d508-47f2-a76f-d15327abb17c", "150.25.226.29", "71ebf0f5-d825-4f69-b584-7b6f04e2e1cd", "No", "Passive", null, null, null }
                 });
 
             migrationBuilder.InsertData(
                 table: "PartnerCompanies",
                 columns: new[] { "Id", "AcceptTickets", "Address", "Balance", "CompanyName", "ContactName", "ContactTitle", "CreatedDate", "CreatedID", "CreatedIPAddress", "Credit", "Debit", "Email", "Guid", "IsUpdated", "PhoneNumber", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
-                values: new object[] { 1, "Yes", "95708 Jaida Lakes, East Sylviamouth, Austria", 7596.582791103990000m, "Gibson, Little and Stracke LLC", "Brenden Marvin", "Human Configuration Architect", new DateTime(2015, 8, 1, 19, 30, 8, 0, DateTimeKind.Unspecified), "522f291b-cd4d-4f4e-8c1c-df4a3cac09a5", "196.218.71.157", 40810.286186332570000m, 48406.868977436560000m, "Duane97@hotmail.com", "b8820587-1936-408b-9a13-18ca99653dd9", "No", "02134156202", null, null, null });
+                values: new object[] { 1, "No", "812 Julianne Mill, East Merl, Uganda", -11991.937041239220000m, "Morissette, Schuppe and Considine LLC", "Sim Littel", "Customer Assurance Officer", new DateTime(2011, 4, 8, 15, 48, 9, 0, DateTimeKind.Unspecified), "f5245790-d448-4ffe-b360-0d27326aff38", "149.219.52.59", 69130.412868960640000m, 57138.475827721420000m, "Katlynn64@hotmail.com", "a9b89e63-e19a-4589-9e25-ded22f4a6727", "Yes", "02175582811", null, null, null });
 
             migrationBuilder.InsertData(
                 table: "PartnerCompanies",
                 columns: new[] { "Id", "AcceptTickets", "Address", "Balance", "CompanyName", "ContactName", "ContactTitle", "CreatedDate", "CreatedID", "CreatedIPAddress", "Credit", "Debit", "Email", "Guid", "IsUpdated", "PhoneNumber", "Status", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
                 values: new object[,]
                 {
-                    { 2, "Yes", "2290 Amir Corners, Andersontown, Kiribati", 31673.061953346420000m, "Rau, O'Reilly and Bernier LLC", "Anabel Hoppe", "Product Interactions Coordinator", new DateTime(2015, 9, 5, 20, 30, 48, 0, DateTimeKind.Unspecified), "465b2666-338e-41f5-b368-ece66bfe75d3", "228.208.76.199", 46688.05143174250000m, 78361.113385088920000m, "Yvonne.Gerhold72@yahoo.com", "6e08b735-c743-47aa-9bb7-b49d3066b828", "No", "02168364046", "Passive", null, null, null },
-                    { 3, "Yes", "332 Edwina Shoal, North Rosie, Samoa", 64860.893956536480000m, "DuBuque, Cormier and Leannon and Sons", "Eliseo Jaskolski", "International Directives Supervisor", new DateTime(2018, 6, 19, 9, 13, 33, 0, DateTimeKind.Unspecified), "78ff5ad8-5bd2-4e87-89fd-d5f621494f7b", "138.219.128.131", 27596.371776563080000m, 92457.265733099560000m, "Novella_Goldner@gmail.com", "eae2af80-9501-46f7-b6b3-feb985eac26b", "No", "02176806595", "Passive", null, null, null },
-                    { 4, "No", "1826 Hahn Plain, South Marcellaburgh, Samoa", 27339.343459854750000m, "Stoltenberg, Parker and Hagenes and Sons", "Brigitte Windler", "Forward Solutions Consultant", new DateTime(2003, 9, 5, 22, 59, 48, 0, DateTimeKind.Unspecified), "9d967eb1-29e0-4f44-a8e1-5a8b8f399ad8", "105.43.235.116", 43265.777391173440000m, 70605.120851028190000m, "Toby60@gmail.com", "3b84fc99-285b-479d-9de3-6ba7932b0aeb", "Yes", "02147003476", "Active", null, null, null },
-                    { 5, "Yes", "985 Jacobi Wall, South Mortimer, Bermuda", -4928.0955794841510000m, "Crooks, Medhurst and Witting Inc", "Shyanne Witting", "Central Markets Engineer", new DateTime(2020, 3, 15, 21, 28, 54, 0, DateTimeKind.Unspecified), "bbf1c8e5-54ab-44e5-9a50-bbc900bbba6d", "74.236.55.80", 20111.720646627280000m, 15183.6250671431290000m, "Wayne_Paucek@gmail.com", "880ec792-e175-4691-81e6-d34d8f74f71c", "No", "02169564642", "Passive", null, null, null }
+                    { 2, "No", "8239 Simone Plains, New Ebba, Qatar", 48409.380021702060000m, "Reichert, Predovic and Treutel Group", "Emanuel Bechtelar", "Global Program Liaison", new DateTime(2009, 8, 9, 5, 39, 53, 0, DateTimeKind.Unspecified), "a6181260-5602-4178-b089-9427189a1b1b", "68.109.171.136", 20655.367191023680000m, 69064.747212725740000m, "Sterling_McGlynn@gmail.com", "86983d3d-1c23-416e-b7d9-dcff4ec10bef", "No", "02191901008", "Passive", null, null, null },
+                    { 3, "Yes", "869 Hand Throughway, New Mollieport, Cook Islands", 10492.7587343530740000m, "Torp, Hudson and Cummerata Inc", "Leopoldo Ullrich", "Forward Integration Director", new DateTime(2002, 2, 26, 21, 32, 21, 0, DateTimeKind.Unspecified), "f1959cc8-662f-4299-9b4c-bab22ce00707", "152.153.252.62", 17744.6421170955460000m, 28237.400851448620000m, "Jedidiah.Walsh82@gmail.com", "bcd6d9fd-069c-4f2d-ba5d-9a16bcdd0a91", "No", "02121794285", "Passive", null, null, null }
                 });
+
+            migrationBuilder.InsertData(
+                table: "PartnerCompanies",
+                columns: new[] { "Id", "AcceptTickets", "Address", "Balance", "CompanyName", "ContactName", "ContactTitle", "CreatedDate", "CreatedID", "CreatedIPAddress", "Credit", "Debit", "Email", "Guid", "IsUpdated", "PhoneNumber", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
+                values: new object[] { 4, "Yes", "170 Randy Landing, Hackettton, Guinea", -36213.413909772780000m, "Williamson, Zemlak and Parker LLC", "Hanna Hegmann", "Future Interactions Associate", new DateTime(2015, 9, 13, 1, 50, 8, 0, DateTimeKind.Unspecified), "13c62166-9600-48b3-a565-a0ad92eb9b84", "38.64.36.93", 72828.639651628090000m, 36615.225741855310000m, "Flavio_Green55@gmail.com", "9904cc6d-7240-49e1-a52c-198b28c3409c", "No", "02172782394", null, null, null });
+
+            migrationBuilder.InsertData(
+                table: "PartnerCompanies",
+                columns: new[] { "Id", "AcceptTickets", "Address", "Balance", "CompanyName", "ContactName", "ContactTitle", "CreatedDate", "CreatedID", "CreatedIPAddress", "Credit", "Debit", "Email", "Guid", "IsUpdated", "PhoneNumber", "Status", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
+                values: new object[] { 5, "No", "0309 Keebler Loaf, Nealfurt, Spain", -15900.722905958280000m, "Strosin, Langworth and Gutmann Group", "Rodger Upton", "Principal Tactics Architect", new DateTime(2011, 9, 9, 8, 10, 24, 0, DateTimeKind.Unspecified), "92a3e21c-1f8e-4a42-b355-8b2c9d95ff53", "168.104.70.93", 81916.226584519240000m, 66015.503678560960000m, "Thea.Daniel0@hotmail.com", "17d74f12-5bd3-4646-b56b-f98635d1ca41", "No", "02176828220", "Active", null, null, null });
 
             migrationBuilder.InsertData(
                 table: "RentalVehicleSuppliers",
                 columns: new[] { "Id", "Address", "CompanyName", "ContactName", "ContactTitle", "CreatedDate", "CreatedID", "CreatedIPAddress", "Email", "Guid", "IsUpdated", "PhoneNumber", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
-                values: new object[] { 1, "354 Luettgen Mews, Port Manuelton, Gambia", "Kirlin, Kshlerin and Corwin Group", "Elbert Turner", "Direct Marketing Architect", new DateTime(2007, 10, 18, 11, 38, 14, 0, DateTimeKind.Unspecified), "726cf753-ba24-4161-acba-f69bad8e0d4a", "255.3.7.179", "Antwon1@gmail.com", "a22043e2-c050-4e3c-8506-79597a6269a4", "No", "02175633488", null, null, null });
+                values: new object[] { 1, "872 Trudie Heights, Erdmanburgh, Jersey", "Balistreri - Will Group", "Elinore Lesch", "District Infrastructure Associate", new DateTime(2013, 5, 25, 8, 39, 47, 0, DateTimeKind.Unspecified), "cf0d41da-1085-4fbc-a50d-47129fdb96e8", "207.16.147.234", "Ron.Gibson@gmail.com", "eb058fd4-45f8-4007-956a-dd5cb80b139a", "No", "02158118592", null, null, null });
 
             migrationBuilder.InsertData(
                 table: "RentalVehicleSuppliers",
                 columns: new[] { "Id", "Address", "CompanyName", "ContactName", "ContactTitle", "CreatedDate", "CreatedID", "CreatedIPAddress", "Email", "Guid", "IsUpdated", "PhoneNumber", "Status", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
-                values: new object[] { 2, "3189 Gleason Bypass, Majorfort, Kazakhstan", "Crooks Group Group", "Barbara Rippin", "National Group Technician", new DateTime(2006, 3, 20, 1, 56, 9, 0, DateTimeKind.Unspecified), "b2210fe6-3a92-4828-bed0-751d820ccb67", "208.77.67.151", "Taryn52@hotmail.com", "7b402976-fd37-4ccc-9758-182e39de267c", "No", "02156790268", "Active", null, null, null });
-
-            migrationBuilder.InsertData(
-                table: "RentalVehicleSuppliers",
-                columns: new[] { "Id", "Address", "CompanyName", "ContactName", "ContactTitle", "CreatedDate", "CreatedID", "CreatedIPAddress", "Email", "Guid", "IsUpdated", "PhoneNumber", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
                 values: new object[,]
                 {
-                    { 3, "18394 Alana Mount, New Adalbertohaven, Mongolia", "Swift - Goyette Group", "Fay Harber", "Global Optimization Liaison", new DateTime(2000, 9, 18, 22, 13, 18, 0, DateTimeKind.Unspecified), "2d50d8bb-647c-4c8f-8c98-0c98131dd58d", "114.238.104.21", "Edna_Bartell85@gmail.com", "05da5a97-2a95-4dc5-804d-8a6831184837", "No", "02194225082", null, null, null },
-                    { 4, "5078 Glover Mountains, Maxieport, Virgin Islands, British", "Beer - Barrows LLC", "Charlotte Turcotte", "Customer Program Facilitator", new DateTime(2006, 7, 18, 4, 38, 17, 0, DateTimeKind.Unspecified), "3c9442d3-ff56-4723-8afe-59eed0104c4d", "17.82.202.70", "Verner.Marks@yahoo.com", "74b57350-5f64-47ae-971e-23f92c6735ae", "No", "02172857826", null, null, null }
+                    { 2, "54603 Aryanna Branch, Mervinview, Northern Mariana Islands", "Rodriguez, Fahey and Kshlerin Group", "Maxine Swift", "Chief Research Developer", new DateTime(2001, 5, 7, 21, 59, 6, 0, DateTimeKind.Unspecified), "ffae9207-936a-4d96-b12f-336a98093c96", "149.46.4.192", "Clinton31@gmail.com", "3348966e-527e-4d6a-9874-86a0d11c9c11", "No", "02170072054", "Active", null, null, null },
+                    { 3, "109 Carroll Landing, Rodolfoborough, Turks and Caicos Islands", "Emmerich and Sons Inc", "Dean Stehr", "Dynamic Brand Assistant", new DateTime(2020, 5, 1, 12, 24, 49, 0, DateTimeKind.Unspecified), "1ade3610-a5c3-40b7-9b1e-05846456cd0b", "151.247.174.216", "Hilda.Kohler@hotmail.com", "8cf28e07-a097-4f50-b9a4-8af8f8a6cc03", "No", "02197907379", "Active", null, null, null }
                 });
 
             migrationBuilder.InsertData(
                 table: "RentalVehicleSuppliers",
+                columns: new[] { "Id", "Address", "CompanyName", "ContactName", "ContactTitle", "CreatedDate", "CreatedID", "CreatedIPAddress", "Email", "Guid", "IsUpdated", "PhoneNumber", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
+                values: new object[] { 4, "71088 Adrienne Station, North Velvaside, Antarctica (the territory South of 60 deg S)", "Block - Mante and Sons", "Eudora Johnson", "Customer Implementation Manager", new DateTime(2005, 4, 2, 21, 36, 43, 0, DateTimeKind.Unspecified), "9b850f93-78bc-49bf-ad84-ef2190d4a40d", "130.73.53.204", "Vickie.McCullough@yahoo.com", "d86028e7-3716-49ba-be49-331354b130ab", "No", "02151701012", null, null, null });
+
+            migrationBuilder.InsertData(
+                table: "RentalVehicleSuppliers",
                 columns: new[] { "Id", "Address", "CompanyName", "ContactName", "ContactTitle", "CreatedDate", "CreatedID", "CreatedIPAddress", "Email", "Guid", "IsUpdated", "PhoneNumber", "Status", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
-                values: new object[] { 5, "57314 Fritsch Curve, Idellmouth, Iceland", "Christiansen - Hettinger and Sons", "Bell Fritsch", "Internal Group Analyst", new DateTime(2020, 4, 27, 2, 57, 41, 0, DateTimeKind.Unspecified), "d8fe8275-1a2b-4ffa-91c2-da24511d2c6f", "206.40.103.129", "Herminio.Ebert0@gmail.com", "5a7d0e3d-eac9-4f5e-9e84-323af51320bb", "No", "02159467733", "Active", null, null, null });
+                values: new object[] { 5, "84382 Lind Club, West Bria, Greece", "Prohaska LLC Group", "Joyce Barrows", "Investor Program Officer", new DateTime(2003, 3, 8, 9, 24, 12, 0, DateTimeKind.Unspecified), "1de8d9ad-3ece-46d7-a63b-6a9b70abee2d", "71.228.57.138", "Clinton_Parker@hotmail.com", "4527116e-73f6-4bc9-8cbb-ca73bd987700", "No", "02133372717", "Passive", null, null, null });
 
             migrationBuilder.InsertData(
                 table: "ServiceRegions",
                 columns: new[] { "Id", "ArrivalTime", "CreatedDate", "CreatedID", "CreatedIPAddress", "DistrictName", "Guid", "HasAirport", "HasHotelFacility", "IsUpdated", "Status", "TouristPopulation", "TransportVehicle", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
                 values: new object[,]
                 {
-                    { 1, new TimeSpan(0, 2, 56, 0, 0), new DateTime(2018, 10, 26, 6, 19, 18, 0, DateTimeKind.Unspecified), "3d57b73a-91cd-4a4f-9e8f-92fc0196784f", "33.209.164.174", "explicabo", "4f2aabaf-8128-4788-a7f6-d1db8afe84c5", "No", "Yes", "No", "Passive", "No", 2, null, null, null },
-                    { 2, new TimeSpan(0, 2, 37, 0, 0), new DateTime(2011, 7, 11, 17, 55, 25, 0, DateTimeKind.Unspecified), "001dc8ec-f8e2-4798-acb6-070cddd05f8e", "10.108.37.234", "perferendis", "6520f86b-0db2-4d24-9fa0-97af5d4abb61", "No", "No", "No", "Active", "No", 7, null, null, null }
+                    { 1, new TimeSpan(0, 2, 24, 0, 0), new DateTime(2004, 12, 17, 22, 30, 16, 0, DateTimeKind.Unspecified), "c3f3f0d1-e050-4e20-8088-35162c7a13ab", "152.79.191.215", "aut", "60ba21dc-de83-4f4d-b21e-9c3ecf8dd392", "No", "No", "No", "Active", "Yes", 2, null, null, null },
+                    { 2, new TimeSpan(0, 0, 55, 0, 0), new DateTime(2019, 8, 8, 22, 31, 11, 0, DateTimeKind.Unspecified), "d6194ac1-2c09-4e01-9b45-13527b6d2051", "32.112.16.131", "cumque", "5fe208f4-7d15-44ee-9730-c73d20e662fb", "Yes", "Yes", "No", "Passive", "No", 3, null, null, null },
+                    { 3, new TimeSpan(0, 2, 25, 0, 0), new DateTime(2006, 9, 23, 13, 34, 38, 0, DateTimeKind.Unspecified), "5eebede7-1bde-4365-b102-e0cd081b0d14", "150.143.211.189", "illum", "f9b75f1a-6e78-41c5-b9dd-157a76fb9e5a", "No", "Yes", "No", "Active", "No", 5, null, null, null },
+                    { 4, new TimeSpan(0, 0, 57, 0, 0), new DateTime(2014, 10, 16, 5, 59, 19, 0, DateTimeKind.Unspecified), "3e4839ea-39ff-48a7-a593-759a0d41bb87", "77.164.162.196", "consequatur", "08ae4f8d-2e1e-4b4c-a8f4-33746296b434", "Yes", "No", "No", "Active", "Yes", 0, null, null, null },
+                    { 5, new TimeSpan(0, 2, 48, 0, 0), new DateTime(2000, 10, 5, 3, 18, 12, 0, DateTimeKind.Unspecified), "e49a53c5-bbca-4b88-9585-e69105cf3859", "254.254.80.20", "atque", "90140862-399e-49be-9d9a-049799b51fd8", "No", "No", "No", "Passive", "No", 3, null, null, null }
                 });
 
             migrationBuilder.InsertData(
-                table: "ServiceRegions",
-                columns: new[] { "Id", "ArrivalTime", "CreatedDate", "CreatedID", "CreatedIPAddress", "DistrictName", "Guid", "HasAirport", "HasHotelFacility", "IsUpdated", "TouristPopulation", "TransportVehicle", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
-                values: new object[,]
-                {
-                    { 3, new TimeSpan(0, 1, 15, 0, 0), new DateTime(2006, 8, 16, 3, 56, 38, 0, DateTimeKind.Unspecified), "0ae01e4f-e974-488b-939a-5d463c3a2182", "106.42.56.232", "quia", "0c3d6579-74aa-448f-96d1-87efe0f5b356", "No", "Yes", "No", "No", 2, null, null, null },
-                    { 4, new TimeSpan(0, 1, 21, 0, 0), new DateTime(2008, 5, 4, 16, 33, 10, 0, DateTimeKind.Unspecified), "19bf7e82-7770-4c58-9dac-55d387be6c0f", "145.252.32.98", "culpa", "3dc81783-1dc1-4304-9f16-ff5f4745b2a5", "Yes", "Yes", "No", "No", 4, null, null, null }
-                });
-
-            migrationBuilder.InsertData(
-                table: "ServiceRegions",
-                columns: new[] { "Id", "ArrivalTime", "CreatedDate", "CreatedID", "CreatedIPAddress", "DistrictName", "Guid", "HasAirport", "HasHotelFacility", "IsUpdated", "Status", "TouristPopulation", "TransportVehicle", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
-                values: new object[] { 5, new TimeSpan(0, 1, 31, 0, 0), new DateTime(2019, 5, 27, 17, 20, 49, 0, DateTimeKind.Unspecified), "494177f5-a711-4a4c-b329-ca0e6065e211", "113.61.231.87", "tenetur", "7bdf4552-751f-469e-b556-a7cfd20ee59c", "No", "No", "No", "Active", "Yes", 6, null, null, null });
+                table: "SubContractWorkerSuppliers",
+                columns: new[] { "Id", "Address", "CompanyName", "ContactName", "ContactTitle", "CreatedDate", "CreatedID", "CreatedIPAddress", "Email", "Guid", "IsUpdated", "PhoneNumber", "Status", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
+                values: new object[] { 1, "8118 Hahn Circles, Raybury, Iceland", "Jenkins, Glover and Conroy Group", "Ewell Christiansen", "Chief Quality Technician", new DateTime(2015, 8, 3, 5, 12, 45, 0, DateTimeKind.Unspecified), "cfc0e29a-2105-421d-955b-795e201b5bc5", "22.210.60.242", "Dino_McKenzie@yahoo.com", "5c747b3a-5cb7-48b5-8faf-66f7dbc3fa80", "No", "02119437411", "Active", null, null, null });
 
             migrationBuilder.InsertData(
                 table: "SubContractWorkerSuppliers",
                 columns: new[] { "Id", "Address", "CompanyName", "ContactName", "ContactTitle", "CreatedDate", "CreatedID", "CreatedIPAddress", "Email", "Guid", "IsUpdated", "PhoneNumber", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
-                values: new object[,]
-                {
-                    { 1, "41882 Fadel Mountains, Port Hilario, Saint Vincent and the Grenadines", "Greenfelder and Sons Group", "Rita Kilback", "Regional Interactions Facilitator", new DateTime(2015, 7, 14, 13, 47, 34, 0, DateTimeKind.Unspecified), "36b83ebe-91fc-41b6-9c23-8188dd2324a1", "139.12.108.182", "Scotty.Haley@gmail.com", "7c97b498-b020-4e90-9040-8137082eb5ce", "No", "02130086167", null, null, null },
-                    { 2, "158 Marisa Manors, New Cathyville, Bulgaria", "Wisozk, Shields and Schaefer LLC", "Herbert Mitchell", "Human Communications Representative", new DateTime(2003, 1, 16, 14, 22, 8, 0, DateTimeKind.Unspecified), "9ffd4590-1a51-46ad-923e-68237e27971c", "252.220.26.180", "Marcellus_Brekke60@gmail.com", "c5a97d01-663b-487f-85ba-9ef24c5fa694", "Yes", "02142640631", null, null, null }
-                });
+                values: new object[] { 2, "75092 Kacey Key, South Raphaelle, Pitcairn Islands", "Bergstrom, Bashirian and Gusikowski LLC", "Tia Gleichner", "Future Group Architect", new DateTime(2012, 10, 9, 15, 58, 44, 0, DateTimeKind.Unspecified), "4dfc18e2-09e2-475d-8143-6b31eeb59242", "53.238.141.19", "Abel_Von98@yahoo.com", "a2030525-a55b-44a4-81c2-419115b899ce", "No", "02165580836", null, null, null });
 
             migrationBuilder.InsertData(
                 table: "SubContractWorkerSuppliers",
                 columns: new[] { "Id", "Address", "CompanyName", "ContactName", "ContactTitle", "CreatedDate", "CreatedID", "CreatedIPAddress", "Email", "Guid", "IsUpdated", "PhoneNumber", "Status", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
                 values: new object[,]
                 {
-                    { 3, "820 Reed Ford, North Jaquan, Guernsey", "Bruen, Rau and Gibson Inc", "Ali White", "District Branding Associate", new DateTime(2013, 11, 27, 20, 24, 6, 0, DateTimeKind.Unspecified), "788a6b89-2136-49b4-9c42-4ce3cbdcf711", "91.39.106.182", "Maybell_Mayer91@hotmail.com", "45d743d7-6a16-4d75-bbfb-e3241b8bde41", "No", "02141205996", "Active", null, null, null },
-                    { 4, "969 Treva Trail, Altenwerthtown, Cyprus", "Blanda LLC Inc", "Keven Stiedemann", "Global Division Developer", new DateTime(2002, 8, 20, 16, 13, 4, 0, DateTimeKind.Unspecified), "84387538-5f7c-4609-8b9e-d8a4590dfc35", "215.182.179.194", "Angel.Dooley57@gmail.com", "27f3d4ee-5d54-4ca2-8db2-deec9251b8d8", "No", "02165308557", "Passive", null, null, null },
-                    { 5, "3356 Murphy Locks, New Angelburgh, Liechtenstein", "O'Keefe - Maggio and Sons", "Stephanie Klocko", "Legacy Security Executive", new DateTime(2015, 9, 3, 10, 27, 25, 0, DateTimeKind.Unspecified), "10ba55fe-4f0d-4027-8c3b-5f7e99d13698", "4.197.17.106", "Connie98@hotmail.com", "bb823185-fd74-418c-840f-61522af5f00f", "No", "02140545025", "Passive", null, null, null }
+                    { 3, "0077 Dare Dam, Kesslertown, Tuvalu", "Cartwright - Larson Inc", "Lyda Lowe", "Dynamic Solutions Producer", new DateTime(2004, 6, 26, 2, 53, 48, 0, DateTimeKind.Unspecified), "56a803b8-141a-47db-a808-e5c142cb8f67", "93.225.8.3", "Christophe_Funk16@yahoo.com", "52a427ea-df8f-48c9-a3e5-bed6e819a3d2", "Yes", "02126049614", "Passive", null, null, null },
+                    { 4, "266 Liam Forge, Isacshire, Guam", "Cummerata - Lueilwitz LLC", "Gaylord Towne", "Internal Creative Representative", new DateTime(2014, 10, 6, 13, 45, 43, 0, DateTimeKind.Unspecified), "ba1f1d1f-da20-4f65-8707-14dcac3c301f", "95.255.25.42", "Alba_Williamson15@hotmail.com", "e42d61aa-af03-451b-9982-a1aea0a8f149", "No", "02192357526", "Passive", null, null, null }
                 });
+
+            migrationBuilder.InsertData(
+                table: "SubContractWorkerSuppliers",
+                columns: new[] { "Id", "Address", "CompanyName", "ContactName", "ContactTitle", "CreatedDate", "CreatedID", "CreatedIPAddress", "Email", "Guid", "IsUpdated", "PhoneNumber", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
+                values: new object[] { 5, "10804 Mike Centers, New Shanieberg, Namibia", "Stracke and Sons Group", "Jeffrey Runolfsdottir", "Legacy Mobility Developer", new DateTime(2016, 1, 9, 2, 14, 21, 0, DateTimeKind.Unspecified), "3a7daa33-0df1-4049-a3a5-b0768159e178", "134.37.155.239", "Will_Weimann@hotmail.com", "aa89caa0-4cd6-475c-8413-4509521da2d7", "No", "02147802341", null, null, null });
 
             migrationBuilder.InsertData(
                 table: "Activities",
                 columns: new[] { "Id", "ActivityCategory", "ActivityName", "CreatedDate", "CreatedID", "CreatedIPAddress", "Description", "EndDate", "Guid", "IsUpdated", "RegionId", "StartDate", "Status", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
-                values: new object[,]
-                {
-                    { 1, "BBQ_Camping", "quod", new DateTime(2014, 9, 5, 19, 47, 15, 0, DateTimeKind.Unspecified), "789ee129-9c88-44b6-a333-f1d62856a205", "164.59.201.62", "Handmade Plastic Shoes Cotton e-tailers Awesome Metal Hat firmware parsing Intelligent Tactics", new DateTime(2019, 2, 17, 17, 21, 10, 0, DateTimeKind.Unspecified), "4e40c2e8-0b0e-43de-adb8-9f9bfbc83a46", "Yes", 1, new DateTime(2019, 2, 17, 6, 21, 10, 0, DateTimeKind.Unspecified), "Passive", null, null, null },
-                    { 2, "AncientCity", "cumque", new DateTime(2017, 10, 20, 14, 31, 6, 0, DateTimeKind.Unspecified), "89c70fbc-32d4-470d-95fc-eb6977625b1b", "126.114.175.136", "Frozen Nebraska National Tanzanian Shilling Granite Tunisian Dinar Rapids payment", new DateTime(2008, 5, 2, 12, 24, 34, 0, DateTimeKind.Unspecified), "fbcac298-ad12-4db8-8165-e63b8b5a2559", "No", 4, new DateTime(2008, 5, 2, 5, 24, 34, 0, DateTimeKind.Unspecified), "Passive", null, null, null },
-                    { 3, "WayTrek", "possimus", new DateTime(2006, 11, 5, 16, 31, 24, 0, DateTimeKind.Unspecified), "e040f2d4-a557-4827-9a7a-8b3eabb13d2a", "81.217.242.119", "frame Rwanda Franc cross-platform Metal Intelligent Paradigm brand Home Loan Account", new DateTime(2010, 9, 25, 2, 15, 27, 0, DateTimeKind.Unspecified), "837263ab-228e-46ed-9c04-78ba5e0e9e6c", "Yes", 3, new DateTime(2010, 9, 24, 14, 15, 27, 0, DateTimeKind.Unspecified), "Passive", null, null, null },
-                    { 4, "Theater", "sed", new DateTime(2003, 11, 13, 8, 43, 51, 0, DateTimeKind.Unspecified), "e8fc4c18-d561-4bc1-8c8c-7d1668e84c25", "102.239.184.233", "Virginia Generic e-tailers Music, Jewelery & Industrial Savings Account sky blue generate circuit", new DateTime(2016, 10, 15, 4, 37, 34, 0, DateTimeKind.Unspecified), "e8c24d8e-9ddc-432d-8bd0-fe8011ee981b", "No", 1, new DateTime(2016, 10, 14, 19, 37, 34, 0, DateTimeKind.Unspecified), "Passive", null, null, null },
-                    { 5, "Canyon", "et", new DateTime(2006, 12, 27, 23, 24, 19, 0, DateTimeKind.Unspecified), "1537857c-fb71-408e-8020-62d2737f963e", "87.193.105.111", "Ramp Proactive extranet invoice Borders Realigned Awesome Wooden Table Barbados", new DateTime(2013, 2, 9, 14, 51, 53, 0, DateTimeKind.Unspecified), "64bc0032-3502-41f5-bd22-713dca4629af", "No", 4, new DateTime(2013, 2, 9, 3, 51, 53, 0, DateTimeKind.Unspecified), "Active", null, null, null }
-                });
+                values: new object[] { 1, "Unknown", "voluptatem", new DateTime(2010, 10, 26, 18, 18, 46, 0, DateTimeKind.Unspecified), "2bae8c4f-0354-47e7-a87d-74c7ee57591c", "51.44.131.126", "Internal Station system-worthy Officer Program solid state Legacy Realigned", new DateTime(2014, 6, 26, 22, 57, 50, 0, DateTimeKind.Unspecified), "a5e53470-3cac-479e-a71f-97c074339b59", "No", 3, new DateTime(2014, 6, 26, 14, 57, 50, 0, DateTimeKind.Unspecified), "Passive", null, null, null });
+
+            migrationBuilder.InsertData(
+                table: "Activities",
+                columns: new[] { "Id", "ActivityCategory", "ActivityName", "CreatedDate", "CreatedID", "CreatedIPAddress", "Description", "EndDate", "Guid", "IsUpdated", "RegionId", "StartDate", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
+                values: new object[] { 2, "Diving", "quasi", new DateTime(2006, 1, 23, 3, 50, 47, 0, DateTimeKind.Unspecified), "f75115fa-6739-460b-bc0d-7711737092e9", "142.133.40.28", "Total Fantastic Fresh Computer generating strategize SDD Coordinator payment e-business", new DateTime(2014, 11, 2, 19, 21, 16, 0, DateTimeKind.Unspecified), "50d22213-2836-41b1-bb6b-71c75f2716b2", "No", 2, new DateTime(2014, 11, 2, 10, 21, 16, 0, DateTimeKind.Unspecified), null, null, null });
+
+            migrationBuilder.InsertData(
+                table: "Activities",
+                columns: new[] { "Id", "ActivityCategory", "ActivityName", "CreatedDate", "CreatedID", "CreatedIPAddress", "Description", "EndDate", "Guid", "IsUpdated", "RegionId", "StartDate", "Status", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
+                values: new object[] { 3, "AncientCity", "maxime", new DateTime(2012, 1, 25, 2, 9, 23, 0, DateTimeKind.Unspecified), "08f0f73e-e4f4-4613-a8be-d786de1a4070", "218.153.165.73", "compelling Buckinghamshire Wallis and Futuna Borders back-end Personal Loan Account Louisiana cultivate", new DateTime(2014, 2, 16, 11, 57, 20, 0, DateTimeKind.Unspecified), "41a8876b-c9b3-452b-b02e-797aac8d2255", "No", 1, new DateTime(2014, 2, 16, 3, 57, 20, 0, DateTimeKind.Unspecified), "Passive", null, null, null });
+
+            migrationBuilder.InsertData(
+                table: "Activities",
+                columns: new[] { "Id", "ActivityCategory", "ActivityName", "CreatedDate", "CreatedID", "CreatedIPAddress", "Description", "EndDate", "Guid", "IsUpdated", "RegionId", "StartDate", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
+                values: new object[] { 4, "BBQ_Camping", "dolor", new DateTime(2001, 8, 15, 17, 57, 35, 0, DateTimeKind.Unspecified), "a6c9c307-33e9-46d8-a5a7-03af23f10b01", "146.126.118.103", "magenta Accounts parsing Dam Web purple Uzbekistan Sum India", new DateTime(2001, 9, 12, 13, 48, 24, 0, DateTimeKind.Unspecified), "70c5bc44-bae9-49ab-879f-11969458fee6", "No", 5, new DateTime(2001, 9, 12, 5, 48, 24, 0, DateTimeKind.Unspecified), null, null, null });
+
+            migrationBuilder.InsertData(
+                table: "Activities",
+                columns: new[] { "Id", "ActivityCategory", "ActivityName", "CreatedDate", "CreatedID", "CreatedIPAddress", "Description", "EndDate", "Guid", "IsUpdated", "RegionId", "StartDate", "Status", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
+                values: new object[] { 5, "Museum", "dolorem", new DateTime(2007, 7, 13, 7, 56, 50, 0, DateTimeKind.Unspecified), "66ffdebf-23f0-47ad-bf2a-32670165bb01", "215.247.135.115", "deposit Fantastic Fresh Shirt Borders Russian Ruble Focused calculating Burundi Franc invoice", new DateTime(2005, 5, 12, 1, 21, 15, 0, DateTimeKind.Unspecified), "d0e2aa1c-63f8-487f-986b-60a4dcf97f70", "No", 5, new DateTime(2005, 5, 11, 13, 21, 15, 0, DateTimeKind.Unspecified), "Active", null, null, null });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "CountryId", "CreatedDate", "CreatedID", "CreatedIPAddress", "Email", "EmailConfirmed", "Guid", "IsUpdated", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "Status", "TwoFactorEnabled", "UpdatedDate", "UpdatedID", "UpdatedIPAddress", "UserName" },
-                values: new object[] { 1, 0, "9fc61ba3-050b-4cca-ba66-ef9160b8b053", 5, new DateTime(2010, 4, 21, 21, 50, 47, 0, DateTimeKind.Unspecified), "eaf0220d-a33c-4c2a-ab52-757994b5513d", "101.87.159.213", "Myrtle_Walker@gmail.com", false, "ec52acec-a001-4782-b1a6-db7c5b4c0f52", "Yes", false, new DateTimeOffset(new DateTime(2025, 4, 24, 16, 26, 31, 986, DateTimeKind.Unspecified).AddTicks(3984), new TimeSpan(0, 3, 0, 0, 0)), "MYRTLE_WALKER@GMAİL.COM", "ORLANDO", "$2a$11$Tj3rN0S0hUHPfKSlw3tfSeqEu1vS1Vb0LtW7HfXfdF6wbKtpDhoSS", "05840848208", false, null, "Passive", false, null, null, null, "Orlando" });
-
-            migrationBuilder.InsertData(
-                table: "AspNetUsers",
-                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "CountryId", "CreatedDate", "CreatedID", "CreatedIPAddress", "Email", "EmailConfirmed", "Guid", "IsUpdated", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UpdatedDate", "UpdatedID", "UpdatedIPAddress", "UserName" },
-                values: new object[] { 2, 0, "6166f4c4-2bf4-4176-acaf-025cbe85e015", 4, new DateTime(2003, 9, 25, 22, 17, 11, 0, DateTimeKind.Unspecified), "cdf312f6-e980-4edf-acb7-5d1cf69922a4", "6.202.27.176", "Terrence45@hotmail.com", false, "9421f383-c262-4a52-b3e7-f5873b4af77a", "Yes", false, new DateTimeOffset(new DateTime(2025, 4, 24, 16, 26, 32, 109, DateTimeKind.Unspecified).AddTicks(8876), new TimeSpan(0, 3, 0, 0, 0)), "TERRENCE45@HOTMAİL.COM", "QUİNCY", "$2a$11$1j2BV5JamAEidlKQGorgFebe/ypW69wuciS0MCB6.bfnXH7GyOI2u", "05228399274", false, null, false, null, null, null, "Quincy" });
-
-            migrationBuilder.InsertData(
-                table: "AspNetUsers",
-                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "CountryId", "CreatedDate", "CreatedID", "CreatedIPAddress", "Email", "EmailConfirmed", "Guid", "IsUpdated", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "Status", "TwoFactorEnabled", "UpdatedDate", "UpdatedID", "UpdatedIPAddress", "UserName" },
                 values: new object[,]
                 {
-                    { 3, 0, "26715e22-e0af-4d31-ac6e-920fd801a469", 4, new DateTime(2007, 4, 27, 8, 34, 48, 0, DateTimeKind.Unspecified), "68a9878c-cd22-4ac7-921e-2aa7e135eecc", "5.158.217.176", "Althea.Dickinson72@yahoo.com", false, "c3879779-62d6-4723-bfe0-ad93e7b08987", "No", false, new DateTimeOffset(new DateTime(2025, 4, 24, 16, 26, 32, 231, DateTimeKind.Unspecified).AddTicks(5095), new TimeSpan(0, 3, 0, 0, 0)), "ALTHEA.DİCKİNSON72@YAHOO.COM", "JACK", "$2a$11$W.N3ueT1NSR0xYqlxxoD/e0S2EpnM96LB1UaCKiaQyYGFOjBnQqhq", "05791921456", false, null, "Active", false, null, null, null, "Jack" },
-                    { 4, 0, "62dc063f-9213-451d-8c89-1fe38880a332", 5, new DateTime(2017, 9, 8, 23, 15, 5, 0, DateTimeKind.Unspecified), "573cd583-1fd6-4878-bbd1-aa340c42629e", "12.1.166.160", "Gussie.Weissnat@yahoo.com", false, "02c9523c-57d5-4b6a-beaf-72edbc371b26", "No", false, new DateTimeOffset(new DateTime(2025, 4, 24, 16, 26, 32, 354, DateTimeKind.Unspecified).AddTicks(3883), new TimeSpan(0, 3, 0, 0, 0)), "GUSSİE.WEİSSNAT@YAHOO.COM", "SCARLETT", "$2a$11$vqASKuTeYG/7S8PotLzDgurDzyFMGKt57D2dbFbIdfKXUY4TQjfdy", "05733996090", false, null, "Passive", false, null, null, null, "Scarlett" }
+                    { 1, 0, "c42685a3-7635-4906-8c82-7f6100c5dc21", 5, new DateTime(2000, 6, 27, 8, 45, 17, 0, DateTimeKind.Unspecified), "1036d0ac-47eb-4629-99f4-e4f61080cf70", "130.236.123.191", "Devon.Toy@gmail.com", false, "81ed03ab-0aa6-45eb-8854-5617c2aec3eb", "No", false, new DateTimeOffset(new DateTime(2025, 5, 23, 3, 15, 15, 99, DateTimeKind.Unspecified).AddTicks(5469), new TimeSpan(0, 3, 0, 0, 0)), "DEVON.TOY@GMAİL.COM", "SYLVESTER", "$2a$11$XwaYCkL5w./CLY5hpw4NEu35j5MDAn/uZYGBn0n5TZijD6jKVlMXG", "05222418954", false, null, "Passive", false, null, null, null, "Sylvester" },
+                    { 2, 0, "52b1f304-403d-41e0-8705-bd70e05f1c93", 3, new DateTime(2021, 4, 11, 4, 51, 35, 0, DateTimeKind.Unspecified), "c8c319fe-36ab-4e74-9a10-1a972dc879b5", "163.92.15.242", "Lillian.Treutel2@hotmail.com", false, "a2827f88-cd2b-447d-ab96-6c61f85ebd8d", "Yes", false, new DateTimeOffset(new DateTime(2025, 5, 23, 3, 15, 15, 222, DateTimeKind.Unspecified).AddTicks(9369), new TimeSpan(0, 3, 0, 0, 0)), "LİLLİAN.TREUTEL2@HOTMAİL.COM", "ZACK", "$2a$11$pEPerNamc7yBnL8.TC9SFOulE4n6XsK6KhQZWr4.Bd8UmKX.afTa2", "05984426764", false, null, "Passive", false, null, null, null, "Zack" },
+                    { 3, 0, "27c8cefe-268d-4a36-99ad-a8ccb9c4aa7b", 4, new DateTime(2005, 3, 15, 18, 23, 14, 0, DateTimeKind.Unspecified), "4dc4e16a-8a92-4cbd-8099-0ebacd1882d2", "247.74.193.43", "Lucile55@yahoo.com", false, "74ffc4d3-851e-4d76-850c-44d7e5f16a62", "No", false, new DateTimeOffset(new DateTime(2025, 5, 23, 3, 15, 15, 353, DateTimeKind.Unspecified).AddTicks(6886), new TimeSpan(0, 3, 0, 0, 0)), "LUCİLE55@YAHOO.COM", "ANTONİA", "$2a$11$MIK2c6eNFCPespSVpfuDoO6WtS2mD2xtLKuhoEs.C.Jy1606OUPh2", "05766635336", false, null, "Active", false, null, null, null, "Antonia" },
+                    { 4, 0, "e1b46be0-3f58-4d7a-a49d-b43e9f0579b9", 1, new DateTime(2021, 4, 20, 20, 45, 21, 0, DateTimeKind.Unspecified), "d032322a-c7e2-4f0a-aa54-58dec9a58cd9", "171.79.1.116", "Shawna17@yahoo.com", false, "7a9716d2-0193-4813-849e-aea253df6e46", "No", false, new DateTimeOffset(new DateTime(2025, 5, 23, 3, 15, 15, 477, DateTimeKind.Unspecified).AddTicks(8985), new TimeSpan(0, 3, 0, 0, 0)), "SHAWNA17@YAHOO.COM", "PEYTON", "$2a$11$arjOAgKn2Jgg0XJl2IqT/.NXqNXzbS5wcwWyCDK2/3K/fWsC9ti36", "05204619393", false, null, "Passive", false, null, null, null, "Peyton" },
+                    { 5, 0, "07573de4-8e30-455e-a2c9-a84db5dfb63d", 1, new DateTime(2011, 6, 2, 1, 50, 23, 0, DateTimeKind.Unspecified), "e84e5500-9c20-47a1-9c68-d8b5056a3b66", "226.11.254.220", "Kari.Prosacco66@hotmail.com", false, "b04924f7-bfa5-41f8-a4a7-2afc928ccba0", "No", false, new DateTimeOffset(new DateTime(2025, 5, 23, 3, 15, 15, 601, DateTimeKind.Unspecified).AddTicks(7288), new TimeSpan(0, 3, 0, 0, 0)), "KARİ.PROSACCO66@HOTMAİL.COM", "IAN", "$2a$11$Xo7itsvQ7cKuch3ivFS7Uu17ip0tHFgaXBTAlGRR7K2Wr6Z4PInv2", "05259720609", false, null, "Active", false, null, null, null, "Ian" }
                 });
-
-            migrationBuilder.InsertData(
-                table: "AspNetUsers",
-                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "CountryId", "CreatedDate", "CreatedID", "CreatedIPAddress", "Email", "EmailConfirmed", "Guid", "IsUpdated", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UpdatedDate", "UpdatedID", "UpdatedIPAddress", "UserName" },
-                values: new object[] { 5, 0, "0e094a0f-46cc-4149-9e4d-45acdd7a3cec", 2, new DateTime(2017, 8, 19, 3, 35, 53, 0, DateTimeKind.Unspecified), "6158f234-9f23-4519-9042-633c54a4e497", "15.230.45.67", "Syble_Crooks1@gmail.com", false, "d187f43b-2475-4bc2-b19b-0614ed44ed26", "No", false, new DateTimeOffset(new DateTime(2025, 4, 24, 16, 26, 32, 476, DateTimeKind.Unspecified).AddTicks(1649), new TimeSpan(0, 3, 0, 0, 0)), "SYBLE_CROOKS1@GMAİL.COM", "JESSİKA", "$2a$11$/i5XV5DoLYk2OGiZsQZsFeO6WXVxj1TnzqtCiBG.8nDtJttmw8Ioq", "05571440242", false, null, false, null, null, null, "Jessika" });
-
-            migrationBuilder.InsertData(
-                table: "ContractEmployees",
-                columns: new[] { "Id", "Address", "Age", "BirthDate", "CreatedDate", "CreatedID", "CreatedIPAddress", "DriverLicense", "Email", "EndContract", "Experience", "FirstName", "FullName", "Gender", "Guid", "HireDate", "IsUpdated", "Language", "LastName", "PhoneNumber", "PhotoPath", "SupplierId", "TCN_Passport", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
-                values: new object[] { 1, "Northern Ireland", (byte)37, new DateTime(1988, 1, 11, 7, 40, 52, 0, DateTimeKind.Unspecified), new DateTime(2017, 12, 3, 19, 31, 36, 0, DateTimeKind.Unspecified), "4514e170-4ebd-4b2e-b5a6-9438e9fbb433", "243.232.188.80", "B", "Jaeden_Green@gmail.com", new DateTime(2013, 6, 17, 2, 12, 41, 0, DateTimeKind.Unspecified), 5, "Jacques", "JacquesMayer", 1, "fa64abe0-dd77-41df-b611-4ca45bdd4888", new DateTime(2012, 6, 17, 2, 12, 41, 0, DateTimeKind.Unspecified), "No", "Italian", "Mayer", "05540426632", "https://lexi.biz/georgia/quality/dynamic", 1, "03585983355", null, null, null });
-
-            migrationBuilder.InsertData(
-                table: "ContractEmployees",
-                columns: new[] { "Id", "Address", "Age", "BirthDate", "CreatedDate", "CreatedID", "CreatedIPAddress", "DriverLicense", "Email", "EndContract", "Experience", "FirstName", "FullName", "Gender", "Guid", "HireDate", "IsUpdated", "Language", "LastName", "PhoneNumber", "PhotoPath", "Status", "SupplierId", "TCN_Passport", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
-                values: new object[] { 2, "England", (byte)59, new DateTime(1965, 11, 11, 2, 14, 35, 0, DateTimeKind.Unspecified), new DateTime(2012, 3, 2, 17, 9, 14, 0, DateTimeKind.Unspecified), "9d35c6f2-9c34-4e4a-807c-fdde0fa1165f", "33.35.136.87", "D", "Declan.Schmidt75@gmail.com", new DateTime(2001, 6, 26, 10, 23, 43, 0, DateTimeKind.Unspecified), 3, "Ericka", "ErickaPrice", 1, "22b4a29e-7b70-4659-9703-702c7a43e9d0", new DateTime(2000, 6, 26, 10, 23, 43, 0, DateTimeKind.Unspecified), "No", "English", "Price", "05992554552", "https://bertrand.net/colorado/ssl/granite", "Passive", 5, "23302816133", null, null, null });
-
-            migrationBuilder.InsertData(
-                table: "ContractEmployees",
-                columns: new[] { "Id", "Address", "Age", "BirthDate", "CreatedDate", "CreatedID", "CreatedIPAddress", "DriverLicense", "Email", "EndContract", "Experience", "FirstName", "FullName", "Gender", "Guid", "HireDate", "IsUpdated", "Language", "LastName", "PhoneNumber", "PhotoPath", "SupplierId", "TCN_Passport", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
-                values: new object[] { 3, "Wales", (byte)64, new DateTime(1960, 6, 21, 17, 32, 17, 0, DateTimeKind.Unspecified), new DateTime(2006, 10, 3, 2, 24, 53, 0, DateTimeKind.Unspecified), "57b1b286-5bf1-408c-89a6-c7481f1fb532", "45.234.211.78", "B", "Maye42@gmail.com", new DateTime(2020, 4, 26, 6, 32, 41, 0, DateTimeKind.Unspecified), 3, "Edythe", "EdytheSchinner", 2, "8fbfbaba-d892-4339-ba9d-2e2c5af433dd", new DateTime(2019, 4, 26, 6, 32, 41, 0, DateTimeKind.Unspecified), "No", "Spanish", "Schinner", "05413627085", "https://max.org/1080p/haptic", 1, "59166975502", null, null, null });
 
             migrationBuilder.InsertData(
                 table: "ContractEmployees",
                 columns: new[] { "Id", "Address", "Age", "BirthDate", "CreatedDate", "CreatedID", "CreatedIPAddress", "DriverLicense", "Email", "EndContract", "Experience", "FirstName", "FullName", "Gender", "Guid", "HireDate", "IsUpdated", "Language", "LastName", "PhoneNumber", "PhotoPath", "Status", "SupplierId", "TCN_Passport", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
                 values: new object[,]
                 {
-                    { 4, "Wales", (byte)45, new DateTime(1980, 2, 7, 6, 54, 25, 0, DateTimeKind.Unspecified), new DateTime(2014, 11, 16, 9, 15, 27, 0, DateTimeKind.Unspecified), "884fad6d-b6f5-4bb0-a1f3-c93730f60088", "36.150.119.143", "B", "Sasha_Bergnaum@hotmail.com", new DateTime(2007, 1, 3, 21, 14, 40, 0, DateTimeKind.Unspecified), 3, "Naomie", "NaomieJohns", 2, "6e69c2da-d918-4406-be78-988e240f2a73", new DateTime(2006, 1, 3, 21, 14, 40, 0, DateTimeKind.Unspecified), "No", "French", "Johns", "05453502488", "http://pearlie.org/plastic/asymmetric/tangible", "Active", 2, "81096665658", null, null, null },
-                    { 5, "Wales", (byte)45, new DateTime(1980, 3, 20, 17, 13, 7, 0, DateTimeKind.Unspecified), new DateTime(2001, 11, 20, 13, 8, 12, 0, DateTimeKind.Unspecified), "5f80baf6-a958-4a7d-8b76-e904de3ba154", "104.166.81.35", "B", "Lula_Morar14@hotmail.com", new DateTime(2004, 5, 26, 15, 20, 9, 0, DateTimeKind.Unspecified), 4, "Elisabeth", "ElisabethEmmerich", 0, "9761e668-a8ee-4f95-9b2d-8d2e7cd7d8f9", new DateTime(2003, 5, 26, 15, 20, 9, 0, DateTimeKind.Unspecified), "No", "Italian", "Emmerich", "05702684351", "https://margret.name/quantifying/ftp", "Active", 3, "42716919198", null, null, null }
+                    { 1, "Wales", (byte)49, new DateTime(1976, 1, 16, 13, 19, 20, 0, DateTimeKind.Unspecified), new DateTime(2019, 7, 11, 3, 23, 26, 0, DateTimeKind.Unspecified), "069e20b9-2f52-4e7d-8dc1-2746a6293786", "44.20.212.244", "ADB", "Lynn58@gmail.com", new DateTime(2019, 10, 26, 17, 17, 33, 0, DateTimeKind.Unspecified), 1, "Louie", "LouieMcDermott", 0, "60489144-e57f-4eb4-a600-569ac2bf6429", new DateTime(2018, 10, 26, 17, 17, 33, 0, DateTimeKind.Unspecified), "No", "Arabic", "McDermott", "05714504514", "http://ashton.info/ergonomic-steel-shoes", "Active", 1, "80347125796", null, null, null },
+                    { 2, "Northern Ireland", (byte)48, new DateTime(1976, 12, 12, 22, 54, 4, 0, DateTimeKind.Unspecified), new DateTime(2015, 7, 19, 1, 13, 46, 0, DateTimeKind.Unspecified), "22cdb561-576c-4424-8bbb-33a8042f1244", "45.119.170.212", "B", "Irving_Nader@yahoo.com", new DateTime(2013, 2, 26, 13, 21, 7, 0, DateTimeKind.Unspecified), 3, "Marquis", "MarquisSwaniawski", 1, "d178fffb-278e-42c9-a5a0-c30b34647d6c", new DateTime(2012, 2, 26, 13, 21, 7, 0, DateTimeKind.Unspecified), "Yes", "Italian", "Swaniawski", "05054266615", "https://leonard.net/small-cotton-soap", "Active", 2, "24059709462", null, null, null }
+                });
+
+            migrationBuilder.InsertData(
+                table: "ContractEmployees",
+                columns: new[] { "Id", "Address", "Age", "BirthDate", "CreatedDate", "CreatedID", "CreatedIPAddress", "DriverLicense", "Email", "EndContract", "Experience", "FirstName", "FullName", "Gender", "Guid", "HireDate", "IsUpdated", "Language", "LastName", "PhoneNumber", "PhotoPath", "SupplierId", "TCN_Passport", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
+                values: new object[] { 3, "Wales", (byte)56, new DateTime(1968, 9, 20, 18, 15, 14, 0, DateTimeKind.Unspecified), new DateTime(2007, 10, 23, 12, 37, 51, 0, DateTimeKind.Unspecified), "bacce67e-39ad-43c3-b3da-917a0f5ed5b5", "157.106.92.189", "B", "Thad_Hyatt@gmail.com", new DateTime(2001, 8, 20, 15, 16, 11, 0, DateTimeKind.Unspecified), 4, "Cristian", "CristianMaggio", 1, "0505dfdc-ab7f-4057-b99a-dcff576dfcbe", new DateTime(2000, 8, 20, 15, 16, 11, 0, DateTimeKind.Unspecified), "No", "Russian", "Maggio", "05090716707", "http://rodger.biz/bypassing", 1, "61549493137", null, null, null });
+
+            migrationBuilder.InsertData(
+                table: "ContractEmployees",
+                columns: new[] { "Id", "Address", "Age", "BirthDate", "CreatedDate", "CreatedID", "CreatedIPAddress", "DriverLicense", "Email", "EndContract", "Experience", "FirstName", "FullName", "Gender", "Guid", "HireDate", "IsUpdated", "Language", "LastName", "PhoneNumber", "PhotoPath", "Status", "SupplierId", "TCN_Passport", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
+                values: new object[,]
+                {
+                    { 4, "England", (byte)44, new DateTime(1980, 8, 26, 9, 53, 50, 0, DateTimeKind.Unspecified), new DateTime(2000, 12, 3, 3, 8, 41, 0, DateTimeKind.Unspecified), "e5b33bd2-df50-4100-a715-622f199db594", "16.174.250.140", "None", "Garfield21@gmail.com", new DateTime(2004, 9, 7, 11, 23, 38, 0, DateTimeKind.Unspecified), 4, "Grover", "GroverMarks", 2, "c1ac4746-54d4-473e-a6d9-ef5ed320c644", new DateTime(2003, 9, 7, 11, 23, 38, 0, DateTimeKind.Unspecified), "Yes", "Russian", "Marks", "05266872239", "http://clint.net/deliver/guatemala/grey", "Passive", 3, "59720158012", null, null, null },
+                    { 5, "England", (byte)58, new DateTime(1966, 11, 14, 3, 26, 33, 0, DateTimeKind.Unspecified), new DateTime(2008, 6, 20, 3, 27, 28, 0, DateTimeKind.Unspecified), "3bfd0ac2-082e-4375-85b5-664f9c5449b7", "230.224.165.206", "ADB", "Giovani_Borer71@hotmail.com", new DateTime(2007, 11, 2, 22, 28, 21, 0, DateTimeKind.Unspecified), 1, "Rogelio", "RogelioDeckow", 1, "0da7784f-0537-42ac-b510-108f0a72c831", new DateTime(2006, 11, 2, 22, 28, 21, 0, DateTimeKind.Unspecified), "No", "Arabic", "Deckow", "05972298346", "http://marianna.org/benchmark", "Passive", 2, "20594778668", null, null, null }
                 });
 
             migrationBuilder.InsertData(
                 table: "Employees",
-                columns: new[] { "Id", "Address", "Age", "BirthDate", "ContractCount", "CountryId", "CreatedDate", "CreatedID", "CreatedIPAddress", "CurrentPosition", "DaysWorked", "Email", "EndContract", "Experience", "FirstName", "FullName", "Gender", "Guid", "HireDate", "IsUpdated", "LastName", "PhoneNumber", "PhotoPath", "TCN_Passport", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
-                values: new object[] { 1, "Scotland", (byte)51, new DateTime(1973, 5, 2, 11, 28, 46, 0, DateTimeKind.Unspecified), 5, 1, new DateTime(2013, 6, 19, 19, 18, 36, 0, DateTimeKind.Unspecified), "4642fc15-11e1-42ab-af6c-15d0fddcac03", "101.146.108.159", "Consulting", 4438, "Franz12@hotmail.com", new DateTime(2028, 2, 20, 17, 57, 29, 0, DateTimeKind.Unspecified), 15, "Gerry", "GerryThiel", "Male", "15692b42-92e2-4aa6-83e6-9c1cd60b64f7", new DateTime(2013, 2, 20, 17, 57, 29, 0, DateTimeKind.Unspecified), "No", "Thiel", "05325060539", "http://zack.org/hub/deposit/neural", "39209293183", null, null, null });
+                columns: new[] { "Id", "Address", "Age", "BirthDate", "ContractCount", "CountryId", "CreatedDate", "CreatedID", "CreatedIPAddress", "CurrentPosition", "DaysWorked", "Email", "EndContract", "Experience", "FirstName", "FullName", "Guid", "HireDate", "IsUpdated", "LastName", "PhoneNumber", "PhotoPath", "Status", "TCN_Passport", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
+                values: new object[] { 1, "Northern Ireland", (byte)49, new DateTime(1975, 11, 26, 21, 49, 27, 0, DateTimeKind.Unspecified), 4, 4, new DateTime(2007, 5, 18, 2, 21, 7, 0, DateTimeKind.Unspecified), "f172f055-7b22-4bc3-b1b7-dba302404b6f", "175.41.176.88", "Consulting", 3366, "Sienna_Crona82@gmail.com", new DateTime(2028, 2, 26, 14, 44, 21, 0, DateTimeKind.Unspecified), 16, "Eleonore", "EleonoreMarks", "3a909c5b-0b72-48b1-b98b-1b46229fc94a", new DateTime(2016, 2, 26, 14, 44, 21, 0, DateTimeKind.Unspecified), "No", "Marks", "05638321243", "http://lonie.org/internet-solution/salmon", "Passive", "56417732072", null, null, null });
+
+            migrationBuilder.InsertData(
+                table: "Employees",
+                columns: new[] { "Id", "Address", "Age", "BirthDate", "ContractCount", "CountryId", "CreatedDate", "CreatedID", "CreatedIPAddress", "CurrentPosition", "DaysWorked", "Email", "EndContract", "Experience", "FirstName", "FullName", "Guid", "HireDate", "IsUpdated", "LastName", "PhoneNumber", "PhotoPath", "TCN_Passport", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
+                values: new object[] { 2, "England", (byte)61, new DateTime(1964, 3, 5, 10, 34, 39, 0, DateTimeKind.Unspecified), 8, 1, new DateTime(2010, 12, 12, 12, 59, 14, 0, DateTimeKind.Unspecified), "8a45b8c7-3318-4fb7-bf92-609a6c9d1cad", "114.20.179.249", "IT", 8002, "Marianna_Upton@gmail.com", new DateTime(2027, 6, 18, 9, 23, 43, 0, DateTimeKind.Unspecified), 17, "Nya", "NyaMurray", "f5e07b0a-cd5c-42d4-b4be-847fce24d8da", new DateTime(2003, 6, 18, 9, 23, 43, 0, DateTimeKind.Unspecified), "No", "Murray", "05952191828", "http://helga.net/metrics/intuitive", "05661491366", null, null, null });
 
             migrationBuilder.InsertData(
                 table: "Employees",
                 columns: new[] { "Id", "Address", "Age", "BirthDate", "ContractCount", "CountryId", "CreatedDate", "CreatedID", "CreatedIPAddress", "CurrentPosition", "DaysWorked", "Email", "EndContract", "Experience", "FirstName", "FullName", "Gender", "Guid", "HireDate", "IsUpdated", "LastName", "PhoneNumber", "PhotoPath", "Status", "TCN_Passport", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
                 values: new object[,]
                 {
-                    { 2, "Wales", (byte)32, new DateTime(1992, 8, 8, 11, 37, 46, 0, DateTimeKind.Unspecified), 7, 1, new DateTime(2009, 9, 9, 21, 46, 39, 0, DateTimeKind.Unspecified), "6a38a55a-8607-4399-9fe7-19dde79087ee", "51.151.2.7", "Marketing", 6407, "Noemie52@yahoo.com", new DateTime(2028, 10, 2, 1, 58, 45, 0, DateTimeKind.Unspecified), 19, "Caleb", "CalebRutherford", "Female", "33a422c1-e660-456c-9606-7af8f4f44f0a", new DateTime(2007, 10, 2, 1, 58, 45, 0, DateTimeKind.Unspecified), "Yes", "Rutherford", "05437071807", "https://prudence.net/fantastic-fresh-car", "Active", "41533871309", null, null, null },
-                    { 3, "Wales", (byte)49, new DateTime(1975, 9, 18, 15, 40, 43, 0, DateTimeKind.Unspecified), 5, 3, new DateTime(2011, 1, 2, 2, 12, 40, 0, DateTimeKind.Unspecified), "ac71831a-b0c1-4dda-894d-7fa2cb8acd8e", "136.39.119.107", "Consulting", 4547, "Julius.Stiedemann3@yahoo.com", new DateTime(2027, 11, 4, 3, 22, 32, 0, DateTimeKind.Unspecified), 19, "Jada", "JadaDavis", "Male", "84559cee-cb40-4595-b7fd-150354337ead", new DateTime(2012, 11, 4, 3, 22, 32, 0, DateTimeKind.Unspecified), "Yes", "Davis", "05225034338", "http://brandi.name/object-oriented", "Active", "90968527503", null, null, null },
-                    { 4, "England", (byte)65, new DateTime(1960, 3, 9, 5, 10, 16, 0, DateTimeKind.Unspecified), 6, 5, new DateTime(2021, 11, 21, 14, 23, 4, 0, DateTimeKind.Unspecified), "c90696fb-7932-4b0a-95d7-027939df80ff", "160.128.110.80", "Consulting", 5459, "Jackeline97@yahoo.com", new DateTime(2028, 5, 7, 4, 52, 12, 0, DateTimeKind.Unspecified), 14, "Meggie", "MeggieBruen", "Female", "2ebe12e8-614e-4948-a971-0fa668dea79a", new DateTime(2010, 5, 7, 4, 52, 12, 0, DateTimeKind.Unspecified), "Yes", "Bruen", "05956077998", "http://alison.com/automotive--movies/multi-channelled", "Passive", "74542806200", null, null, null },
-                    { 5, "Wales", (byte)54, new DateTime(1970, 12, 14, 11, 21, 21, 0, DateTimeKind.Unspecified), 7, 5, new DateTime(2003, 3, 1, 4, 9, 46, 0, DateTimeKind.Unspecified), "3e01c598-6d48-4f5f-9c97-edd124e12925", "104.197.110.96", "Marketing", 6747, "Samara.Schoen@gmail.com", new DateTime(2027, 10, 27, 2, 58, 43, 0, DateTimeKind.Unspecified), 23, "Eldora", "EldoraHermann", "Male", "23caec90-2471-4d20-b715-91d45bc7eff2", new DateTime(2006, 10, 27, 2, 58, 43, 0, DateTimeKind.Unspecified), "No", "Hermann", "05492572316", "https://edwardo.net/circuit/central/copying", "Active", "27981274371", null, null, null }
+                    { 3, "Wales", (byte)53, new DateTime(1971, 9, 20, 17, 8, 29, 0, DateTimeKind.Unspecified), 3, 5, new DateTime(2010, 1, 16, 17, 37, 18, 0, DateTimeKind.Unspecified), "7e8d8135-8286-4e19-87e8-3ec47d47dd27", "92.58.114.145", "Marketing", 2100, "Dillon.Lindgren47@gmail.com", new DateTime(2028, 8, 15, 17, 26, 47, 0, DateTimeKind.Unspecified), 14, "Mose", "MoseKlein", "Female", "e715e276-3114-4b18-8f2c-3800479b246c", new DateTime(2019, 8, 15, 17, 26, 47, 0, DateTimeKind.Unspecified), "No", "Klein", "05132900767", "http://grady.name/florida/track", "Passive", "00896199908", null, null, null },
+                    { 4, "Northern Ireland", (byte)46, new DateTime(1978, 6, 11, 7, 44, 20, 0, DateTimeKind.Unspecified), 4, 2, new DateTime(2008, 2, 26, 21, 14, 38, 0, DateTimeKind.Unspecified), "f89f3419-6792-46c9-b2e3-df718bc89ed4", "230.190.203.161", "IT", 3098, "Mose90@yahoo.com", new DateTime(2028, 11, 20, 5, 25, 32, 0, DateTimeKind.Unspecified), 7, "Katrina", "KatrinaSchowalter", "Female", "24b171aa-f614-4cb9-b504-0cf4620d7513", new DateTime(2016, 11, 20, 5, 25, 32, 0, DateTimeKind.Unspecified), "No", "Schowalter", "05245276329", "https://lily.biz/open-system/michigan", "Active", "54930211866", null, null, null },
+                    { 5, "Wales", (byte)51, new DateTime(1974, 3, 2, 19, 17, 24, 0, DateTimeKind.Unspecified), 8, 1, new DateTime(2001, 4, 14, 9, 38, 4, 0, DateTimeKind.Unspecified), "5c1b9e97-0373-4726-ae98-b9cbdfdbf07d", "219.104.197.131", "Operations", 8055, "Jesus32@yahoo.com", new DateTime(2027, 4, 26, 22, 36, 21, 0, DateTimeKind.Unspecified), 5, "Ava", "AvaOrtiz", "Female", "b3f8b2cc-386d-4ae1-b9f1-1735069c35e3", new DateTime(2003, 4, 26, 22, 36, 21, 0, DateTimeKind.Unspecified), "No", "Ortiz", "05695798515", "https://deangelo.net/movies-movies--clothing/hawaii/producer", "Active", "78695256137", null, null, null }
                 });
 
             migrationBuilder.InsertData(
                 table: "PartnerCompanyTransactions",
                 columns: new[] { "Id", "CreatedDate", "CreatedID", "CreatedIPAddress", "Guid", "IsUpdated", "PartnerCompanyId", "TotalCost", "Type", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
-                values: new object[] { 1, new DateTime(2006, 1, 25, 9, 15, 3, 0, DateTimeKind.Unspecified), "8415781c-9daa-4a83-bd86-47dcff21a2cf", "66.187.244.254", "c846fdc5-d0c3-4d5c-8bd3-38b53231e81d", "No", 2, 7688.61419264150000m, "Sale", null, null, null });
+                values: new object[] { 1, new DateTime(2003, 7, 17, 16, 15, 46, 0, DateTimeKind.Unspecified), "2b11a78c-3247-46fb-93a5-48f35f121c06", "249.22.163.17", "2f12a044-46ed-423b-867e-001b2b541588", "No", 3, 13427.556303740732000m, "Sale", null, null, null });
 
             migrationBuilder.InsertData(
                 table: "PartnerCompanyTransactions",
                 columns: new[] { "Id", "CreatedDate", "CreatedID", "CreatedIPAddress", "Guid", "IsUpdated", "PartnerCompanyId", "Status", "TotalCost", "Type", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
                 values: new object[,]
                 {
-                    { 2, new DateTime(2015, 6, 1, 14, 47, 34, 0, DateTimeKind.Unspecified), "f21fa599-88a9-4b15-954e-4dac1e7cd493", "249.200.45.22", "2b372b22-2fbd-4ada-ad60-c2b10fa12eb2", "Yes", 1, "Passive", 13990.106166410044000m, "Purchase", null, null, null },
-                    { 3, new DateTime(2000, 4, 23, 11, 46, 44, 0, DateTimeKind.Unspecified), "ed9ff8c2-9232-4cfe-b10e-1041747f9f58", "230.207.124.92", "e4cafd17-44b8-4e44-b7da-5f3011bf0568", "No", 1, "Active", 3898.668758746236000m, "Purchase", null, null, null },
-                    { 4, new DateTime(2004, 4, 17, 3, 10, 24, 0, DateTimeKind.Unspecified), "9b2676b9-41e0-4a91-95df-1062855bde3c", "165.176.242.61", "4dd468bc-b7d6-49e6-bfe3-517bb4946ccd", "Yes", 1, "Passive", 8720.100764284734000m, "Sale", null, null, null }
+                    { 2, new DateTime(2020, 6, 19, 15, 20, 36, 0, DateTimeKind.Unspecified), "2fa50815-0300-4b6a-af20-4a496e057517", "106.183.68.37", "5522f58c-96d6-47e1-92ef-59eb1baa8ec2", "No", 3, "Passive", 2857.918206247824000m, "Sale", null, null, null },
+                    { 3, new DateTime(2013, 6, 14, 20, 16, 20, 0, DateTimeKind.Unspecified), "a1f74c11-e6fd-4dcf-87c8-ba89bdfd3326", "34.197.117.250", "dbb52404-4947-49c6-a6e7-d8f203245335", "No", 1, "Active", 13398.857030857024000m, "Sale", null, null, null },
+                    { 4, new DateTime(2003, 4, 5, 6, 21, 15, 0, DateTimeKind.Unspecified), "217020f9-27fa-405c-9c36-e6192c3c77b1", "97.15.23.31", "f0fb805a-bf15-4f89-ba1c-9229487f221a", "No", 2, "Active", 12270.261896396832000m, "Sale", null, null, null }
                 });
 
             migrationBuilder.InsertData(
                 table: "PartnerCompanyTransactions",
                 columns: new[] { "Id", "CreatedDate", "CreatedID", "CreatedIPAddress", "Guid", "IsUpdated", "PartnerCompanyId", "TotalCost", "Type", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
-                values: new object[] { 5, new DateTime(2001, 2, 2, 22, 13, 48, 0, DateTimeKind.Unspecified), "acc8ea46-1a93-45fe-8069-7ad3e82e4f77", "225.114.235.242", "3224d704-8d0d-4fa0-9ac1-a359311ae1f2", "No", 5, 12039.459857420666000m, "Purchase", null, null, null });
+                values: new object[] { 5, new DateTime(2014, 8, 2, 1, 12, 17, 0, DateTimeKind.Unspecified), "36179a48-e8ad-4f20-991f-0514b4bc0839", "59.49.176.150", "720bb6de-7c16-430e-a12c-636104c608ea", "No", 4, 9319.765671217490000m, "Sale", null, null, null });
 
             migrationBuilder.InsertData(
                 table: "ActivityPassTickets",
                 columns: new[] { "Id", "CommissionRate", "CreatedDate", "CreatedID", "CreatedIPAddress", "Guid", "IsUpdated", "PartnerCompanyTransactionId", "Price", "Status", "TotalCostwithCommission", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
-                values: new object[,]
-                {
-                    { 1, (byte)11, new DateTime(2011, 12, 12, 11, 12, 25, 0, DateTimeKind.Unspecified), "3bb256d5-3c95-4d0a-852c-6b6ab60486a4", "88.0.202.163", "510a2eca-998c-4abe-84da-5347d79cd3c1", "No", 2, 139.969996709981760m, "Passive", 155.3666963480797536m, null, null, null },
-                    { 2, (byte)8, new DateTime(2010, 4, 8, 7, 20, 16, 0, DateTimeKind.Unspecified), "fab0163c-f233-4499-84ea-e5d3fd65d6b0", "74.182.14.146", "a3171f3a-5d72-4d6c-a578-ddb765a139b1", "No", 1, 330.933166558937280m, "Passive", 357.4078198836522624m, null, null, null },
-                    { 3, (byte)18, new DateTime(2006, 5, 11, 8, 39, 47, 0, DateTimeKind.Unspecified), "0b7a24d2-2b63-416b-9248-e9be197aa589", "57.185.123.223", "addf427f-3e1a-4e4a-b6ed-9f7f052eaa87", "No", 2, 297.146132896583680m, "Passive", 350.6324368179687424m, null, null, null }
-                });
+                values: new object[] { 1, (byte)20, new DateTime(2020, 8, 17, 6, 24, 41, 0, DateTimeKind.Unspecified), "c02da8cc-7e95-4dc8-bb70-b5ae1cdfeebc", "170.44.47.1", "ef8af093-a413-4a54-b2fb-ecc69d8d3d48", "No", 3, 199.713728099778880m, "Passive", 239.656473719734656m, null, null, null });
 
             migrationBuilder.InsertData(
                 table: "ActivityPassTickets",
                 columns: new[] { "Id", "CommissionRate", "CreatedDate", "CreatedID", "CreatedIPAddress", "Guid", "IsUpdated", "PartnerCompanyTransactionId", "Price", "TotalCostwithCommission", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
                 values: new object[,]
                 {
-                    { 4, (byte)9, new DateTime(2011, 7, 17, 22, 57, 2, 0, DateTimeKind.Unspecified), "07d51307-c83f-404f-83bb-a02d937e77a3", "199.175.226.182", "05bcc263-9a42-4772-ae67-8ef14c1684c3", "No", 5, 158.964389795940800m, 173.271184877575472m, null, null, null },
-                    { 5, (byte)18, new DateTime(2018, 9, 11, 9, 33, 49, 0, DateTimeKind.Unspecified), "bcf45486-6d45-4dba-aeb0-bddcd71e6a55", "206.47.179.118", "eb33c851-c020-4368-b39d-8c0dcff36523", "No", 5, 218.669969224690880m, 258.0305636851352384m, null, null, null }
+                    { 2, (byte)9, new DateTime(2018, 8, 10, 23, 47, 2, 0, DateTimeKind.Unspecified), "92b4e568-1a91-4266-90de-4bd08d4379b9", "216.249.7.61", "48af16a5-1c02-41c5-94d8-4f92770b8820", "No", 2, 293.858518437168960m, 320.3057850965141664m, null, null, null },
+                    { 3, (byte)13, new DateTime(2011, 11, 23, 19, 19, 54, 0, DateTimeKind.Unspecified), "ed951c27-6f54-4d74-8c5e-d4a3355347b9", "131.18.10.118", "fd0dbc8d-11cb-4b86-8124-abc6492bd019", "No", 5, 209.520969039443840m, 236.7586950145715392m, null, null, null }
+                });
+
+            migrationBuilder.InsertData(
+                table: "ActivityPassTickets",
+                columns: new[] { "Id", "CommissionRate", "CreatedDate", "CreatedID", "CreatedIPAddress", "Guid", "IsUpdated", "PartnerCompanyTransactionId", "Price", "Status", "TotalCostwithCommission", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
+                values: new object[,]
+                {
+                    { 4, (byte)17, new DateTime(2006, 3, 7, 23, 39, 53, 0, DateTimeKind.Unspecified), "80491ee7-d592-472d-a67e-581a845ad60a", "130.28.77.3", "afa8e85c-ec9b-469c-9582-48e202fd9ea0", "No", 4, 315.615016446602240m, "Passive", 369.2695692425246208m, null, null, null },
+                    { 5, (byte)10, new DateTime(2016, 1, 13, 3, 54, 2, 0, DateTimeKind.Unspecified), "852285ba-075d-4488-a423-8e773a0bee7a", "183.245.243.22", "c349aff3-802a-4707-bb7e-911c5a8870a6", "No", 3, 204.130700889027520m, "Passive", 224.543770977930272m, null, null, null }
                 });
 
             migrationBuilder.InsertData(
@@ -939,107 +938,130 @@ namespace DataAccess.Migrations
                 columns: new[] { "Id", "CreatedDate", "CreatedID", "CreatedIPAddress", "EmployeeId", "Guid", "IsUpdated", "Note", "Status", "UpdatedDate", "UpdatedID", "UpdatedIPAddress", "WebUserAccountId", "WebUserEmail" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2005, 1, 4, 2, 24, 37, 0, DateTimeKind.Unspecified), "3541bb02-2279-49da-8737-ebef44cfdcc7", "181.126.230.112", 3, "2568ecf1-9197-4582-81de-e54532a477ea", "No", "Handcrafted Plastic Chair Nauru Danish Krone 1080p", "Active", null, null, null, 5, "Lewis.Farrell81@hotmail.com" },
-                    { 2, new DateTime(2016, 5, 18, 2, 53, 40, 0, DateTimeKind.Unspecified), "4918d5c2-99d5-4f57-b70b-d689895a3a76", "98.204.143.78", 3, "15f602c4-ddff-403f-ba4f-69bd4f6fdc24", "No", "Sao Tome and Principe Movies & Garden Intelligent Manor", "Active", null, null, null, 2, "Dagmar.Heidenreich@yahoo.com" },
-                    { 3, new DateTime(2014, 12, 1, 23, 56, 4, 0, DateTimeKind.Unspecified), "ea6eb9e3-6a7b-4893-b5fd-08dee3c28b87", "51.254.125.6", 4, "eca3bbef-1ed7-4c79-93c0-58e277e0bd35", "No", "1080p Sleek copy Granite", "Active", null, null, null, 2, "Philip53@gmail.com" },
-                    { 4, new DateTime(2015, 6, 18, 23, 49, 5, 0, DateTimeKind.Unspecified), "bf09d24a-85db-4a92-aaad-91a15736963d", "97.17.249.115", 4, "1024a01c-7592-40ec-8aab-dea1cfd6c27c", "Yes", "Assurance Tasty Investor navigating", "Active", null, null, null, 3, "Jovani29@yahoo.com" },
-                    { 5, new DateTime(2017, 8, 2, 6, 30, 20, 0, DateTimeKind.Unspecified), "4903603a-5eb7-406a-a4d5-c08d9aa452ab", "242.249.21.211", 4, "8a1ce2ae-d84e-4c4d-b7f6-a0aad8e12ca6", "No", "Buckinghamshire content-based invoice Books & Games", "Active", null, null, null, 3, "Garrett.Kohler1@hotmail.com" }
+                    { 1, new DateTime(2017, 6, 20, 23, 14, 25, 0, DateTimeKind.Unspecified), "de8fcb41-d040-48e7-a0e5-b7e9edbea8a0", "37.45.235.37", 3, "941838b7-89b6-4eb9-a0c8-2f26bc19f3bc", "Yes", "backing up RSS Gorgeous Rubber Towels Utah", "Passive", null, null, null, 2, "Lizeth.Wuckert77@gmail.com" },
+                    { 2, new DateTime(2017, 6, 2, 3, 41, 11, 0, DateTimeKind.Unspecified), "ab4688a6-61a3-49bd-b5d1-cbd41aa7d6a9", "70.1.193.244", 5, "a7b5fc59-8f3b-4406-a3cd-c7dd4f42e3df", "Yes", "unleash Horizontal Cambridgeshire web-enabled", "Active", null, null, null, 1, "Stewart22@hotmail.com" }
                 });
+
+            migrationBuilder.InsertData(
+                table: "ActivityTicketOrders",
+                columns: new[] { "Id", "CreatedDate", "CreatedID", "CreatedIPAddress", "EmployeeId", "Guid", "IsUpdated", "Note", "UpdatedDate", "UpdatedID", "UpdatedIPAddress", "WebUserAccountId", "WebUserEmail" },
+                values: new object[,]
+                {
+                    { 3, new DateTime(2004, 3, 22, 15, 18, 40, 0, DateTimeKind.Unspecified), "59547d1e-e1d5-43de-bd27-88d77a1fc470", "78.80.153.13", 5, "7dc12de3-7c41-4bd6-ac95-4fbaa39e9708", "Yes", "online Refined Frozen Sausages Northern Mariana Islands Tools & Sports", null, null, null, 5, "Trey.Haley@hotmail.com" },
+                    { 4, new DateTime(2001, 5, 19, 2, 45, 35, 0, DateTimeKind.Unspecified), "88179b4e-1dd1-4e74-a371-4c6427764b86", "114.42.74.9", 4, "87fac73d-492d-4682-a161-75311dfbb799", "No", "Facilitator Fort SMTP array", null, null, null, 4, "David_West97@hotmail.com" },
+                    { 5, new DateTime(2001, 12, 6, 22, 27, 28, 0, DateTimeKind.Unspecified), "bbd39932-bdc1-4854-b35d-38ed81b188c4", "152.81.169.247", 5, "296358bb-6295-4a2e-9a99-24888a0ab455", "No", "Orchestrator Michigan Intelligent Plastic Pants Berkshire", null, null, null, 4, "Lelah14@hotmail.com" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "ActivityTickets",
+                columns: new[] { "Id", "ActivityId", "ArrivalDate", "CreatedDate", "CreatedID", "CreatedIPAddress", "Currency", "DepartureAdress", "DepartureDate", "DestinationAdress", "DiscountRate", "Guid", "IsUpdated", "NetCost", "PaymentStatus", "Price", "SeatNumber", "TicketHolderName", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
+                values: new object[] { 1, 5, new DateTime(2012, 6, 19, 4, 32, 44, 0, DateTimeKind.Unspecified), new DateTime(2013, 3, 10, 20, 34, 39, 0, DateTimeKind.Unspecified), "9264a515-fd65-46ba-a287-7cea1a1d1603", "61.213.65.177", "USD", "Granite Incredible Plastic Cheese", new DateTime(2012, 6, 19, 1, 32, 44, 0, DateTimeKind.Unspecified), "Borders British Indian Ocean Territory (Chagos Archipelago)", (byte)19, "942d7033-78e4-44a8-9135-b31e2bb28c8e", "No", 232.915415593872240m, "PartialPaid", 287.549895794904000m, "C245", "Emilia Franecki", null, null, null });
 
             migrationBuilder.InsertData(
                 table: "ActivityTickets",
                 columns: new[] { "Id", "ActivityId", "ArrivalDate", "CreatedDate", "CreatedID", "CreatedIPAddress", "Currency", "DepartureAdress", "DepartureDate", "DestinationAdress", "DiscountRate", "Guid", "IsUpdated", "NetCost", "PaymentStatus", "Price", "SeatNumber", "Status", "TicketHolderName", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
                 values: new object[,]
                 {
-                    { 1, 1, new DateTime(2012, 12, 4, 2, 28, 20, 0, DateTimeKind.Unspecified), new DateTime(2004, 9, 23, 1, 17, 6, 0, DateTimeKind.Unspecified), "56af52f0-555f-4b5f-8b8b-c7f90be3d793", "96.254.255.4", "TRY", "Light payment", new DateTime(2012, 12, 3, 23, 28, 20, 0, DateTimeKind.Unspecified), "Re-contextualized pixel", (byte)17, "6a6926ed-7b53-4ae4-8ca8-e60de7c6bd66", "Yes", 310.422148248626144m, "PartialPaid", 374.00258825135680m, "C89", "Passive", "Rickie Rowe", null, null, null },
-                    { 2, 2, new DateTime(2000, 5, 7, 22, 35, 11, 0, DateTimeKind.Unspecified), new DateTime(2005, 4, 7, 7, 22, 39, 0, DateTimeKind.Unspecified), "c23b1401-4571-4fb6-8114-68544ad4e7e2", "104.22.178.146", "EUR", "payment SAS", new DateTime(2000, 5, 7, 19, 35, 11, 0, DateTimeKind.Unspecified), "Plastic Prairie", (byte)15, "2d464c33-ce3b-43c9-876e-e3879207ebf2", "No", 321.308744150873632m, "PartialPaid", 378.010287236321920m, "A172", "Passive", "Francesco Yundt", null, null, null },
-                    { 3, 5, new DateTime(2015, 3, 1, 13, 28, 28, 0, DateTimeKind.Unspecified), new DateTime(2006, 9, 20, 14, 20, 40, 0, DateTimeKind.Unspecified), "d8781b48-ccfd-4db4-a50a-091ce4683237", "154.193.205.25", "TRY", "non-volatile Profound", new DateTime(2015, 3, 1, 10, 28, 28, 0, DateTimeKind.Unspecified), "Director Global", (byte)19, "6165a699-4140-41ee-bf73-5466a859af31", "No", 181.2559458302139456m, "PartialPaid", 223.772772629893760m, "B58", "Passive", "Itzel Rath", null, null, null },
-                    { 4, 4, new DateTime(2010, 11, 10, 22, 59, 29, 0, DateTimeKind.Unspecified), new DateTime(2013, 3, 3, 14, 37, 22, 0, DateTimeKind.Unspecified), "92a455ca-ab70-408e-82e9-488597a2faf7", "27.112.17.55", "CNY", "channels invoice", new DateTime(2010, 11, 10, 19, 59, 29, 0, DateTimeKind.Unspecified), "leverage Practical Metal Computer", (byte)13, "51418d8a-4771-4093-975b-391c56f1c252", "Yes", 207.2548947726233856m, "Pending", 238.224016980026880m, "A31", "Passive", "Chelsea Herman", null, null, null },
-                    { 5, 5, new DateTime(2018, 10, 8, 0, 49, 30, 0, DateTimeKind.Unspecified), new DateTime(2021, 8, 4, 17, 45, 54, 0, DateTimeKind.Unspecified), "bd968ab1-b94d-4665-8807-20577e6030fd", "1.155.23.231", "JPY", "Bangladesh Tasty", new DateTime(2018, 10, 7, 21, 49, 30, 0, DateTimeKind.Unspecified), "neural Auto Loan Account", (byte)19, "805caf60-af2f-4e4f-85c1-205fd45c15a9", "No", 271.9420075892274912m, "Pending", 335.730873566947520m, "C170", "Active", "Jaida Emard", null, null, null }
+                    { 2, 5, new DateTime(2011, 2, 4, 2, 48, 23, 0, DateTimeKind.Unspecified), new DateTime(2002, 10, 2, 20, 26, 46, 0, DateTimeKind.Unspecified), "d346ca82-bf89-4190-862b-2a3994d43a00", "188.102.67.242", "GBP", "Sports & Outdoors Shoes, Tools & Baby", new DateTime(2011, 2, 3, 23, 48, 23, 0, DateTimeKind.Unspecified), "deliver Personal Loan Account", (byte)12, "abae6ff1-9dff-4ed4-8baa-aeb327b36c58", "Yes", 297.269530306122880m, "FullyPaid", 337.806284438776000m, "C228", "Active", "Jude Breitenberg", null, null, null },
+                    { 3, 1, new DateTime(2018, 6, 27, 1, 19, 42, 0, DateTimeKind.Unspecified), new DateTime(2017, 1, 11, 8, 38, 27, 0, DateTimeKind.Unspecified), "9f84c730-b833-4921-bb93-8bc1fdd701d8", "68.163.130.173", "CNY", "Technician invoice", new DateTime(2018, 6, 26, 22, 19, 42, 0, DateTimeKind.Unspecified), "Kazakhstan Intuitive", (byte)19, "ddb825c1-6f7b-47b2-bcbf-71914897db27", "No", 193.2865147502542656m, "PartialPaid", 238.625326852165760m, "C142", "Active", "Amari VonRueden", null, null, null },
+                    { 4, 3, new DateTime(2008, 11, 13, 4, 51, 44, 0, DateTimeKind.Unspecified), new DateTime(2016, 6, 8, 15, 30, 42, 0, DateTimeKind.Unspecified), "c83019d3-6534-49f3-9627-6715b3184081", "192.74.228.35", "TRY", "best-of-breed content-based", new DateTime(2008, 11, 13, 1, 51, 44, 0, DateTimeKind.Unspecified), "Guinea Franc portals", (byte)14, "dd28045b-929f-47eb-a0f0-cfc4fc4585c9", "No", 324.1571110089928192m, "Pending", 376.926873266270720m, "A24", "Passive", "Cristobal Schaefer", null, null, null }
                 });
 
             migrationBuilder.InsertData(
-                table: "AspNetUserProfiles",
-                columns: new[] { "WebUserAccountId", "Address", "Age", "BirthDate", "CreatedDate", "CreatedID", "CreatedIPAddress", "FirstName", "Gender", "IsUpdated", "LastName", "PhotoPath", "TCN_Passport", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
-                values: new object[] { 1, "4866 Fredrick Streets, New Eula, Democratic People's Republic of Korea", (byte)69, new DateTime(1956, 2, 10, 3, 27, 33, 0, DateTimeKind.Unspecified), new DateTime(2003, 4, 23, 12, 48, 38, 0, DateTimeKind.Unspecified), "dd0eedbf-3b42-4223-87c4-5f978abbcd3b", "66.186.189.165", "Jade", "Female", "No", "Turcotte", "riley.info", "89056655421", new DateTime(2022, 1, 20, 20, 37, 36, 0, DateTimeKind.Unspecified), null, null });
+                table: "ActivityTickets",
+                columns: new[] { "Id", "ActivityId", "ArrivalDate", "CreatedDate", "CreatedID", "CreatedIPAddress", "Currency", "DepartureAdress", "DepartureDate", "DestinationAdress", "DiscountRate", "Guid", "IsUpdated", "NetCost", "PaymentStatus", "Price", "SeatNumber", "TicketHolderName", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
+                values: new object[] { 5, 1, new DateTime(2009, 4, 17, 19, 19, 3, 0, DateTimeKind.Unspecified), new DateTime(2007, 7, 13, 23, 49, 30, 0, DateTimeKind.Unspecified), "26196a13-e743-4937-bd71-0e8ccf2b68d4", "148.204.120.92", "JPY", "Village Small Fresh Mouse", new DateTime(2009, 4, 17, 16, 19, 3, 0, DateTimeKind.Unspecified), "bypassing Corners", (byte)20, "bbdb2af5-cc9f-4891-8130-54f0fd57f234", "Yes", 159.975266216292096m, "PartialPaid", 199.969082770365120m, "C171", "Britney Harber", null, null, null });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserProfiles",
                 columns: new[] { "WebUserAccountId", "Address", "Age", "BirthDate", "CreatedDate", "CreatedID", "CreatedIPAddress", "FirstName", "Gender", "IsUpdated", "LastName", "PhotoPath", "Status", "TCN_Passport", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
-                values: new object[] { 2, "0472 Shanel Shoals, Chaddfort, Mali", (byte)25, new DateTime(1999, 12, 12, 15, 18, 22, 0, DateTimeKind.Unspecified), new DateTime(2021, 4, 14, 8, 35, 49, 0, DateTimeKind.Unspecified), "32bbf0fe-9b8f-4263-994c-87a31a22904f", "39.117.126.32", "Benny", "Male", "Yes", "Wisozk", "brandyn.name", "Passive", "91578846122", new DateTime(2023, 12, 22, 18, 39, 46, 0, DateTimeKind.Unspecified), null, null });
+                values: new object[] { 1, "602 Mathew Loop, North Stanmouth, Brunei Darussalam", (byte)61, new DateTime(1964, 1, 9, 20, 36, 48, 0, DateTimeKind.Unspecified), new DateTime(2012, 9, 2, 20, 50, 45, 0, DateTimeKind.Unspecified), "f162f5a5-df47-4e34-94cf-35c07fe74b12", "55.189.32.17", "Elisha", "Female", "Yes", "Lind", "emely.org", "Active", "34198492179", new DateTime(2022, 3, 23, 8, 43, 19, 0, DateTimeKind.Unspecified), null, null });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUserProfiles",
+                columns: new[] { "WebUserAccountId", "Address", "Age", "BirthDate", "CreatedDate", "CreatedID", "CreatedIPAddress", "FirstName", "IsUpdated", "LastName", "PhotoPath", "Status", "TCN_Passport", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
+                values: new object[] { 2, "58492 Paucek Harbor, South Earnestine, Pakistan", (byte)26, new DateTime(1998, 7, 21, 20, 21, 34, 0, DateTimeKind.Unspecified), new DateTime(2018, 5, 7, 16, 43, 50, 0, DateTimeKind.Unspecified), "b89c1f88-bc50-4ad0-b180-9c4837fe6cb3", "254.146.176.247", "Oma", "No", "Rau", "alec.info", "Active", "23744913769", new DateTime(2023, 12, 4, 4, 18, 52, 0, DateTimeKind.Unspecified), null, null });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserProfiles",
                 columns: new[] { "WebUserAccountId", "Address", "Age", "BirthDate", "CreatedDate", "CreatedID", "CreatedIPAddress", "FirstName", "Gender", "IsUpdated", "LastName", "PhotoPath", "TCN_Passport", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
-                values: new object[,]
-                {
-                    { 3, "41181 Yasmin Place, Bayerton, Myanmar", (byte)21, new DateTime(2004, 2, 18, 3, 38, 20, 0, DateTimeKind.Unspecified), new DateTime(2008, 1, 13, 8, 44, 30, 0, DateTimeKind.Unspecified), "e2e26704-5579-41b8-8030-cfda88d2063e", "242.159.167.0", "Alexys", "Male", "No", "Sporer", "frederik.com", "13381191120", new DateTime(2022, 9, 5, 23, 52, 50, 0, DateTimeKind.Unspecified), null, null },
-                    { 4, "6373 Reece Heights, West Megane, Iceland", (byte)23, new DateTime(2001, 8, 13, 14, 36, 40, 0, DateTimeKind.Unspecified), new DateTime(2009, 9, 2, 14, 22, 11, 0, DateTimeKind.Unspecified), "4444e4f6-474d-4f81-80cf-d13ef210aeca", "94.6.239.105", "Patsy", "Female", "No", "Labadie", "ayana.org", "30544883057", new DateTime(2024, 6, 5, 17, 39, 6, 0, DateTimeKind.Unspecified), null, null },
-                    { 5, "882 Edna Fields, Kuhnhaven, Netherlands Antilles", (byte)49, new DateTime(1976, 2, 16, 18, 8, 49, 0, DateTimeKind.Unspecified), new DateTime(2007, 6, 8, 23, 57, 50, 0, DateTimeKind.Unspecified), "72b645d2-99d5-4832-a8dc-bf4daf931e6b", "201.66.64.197", "Chloe", "Male", "Yes", "Heidenreich", "johnson.biz", "84472456655", new DateTime(2022, 6, 10, 13, 14, 11, 0, DateTimeKind.Unspecified), null, null }
-                });
+                values: new object[] { 3, "261 Wisoky Islands, Margaritaport, Isle of Man", (byte)27, new DateTime(1997, 9, 10, 7, 33, 28, 0, DateTimeKind.Unspecified), new DateTime(2009, 4, 21, 4, 51, 31, 0, DateTimeKind.Unspecified), "d5c966c1-ca2f-4dfc-b8ef-1fbf1804d240", "173.52.91.69", "Savannah", "Male", "No", "Larson", "sandrine.info", "34336497965", new DateTime(2022, 1, 23, 18, 25, 54, 0, DateTimeKind.Unspecified), null, null });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUserProfiles",
+                columns: new[] { "WebUserAccountId", "Address", "Age", "BirthDate", "CreatedDate", "CreatedID", "CreatedIPAddress", "FirstName", "IsUpdated", "LastName", "PhotoPath", "Status", "TCN_Passport", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
+                values: new object[] { 4, "3652 Abdullah Ramp, Wolffchester, Azerbaijan", (byte)73, new DateTime(1951, 9, 18, 22, 17, 11, 0, DateTimeKind.Unspecified), new DateTime(2012, 4, 22, 16, 19, 50, 0, DateTimeKind.Unspecified), "3f47774a-02e3-478b-88ff-9ac7e0201bee", "78.146.92.64", "Abagail", "No", "Marquardt", "charlene.net", "Active", "58183242902", new DateTime(2024, 11, 10, 7, 28, 34, 0, DateTimeKind.Unspecified), null, null });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUserProfiles",
+                columns: new[] { "WebUserAccountId", "Address", "Age", "BirthDate", "CreatedDate", "CreatedID", "CreatedIPAddress", "FirstName", "Gender", "IsUpdated", "LastName", "PhotoPath", "Status", "TCN_Passport", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
+                values: new object[] { 5, "3488 Imogene Groves, Hammesfort, Iceland", (byte)26, new DateTime(1998, 5, 20, 13, 22, 15, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 27, 19, 58, 35, 0, DateTimeKind.Unspecified), "adef27f0-77a0-4ad8-b4c0-8fe3ace147c1", "159.87.69.173", "Burnice", "Male", "No", "Quigley", "zack.info", "Active", "83997329049", new DateTime(2024, 8, 17, 1, 21, 50, 0, DateTimeKind.Unspecified), null, null });
 
             migrationBuilder.InsertData(
                 table: "RentalVehicles",
                 columns: new[] { "Id", "ActivityId", "Age", "Capacity", "CreatedDate", "CreatedID", "CreatedIPAddress", "DailyRentalFee", "ExpireDate", "Guid", "IsAvailable", "IsUpdated", "Kilometer", "LicensePlate", "Model", "RentalVehicleSupplierId", "StartDate", "Status", "TotalPrice", "TotalRentalDay", "UpdatedDate", "UpdatedID", "UpdatedIPAddress", "VehicleType" },
-                values: new object[,]
-                {
-                    { 1, 3, 13, (short)38, new DateTime(2002, 7, 12, 17, 23, 12, 0, DateTimeKind.Unspecified), "ae70ab07-3e16-4a00-8617-a5ec93142fe7", "164.139.4.94", 13222m, new DateTime(2020, 10, 16, 12, 14, 50, 0, DateTimeKind.Unspecified), "990078c5-61c7-43ab-94f2-5b642dbc8c71", "Busy", "No", 983909, "67 uq 8191", "Fiesta", 4, new DateTime(2020, 10, 12, 12, 14, 50, 0, DateTimeKind.Unspecified), "Active", 52888m, 4, null, null, null, "Jeep" },
-                    { 2, 1, 2, (short)40, new DateTime(2012, 2, 20, 21, 51, 17, 0, DateTimeKind.Unspecified), "3479b8b4-bcee-412a-92ae-3d3295a9b9a7", "190.224.169.166", 20183m, new DateTime(2019, 10, 15, 17, 23, 8, 0, DateTimeKind.Unspecified), "e680ca9c-a150-4dfe-ac53-ae40647f3990", "Available", "No", 898647, "32 lz 3759", "Silverado", 4, new DateTime(2019, 10, 11, 17, 23, 8, 0, DateTimeKind.Unspecified), "Active", 80732m, 4, null, null, null, "Jeep" },
-                    { 3, 1, 5, (short)72, new DateTime(2016, 12, 9, 11, 47, 16, 0, DateTimeKind.Unspecified), "fc1ce96d-22a5-425f-9217-ce380c036654", "241.240.234.220", 15475m, new DateTime(2015, 4, 18, 21, 37, 8, 0, DateTimeKind.Unspecified), "b7ffeb95-93b9-400d-ab00-30af2380cafb", "Busy", "No", 67936, "26 ga 2762", "Element", 2, new DateTime(2015, 4, 13, 21, 37, 8, 0, DateTimeKind.Unspecified), "Active", 77375m, 5, null, null, null, "Motorbike" }
-                });
+                values: new object[] { 1, 4, 8, (short)73, new DateTime(2015, 12, 6, 7, 27, 25, 0, DateTimeKind.Unspecified), "9267467a-1240-4a23-95b8-f511e02cd758", "141.99.224.138", 6072m, new DateTime(2007, 12, 2, 21, 54, 28, 0, DateTimeKind.Unspecified), "04d95aef-ca6f-49e7-b9b5-0994ec2222e3", "Busy", "No", 172791, "70 ab 3243", "Focus", 3, new DateTime(2007, 12, 1, 21, 54, 28, 0, DateTimeKind.Unspecified), "Active", 6072m, 1, null, null, null, "Yacht" });
 
             migrationBuilder.InsertData(
                 table: "RentalVehicles",
                 columns: new[] { "Id", "ActivityId", "Age", "Capacity", "CreatedDate", "CreatedID", "CreatedIPAddress", "DailyRentalFee", "ExpireDate", "Guid", "IsAvailable", "IsUpdated", "Kilometer", "LicensePlate", "Model", "RentalVehicleSupplierId", "StartDate", "TotalPrice", "TotalRentalDay", "UpdatedDate", "UpdatedID", "UpdatedIPAddress", "VehicleType" },
-                values: new object[] { 4, 3, 14, (short)94, new DateTime(2014, 10, 18, 22, 44, 28, 0, DateTimeKind.Unspecified), "ff66427d-16e0-4520-a785-389d1e49b566", "170.88.41.22", 19270m, new DateTime(2020, 12, 21, 20, 24, 52, 0, DateTimeKind.Unspecified), "b34b97dd-ae62-4b93-bdb8-a94eeb5966e9", "Available", "Yes", 757554, "57 pf 9599", "Spyder", 1, new DateTime(2020, 12, 16, 20, 24, 52, 0, DateTimeKind.Unspecified), 96350m, 5, null, null, null, "Bus" });
+                values: new object[,]
+                {
+                    { 2, 2, 15, (short)72, new DateTime(2009, 4, 14, 7, 23, 13, 0, DateTimeKind.Unspecified), "76248b6b-2cf9-453a-8ca8-05e961bf69b0", "119.197.162.116", 14601m, new DateTime(2011, 5, 21, 7, 35, 47, 0, DateTimeKind.Unspecified), "d492aff5-52aa-408c-90ae-fbc697645612", "Busy", "Yes", 322248, "46 sn 1064", "XC90", 3, new DateTime(2011, 5, 19, 7, 35, 47, 0, DateTimeKind.Unspecified), 29202m, 2, null, null, null, "Jeep" },
+                    { 3, 4, 15, (short)72, new DateTime(2004, 5, 17, 10, 47, 45, 0, DateTimeKind.Unspecified), "e269c197-e6e6-41fd-a90f-0c749a2e20f1", "48.202.70.167", 10644m, new DateTime(2016, 10, 24, 16, 29, 13, 0, DateTimeKind.Unspecified), "6572ad75-7bab-489a-bd38-0c5d019838cd", "Busy", "No", 788378, "12 hy 7749", "Colorado", 2, new DateTime(2016, 10, 23, 16, 29, 13, 0, DateTimeKind.Unspecified), 10644m, 1, null, null, null, "Boat" }
+                });
 
             migrationBuilder.InsertData(
                 table: "RentalVehicles",
                 columns: new[] { "Id", "ActivityId", "Age", "Capacity", "CreatedDate", "CreatedID", "CreatedIPAddress", "DailyRentalFee", "ExpireDate", "Guid", "IsAvailable", "IsUpdated", "Kilometer", "LicensePlate", "Model", "RentalVehicleSupplierId", "StartDate", "Status", "TotalPrice", "TotalRentalDay", "UpdatedDate", "UpdatedID", "UpdatedIPAddress", "VehicleType" },
-                values: new object[] { 5, 1, 8, (short)84, new DateTime(2009, 9, 26, 7, 51, 24, 0, DateTimeKind.Unspecified), "c655e979-2b3d-41fd-b0d4-154ad59b4521", "28.60.218.49", 21932m, new DateTime(2008, 9, 23, 19, 25, 9, 0, DateTimeKind.Unspecified), "515ad794-56f7-48db-aa85-11bb49787f4a", "Busy", "Yes", 622205, "55 hj 7455", "Prius", 4, new DateTime(2008, 9, 22, 19, 25, 9, 0, DateTimeKind.Unspecified), "Active", 21932m, 1, null, null, null, "Minibus" });
-
-            migrationBuilder.InsertData(
-                table: "Vehicles",
-                columns: new[] { "Id", "ActivityId", "Age", "Capacity", "CreatedDate", "CreatedID", "CreatedIPAddress", "Guid", "IsAvailable", "IsUpdated", "Kilometer", "LicensePlate", "MarketValue", "Model", "PurchaseDate", "Status", "UpdatedDate", "UpdatedID", "UpdatedIPAddress", "VehicleType" },
-                values: new object[] { 1, 5, 7, (short)82, new DateTime(2007, 3, 19, 3, 25, 48, 0, DateTimeKind.Unspecified), "3357308c-6870-424f-ad6f-0ece6f034d69", "109.207.106.109", "f2df94c4-aee1-4eb8-87bf-8bd98a5ad357", "Busy", "Yes", 148342, "47 yr 1495", 17177848m, "CTS", new DateTime(2005, 6, 13, 5, 11, 31, 0, DateTimeKind.Unspecified), "Passive", null, null, null, "Jeep" });
-
-            migrationBuilder.InsertData(
-                table: "Vehicles",
-                columns: new[] { "Id", "ActivityId", "Age", "Capacity", "CreatedDate", "CreatedID", "CreatedIPAddress", "Guid", "IsAvailable", "IsUpdated", "Kilometer", "LicensePlate", "MarketValue", "Model", "PurchaseDate", "UpdatedDate", "UpdatedID", "UpdatedIPAddress", "VehicleType" },
-                values: new object[] { 2, 2, 12, (short)33, new DateTime(2004, 10, 7, 11, 31, 26, 0, DateTimeKind.Unspecified), "790a286e-456c-46ea-ae54-666023c62e34", "169.106.77.118", "d011a69a-19a2-4154-b4ab-27e09a5f0de4", "Busy", "No", 6414, "12 im 1632", 20208650m, "Altima", new DateTime(2016, 11, 11, 16, 16, 43, 0, DateTimeKind.Unspecified), null, null, null, "Yacht" });
-
-            migrationBuilder.InsertData(
-                table: "Vehicles",
-                columns: new[] { "Id", "ActivityId", "Age", "Capacity", "CreatedDate", "CreatedID", "CreatedIPAddress", "Guid", "IsAvailable", "IsUpdated", "Kilometer", "LicensePlate", "MarketValue", "Model", "PurchaseDate", "Status", "UpdatedDate", "UpdatedID", "UpdatedIPAddress", "VehicleType" },
-                values: new object[] { 3, 4, 7, (short)3, new DateTime(2012, 5, 2, 14, 46, 2, 0, DateTimeKind.Unspecified), "1187d115-a27f-498c-9668-2bed07e44e17", "98.102.64.16", "ea597ce8-89a7-4333-8550-7818a8352424", "Busy", "No", 44403, "80 hx 8415", 20328187m, "Alpine", new DateTime(2009, 5, 13, 22, 28, 23, 0, DateTimeKind.Unspecified), "Passive", null, null, null, "Motorbike" });
-
-            migrationBuilder.InsertData(
-                table: "Vehicles",
-                columns: new[] { "Id", "ActivityId", "Age", "Capacity", "CreatedDate", "CreatedID", "CreatedIPAddress", "Guid", "IsAvailable", "IsUpdated", "Kilometer", "LicensePlate", "MarketValue", "Model", "PurchaseDate", "UpdatedDate", "UpdatedID", "UpdatedIPAddress", "VehicleType" },
                 values: new object[,]
                 {
-                    { 4, 4, 11, (short)30, new DateTime(2019, 8, 11, 15, 28, 7, 0, DateTimeKind.Unspecified), "8a6511f3-b07e-47de-b5db-b24f845a1fcb", "215.134.192.209", "782fed40-11c3-427b-ac8d-2d89fc819f62", "Available", "No", 781087, "57 qk 3403", 8577622m, "CX-9", new DateTime(2001, 5, 8, 18, 29, 12, 0, DateTimeKind.Unspecified), null, null, null, "Bus" },
-                    { 5, 2, 5, (short)47, new DateTime(2015, 1, 20, 20, 25, 21, 0, DateTimeKind.Unspecified), "fe3aac8d-84b8-440f-9877-aae98ba0bf52", "64.11.86.41", "22bc95c1-bf1e-4f84-9071-463b58971bf6", "Busy", "No", 718849, "11 ei 2095", 9194070m, "Expedition", new DateTime(2009, 4, 3, 21, 44, 33, 0, DateTimeKind.Unspecified), null, null, null, "Motorbike" }
+                    { 4, 1, 8, (short)44, new DateTime(2016, 2, 7, 14, 42, 9, 0, DateTimeKind.Unspecified), "fa76fa51-98cc-4006-bb36-9c01ee70a6c9", "151.118.209.43", 10227m, new DateTime(2001, 10, 28, 19, 54, 29, 0, DateTimeKind.Unspecified), "18ac3660-d4ab-4f9f-8cc7-f50a0434f4fc", "Busy", "No", 150689, "76 nw 845", "A8", 2, new DateTime(2001, 10, 23, 19, 54, 29, 0, DateTimeKind.Unspecified), "Active", 51135m, 5, null, null, null, "None" },
+                    { 5, 3, 9, (short)23, new DateTime(2005, 6, 10, 11, 57, 33, 0, DateTimeKind.Unspecified), "71fde67f-9257-41dc-a3e8-355eaf895081", "37.232.199.93", 18981m, new DateTime(2000, 3, 2, 12, 51, 12, 0, DateTimeKind.Unspecified), "abea4e08-f239-4b96-bea6-5511efa8936c", "Available", "No", 13474, "55 mo 4211", "A4", 5, new DateTime(2000, 2, 26, 12, 51, 12, 0, DateTimeKind.Unspecified), "Passive", 94905m, 5, null, null, null, "None" }
                 });
+
+            migrationBuilder.InsertData(
+                table: "Vehicles",
+                columns: new[] { "Id", "ActivityId", "Age", "Capacity", "CreatedDate", "CreatedID", "CreatedIPAddress", "Guid", "IsAvailable", "IsUpdated", "Kilometer", "LicensePlate", "MarketValue", "Model", "PurchaseDate", "Status", "UpdatedDate", "UpdatedID", "UpdatedIPAddress", "VehicleType" },
+                values: new object[,]
+                {
+                    { 1, 4, 14, (short)83, new DateTime(2019, 11, 9, 21, 53, 39, 0, DateTimeKind.Unspecified), "2cfc3586-8bea-4d9d-971f-050c9ee38558", "54.26.160.223", "84921848-f073-4444-aa62-a12dc1c8f36a", "Busy", "No", 559262, "42 cc 3121", 20401579m, "Beetle", new DateTime(2013, 8, 12, 12, 50, 41, 0, DateTimeKind.Unspecified), "Passive", null, null, null, "None" },
+                    { 2, 4, 10, (short)35, new DateTime(2011, 1, 20, 6, 32, 26, 0, DateTimeKind.Unspecified), "44d2f7e8-1445-406a-a9fd-813c008697a7", "243.8.77.252", "06be0fd8-0189-44b3-b9b9-170fb052e15e", "Busy", "No", 192278, "48 re 7995", 17271373m, "Element", new DateTime(2002, 4, 25, 15, 19, 13, 0, DateTimeKind.Unspecified), "Passive", null, null, null, "Jeep" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Vehicles",
+                columns: new[] { "Id", "ActivityId", "Age", "Capacity", "CreatedDate", "CreatedID", "CreatedIPAddress", "Guid", "IsAvailable", "IsUpdated", "Kilometer", "LicensePlate", "MarketValue", "Model", "PurchaseDate", "UpdatedDate", "UpdatedID", "UpdatedIPAddress", "VehicleType" },
+                values: new object[] { 3, 2, 2, (short)60, new DateTime(2002, 7, 27, 21, 9, 36, 0, DateTimeKind.Unspecified), "5b3a81c0-5d7f-455b-bb72-0b74d3f62e7e", "160.218.83.38", "0ef98284-df00-43b5-9063-11763eb25285", "Available", "No", 337383, "78 qc 5633", 18204159m, "Camaro", new DateTime(2008, 7, 6, 21, 31, 10, 0, DateTimeKind.Unspecified), null, null, null, "Minibus" });
+
+            migrationBuilder.InsertData(
+                table: "Vehicles",
+                columns: new[] { "Id", "ActivityId", "Age", "Capacity", "CreatedDate", "CreatedID", "CreatedIPAddress", "Guid", "IsAvailable", "IsUpdated", "Kilometer", "LicensePlate", "MarketValue", "Model", "PurchaseDate", "Status", "UpdatedDate", "UpdatedID", "UpdatedIPAddress", "VehicleType" },
+                values: new object[,]
+                {
+                    { 4, 1, 1, (short)33, new DateTime(2013, 7, 16, 9, 25, 12, 0, DateTimeKind.Unspecified), "c8232a42-1a19-4409-b6a4-8ae2d6a423c0", "88.76.70.240", "f471abef-48e5-4e18-a6d5-522c367bfead", "Busy", "No", 31143, "66 pg 3661", 16867702m, "Grand Cherokee", new DateTime(2013, 9, 19, 20, 52, 11, 0, DateTimeKind.Unspecified), "Active", null, null, null, "ATV" },
+                    { 5, 1, 2, (short)65, new DateTime(2009, 5, 22, 16, 33, 33, 0, DateTimeKind.Unspecified), "fcce8cae-52c1-49a8-aa7e-fe273c576e68", "120.134.159.97", "ba95f503-b673-4bf9-87c2-9368fb7e648a", "Available", "No", 161785, "80 if 5063", 16939541m, "Beetle", new DateTime(2011, 3, 3, 6, 26, 14, 0, DateTimeKind.Unspecified), "Passive", null, null, null, "Jeep" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "ActivityTicketOrderDetails",
+                columns: new[] { "Id", "ActivityTicketId", "ActivityTicketOrderId", "CreatedDate", "CreatedID", "CreatedIPAddress", "Discount", "Guid", "IsUpdated", "Quantity", "TotalCost", "UnitPrice", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
+                values: new object[] { 1, 1, 1, new DateTime(2011, 3, 9, 22, 52, 24, 0, DateTimeKind.Unspecified), "6ab9bb76-6df9-40b3-8758-46a13d529f4e", "65.42.104.97", 0.4739123568124565m, "d33aaf36-bb9d-4deb-9974-216a70d86370", "Yes", 2, 388.74025414899908675690512479m, 369.463395674566500m, null, null, null });
 
             migrationBuilder.InsertData(
                 table: "ActivityTicketOrderDetails",
                 columns: new[] { "Id", "ActivityTicketId", "ActivityTicketOrderId", "CreatedDate", "CreatedID", "CreatedIPAddress", "Discount", "Guid", "IsUpdated", "Quantity", "Status", "TotalCost", "UnitPrice", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
                 values: new object[,]
                 {
-                    { 1, 5, 3, new DateTime(2017, 9, 18, 19, 26, 24, 0, DateTimeKind.Unspecified), "b9aafebd-7a7b-4845-a369-b76944992e2d", "15.206.248.13", 0.4800361953999940m, "b9753312-051d-416c-aab8-fc4de6676eea", "No", 4, "Active", 1484.2799992075548980331972223m, 713.645827880928700m, null, null, null },
-                    { 2, 3, 5, new DateTime(2004, 5, 8, 5, 32, 11, 0, DateTimeKind.Unspecified), "60c48f63-c6d4-4ba6-a998-a7ec5642c6c8", "218.28.41.134", 0.1963128773413240m, "181a89cd-a525-40d1-93a9-2f12e3e48a61", "No", 1, "Passive", 596.91710245460485062252250713m, 742.723238466163800m, null, null, null },
-                    { 3, 2, 3, new DateTime(2010, 10, 9, 18, 44, 45, 0, DateTimeKind.Unspecified), "74961e58-28a2-4d8c-9aa1-b00f2b60d5fc", "222.105.169.91", 0.3560518107906130m, "60fff5b2-c142-453e-90ff-8dac2230db5b", "No", 2, "Passive", 726.61555026364047897880471858m, 564.187897752883700m, null, null, null }
+                    { 2, 5, 1, new DateTime(2001, 12, 24, 16, 9, 20, 0, DateTimeKind.Unspecified), "6c9bcc59-2cc2-4e09-9030-edad103b8be5", "200.72.35.79", 0.3620037562933360m, "9fd59f4e-11eb-4312-986c-5074e02054ac", "No", 1, "Active", 736.94098527119732550649210151m, 1155.086714914932700m, null, null, null },
+                    { 3, 3, 3, new DateTime(2013, 4, 9, 2, 59, 2, 0, DateTimeKind.Unspecified), "96eeb627-28c3-48b8-b0e3-750fe81d6210", "15.206.30.139", 0.01487695176009890m, "b645abab-52b6-426c-ac14-be41c5bd7d4a", "No", 4, "Active", 2644.6521371431787376486117185m, 671.147665732804600m, null, null, null },
+                    { 4, 1, 2, new DateTime(2016, 12, 23, 20, 33, 9, 0, DateTimeKind.Unspecified), "0fc2a3dd-a146-444e-b692-46f05dfa0347", "54.25.135.121", 0.292987187736360m, "5b54ac6b-8676-45ff-8805-35b393e5baab", "No", 1, "Passive", 724.37815419229124163802340987m, 1024.561566109463700m, null, null, null }
                 });
 
             migrationBuilder.InsertData(
                 table: "ActivityTicketOrderDetails",
                 columns: new[] { "Id", "ActivityTicketId", "ActivityTicketOrderId", "CreatedDate", "CreatedID", "CreatedIPAddress", "Discount", "Guid", "IsUpdated", "Quantity", "TotalCost", "UnitPrice", "UpdatedDate", "UpdatedID", "UpdatedIPAddress" },
-                values: new object[,]
-                {
-                    { 4, 4, 1, new DateTime(2002, 2, 18, 22, 46, 28, 0, DateTimeKind.Unspecified), "7ddc0d24-04bf-4b83-9340-bae2c0ec2ee6", "103.174.48.213", 0.1411787578237905m, "d637ba0b-5779-47a1-9375-e2687e19c54f", "No", 1, 98.68019800485039830542087729m, 114.9019064256023500m, null, null, null },
-                    { 5, 1, 5, new DateTime(2017, 1, 9, 18, 39, 42, 0, DateTimeKind.Unspecified), "7b2d822c-9fb9-42a5-8fd7-387811581f67", "226.73.167.24", 0.341885920412660m, "0d2cd2c5-2484-4062-8287-3b0d60b87464", "No", 4, 1959.9420199250070702203456880m, 744.529740631729700m, null, null, null }
-                });
+                values: new object[] { 5, 1, 1, new DateTime(2016, 8, 15, 14, 8, 17, 0, DateTimeKind.Unspecified), "5f6c9729-35b7-49ec-b609-3263f4bbcf1b", "96.153.16.2", 0.3251739613777990m, "57fae033-5dbd-4d40-a552-c7150e1414a3", "No", 1, 504.19002002696754103666290545m, 747.140731345188300m, null, null, null });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Activities_RegionId",

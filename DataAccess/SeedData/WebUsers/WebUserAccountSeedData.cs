@@ -26,7 +26,6 @@ namespace DataAccess.SeedData.WebUsers
                     IsUpdated = faker.Random.Bool(0.2f),
                     UserName = faker.Name.FirstName(),
                     PasswordHash = BCrypt.Net.BCrypt.HashPassword(faker.Lorem.Word()),
-                    SecurityStamp = Guid.NewGuid().ToString(),
                     Email = faker.Internet.Email(),
                     PhoneNumber = faker.Phone.PhoneNumber("05#########"),
                     CountryId = faker.Random.Int(1, 5),

@@ -18,6 +18,6 @@ namespace BusinessLogic.DTOs.WebUser
         [StringLength(11,MinimumLength =10,ErrorMessage ="Lütfen alan kodu olmadan tuşlayınız!!")]
         public string PhoneNumber { get; set; }
         [Required(ErrorMessage = "Bu alan zorunludur!!")]
-        public CountryRequestDTO? CountryRequestDTO { get; set; }
+        public int? CountryId { get; set; }//Nav property
     }
 }

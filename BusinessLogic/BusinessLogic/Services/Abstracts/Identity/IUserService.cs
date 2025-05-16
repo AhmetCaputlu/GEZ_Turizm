@@ -1,4 +1,6 @@
-﻿using DataAccess.Entities.Models.WebUsers;
+﻿using BusinessLogic.DTOs.SignIn_SignUpDTOs;
+using BusinessLogic.DTOs.WebUser;
+using DataAccess.Entities.Models.WebUsers;
 using Microsoft.AspNetCore.Identity;
 
 namespace BusinessLogic.Services.Abstracts.Identity
@@ -6,19 +8,19 @@ namespace BusinessLogic.Services.Abstracts.Identity
     public interface IUserService
     {
         /// <summary>
-        /// Yeni bir kullanıcı Kaydı için bu metodu kullanın.
+        /// Yeni bir kullanıcı kaydı için bu metodu kullanın.
         /// </summary>
         /// <param name="user"></param>
         /// <param name="password"></param>
         /// <returns></returns>
-        Task<IdentityResult> CreateUserAsync(WebUserAccount user, string password);
+        Task<IdentityResult> CreateUserAsync(WebUserAccountRequestDTO user, string password, CancellationToken token);
         /// <summary>
         /// Kullanıcı bilgilerini güncellemek için kullanın.Ek özellikler de güncellemeye tabiidir.
         /// </summary>
         /// <param name="user"></param>
         /// <param name="password"></param>
         /// <returns></returns>
-        Task<IdentityResult> UpdateUserAsync(WebUserAccount user, string password);
+        Task<IdentityResult> UpdateUserAsync(WebUserAccountRequestDTO user, CancellationToken token);
         /// <summary>
         /// İlgili kullanıcının rollerini listeler.
         /// </summary>

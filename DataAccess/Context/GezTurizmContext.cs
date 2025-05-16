@@ -23,7 +23,6 @@ namespace DataAccess.Context
 
         }
 
-
         public DbSet<WebUserAccount> AspNetUsers { get; set; }
         public DbSet<WebUserProfile> AspNetUserProfiles { get; set; }
         public DbSet<Activity> Activities { get; set; }
@@ -42,7 +41,6 @@ namespace DataAccess.Context
         public DbSet<RentalVehicle> RentalVehicles { get; set; }
         public DbSet<Vehicle> Vehicles { get; set; }
 
-     
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
