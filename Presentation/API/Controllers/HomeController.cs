@@ -1,4 +1,6 @@
-﻿using BusinessLogic.DTOs.WebUser;
+﻿using BusinessLogic.DTOs.OperationResult;
+using BusinessLogic.Enums;
+using BusinessLogic.DTOs.WebUser;
 using BusinessLogic.Services.Abstracts.Identity;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -20,22 +22,22 @@ namespace API.Controllers
         [HttpPut("update")]
         public async Task<IActionResult> UpdateUser([FromBody] WebUserAccountRequestDTO userDto, CancellationToken token)
         {
-            IdentityResult result = await _userService.UpdateUserAsync(userDto, token);
+            ResultDTO result = await _userService.UpdateUserAsync(userDto, token);
 
-            if (result.Succeeded)
+            if (result.ResultType == ResultType.Success)
                 return Ok("Kullanıcı başarıyla güncellendi.");
 
-            return BadRequest(result.Errors);
+            return BadRequest(result);
         }
         [HttpPost("create")]
         public async Task<IActionResult> CreateUser([FromBody] WebUserAccountRequestDTO userDto,string passWord, CancellationToken token)
         {
-            IdentityResult result = await _userService.CreateUserAsync(userDto,passWord, token);
+            ResultDTO result = await _userService.CreateUserAsync(userDto,passWord, token);
 
-            if (result.Succeeded)
+            if (result.ResultType == ResultType.Success)
                 return Ok("Kullanıcı başarıyla eklendi.");
 
-            return BadRequest(result.Errors);
+            return BadRequest(result);
         }
     }
 }

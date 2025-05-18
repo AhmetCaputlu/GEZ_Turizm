@@ -1,4 +1,5 @@
-﻿using DataAccess.Entities.Models.WebUsers;
+﻿using BusinessLogic.DTOs.OperationResult;
+using DataAccess.Entities.Models.WebUsers;
 using Microsoft.AspNetCore.Identity;
 
 namespace BusinessLogic.Services.Abstracts.Identity
@@ -14,7 +15,7 @@ namespace BusinessLogic.Services.Abstracts.Identity
         /// <param name="isPersistent"></param>
         /// <param name="lockoutOnFailure"></param>
         /// <returns></returns>
-        Task<SignInResult> PasswordSignInAsync(string userName, string password, bool isPersistent, bool lockoutOnFailure);
+        Task<ResultDTO> PasswordSignInAsync(string userName, string password, bool isPersistent, bool lockoutOnFailure);
         
         /// <summary>
         /// Güvenli çıkış seçeneği.Cookie, claim vb. bilgiler silinir.
@@ -27,6 +28,6 @@ namespace BusinessLogic.Services.Abstracts.Identity
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        Task<bool> CanSignInAsync(WebUserAccount user);
+        Task<ResultDTO> CanSignInAsync(WebUserAccount user);
     }
 }

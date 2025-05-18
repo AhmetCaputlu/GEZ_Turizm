@@ -1,4 +1,5 @@
-﻿using BusinessLogic.DTOs.SignIn_SignUpDTOs;
+﻿using BusinessLogic.DTOs.OperationResult;
+using BusinessLogic.DTOs.SignIn_SignUpDTOs;
 using BusinessLogic.DTOs.WebUser;
 using DataAccess.Entities.Models.WebUsers;
 using Microsoft.AspNetCore.Identity;
@@ -13,41 +14,47 @@ namespace BusinessLogic.Services.Abstracts.Identity
         /// <param name="user"></param>
         /// <param name="password"></param>
         /// <returns></returns>
-        Task<IdentityResult> CreateUserAsync(WebUserAccountRequestDTO user, string password, CancellationToken token);
+        Task<ResultDTO> CreateUserAsync(WebUserAccountRequestDTO user, string password, CancellationToken token);
         /// <summary>
         /// Kullanıcı bilgilerini güncellemek için kullanın.Ek özellikler de güncellemeye tabiidir.
         /// </summary>
         /// <param name="user"></param>
         /// <param name="password"></param>
         /// <returns></returns>
-        Task<IdentityResult> UpdateUserAsync(WebUserAccountRequestDTO user, CancellationToken token);
+        Task<ResultDTO> UpdateUserAsync(WebUserAccountRequestDTO user, CancellationToken token);
         /// <summary>
         /// İlgili kullanıcının rollerini listeler.
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        Task<List<string>> GetUserRolesAsync(WebUserAccount user);
+        Task<IList<string>> GetUserRolesAsync(int Id);
         /// <summary>
         /// İlgili kullanıcıya yeni bir rol ekler.
         /// </summary>
         /// <param name="user"></param>
         /// <param name="role"></param>
         /// <returns></returns>
-        Task<IdentityResult> AddToRoleAsync(WebUserAccount user, string role);
+        Task<ResultDTO> AddToRoleAsync(WebUserAccount user, string role, CancellationToken token);
         /// <summary>
         /// İlgili kullanıcının seçili rolünü siler.
         /// </summary>
         /// <param name="user"></param>
         /// <param name="role"></param>
         /// <returns></returns>
-        Task<IdentityResult> RemoveFromRoleAsync(WebUserAccount user, string role);
+        Task<ResultDTO> RemoveFromRoleAsync(WebUserAccount user, string role, CancellationToken token);
         /// <summary>
         /// İlgili kullanıcının aranan role sahip olup olmadığını kontrol eder.
         /// </summary>
         /// <param name="user"></param>
         /// <param name="role"></param>
         /// <returns></returns>
-        Task<bool> IsInRoleAsync(WebUserAccount user, string role);
+        Task<ResultDTO> IsInRoleAsync(WebUserAccount user, string role);
+        /// <summary>
+        /// İlgili role sahip tüm kullanıcıları döndürür.
+        /// </summary>
+        /// <param name="roleName"></param>
+        /// <returns></returns>
+        Task<List<WebUserAccountResponseDTO>> GetUsersInRoleAsync(string roleName);
     }
 
 }

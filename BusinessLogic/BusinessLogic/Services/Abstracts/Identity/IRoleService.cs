@@ -1,5 +1,7 @@
-﻿using DataAccess.Entities.Models.WebUsers;
+﻿using BusinessLogic.DTOs.OperationResult;
+using DataAccess.Entities.Models.WebUsers;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore.Query.Internal;
 
 namespace BusinessLogic.Services.Abstracts.Identity
 {
@@ -10,30 +12,24 @@ namespace BusinessLogic.Services.Abstracts.Identity
         /// </summary>
         /// <param name="roleName"></param>
         /// <returns></returns>
-        Task<bool> RoleExistsAsync(string roleName);
+        Task<ResultDTO> RoleExistsAsync(string roleName);
         /// <summary>
         /// Yeni bir rol yaratır.
         /// </summary>
         /// <param name="roleName"></param>
         /// <returns></returns>
-        Task<IdentityResult> CreateRoleAsync(string roleName);
+        Task<ResultDTO> CreateRoleAsync(string roleName, CancellationToken token);
         /// <summary>
         /// Rolü siler.
         /// </summary>
         /// <param name="roleName"></param>
         /// <returns></returns>
-        Task<IdentityResult> DeleteRoleAsync(string roleName);
-        /// <summary>
-        /// İlgili role sahip tüm kullanıcıları döndürür.
-        /// </summary>
-        /// <param name="roleName"></param>
-        /// <returns></returns>
-        Task<List<WebUserAccount>> GetUsersInRoleAsync(string roleName);
+        Task<ResultDTO> DeleteRoleAsync(string roleName, CancellationToken token);
         /// <summary>
         /// Tüm rolleri döndürür.
         /// </summary>
         /// <returns></returns>
-        Task<List<string>> GetAllRolesAsync();
+        Task<List<IdentityRole<int>>> GetAllRolesAsync();
 
     }
 }
