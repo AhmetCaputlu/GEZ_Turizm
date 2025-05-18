@@ -5,6 +5,7 @@ using BusinessLogic.DTOs.Abstracts;
 using BusinessLogic.DTOs.WebUser;
 using BusinessLogic.Services.Abstracts;
 using DataAccess.Entities.Enums;
+using DataAccess.Entities.FilterModels.BaseModel;
 using DataAccess.Entities.Interfaces;
 using DataAccess.Repositories.Abstracts;
 using Microsoft.EntityFrameworkCore;
@@ -69,10 +70,9 @@ namespace BusinessLogic.Services.Concretes
         //    return _repository.GetEntitiesBetweenUpdatedDates(firstDate, lastDate).ProjectTo<TResponse>(_mapper.ConfigurationProvider).ToList();
         //} 
         #endregion
-        public async Task<IEnumerable<TResponse>> GetDynamicFilteredEntities(int? firstId = null, int? lastId = null, DateTime? firstCreatedDate = null, DateTime? secondCreatedDate = null, DateTime? firstUpdatedDate = null, DateTime? secondUpdatedDate = null, DataStatus? status = null, bool? isUpdated = null, bool? descending = null)
+        public async Task<IEnumerable<TResponse>> GetDynamicFilteredEntities(BaseFilterModel model)
         {
-            return await _repository.GetDynamicFilteredEntities
-             (firstId, lastId, firstCreatedDate, secondCreatedDate, firstUpdatedDate, secondUpdatedDate, status, isUpdated, descending)
+            return await _repository.GetDynamicFilteredEntities(model)
             .ProjectTo<TResponse>(_mapper.ConfigurationProvider)
             .ToListAsync();
         }

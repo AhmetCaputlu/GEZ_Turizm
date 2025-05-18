@@ -4,7 +4,7 @@ using BusinessLogic.DTOs.WebUser;
 using DataAccess.Entities.Models.WebUsers;
 using Microsoft.AspNetCore.Identity;
 
-namespace BusinessLogic.Services.Abstracts.Identity
+namespace BusinessLogic.Services.Abstracts.WebUsers.Identity
 {
     public interface IUserService
     {

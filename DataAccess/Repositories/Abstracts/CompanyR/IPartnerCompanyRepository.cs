@@ -1,9 +1,10 @@
-﻿using DataAccess.Entities.Models.Companies.PartnerCompanies;
+﻿using DataAccess.Entities.FilterModels.Companies;
+using DataAccess.Entities.Models.Companies.PartnerCompanies;
 
 namespace DataAccess.Repositories.Abstracts.Company
 {
-    public interface IPartnerCompanyRepository : IGenericCompanyRepository<PartnerCompany>
+    public interface IPartnerCompanyRepository : IGenericCompanyRepository<PartnerCompany,PartnerCompanyFilterModel>
     {
-        IQueryable<PartnerCompany> GetDynamicPartnerFilter(bool? status = null,bool? descending = null);
+        //Geliştirmeye Açık
     }
 }

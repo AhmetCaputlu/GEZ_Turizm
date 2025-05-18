@@ -1,56 +1,54 @@
-﻿using System;
-using Azure.Core;
-using DataAccess.Context;
+﻿using DataAccess.Context;
 using DataAccess.Entities.Abstracts;
-using DataAccess.Entities.Enums;
+using DataAccess.Entities.FilterModels.BaseModel;
+using DataAccess.Entities.FilterModels.Companies;
 using DataAccess.Repositories.Abstracts.Company;
-using EFCore.BulkExtensions;
 using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Repositories.Concretes.Company
 {
-    public class GenericCompanyRepository<T> : GenericRepository<T>, IGenericCompanyRepository<T> where T : BaseCompanyModel
+    public class GenericCompanyRepository<TEntity, TFilteredEntity> : GenericRepository<TEntity,TFilteredEntity>, IGenericCompanyRepository<TEntity, TFilteredEntity> 
+        where TEntity : BaseCompanyModel where TFilteredEntity : BaseCompanyFilterModel
     {
         private readonly GezTurizmContext _context;
-        private readonly DbSet<T> _dbset;
+        private readonly DbSet<TEntity> _dbset;
         public GenericCompanyRepository(GezTurizmContext context) : base(context)
         {
             _context = context;
-            _dbset = _context.Set<T>();
+            _dbset = _context.Set<TEntity>();
         }
-
-        public IQueryable<T> GetDynamicCompanyFilter(string? companyName = null, string? contactName = null, string? contactTitle = null, string? email = null, string? phoneNumber = null, string? address = null,
-            bool? descending = null)
+        /// <summary>
+        /// Supplier ve PartnerCompany için oluşturulmuş generic sorgu metodu
+        /// </summary>
+        /// <param name="filterModel"></param>
+        /// <returns></returns>
+        public override IQueryable<TEntity> GetDynamicFilteredEntities(TFilteredEntity filterModel)
         {
-            IQueryable<T> filter = _dbset;
+            var filter = base.GetDynamicFilteredEntities(filterModel);
 
-            if (!string.IsNullOrEmpty(companyName))
+            if (!string.IsNullOrEmpty(filterModel.CompanyName))
             {
-                filter = filter.Where(x => x.CompanyName.ToLower().Contains(companyName.ToLower()));
+                filter = filter.Where(x => x.CompanyName.ToLower().Contains(filterModel.CompanyName.ToLower()));
             }
-            if (!string.IsNullOrEmpty(contactName))
+            if (!string.IsNullOrEmpty(filterModel.ContactName))
             {
-                filter = filter.Where(x => x.ContactName.ToLower().Contains(contactName.ToLower()));
+                filter = filter.Where(x => x.ContactName.ToLower().Contains(filterModel.ContactName.ToLower()));
             }
-            if (!string.IsNullOrEmpty(contactTitle))
+            if (!string.IsNullOrEmpty(filterModel.ContactTitle))
             {
-                filter = filter.Where(x => x.ContactName.ToLower().Contains(contactTitle.ToLower()));
+                filter = filter.Where(x => x.ContactName.ToLower().Contains(filterModel.ContactTitle.ToLower()));
             }
-            if (!string.IsNullOrEmpty(email))
+            if (!string.IsNullOrEmpty(filterModel.Email))
             {
-                filter = filter.Where(x => x.Email.ToLower().Contains(email.ToLower()));
+                filter = filter.Where(x => x.Email.ToLower().Contains(filterModel.Email.ToLower()));
             }
-            if (!string.IsNullOrEmpty(phoneNumber))
+            if (!string.IsNullOrEmpty(filterModel.PhoneNumber))
             {
-                filter = filter.Where(x => x.PhoneNumber.ToLower().Contains(phoneNumber.ToLower()));
+                filter = filter.Where(x => x.PhoneNumber.ToLower().Contains(filterModel.PhoneNumber.ToLower()));
             }
-            if (!string.IsNullOrEmpty(address))
+            if (!string.IsNullOrEmpty(filterModel.Address))
             {
-                filter = filter.Where(x => x.Address.ToLower().Contains(address.ToLower()));
-            }
-            if (descending == true)
-            {
-                filter = filter.OrderByDescending(x => x.Id);
+                filter = filter.Where(x => x.Address.ToLower().Contains(filterModel.Address.ToLower()));
             }
 
             return filter;

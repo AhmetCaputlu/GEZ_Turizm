@@ -1,17 +1,10 @@
 ﻿using DataAccess.Entities.Abstracts;
+using DataAccess.Entities.FilterModels.Companies;
 
 namespace DataAccess.Repositories.Abstracts.Company
 {
-    public interface IGenericCompanyRepository<T> : IGenericRepository<T> where T : BaseCompanyModel
+    public interface IGenericCompanyRepository<TEntity, TFilteredEntity> : IGenericRepository<TEntity, TFilteredEntity> where TEntity : BaseCompanyModel where TFilteredEntity : BaseCompanyFilterModel
     {
-        IQueryable<T> GetDynamicCompanyFilter(
-            string? companyName = null,
-            string? contactName = null,
-            string? contactTitle = null,
-            string? email = null,
-            string? phoneNumber = null,
-            string? address = null,
-            bool? descending = null
-            );
+        //Geliştirmeye açık
     }
 }

@@ -1,5 +1,5 @@
 ﻿using BusinessLogic.Services.Abstracts;
-using BusinessLogic.Services.Abstracts.Identity;
+using BusinessLogic.Services.Abstracts.WebUsers.Identity;
 using BusinessLogic.Services.Concretes;
 using BusinessLogic.Services.Concretes.Identity;
 using DataAccess.Context;

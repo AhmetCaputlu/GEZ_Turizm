@@ -7,7 +7,7 @@ using BusinessLogic.DTOs.SignIn_SignUpDTOs;
 using BusinessLogic.DTOs.WebUser;
 using BusinessLogic.Enums;
 using BusinessLogic.Helpers;
-using BusinessLogic.Services.Abstracts.Identity;
+using BusinessLogic.Services.Abstracts.WebUsers.Identity;
 using DataAccess.Entities.Models.WebUsers;
 using DataAccess.Repositories.Abstracts;
 using Microsoft.AspNetCore.Http;

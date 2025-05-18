@@ -1,5 +1,6 @@
 ﻿using BusinessLogic.DTOs.Abstracts;
 using DataAccess.Entities.Enums;
+using DataAccess.Entities.FilterModels.BaseModel;
 using DataAccess.Entities.Interfaces;
 
 namespace BusinessLogic.Services.Abstracts
@@ -20,17 +21,7 @@ namespace BusinessLogic.Services.Abstracts
         //IEnumerable<TResponse> GetEntitiesBetweenCreatedDates(DateTime firstDate, DateTime lastDate);
         //IEnumerable<TResponse> GetEntitiesBetweenUpdatedDates(DateTime firstDate, DateTime lastDate); 
         #endregion
-        Task<IEnumerable<TResponse>> GetDynamicFilteredEntities(
-             int? firstId = null,
-             int? lastId = null,
-             DateTime? firstCreatedDate = null,
-             DateTime? secondCreatedDate = null,
-             DateTime? firstUpdatedDate = null,
-             DateTime? secondUpdatedDate = null,
-             DataStatus? status = null,
-             bool? isUpdated = null,
-             bool? descending = null
-             );
+        Task<IEnumerable<TResponse>> GetDynamicFilteredEntities(BaseFilterModel model);
         Task<TResponse> GetByIdAsync(int Id);
         Task CreateAsync(TRequest DTO);
         Task CreateRangeAsync(List<TRequest> DTOs);

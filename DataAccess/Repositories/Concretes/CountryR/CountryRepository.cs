@@ -1,12 +1,13 @@
 ﻿using DataAccess.Context;
 using DataAccess.Entities.Enums;
+using DataAccess.Entities.FilterModels.Countries;
 using DataAccess.Entities.Models.Countries;
 using DataAccess.Repositories.Abstracts;
 using DataAccess.Repositories.Abstracts.Countryy;
 
 namespace DataAccess.Repositories.Concretes.Countryy
 {
-    public class CountryRepository : GenericRepository<Country>, IGenericRepository<Country>, ICountryRepository
+    public class CountryRepository : GenericRepository<Country, CountryFilterModel>, IGenericRepository<Country, CountryFilterModel>, ICountryRepository
     {
         private readonly GezTurizmContext _context;
 
@@ -15,14 +16,14 @@ namespace DataAccess.Repositories.Concretes.Countryy
             _context = context;
         }
 
-        public IQueryable<Country> GetDynamicCountryFilter(Continent? continent = null, bool? descending = null)
+        public override IQueryable<Country> GetDynamicFilteredEntities(CountryFilterModel filterModel)
         {
-            IQueryable<Country> filter = _context.Countries;
-            if (continent.HasValue)
+            var filter = base.GetDynamicFilteredEntities(filterModel);
+            if (filterModel.Continent.HasValue)
             {
-                filter = filter.Where(x => x.Continent == continent.Value);
+                filter = filter.Where(x => x.Continent == filterModel.Continent.Value);
             }
-            if (descending == true)
+            if (filterModel.Descending == true)
             {
                 filter = filter.OrderByDescending(x => x.Id);
             }

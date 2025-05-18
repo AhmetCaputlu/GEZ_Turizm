@@ -3,7 +3,7 @@ using DataAccess.Entities.Models.WebUsers;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore.Query.Internal;
 
-namespace BusinessLogic.Services.Abstracts.Identity
+namespace BusinessLogic.Services.Abstracts.WebUsers.Identity
 {
     public interface IRoleService
     {

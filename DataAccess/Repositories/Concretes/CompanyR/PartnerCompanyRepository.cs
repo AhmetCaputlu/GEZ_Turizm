@@ -1,11 +1,11 @@
-﻿using System.ComponentModel;
-using DataAccess.Context;
+﻿using DataAccess.Context;
+using DataAccess.Entities.FilterModels.Companies;
 using DataAccess.Entities.Models.Companies.PartnerCompanies;
 using DataAccess.Repositories.Abstracts.Company;
 
 namespace DataAccess.Repositories.Concretes.Company
 {
-    public class PartnerCompanyRepository : GenericCompanyRepository<PartnerCompany>, IGenericCompanyRepository<PartnerCompany>, IPartnerCompanyRepository
+    public class PartnerCompanyRepository : GenericCompanyRepository<PartnerCompany, PartnerCompanyFilterModel>, IPartnerCompanyRepository
     {
         private readonly GezTurizmContext _context;
 
@@ -14,16 +14,17 @@ namespace DataAccess.Repositories.Concretes.Company
             _context = context;
         }
 
-        public IQueryable<PartnerCompany> GetDynamicPartnerFilter(bool? status = null,bool? descending = null)
+        /// <summary>
+        /// Partner Company için oluşturulmuş spesifik sorgu metodu
+        /// </summary>
+        /// <param name="filterModel"></param>
+        /// <returns></returns>
+        public override IQueryable<PartnerCompany> GetDynamicFilteredEntities(PartnerCompanyFilterModel filterModel)
         {
-            IQueryable<PartnerCompany> filter = _context.PartnerCompanies;
-            if (status.HasValue)
+            var filter = base.GetDynamicFilteredEntities(filterModel);
+            if (filterModel.AcceptTickets.HasValue)
             {
-                filter = filter.Where(x => x.AcceptTickets == status);
-            }
-            if (descending == true)
-            {
-                filter = filter.OrderByDescending(x => x.Id);
+                filter = filter.Where(x => x.AcceptTickets == filterModel.AcceptTickets);
             }
             return filter;
         }

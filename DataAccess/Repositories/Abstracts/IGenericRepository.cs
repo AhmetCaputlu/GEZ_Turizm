@@ -1,10 +1,12 @@
 ﻿using DataAccess.Entities.Abstracts;
 using DataAccess.Entities.Enums;
+using DataAccess.Entities.FilterModels.BaseModel;
 using DataAccess.Entities.Interfaces;
 
 namespace DataAccess.Repositories.Abstracts
 {
-    public interface IGenericRepository<T> where T : class,IEntity
+    public interface IGenericRepository<TEntity, TFilterEntity> where TEntity : class, IEntity
+        where TFilterEntity : BaseFilterModel
     {
         #region Manuel Methods
         //IQueryable<T> GetAllEntities();
@@ -19,32 +21,21 @@ namespace DataAccess.Repositories.Abstracts
         //IQueryable<T> GetEntitiesBetweenCreatedDates(DateTime firstDate, DateTime lastDate);
         //IQueryable<T> GetEntitiesBetweenUpdatedDates(DateTime firstDate, DateTime lastDate); 
         #endregion
-        IQueryable<T> GetDynamicFilteredEntities(
-            int? firstId = null,
-            int? lastId = null,
-            DateTime? firstCreatedDate = null,
-            DateTime? secondCreatedDate = null,
-            DateTime? firstUpdatedDate = null,
-            DateTime? secondUpdatedDate = null,
-            DataStatus? status = null,
-            bool? isUpdated = null,
-            bool? descending = null
-            );
-            
-        Task<T?> GetByIdAsync(int? Id);
-        Task CreateAsync(T entity);
-        Task CreateRangeAsync(List<T> entities);
-        Task CreateBulkAsync(List<T> values);
-        Task Update(T entity);
-        Task UpdateRangeAsync(List<T> entities);
-        Task UpdateBulkAsync(List<T> values);
+        IQueryable<TEntity> GetDynamicFilteredEntities(TFilterEntity filterModel);
+        Task<TEntity?> GetByIdAsync(int? Id);
+        Task CreateAsync(TEntity entity);
+        Task CreateRangeAsync(List<TEntity> entities);
+        Task CreateBulkAsync(List<TEntity> values);
+        Task Update(TEntity entity);
+        Task UpdateRangeAsync(List<TEntity> entities);
+        Task UpdateBulkAsync(List<TEntity> values);
         Task DeleteAsync(int Id);
-        Task DeleteRangeSelectAsync(int first,int last);
-        Task DeleteRangeAsync(List<T> values);
+        Task DeleteRangeSelectAsync(int first, int last);
+        Task DeleteRangeAsync(List<TEntity> values);
         Task DestroyAsync(int Id);
-        Task DestroyRangeSelectAsync(int first,int last);
-        Task DestroyRangeAsync(List<T> entities);
-        Task DestroyBulkAsync(List<T> values);
+        Task DestroyRangeSelectAsync(int first, int last);
+        Task DestroyRangeAsync(List<TEntity> entities);
+        Task DestroyBulkAsync(List<TEntity> values);
 
     }
 }

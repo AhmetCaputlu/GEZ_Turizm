@@ -4,17 +4,19 @@ using DataAccess.Entities.Interfaces;
 using DataAccess.Repositories.Abstracts;
 using Microsoft.EntityFrameworkCore;
 using EFCore.BulkExtensions;
+using DataAccess.Entities.FilterModels.BaseModel;
 namespace DataAccess.Repositories.Concretes
 
 {
-    public class GenericRepository<T> : IGenericRepository<T> where T : class, IEntity
+    public class GenericRepository<TEntity, TFilterEntity> : IGenericRepository<TEntity, TFilterEntity>
+        where TEntity : class, IEntity where TFilterEntity : BaseFilterModel
     {
         private readonly GezTurizmContext _context;
-        private readonly DbSet<T> _dbset;
+        private readonly DbSet<TEntity> _dbset;
         public GenericRepository(GezTurizmContext context)
         {
             _context = context;
-            _dbset = _context.Set<T>();
+            _dbset = _context.Set<TEntity>();
         }
         #region Manuel Methods
         //public I_dbsetable<T> GetAllEntities()
@@ -64,83 +66,78 @@ namespace DataAccess.Repositories.Concretes
         //    x.UpdatedDate.Value.Date <= lastDate.Date);
         //} 
         #endregion
-        public IQueryable<T> GetDynamicFilteredEntities(
-            int? firstId = null,
-            int? lastId = null,
-            DateTime? firstCreatedDate = null,
-            DateTime? secondCreatedDate = null,
-            DateTime? firstUpdatedDate = null,
-            DateTime? secondUpdatedDate = null,
-            DataStatus? status = null,
-            bool? isUpdated = null,
-            bool? descending = null
-            )
+        /// <summary>
+        /// Veri filtreleme işlemleri için kullanılır.Nesne özelinde ezilebilir.
+        /// </summary>
+        /// <param name="filterModel"></param>
+        /// <returns></returns>
+        public virtual IQueryable<TEntity> GetDynamicFilteredEntities(TFilterEntity filterModel)
         {
-            IQueryable<T> filter = _dbset;
-            if (firstId.HasValue && lastId.HasValue)
+            IQueryable<TEntity> filter = _dbset;
+            if (filterModel.FirstId.HasValue && filterModel.LastId.HasValue)
             {
-                filter = filter.Where(x => x.Id >= firstId && x.Id <= lastId);
+                filter = filter.Where(x => x.Id >= filterModel.FirstId && x.Id <= filterModel.LastId);
             }
-            if (firstCreatedDate.HasValue && secondCreatedDate.HasValue)
-            {
-                filter = filter.Where(x =>
-                x.CreatedDate.Date >= firstCreatedDate.Value.Date &&
-                x.CreatedDate.Date <= secondCreatedDate.Value.Date);
-            }
-            else if (firstCreatedDate.HasValue)
-            {
-                filter = filter.Where(x => x.CreatedDate.Date == firstCreatedDate.Value.Date);
-            }
-            else if (secondCreatedDate.HasValue)
-            {
-                filter = filter.Where(x => x.CreatedDate.Date == secondCreatedDate.Value.Date);
-            }
-            if (firstUpdatedDate.HasValue && secondUpdatedDate.HasValue)
+            if (filterModel.FirstCreatedDate.HasValue && filterModel.LastCreatedDate.HasValue)
             {
                 filter = filter.Where(x =>
-                x.UpdatedDate.Value.Date >= firstUpdatedDate.Value.Date &&
-                x.UpdatedDate.Value.Date <= secondUpdatedDate.Value.Date);
+                x.CreatedDate.Date >= filterModel.FirstCreatedDate.Value.Date &&
+                x.CreatedDate.Date <= filterModel.LastCreatedDate.Value.Date);
             }
-            else if (firstUpdatedDate.HasValue)
+            else if (filterModel.FirstCreatedDate.HasValue)
             {
-                filter = filter.Where(x => x.UpdatedDate.HasValue && x.UpdatedDate.Value.Date == firstUpdatedDate.Value.Date);
+                filter = filter.Where(x => x.CreatedDate.Date == filterModel.FirstCreatedDate.Value.Date);
             }
-            else if (secondUpdatedDate.HasValue)
+            else if (filterModel.LastCreatedDate.HasValue)
             {
-                filter = filter.Where(x => x.UpdatedDate.HasValue && x.UpdatedDate.Value.Date == secondUpdatedDate.Value.Date);
+                filter = filter.Where(x => x.CreatedDate.Date == filterModel.LastCreatedDate.Value.Date);
             }
-            if (status.HasValue)
+            if (filterModel.FirstUpdatedDate.HasValue && filterModel.LastUpdatedDate.HasValue)
             {
-                filter = filter.Where(x => x.Status == status.Value);
+                filter = filter.Where(x => 
+                x.UpdatedDate.HasValue && x.UpdatedDate.Value.Date >= filterModel.FirstUpdatedDate.Value.Date &&
+               x.UpdatedDate.HasValue && x.UpdatedDate.Value.Date <= filterModel.LastUpdatedDate.Value.Date);
             }
-            if (isUpdated.HasValue)
+            else if (filterModel.FirstUpdatedDate.HasValue)
             {
-                filter = filter.Where(x => x.IsUpdated == isUpdated.Value);
+                filter = filter.Where(x => x.UpdatedDate.HasValue && x.UpdatedDate.Value.Date == filterModel.FirstUpdatedDate.Value.Date);
             }
-            if (descending == true)
+            else if (filterModel.LastUpdatedDate.HasValue)
+            {
+                filter = filter.Where(x => x.UpdatedDate.HasValue && x.UpdatedDate.Value.Date == filterModel.LastUpdatedDate.Value.Date);
+            }
+            if (filterModel.Status.HasValue)
+            {
+                filter = filter.Where(x => x.Status == filterModel.Status.Value);
+            }
+            if (filterModel.IsUpdated.HasValue)
+            {
+                filter = filter.Where(x => x.IsUpdated == filterModel.IsUpdated.Value);
+            }
+            if (filterModel.Descending == true)
                 filter = filter.OrderByDescending(x => x.Id);
 
             return filter;
         }
-        public async Task<T?> GetByIdAsync(int? Id)
+        public async Task<TEntity?> GetByIdAsync(int? Id)
         {
             return await _dbset.FindAsync(Id);
         }
-        public async Task CreateAsync(T entity)
+        public async Task CreateAsync(TEntity entity)
         {
             await _dbset.AddAsync(entity);
             await _context.SaveChangesAsync();
         }
-        public async Task CreateRangeAsync(List<T> entities)
+        public async Task CreateRangeAsync(List<TEntity> entities)
         {
             await _dbset.AddRangeAsync(entities);
             await _context.SaveChangesAsync();
         }
-        public async Task CreateBulkAsync(List<T> values)
+        public async Task CreateBulkAsync(List<TEntity> values)
         {
             await _context.BulkInsertAsync(values);//Direkt SQL kaydı yapıyor
         }
-        public async Task Update(T entity)
+        public async Task Update(TEntity entity)
         {
             _dbset.Update(entity);
             await _context.SaveChangesAsync();
@@ -151,28 +148,31 @@ namespace DataAccess.Repositories.Concretes
             CreateAsync ve DeleteAsync metodlarının asenkron versiyonlarının olmasının nedeni, bu işlemlerin veritabanı üzerinde IO-bound (giriş-çıkış odaklı) operasyonlar olmasından kaynaklanmaktadır. Update işlemi ise çoğunlukla bellekteki nesneleri değiştirme ile sınırlı kaldığı için, bu tür işlemler genellikle senkron olarak yapılabilir. Ancak veritabanına veri eklemek veya silmek gibi.
 
             !!Asenkron işlemler özellikle I/O Bound ve veritabanı işlemleri gibi zaman alabilen işlemlerde önemli.
-            Update işlemi bellekte gerçekleşen bir işlem olduğu için zaten çok hızlı(kendi içinde gerçekleşiyor) dolayısıyla update metodunun create ve delete gibi (doğrudan veritabanına müdahale eden) asenkron modeli bulunmuyor.
+            Update işlemi bellekte gerçekleşen bir işlem olduğu için zaten çok hızlı(kendi içinde gerçekleşiyor) dolayısıyla update metodunun create ve delete gibi (doğrudan veritabanına müdahale eden) asenkron filterModeli bulunmuyor.
               */
             #endregion
         }
-        public async Task UpdateRangeAsync(List<T> entities)
+        public async Task UpdateRangeAsync(List<TEntity> entities)
         {
             _dbset.UpdateRange(entities);
             await _context.SaveChangesAsync();
         }
-        public async Task UpdateBulkAsync(List<T> values)
+        public async Task UpdateBulkAsync(List<TEntity> values)
         {
             await _context.BulkUpdateAsync(values);
         }
         public async Task DeleteAsync(int Id)
         {
-            T entity = await _dbset.FindAsync(Id);
-            entity.Status = DataStatus.Passive;
+            TEntity? entity = await _dbset.FindAsync(Id);
+            if (entity != null)
+            {
+                entity.Status = DataStatus.Passive;
+            }
             await _context.SaveChangesAsync();
         }
-        public async Task DeleteRangeAsync(List<T> values)
+        public async Task DeleteRangeAsync(List<TEntity> values)
         {
-            foreach (T entity in values)
+            foreach (TEntity entity in values)
             {
                 entity.Status = DataStatus.Passive;
             }
@@ -192,11 +192,12 @@ namespace DataAccess.Repositories.Concretes
         }
         public async Task DestroyAsync(int Id)
         {
-            T entity = await _dbset.FindAsync(Id);
+            TEntity? entity = await _dbset.FindAsync(Id);
+            if (entity != null)
             _context.Remove(entity);
             await _context.SaveChangesAsync();
         }
-        public async Task DestroyRangeAsync(List<T> entities)
+        public async Task DestroyRangeAsync(List<TEntity> entities)
         {
             _dbset.RemoveRange(entities);
             await _context.SaveChangesAsync();
@@ -207,7 +208,7 @@ namespace DataAccess.Repositories.Concretes
             _context.RemoveRange(values);
             await _context.SaveChangesAsync();
         }
-        public async Task DestroyBulkAsync(List<T> values)
+        public async Task DestroyBulkAsync(List<TEntity> values)
         {
             await _context.BulkDeleteAsync(values);
         }
