@@ -1,68 +1,66 @@
 ﻿using DataAccess.Context;
 using DataAccess.Entities.Abstracts;
 using DataAccess.Entities.Enums;
+using DataAccess.Entities.FilterModels.Tickets;
 using DataAccess.Entities.Models.Tickets;
 using DataAccess.Repositories.Abstracts.Ticket;
 using EFCore.BulkExtensions;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 
 namespace DataAccess.Repositories.Concretes.Ticket
 {
-    public class GenericTicketRepository : GenericRepository<ActivityTicket>, IGenericTicketRepository
+    public class GenericTicketRepository : GenericRepository<ActivityTicket, TicketFilterModel>, IGenericTicketRepository
     {
         private readonly GezTurizmContext _context;
         public GenericTicketRepository(GezTurizmContext context) : base(context)
         {
             _context = context;
         }
-
-        public IQueryable<ActivityTicket> GetDynamicTicketFilter(string? ticketName = null, string? seatNnumber = null, DateTime? datetimeDeparture = null, DateTime? datetimeArrival = null, decimal? first = null, decimal? last = null, PaymentStatus? paymentStatus = null, Currency? currency = null, bool? descendingNetCost = null, bool? descending = null)
+        public override IQueryable<ActivityTicket> GetDynamicFilteredEntities(TicketFilterModel filterModel)
         {
-            IQueryable<ActivityTicket> filter = _context.ActivityTickets;
-            if (!string.IsNullOrEmpty(ticketName))
+            var filter = base.GetDynamicFilteredEntities(filterModel);
+            if (!string.IsNullOrEmpty(filterModel.TicketName))
             {
-                filter = filter.Where(x => x.TicketHolderName.ToLower().Contains(ticketName.ToLower()));
+                filter = filter.Where(x => x.TicketHolderName.ToLower().Contains(filterModel.TicketName.ToLower()));
             }
-            if (!string.IsNullOrEmpty(seatNnumber))
+            if (!string.IsNullOrEmpty(filterModel.SeatNumber))
             {
-                filter = filter.Where(x => x.SeatNumber.ToLower().Contains(seatNnumber.ToLower()));
+                filter = filter.Where(x => x.SeatNumber.ToLower().Contains(filterModel.SeatNumber.ToLower()));
             }
-            if (datetimeDeparture.HasValue)
+            if (filterModel.DepartureDate.HasValue)
             {
-                filter = filter.Where(x => x.DepartureDate.Date == datetimeDeparture.Value.Date);
+                filter = filter.Where(x => x.DepartureDate.Date == filterModel.DepartureDate.Value.Date);
             }
-            if (datetimeArrival.HasValue)
+            if (filterModel.ArrivalDate.HasValue)
             {
-                filter = filter.Where(x => x.ArrivalDate.Date == datetimeArrival.Value.Date);
+                filter = filter.Where(x => x.ArrivalDate.Date == filterModel.ArrivalDate.Value.Date);
             }
-            if (first.HasValue && last.HasValue)
+            if (filterModel.MinCost.HasValue && filterModel.MaxCost.HasValue)
             {
-                filter = filter.Where(x => x.NetCost <= first.Value && x.NetCost >= last.Value);
+                filter = filter.Where(x => x.NetCost > filterModel.MinCost.Value && x.NetCost < filterModel.MaxCost.Value);
             }
-            else if (first.HasValue)
+            else if (filterModel.MinCost.HasValue)
             {
-                filter = filter.Where(x => x.NetCost >= first.Value);
+                filter = filter.Where(x => x.NetCost >= filterModel.MinCost.Value);
             }
-            else if (last.HasValue)
+            else if (filterModel.MaxCost.HasValue)
             {
-                filter = filter.Where(x => x.NetCost <= last.Value);
+                filter = filter.Where(x => x.NetCost <= filterModel.MaxCost.Value);
             }
-            if (paymentStatus.HasValue)
+            if (filterModel.PaymentStatus.HasValue)
             {
-                filter = filter.Where(x => x.PaymentStatus == paymentStatus.Value);
+                filter = filter.Where(x => x.PaymentStatus == filterModel.PaymentStatus.Value);
             }
-            if (currency.HasValue)
+            if (filterModel.Currency.HasValue)
             {
-                filter = filter.Where(x => x.Currency == currency.Value);
+                filter = filter.Where(x => x.Currency == filterModel.Currency.Value);
             }
-            if (descendingNetCost == true)
+            if (filterModel.Descending != true && filterModel.DescendingByTotalCost == true)
             {
                 filter = filter.OrderByDescending(x => x.NetCost);
             }
-            else if (descending == true)
-            {
-                filter = filter.OrderByDescending(x => x.Id);
-            }
+
             return filter;
         }
     }

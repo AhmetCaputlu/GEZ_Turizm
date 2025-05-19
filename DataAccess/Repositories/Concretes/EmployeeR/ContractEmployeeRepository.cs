@@ -1,5 +1,6 @@
 ﻿using DataAccess.Context;
 using DataAccess.Entities.Enums;
+using DataAccess.Entities.FilterModels.Employees;
 using DataAccess.Entities.Models.Employees;
 using DataAccess.Repositories.Abstracts;
 using DataAccess.Repositories.Abstracts.Employee;
@@ -8,29 +9,25 @@ using DataAccess.Repositories.Concretes.Employee;
 
 namespace DataAccess.Repositories.Concretes.EmployeeR
 {
-    public class ContractEmployeeRepository : GenericEmployeeRepository<ContractEmployee>, IContractEmployeeRepository
+    public class ContractEmployeeRepository : GenericEmployeeRepository<ContractEmployee, ContractEmployeeFilterModel>, IContractEmployeeRepository
     {
         private readonly GezTurizmContext _context;
-
         public ContractEmployeeRepository(GezTurizmContext context) : base(context)
         {
             _context = context;
         }
-        public IQueryable<ContractEmployee> GetDynamicContractEmployeeFilter(DriverLicense? driverLicense = null, Language? language = null, bool? descending = null)
+        public override IQueryable<ContractEmployee> GetDynamicFilteredEntities(ContractEmployeeFilterModel filterModel)
         {
-            IQueryable<ContractEmployee> filter = _context.ContractEmployees;
-            if (driverLicense.HasValue)
+            var filter = base.GetDynamicFilteredEntities(filterModel);
+            if (filterModel.DriverLicense.HasValue)
             {
-                filter = filter.Where(x => (x.DriverLicense ?? DriverLicense.None) == driverLicense.Value);
+                filter = filter.Where(x => (x.DriverLicense ?? DriverLicense.None) == filterModel.DriverLicense.Value);
             }
-            if (language.HasValue)
+            if (filterModel.Language.HasValue)
             {
-                filter = filter.Where(x => (x.Language ?? Language.None) == language.Value);
+                filter = filter.Where(x => (x.Language ?? Language.None) == filterModel.Language.Value);
             }
-            if (descending == true)
-            {
-                filter = filter.OrderByDescending(x => x.Id);
-            }
+
             return filter;
         }
     }

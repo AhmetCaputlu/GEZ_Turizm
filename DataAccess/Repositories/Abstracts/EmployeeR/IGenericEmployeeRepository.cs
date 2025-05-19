@@ -1,11 +1,12 @@
 ﻿using DataAccess.Entities.Abstracts;
 using DataAccess.Entities.Enums;
+using DataAccess.Entities.FilterModels.Companies;
+using DataAccess.Entities.FilterModels.Employees;
 
 namespace DataAccess.Repositories.Abstracts.Employee
 {
-    public interface IGenericEmployeeRepository<T> : IGenericRepository<T> where T : BaseEmployeeModel
+    public interface IGenericEmployeeRepository<TEntity, TFilteredEntity> : IGenericRepository<TEntity, TFilteredEntity> where TEntity : BaseEmployeeModel where TFilteredEntity : BaseEmployeeFilterModel
     {
-        IQueryable<T> GetDynamicEmployeeFilter(string? name = null, Gender? gender = null, DateTime? dateTimeBirth = null,
-            int? age = null, DateTime? dateTimeHire = null, int? exp = null, bool? descending = null);
+        
     }
 }

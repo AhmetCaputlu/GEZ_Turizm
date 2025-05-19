@@ -1,12 +1,13 @@
 ﻿using DataAccess.Context;
 using DataAccess.Entities.Enums;
+using DataAccess.Entities.FilterModels.WebUsers;
 using DataAccess.Entities.Models.WebUsers;
 using DataAccess.Repositories.Abstracts;
 using DataAccess.Repositories.Abstracts.WebUserR;
 
 namespace DataAccess.Repositories.Concretes.WebUserR
 {
-    public class WebUserProfileRepository : GenericRepository<WebUserProfile>, IGenericRepository<WebUserProfile>, IWebUserProfileRepository
+    public class WebUserProfileRepository : GenericRepository<WebUserProfile, WebUserProfileFilterModel>, IWebUserProfileRepository
     {
         private readonly GezTurizmContext _context;
 
@@ -15,25 +16,23 @@ namespace DataAccess.Repositories.Concretes.WebUserR
             _context = context;
         }
 
-        public IQueryable<WebUserProfile> GetDynamicUserProfileFilter(string? name = null, Gender? gender = null, bool? descendingAge = null, bool? descending = null)
+
+        public override IQueryable<WebUserProfile> GetDynamicFilteredEntities(WebUserProfileFilterModel filterModel)
         {
-            IQueryable<WebUserProfile> filter = _context.AspNetUserProfiles;
-            if (!string.IsNullOrEmpty(name))
+            var filter = base.GetDynamicFilteredEntities(filterModel);
+            if (!string.IsNullOrEmpty(filterModel.Name))
             {
-                filter = filter.Where(x => x.LastName.ToLower().Contains(name.ToLower()));
+                filter = filter.Where(x => x.LastName.ToLower().Contains(filterModel.Name.ToLower()));
             }
-            if (gender.HasValue)
+            if (filterModel.Gender.HasValue)
             {
-                filter = filter.Where(x => x.Gender == gender.Value);
+                filter = filter.Where(x => x.Gender == filterModel.Gender.Value);
             }
-            if (descendingAge.HasValue)
+            if (filterModel.Descending != true && filterModel.DescendingAge.HasValue)
             {
-                filter = filter.OrderByDescending(x => x.LastName);
+                filter = filter.OrderByDescending(x => x.Age);
             }
-            else if (descending.HasValue)
-            {
-                filter = filter.OrderByDescending(x => x.WebUserAccountId);
-            }
+
             return filter;
         }
     }

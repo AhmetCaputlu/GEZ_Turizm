@@ -1,53 +1,52 @@
 ﻿using DataAccess.Context;
 using DataAccess.Entities.Abstracts;
 using DataAccess.Entities.Enums;
+using DataAccess.Entities.FilterModels.Employees;
+using DataAccess.Repositories.Abstracts.Company;
 using DataAccess.Repositories.Abstracts.Employee;
 using EFCore.BulkExtensions;
 using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Repositories.Concretes.Employee
 {
-    public class GenericEmployeeRepository<T> : GenericRepository<T>, IGenericEmployeeRepository<T> where T : BaseEmployeeModel
+    public class GenericEmployeeRepository<TEntity, TFilteredEntity> : GenericRepository<TEntity, TFilteredEntity>, IGenericEmployeeRepository<TEntity, TFilteredEntity> where TEntity : BaseEmployeeModel where TFilteredEntity : BaseEmployeeFilterModel
     {
         private readonly GezTurizmContext _context;
-        private readonly DbSet<T> _dbset;
+        private readonly DbSet<TEntity> _dbset;
         public GenericEmployeeRepository(GezTurizmContext context) : base(context)
         {
             _context = context;
-            _dbset = _context.Set<T>();
+            _dbset = _context.Set<TEntity>();
         }
 
-        public IQueryable<T> GetDynamicEmployeeFilter(string? name = null, Gender? gender = null, DateTime? dateTimeBirth = null, int? age = null, DateTime? dateTimeHire = null, int? exp = null, bool? descending = null)
-        {
-            IQueryable<T> filter = _dbset;
 
-            if (!string.IsNullOrEmpty(name))
+        public override IQueryable<TEntity> GetDynamicFilteredEntities(TFilteredEntity filterModel)
+        {
+            var filter = base.GetDynamicFilteredEntities(filterModel);
+
+            if (!string.IsNullOrEmpty(filterModel.Name))
             {
-                filter = filter.Where(x => x.FullName.ToLower().Contains(name.ToLower()));
+                filter = filter.Where(x => x.FullName.ToLower().Contains(filterModel.Name.ToLower()));
             }
-            if (gender.HasValue)
+            if (filterModel.Gender.HasValue)
             {
-                filter = filter.Where(x => x.Gender == gender.Value);
+                filter = filter.Where(x => x.Gender == filterModel.Gender.Value);
             }
-            if (dateTimeBirth.HasValue)
+            if (filterModel.BirthDate.HasValue)
             {
-                filter = filter.Where(x => x.BirthDate.Date == dateTimeBirth.Value.Date);
+                filter = filter.Where(x => x.BirthDate.Date == filterModel.BirthDate.Value.Date);
             }
-            if (age.HasValue)
+            if (filterModel.Age.HasValue)
             {
-                filter = filter.Where(x => (x.Age ?? 0) == age.Value);
+                filter = filter.Where(x => (x.Age ?? 0) == filterModel.Age.Value);
             }
-            if (dateTimeHire.HasValue)
+            if (filterModel.HireDate.HasValue)
             {
-                filter = filter.Where(x => x.HireDate.Date == dateTimeHire.Value.Date);
+                filter = filter.Where(x => x.HireDate.Date == filterModel.HireDate.Value.Date);
             }
-            if (exp.HasValue)
+            if (filterModel.Experience.HasValue)
             {
-                filter = filter.Where(x => x.Experience == exp.Value);
-            }
-            if (descending == true)
-            {
-                filter = filter.OrderByDescending(x => x.Id);
+                filter = filter.Where(x => x.Experience == filterModel.Experience.Value);
             }
             return filter;
         }

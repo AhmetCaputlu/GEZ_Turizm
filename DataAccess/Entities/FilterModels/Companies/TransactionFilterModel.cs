@@ -10,5 +10,6 @@ namespace DataAccess.Entities.FilterModels.Companies
         public TransactionType? TransactionType { get; set; } = null;
         public decimal? FirstTotalCost { get; set; } = null;
         public decimal? LastTotalCost { get; set; } = null;
+        public bool? DescendingByTotalCost { get; set; } = null;
     }
 }

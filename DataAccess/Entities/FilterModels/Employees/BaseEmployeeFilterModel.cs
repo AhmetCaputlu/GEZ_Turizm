@@ -11,6 +11,5 @@ namespace DataAccess.Entities.FilterModels.Employees
         public int? Age { get; set; } = null;
         public DateTime? HireDate { get; set; } = null;
         public int? Experience { get; set; } = null;
-        public bool? Descending { get; set; } = null;
     }
 }

@@ -1,11 +1,12 @@
 ﻿using DataAccess.Context;
 using DataAccess.Entities.Enums;
+using DataAccess.Entities.FilterModels.Employees;
 using DataAccess.Repositories.Abstracts.EmployeeR;
 using DataAccess.Repositories.Concretes.Employee;
 
 namespace DataAccess.Repositories.Concretes.EmployeeR
 {
-    public class EmployeeRepository : GenericEmployeeRepository<DataAccess.Entities.Models.Employees.Employee>,
+    public class EmployeeRepository : GenericEmployeeRepository<Entities.Models.Employees.Employee, EmployeeFilterModel>,
           IEmployeeRepository
     {
         private readonly GezTurizmContext _context;
@@ -14,18 +15,14 @@ namespace DataAccess.Repositories.Concretes.EmployeeR
         {
             _context = context;
         }
-
-        public IQueryable<Entities.Models.Employees.Employee> GetDynamicEmployeesFilter(Department? department = null, bool? descending = null)
+        public override IQueryable<Entities.Models.Employees.Employee> GetDynamicFilteredEntities(EmployeeFilterModel filterModel)
         {
-            IQueryable<Entities.Models.Employees.Employee> filter = _context.Employees;
-            if (department.HasValue)
+            var filter = base.GetDynamicFilteredEntities(filterModel);
+            if (filterModel.CurrentPosition.HasValue)
             {
-                filter = filter.Where(x => x.CurrentPosition == department.Value);
+                filter = filter.Where(x => x.CurrentPosition == filterModel.CurrentPosition.Value);
             }
-            if (descending == true)
-            {
-                filter = filter.OrderByDescending(x => x.Id);
-            }
+
             return filter;
         }
     }

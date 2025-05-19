@@ -1,10 +1,11 @@
 ﻿using DataAccess.Entities.Abstracts;
+using DataAccess.Entities.FilterModels.OrderDetails;
 using DataAccess.Entities.Models.OrderDetails;
 
 namespace DataAccess.Repositories.Abstracts.OrderDetail
 {
-    public interface IGenericOrderDetailRepository : IGenericRepository<ActivityTicketOrderDetail>
+    public interface IGenericOrderDetailRepository : IGenericRepository<ActivityTicketOrderDetail, OrderDetailFilterModel>
     {
-        IQueryable<ActivityTicketOrderDetail> GetDynamicOrderDetailFilter(decimal? low = null, decimal? high = null, bool? descendingId = null, bool? descendingPrice = null);
+
     }
 }

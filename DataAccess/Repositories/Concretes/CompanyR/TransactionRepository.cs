@@ -23,23 +23,27 @@ namespace DataAccess.Repositories.Concretes.CompanyR
             var filter = base.GetDynamicFilteredEntities(filterModel);
             if (filterModel.PartnerCompanyId.HasValue)
             {
-                filter.Where(x => x.PartnerCompanyId == filterModel.PartnerCompanyId);
+                filter = filter.Where(x => x.PartnerCompanyId == filterModel.PartnerCompanyId);
             }
             if (filterModel.TransactionType.HasValue)
             {
-                filter.Where(x => x.Type == filterModel.TransactionType);
+                filter = filter.Where(x => x.Type == filterModel.TransactionType);
             }
             if (filterModel.FirstTotalCost.HasValue && filterModel.LastTotalCost.HasValue)
             {
-                filter.Where(x => x.TotalCost >= filterModel.FirstTotalCost && x.TotalCost <= filterModel.LastTotalCost);
+                filter = filter.Where(x => x.TotalCost >= filterModel.FirstTotalCost && x.TotalCost <= filterModel.LastTotalCost);
             }
             else if (filterModel.FirstTotalCost.HasValue)
             {
-                filter.Where(x => x.TotalCost >= filterModel.FirstTotalCost);
+                filter = filter.Where(x => x.TotalCost >= filterModel.FirstTotalCost);
             }
             else if (filterModel.LastTotalCost.HasValue)
             {
-                filter.Where(x => x.TotalCost <= filterModel.LastTotalCost);
+                filter = filter.Where(x => x.TotalCost <= filterModel.LastTotalCost);
+            }
+            if (filterModel.Descending != true && filterModel.DescendingByTotalCost == true)
+            {
+                filter = filter.OrderByDescending(x => x.TotalCost);
             }
             return filter;
         }

@@ -1,6 +1,7 @@
 ﻿using DataAccess.Context;
 using DataAccess.Entities.Abstracts;
 using DataAccess.Entities.Enums;
+using DataAccess.Entities.FilterModels.Regions;
 using DataAccess.Entities.Models.Regions;
 using DataAccess.Repositories.Abstracts.Region;
 using EFCore.BulkExtensions;
@@ -8,28 +9,27 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Repositories.Concretes.Region
 {
-    public class GenericRegionRepository : GenericRepository<ServiceRegion>, IGenericRegionRepository
+    public class GenericRegionRepository : GenericRepository<ServiceRegion, RegionFilterModel>, IGenericRegionRepository
     {
         private readonly GezTurizmContext _context;
         public GenericRegionRepository(GezTurizmContext context) : base(context)
         {
             _context = context;
         }
-
-        public IQueryable<ServiceRegion> GetDynamicRegionFilter(string? districtName = null, bool? descendingArrivalDate = null, VehicleType? vehicleType = null, bool? descending = null)
+        public override IQueryable<ServiceRegion> GetDynamicFilteredEntities(RegionFilterModel filterModel)
         {
-            IQueryable<ServiceRegion> filter = _context.ServiceRegions;
-            if (!string.IsNullOrEmpty(districtName))
+            var filter = base.GetDynamicFilteredEntities(filterModel);
+            if (!string.IsNullOrEmpty(filterModel.DistrictName))
             {
-                filter = filter.Where(x => x.DistrictName.ToLower().Contains(districtName.ToLower()));
+                filter = filter.Where(x => x.DistrictName.ToLower().Contains(filterModel.DistrictName.ToLower()));
             }
-            if (descendingArrivalDate == true)
+            if (filterModel.VehicleType.HasValue)
+            {
+                filter = filter.Where(x => x.TransportVehicle == filterModel.VehicleType);
+            }
+            if (filterModel.Descending != true && filterModel.DescendingByArrivalTime == true)
             {
                 filter = filter.OrderBy(x => x.ArrivalTime);//En yakınından en uzağına
-            }
-            else if (descending == true)
-            {
-                filter = filter.OrderByDescending(x => x.Id);
             }
             return filter;
         }

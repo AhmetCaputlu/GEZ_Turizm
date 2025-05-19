@@ -1,16 +1,11 @@
 ﻿using DataAccess.Entities.Abstracts;
 using DataAccess.Entities.Enums;
+using DataAccess.Entities.FilterModels.Vehicles;
 
 namespace DataAccess.Repositories.Abstracts.Vehicle
 {
-    public interface IGenericVehicleRepository<T> : IGenericRepository<T> where T : BaseVehicleModel
+    public interface IGenericVehicleRepository<TEntity, TFilterEntity> : IGenericRepository<TEntity, TFilterEntity> where TEntity : BaseVehicleModel where TFilterEntity : BaseVehicleFilterModel
     {
-        IQueryable<T> GetDynamicVehicleFilter(
-            VehicleType? vehicleType = null,
-            string? licensePlate = null,
-            string? model = null,
-            bool? available = null,
-            bool? descending = null
-            );
+
     }
 }

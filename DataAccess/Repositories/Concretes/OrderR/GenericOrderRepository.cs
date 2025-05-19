@@ -1,31 +1,29 @@
 ﻿using DataAccess.Context;
+using DataAccess.Entities.FilterModels.Orders;
 using DataAccess.Entities.Models.Orders;
 using DataAccess.Repositories.Abstracts.Order;
 
 namespace DataAccess.Repositories.Concretes.Order
 {
-    public class GenericOrderRepository : GenericRepository<ActivityTicketOrder>, IGenericOrderRepository
+    public class GenericOrderRepository : GenericRepository<ActivityTicketOrder, OrderFilterModel>, IGenericOrderRepository
     {
         private readonly GezTurizmContext _context;
         public GenericOrderRepository(GezTurizmContext context) : base(context)
         {
             _context = context;
         }
-        public IQueryable<ActivityTicketOrder> GetDynamicOrderFilter(string? note = null, string? email = null, bool? descending = null)
+        public override IQueryable<ActivityTicketOrder> GetDynamicFilteredEntities(OrderFilterModel filterModel)
         {
-            IQueryable<ActivityTicketOrder> filter = _context.ActivityTicketOrders;
-            if (!string.IsNullOrEmpty(note))
+            var filter = base.GetDynamicFilteredEntities(filterModel);
+            if (!string.IsNullOrEmpty(filterModel.Note))
             {
-                filter = filter.Where(x => (x.Note ?? "").ToLower().Contains(note.ToLower()));
+                filter = filter.Where(x => (x.Note ?? "").ToLower().Contains(filterModel.Note.ToLower()));
             }
-            if (!string.IsNullOrEmpty(email))
+            if (!string.IsNullOrEmpty(filterModel.Email))
             {
-                filter = filter.Where(x => (x.WebUserEmail ?? "").ToLower().Contains(email.ToLower()));
+                filter = filter.Where(x => (x.WebUserEmail ?? "").ToLower().Contains(filterModel.Email.ToLower()));
             }
-            if (descending == true)
-            {
-                filter = filter.OrderByDescending(x => x.Id);
-            }
+
             return filter;
         }
     }
