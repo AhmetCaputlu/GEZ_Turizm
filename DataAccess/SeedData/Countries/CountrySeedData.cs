@@ -1,5 +1,5 @@
 ﻿using Bogus;
-using DataAccess.Entities.Models.Countries;
+using DataAccess.Entities.Models.Regions;
 using DataAccess.Entities.Models.WebUsers;
 using DataAccess.SeedData.Randoms;
 

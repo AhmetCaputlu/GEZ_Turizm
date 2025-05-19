@@ -1,5 +1,5 @@
 ﻿using DataAccess.Configurations.Abstracts;
-using DataAccess.Entities.Models.OrderDetails;
+using DataAccess.Entities.Models.Orders;
 using DataAccess.SeedData.OrderDetails;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;

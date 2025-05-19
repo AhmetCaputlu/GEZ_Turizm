@@ -12,6 +12,6 @@ namespace BusinessLogic.DTOs.Activities
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public string? Description { get; set; }
-        public virtual ServiceRegionResponseDTO? ServiceRegionResponseDTO { get; set; }
+        public virtual RegionResponseDTO? ServiceRegionResponseDTO { get; set; }
     }
 }

@@ -3,7 +3,9 @@ using System.Runtime.ConstrainedExecution;
 using System.Threading.Tasks;
 using BusinessLogic.DTOs.WebUser;
 using BusinessLogic.Services.Abstracts;
+using BusinessLogic.Services.Abstracts.WebUsers;
 using DataAccess.Entities.Enums;
+using DataAccess.Entities.FilterModels.WebUsers;
 using DataAccess.Entities.Models.WebUsers;
 using Microsoft.AspNetCore.Mvc;
 using Presentation_MVC.Models;
@@ -18,10 +20,10 @@ namespace Presentation_MVC.Controllers
         //{
         //    _logger = logger;
         //}
-        private readonly IService<WebUserAccount, WebUserAccountResponseDTO, WebUserAccountRequestDTO> _service;
-        public HomeController(IService<WebUserAccount, WebUserAccountResponseDTO, WebUserAccountRequestDTO> service)
+        private readonly IWebUserProfileService _service;
+        public HomeController(IWebUserProfileService webUserProfileService)
         {
-            _service = service;
+            _service = webUserProfileService;
         }
         public IActionResult Index()
         {
@@ -33,11 +35,17 @@ namespace Presentation_MVC.Controllers
             return View();
         }
 
-        public async Task<IActionResult> Test(int? firstId, int? lastId, DateTime? firstCreatedDate, DateTime? secondCreatedDate,
-            DateTime? firstUpdatedDate, DateTime? secondUpdatedDate, DataStatus? status, bool? isUpdated, bool? descending)
+        public async Task<IActionResult> Test(WebUserProfileViewModel filterModel)
         {
-            var filter =await _service.GetDynamicFilteredEntities(firstId, lastId, firstCreatedDate, secondCreatedDate, firstUpdatedDate, secondUpdatedDate, status, isUpdated, descending);
-            return View(filter);
+            var filter = await _service.GetDynamicFilteredEntities(filterModel.Filter);
+            
+            var vm = new WebUserProfileViewModel
+            {
+                Filter = filterModel.Filter,
+                List = filter
+            };
+
+            return View(vm);
         }
 
 

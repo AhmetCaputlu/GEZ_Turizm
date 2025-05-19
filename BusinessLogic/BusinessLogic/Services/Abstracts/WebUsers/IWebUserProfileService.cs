@@ -1,11 +1,12 @@
 ﻿using BusinessLogic.DTOs.WebUser;
 using DataAccess.Entities.Enums;
+using DataAccess.Entities.FilterModels.WebUsers;
 using DataAccess.Entities.Models.WebUsers;
 
 namespace BusinessLogic.Services.Abstracts.WebUsers
 {
-    public interface IWebUserProfileService : IService<WebUserProfile, WebUserProfileResponseDTO, WebUserProfileRequestDTO>
+    public interface IWebUserProfileService : IGenericService<WebUserProfile, WebUserProfileResponseDTO, WebUserProfileRequestDTO, WebUserProfileFilterModel>
     {
-        IQueryable<WebUserProfileResponseDTO> GetDynamicUserProfileFilter(string? name = null, Gender? gender = null, bool? descendingAge = null, bool? descending = null);
+
     }
 }

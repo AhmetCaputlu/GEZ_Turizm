@@ -1,6 +1,5 @@
 ﻿using DataAccess.Entities.Abstracts;
 using DataAccess.Entities.Models.Employees;
-using DataAccess.Entities.Models.OrderDetails;
 using DataAccess.Entities.Models.WebUsers;
 
 namespace DataAccess.Entities.Models.Orders

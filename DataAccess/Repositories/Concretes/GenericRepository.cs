@@ -86,11 +86,11 @@ namespace DataAccess.Repositories.Concretes
             }
             else if (filterModel.FirstCreatedDate.HasValue)
             {
-                filter = filter.Where(x => x.CreatedDate.Date == filterModel.FirstCreatedDate.Value.Date);
+                filter = filter.Where(x => x.CreatedDate.Date >= filterModel.FirstCreatedDate.Value.Date);
             }
             else if (filterModel.LastCreatedDate.HasValue)
             {
-                filter = filter.Where(x => x.CreatedDate.Date == filterModel.LastCreatedDate.Value.Date);
+                filter = filter.Where(x => x.CreatedDate.Date <= filterModel.LastCreatedDate.Value.Date);
             }
             if (filterModel.FirstUpdatedDate.HasValue && filterModel.LastUpdatedDate.HasValue)
             {
@@ -100,11 +100,11 @@ namespace DataAccess.Repositories.Concretes
             }
             else if (filterModel.FirstUpdatedDate.HasValue)
             {
-                filter = filter.Where(x => x.UpdatedDate.HasValue && x.UpdatedDate.Value.Date == filterModel.FirstUpdatedDate.Value.Date);
+                filter = filter.Where(x => x.UpdatedDate.HasValue && x.UpdatedDate.Value.Date >= filterModel.FirstUpdatedDate.Value.Date);
             }
             else if (filterModel.LastUpdatedDate.HasValue)
             {
-                filter = filter.Where(x => x.UpdatedDate.HasValue && x.UpdatedDate.Value.Date == filterModel.LastUpdatedDate.Value.Date);
+                filter = filter.Where(x => x.UpdatedDate.HasValue && x.UpdatedDate.Value.Date <= filterModel.LastUpdatedDate.Value.Date);
             }
             if (filterModel.Status.HasValue)
             {

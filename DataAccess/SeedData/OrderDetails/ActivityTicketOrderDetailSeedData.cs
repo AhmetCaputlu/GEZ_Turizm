@@ -1,5 +1,5 @@
 ﻿using Bogus;
-using DataAccess.Entities.Models.OrderDetails;
+using DataAccess.Entities.Models.Orders;
 using DataAccess.SeedData.Randoms;
 
 namespace DataAccess.SeedData.OrderDetails

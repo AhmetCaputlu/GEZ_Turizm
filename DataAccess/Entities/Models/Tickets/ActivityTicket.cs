@@ -1,7 +1,7 @@
 ﻿using DataAccess.Entities.Abstracts;
 using DataAccess.Entities.Enums;
 using DataAccess.Entities.Models.Activities;
-using DataAccess.Entities.Models.OrderDetails;
+using DataAccess.Entities.Models.Orders;
 
 namespace DataAccess.Entities.Models.Tickets
 {

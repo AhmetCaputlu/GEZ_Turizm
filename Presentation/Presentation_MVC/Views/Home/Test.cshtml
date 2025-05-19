@@ -1,109 +1,130 @@
-﻿@model List<WebUserAccountResponseDTO>
-
-<form method="get" asp-controller="Home" asp-action="Test">
-    <div class="row mb-2">
-        <div class="col-md-6">
-            <label for="firstId">First Id</label>
-            <input type="number" name="firstId" class="form-control" id="firstId" />
-        </div>
-        <div class="col-md-6">
-            <label for="lastId">Last Id</label>
-            <input type="number" name="lastId" class="form-control" id="lastId" />
-        </div>
-    </div>
-
-    <div class="row mb-2">
-        <div class="col-md-6">
-            <label for="firstCreatedDate">First Created Date</label>
-            <input type="date" name="firstCreatedDate" class="form-control" id="firstCreatedDate" />
-        </div>
-        <div class="col-md-6">
-            <label for="secondCreatedDate">Second Created Date</label>
-            <input type="date" name="secondCreatedDate" class="form-control" id="secondCreatedDate" />
-        </div>
-    </div>
-
-    <div class="row mb-2">
-        <div class="col-md-6">
-            <label for="firstUpdatedDate">First Updated Date</label>
-            <input type="date" name="firstUpdatedDate" class="form-control" id="firstUpdatedDate" />
-        </div>
-        <div class="col-md-6">
-            <label for="secondUpdatedDate">Second Updated Date</label>
-            <input type="date" name="secondUpdatedDate" class="form-control" id="secondUpdatedDate" />
-        </div>
-    </div>
-
-    <div class="row mb-2">
-        <div class="col-md-6">
-            <label for="isUpdated">Is Updated?</label>
-            <select name="isUpdated" class="form-control" id="isUpdated">
-                <option value="">-- Select --</option>
-                <option value="true">Yes</option>
-                <option value="false">No</option>
-            </select>
-        </div>
-        <div class="col-md-6">
-            <label for="status">Status</label>
-            <select name="status" class="form-control" id="status">
-                <option value="">-- Select Status --</option>
-                <option value="@DataAccess.Entities.Enums.DataStatus.Unknown">Unknown</option>
-                <option value="@DataAccess.Entities.Enums.DataStatus.Active">Active</option>
-                <option value="@DataAccess.Entities.Enums.DataStatus.Passive">Passive</option>
-            </select>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col text-end">
-            <button type="submit" class="btn btn-primary">Filter</button>
-        </div>
-    </div>
-</form>
+﻿@model WebUserProfileViewModel
 
 
+<div class="container mt-5">
+	<div class="card shadow-sm p-4">
+		<h4 class="mb-4">Filtreleme Formu</h4>
+		<form asp-action="Test" method="get" class="row g-3">
+			<div class="col-md-6">
+				<label class="form-label">First Id</label>
+				<input asp-for="Filter.FirstId" type="number" class="form-control" />
+			</div>
 
+			<div class="col-md-6">
+				<label class="form-label">Last Id</label>
+				<input asp-for="Filter.LastId" type="number" class="form-control" />
+			</div>
 
+			<div class="col-md-6">
+				<label class="form-label">First Created Date</label>
+				<input asp-for="Filter.FirstCreatedDate" type="date" class="form-control" />
+			</div>
 
+			<div class="col-md-6">
+				<label class="form-label">Last Created Date</label>
+				<input asp-for="Filter.LastCreatedDate" type="date" class="form-control" />
+			</div>
 
+			<div class="col-md-6">
+				<label class="form-label">First Updated Date</label>
+				<input asp-for="Filter.FirstUpdatedDate" type="date" class="form-control" />
+			</div>
 
-<div class="card-body">
-	<table class="table-bordered">
-		<thead>
-			<tr>
-				<th>Identify</th>
-				<th>Unique Identify</th>
-				<th style="width:180px">User Name</th>
-				<th style="width: 280px">Email</th>
-				<th>Phone Number</th>
-				<th>Phone Number Confirmed</th>
-				<th style="width: 250px">Created Date</th>
-			</tr>
-		</thead>
-		<tbody>
-			@foreach (var item in Model)
-			{
-				<tr class="align-middle">
-					<td>@item.Id</td>
-					<td>@item.Guid</td>
-					<td>@item.UserName</td>
-					<td>@item.Email</td>
-					<td>@item.PhoneNumber</td>
-					<td>@item.PhoneNumberConfirmed</td>
-					<td>@item.CreatedDate</td>
-				</tr>
-			}
-		</tbody>
-	</table>
+			<div class="col-md-6">
+				<label class="form-label">Last Updated Date</label>
+				<input asp-for="Filter.LastUpdatedDate" type="date" class="form-control" />
+			</div>
+
+			<div class="col-md-6">
+				<label class="form-label">Status</label>
+				<select asp-for="Filter.Status" asp-items="Html.GetEnumSelectList<DataStatus>()" class="form-select">
+					<option value="">Tümü</option>
+				</select>
+			</div>
+
+			<div class="col-md-6">
+				<label class="form-label">Is Updated</label><br />
+				<div class="form-check form-check-inline">
+					<input class="form-check-input" type="radio" name="IsUpdated" value="true" id="isUpdatedYes" />
+					<label class="form-check-label" for="isUpdatedYes">Evet</label>
+				</div>
+				<div class="form-check form-check-inline">
+					<input class="form-check-input" type="radio" name="IsUpdated" value="false" id="isUpdatedNo" />
+					<label class="form-check-label" for="isUpdatedNo">Hayır</label>
+				</div>
+			</div>
+
+			<div class="col-md-6">
+				<label class="form-label">Descending</label><br />
+				<div class="form-check form-check-inline">
+					<input class="form-check-input" type="radio" asp-for="Filter.Descending" value="" id="descNull" />
+					<label class="form-check-label" for="descNull">Seçim Yok</label>
+				</div>
+				<div class="form-check form-check-inline">
+					<input class="form-check-input" type="radio" asp-for="Filter.Descending" value="true" id="descTrue" />
+					<label class="form-check-label" for="descTrue">Artan</label>
+				</div>
+			</div>
+
+			<div class="col-md-6">
+				<label class="form-label">Name</label>
+				<input asp-for="Filter.Name" type="text" class="form-control" />
+			</div>
+
+			<div class="col-md-6">
+				<label class="form-label">Gender</label>
+				<select asp-for="Filter.Gender" asp-items="Html.GetEnumSelectList<Gender>()" class="form-select">
+					<option value="">Tümü</option>
+				</select>
+			</div>
+
+			<div class="col-md-6">
+				<label class="form-label">Descending Age</label><br />
+				<div class="form-check form-check-inline">
+					<input class="form-check-input" type="radio" asp-for="Filter.DescendingAge" value="" id="ageDescTrue" />
+					<label class="form-check-label" for="ageDescTrue">Seçim Yok</label>
+				</div>
+				<div class="form-check form-check-inline">
+					<input class="form-check-input" type="radio" asp-for="Filter.DescendingAge" value="true" id="ageDescFalse" />
+					<label class="form-check-label" for="ageDescFalse">Artan</label>
+				</div>
+			</div>
+
+			<div class="col-12 text-end">
+				<button type="submit" class="btn btn-primary me-2">Filtrele</button>
+				<button type="reset" class="btn btn-secondary">Temizle</button>
+			</div>
+		</form>
+	</div>
+
+	<div class="card mt-5 shadow-sm">
+		<div class="card-header bg-primary text-white">
+			<strong>Kullanıcı Listesi</strong>
+		</div>
+		<div class="card-body">
+			<table class="table table-hover text-center align-middle table-bordered">
+				<thead class="table-light">
+					<tr>
+						<th style="width:180px">İsim</th>
+						<th style="width:280px">Soyisim</th>
+						<th>Cinsiyet</th>
+						<th>Doğum Tarihi</th>
+						<th style="width:250px">Açık Adres</th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach (var item in Model.List)
+					{
+						<tr>
+							<td>@item.FirstName</td>
+							<td>@item.LastName</td>
+							<td>@item.Gender</td>
+							<td>@item.BirthDate</td>
+							<td>@item.Address</td>
+						</tr>
+					}
+				</tbody>
+			</table>
+		</div>
+	</div>
 </div>
-<style>
-	td {
-		text-align: center;
-		vertical-align: middle
-	}
-
-	th {
-		text-align: center;
-		vertical-align: middle
-	}
-</style>

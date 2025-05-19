@@ -1,7 +1,7 @@
 ﻿using DataAccess.Entities.Abstracts;
 using DataAccess.Entities.Enums;
-using DataAccess.Entities.Models.Countries;
 using DataAccess.Entities.Models.Orders;
+using DataAccess.Entities.Models.Regions;
 
 namespace DataAccess.Entities.Models.Employees
 {

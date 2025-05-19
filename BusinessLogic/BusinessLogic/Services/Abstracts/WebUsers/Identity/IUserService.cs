@@ -1,8 +1,6 @@
 ﻿using BusinessLogic.DTOs.OperationResult;
-using BusinessLogic.DTOs.SignIn_SignUpDTOs;
 using BusinessLogic.DTOs.WebUser;
 using DataAccess.Entities.Models.WebUsers;
-using Microsoft.AspNetCore.Identity;
 
 namespace BusinessLogic.Services.Abstracts.WebUsers.Identity
 {

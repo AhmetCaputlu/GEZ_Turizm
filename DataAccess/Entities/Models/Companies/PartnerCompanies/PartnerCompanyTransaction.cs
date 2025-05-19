@@ -1,6 +1,6 @@
 ﻿using DataAccess.Entities.Abstracts;
 using DataAccess.Entities.Enums;
-using DataAccess.Entities.Models.PassTickets;
+using DataAccess.Entities.Models.Tickets;
 
 namespace DataAccess.Entities.Models.Companies.PartnerCompanies
 {

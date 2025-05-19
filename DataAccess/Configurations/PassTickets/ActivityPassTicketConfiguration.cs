@@ -1,5 +1,5 @@
 ﻿using DataAccess.Configurations.Abstracts;
-using DataAccess.Entities.Models.PassTickets;
+using DataAccess.Entities.Models.Tickets;
 using DataAccess.SeedData.PassTickets;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;

@@ -1,6 +1,4 @@
-﻿using DataAccess.Entities.Abstracts;
-using DataAccess.Entities.Enums;
-using DataAccess.Entities.FilterModels.BaseModel;
+﻿using DataAccess.Entities.FilterModels.BaseModel;
 using DataAccess.Entities.Interfaces;
 
 namespace DataAccess.Repositories.Abstracts

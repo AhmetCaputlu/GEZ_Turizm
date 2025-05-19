@@ -1,7 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using BusinessLogic.DTOs.Abstracts;
-using BusinessLogic.DTOs.Countries;
-using BusinessLogic.DTOs.Regions;
 
 namespace BusinessLogic.DTOs.WebUser
 {

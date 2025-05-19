@@ -1,6 +1,6 @@
 ﻿using DataAccess.Configurations.Abstracts;
 using DataAccess.Entities.Enums;
-using DataAccess.Entities.Models.Countries;
+using DataAccess.Entities.Models.Regions;
 using DataAccess.SeedData.Countries;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;

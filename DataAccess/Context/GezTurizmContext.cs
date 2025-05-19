@@ -1,11 +1,8 @@
 ﻿using DataAccess.Entities.Models.Activities;
 using DataAccess.Entities.Models.Companies.PartnerCompanies;
 using DataAccess.Entities.Models.Companies.Suppliers;
-using DataAccess.Entities.Models.Countries;
 using DataAccess.Entities.Models.Employees;
-using DataAccess.Entities.Models.OrderDetails;
 using DataAccess.Entities.Models.Orders;
-using DataAccess.Entities.Models.PassTickets;
 using DataAccess.Entities.Models.Regions;
 using DataAccess.Entities.Models.Tickets;
 using DataAccess.Entities.Models.Vehicles;

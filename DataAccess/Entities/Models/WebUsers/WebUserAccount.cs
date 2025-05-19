@@ -1,7 +1,7 @@
 ﻿using DataAccess.Entities.Enums;
 using DataAccess.Entities.Interfaces;
-using DataAccess.Entities.Models.Countries;
 using DataAccess.Entities.Models.Orders;
+using DataAccess.Entities.Models.Regions;
 using Microsoft.AspNetCore.Identity;
 
 namespace DataAccess.Entities.Models.WebUsers

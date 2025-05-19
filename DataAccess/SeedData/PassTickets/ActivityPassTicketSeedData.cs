@@ -1,5 +1,5 @@
 ﻿using Bogus;
-using DataAccess.Entities.Models.PassTickets;
+using DataAccess.Entities.Models.Tickets;
 using DataAccess.SeedData.Randoms;
 
 namespace DataAccess.SeedData.PassTickets
