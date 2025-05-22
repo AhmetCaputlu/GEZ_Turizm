@@ -39,33 +39,31 @@ namespace BusinessLogic.Services.Concretes.WebUsers.Identity
         {
             try
             {
-                var result = new ResultDTO<WebUserAccountResponseDTO, WebUserAccountFilterModel>();
                 if (filterModel.DynamicFilter == null)
                 {
-                    result.NotificationType = new NotificationDTO { ResultType = NotificationType.Null, Description = "Kriter belirtilmemiş!" };
+                    filterModel.NotificationType = new NotificationDTO { ResultType = NotificationType.Null, Description = "Kriter belirtilmemiş!" };
                 }
                 else
                 {
-                    result.List = await _repository.GetDynamicFilteredEntities(filterModel.DynamicFilter).ProjectTo<WebUserAccountResponseDTO>(_mapper.ConfigurationProvider).ToListAsync();
-                    if (!result.List.Any())
+                    filterModel.List = await _repository.GetDynamicFilteredEntities(filterModel.DynamicFilter).ProjectTo<WebUserAccountResponseDTO>(_mapper.ConfigurationProvider).ToListAsync();
+                    if (!filterModel.List.Any())
                     {
-                        result.NotificationType = new NotificationDTO { ResultType = NotificationType.NullUser, Description = "Kriterlere uygun kullanıcı bulunamadı!!" };
+                        filterModel.NotificationType = new NotificationDTO { ResultType = NotificationType.NullUser, Description = "Kriterlere uygun kullanıcı bulunamadı!!" };
                     }
-                    result.NotificationType = new NotificationDTO { ResultType = NotificationType.Success };
+                    filterModel.NotificationType = new NotificationDTO { ResultType = NotificationType.Success };
                 }
 
-                result.DynamicFilter = new WebUserAccountFilterModel();
-                return result;
+                filterModel.DynamicFilter = new WebUserAccountFilterModel();
+                return filterModel;
             }
             catch (Exception ex)
             {
-                var result = new ResultDTO<WebUserAccountResponseDTO, WebUserAccountFilterModel>();
-                result.NotificationType = new NotificationDTO
+                filterModel.NotificationType = new NotificationDTO
                 {
                     ResultType = NotificationType.UnknownError,
                     Description = $"Bilinmeyen bir hata meydana geldi daha sonra tekrar deneyin!!\n{ex.Message}"
                 };
-                return result;
+                return filterModel;
             }
         }
         /// <summary>

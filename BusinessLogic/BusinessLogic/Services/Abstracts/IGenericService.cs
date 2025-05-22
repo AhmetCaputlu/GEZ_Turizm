@@ -1,4 +1,5 @@
 ﻿using BusinessLogic.DTOs.Abstracts;
+using BusinessLogic.OperationResult;
 using DataAccess.Entities.FilterModels.BaseModel;
 using DataAccess.Entities.Interfaces;
 
@@ -21,12 +22,31 @@ namespace BusinessLogic.Services.Abstracts
         //IEnumerable<TResponse> GetEntitiesBetweenCreatedDates(DateTime firstDate, DateTime lastDate);
         //IEnumerable<TResponse> GetEntitiesBetweenUpdatedDates(DateTime firstDate, DateTime lastDate); 
         #endregion
-        Task<IEnumerable<TResponse>> GetDynamicFilteredEntities(TFilterEntity filterModel);
-        Task<TResponse> GetByIdAsync(int Id);
-        Task CreateAsync(TRequest DTO);
-        Task CreateRangeAsync(List<TRequest> DTOs);
-        Task CreateBulkAsync(List<TRequest> DTOs);
-        Task Update(TRequest DTO);
+        /// <summary>
+        /// Listeleme işlemlerinde dinamik filtreleme işlemleri için kullanılır.
+        /// </summary>
+        /// <param name="result"></param>
+        /// <returns></returns>
+        Task<ResultDTO<TResponse, TFilterEntity>> GetDynamicFilteredEntities(ResultDTO<TResponse, TFilterEntity> result, CancellationToken token);
+        /// <summary>
+        /// Kullanıcı Id bilgisine göre sadece o kullanıcıyı döndürür.
+        /// </summary>
+        /// <param name="result"></param>
+        /// <returns></returns>
+        Task<ResultDTO<TResponse, TFilterEntity>> GetByIdAsync(ResultDTO<TResponse, TFilterEntity> result, CancellationToken token);
+        /// <summary>
+        /// Veritabanına yeni bir veri eklemek için kullanılır.
+        /// </summary>
+        /// <param name="DTO"></param>
+        /// <returns></returns>
+        Task<NotificationDTO> CreateAsync(TRequest DTO, CancellationToken token);
+        /// <summary>
+        /// Veritabanına çoklu veri eklemek için kullanılır.
+        /// </summary>
+        /// <param name="DTOs"></param>
+        /// <returns></returns>
+        Task<NotificationDTO> CreateRangeAsync(List<TRequest> DTOs, CancellationToken token);
+        Task UpdateAsync(TRequest DTO, CancellationToken token);
         Task UpdateRangeAsync(List<TRequest> DTOs);
         Task UpdateBulkAsync(List<TRequest> DTOs);
         Task DeleteAsync(int Id);

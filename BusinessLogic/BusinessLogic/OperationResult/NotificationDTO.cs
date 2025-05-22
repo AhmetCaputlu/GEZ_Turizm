@@ -7,7 +7,7 @@ namespace BusinessLogic.OperationResult
     /// </summary>
     public class NotificationDTO
     {
-        public Enums.NotificationType ResultType { get; set; }
+        public NotificationType ResultType { get; set; }
         public string? Description { get; set; }
     }
 }

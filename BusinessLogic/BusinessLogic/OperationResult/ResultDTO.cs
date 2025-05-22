@@ -11,6 +11,8 @@ namespace BusinessLogic.OperationResult
     {
         public TFilter? DynamicFilter { get; set; }
         public IEnumerable<TResponse>? List { get; set; }
+        public int? FilterId { get; set; }
+        public TResponse? SelectedEntity { get; set; }
         public NotificationDTO? NotificationType { get; set; }
     }
 }
