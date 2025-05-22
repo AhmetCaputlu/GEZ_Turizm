@@ -2,7 +2,7 @@
 using DataAccess.Entities.FilterModels.BaseModel;
 using DataAccess.Entities.Interfaces;
 
-namespace BusinessLogic.DTOs.OperationResult
+namespace BusinessLogic.OperationResult
 {
     /// <summary>
     /// Bu sınıf Response döndürmesi gereken metotlarda, kriterleri ve hata mesajlarını da taşıyabilmesi için tasarlandı.
@@ -11,6 +11,6 @@ namespace BusinessLogic.DTOs.OperationResult
     {
         public TFilter? DynamicFilter { get; set; }
         public IEnumerable<TResponse>? List { get; set; }
-        public NotificationType? NotificationType { get; set; }
+        public NotificationDTO? NotificationType { get; set; }
     }
 }

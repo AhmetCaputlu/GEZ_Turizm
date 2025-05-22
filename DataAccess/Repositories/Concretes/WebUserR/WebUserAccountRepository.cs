@@ -1,7 +1,10 @@
 ﻿using DataAccess.Context;
+using DataAccess.Entities.Enums;
 using DataAccess.Entities.FilterModels.WebUsers;
+using DataAccess.Entities.Interfaces;
 using DataAccess.Entities.Models.WebUsers;
 using DataAccess.Repositories.Abstracts.WebUserR;
+using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Repositories.Concretes.WebUserR
 {
@@ -16,6 +19,12 @@ namespace DataAccess.Repositories.Concretes.WebUserR
         {
             _context = context;
         }
+
+        public async Task<WebUserAccount?> GetByIdAsync(int? Id)
+        {
+            return await _context.AspNetUsers.FindAsync(Id);
+        }
+
         public IQueryable<WebUserAccount> GetDynamicFilteredEntities(WebUserAccountFilterModel filterModel)
         {
             IQueryable<WebUserAccount> filter = _context.AspNetUsers;

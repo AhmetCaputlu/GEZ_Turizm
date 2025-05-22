@@ -1,13 +1,13 @@
-﻿using BusinessLogic.Enums;
+﻿using BusinessLogic.OperationResult.Enums;
 
-namespace BusinessLogic.DTOs.OperationResult
+namespace BusinessLogic.OperationResult
 {
     /// <summary>
     /// Bu sınıf BLL katmanında dönmesi gereken sonuç durumunu ve açıklamasının(varsa) nesne olarak dönmesini sağlar.
     /// </summary>
-    public class NotificationType
+    public class NotificationDTO
     {
-        public Notifications ResultType { get; set; }
+        public Enums.NotificationType ResultType { get; set; }
         public string? Description { get; set; }
     }
 }

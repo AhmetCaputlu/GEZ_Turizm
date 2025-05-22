@@ -1,4 +1,5 @@
 ﻿using DataAccess.Entities.FilterModels.WebUsers;
+using DataAccess.Entities.Interfaces;
 using DataAccess.Entities.Models.WebUsers;
 
 namespace DataAccess.Repositories.Abstracts.WebUserR
@@ -8,6 +9,7 @@ namespace DataAccess.Repositories.Abstracts.WebUserR
     /// </summary>
     public interface IWebUserAccountRepository
     {
-        public IQueryable<WebUserAccount> GetDynamicFilteredEntities(WebUserAccountFilterModel filterModel);
+        IQueryable<WebUserAccount> GetDynamicFilteredEntities(WebUserAccountFilterModel filterModel);
+        Task<WebUserAccount?> GetByIdAsync(int? Id);
     }
 }

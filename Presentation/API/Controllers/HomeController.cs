@@ -1,10 +1,10 @@
-﻿using BusinessLogic.DTOs.OperationResult;
-using BusinessLogic.Enums;
-using BusinessLogic.DTOs.WebUser;
+﻿using BusinessLogic.DTOs.WebUser;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using BusinessLogic.Services.Abstracts.WebUsers.Identity;
+using BusinessLogic.OperationResult;
+using BusinessLogic.OperationResult.Enums;
 
 namespace API.Controllers
 {
@@ -22,9 +22,9 @@ namespace API.Controllers
         [HttpPut("update")]
         public async Task<IActionResult> UpdateUser([FromBody] WebUserAccountRequestDTO userDto, CancellationToken token)
         {
-            NotificationType result = await _userService.UpdateUserAsync(userDto, token);
+            BusinessLogic.OperationResult.NotificationDTO result = await _userService.UpdateUserAsync(userDto, token);
 
-            if (result.ResultType == Notifications.Success)
+            if (result.ResultType == BusinessLogic.OperationResult.Enums.NotificationType.Success)
                 return base.Ok("Kullanıcı başarıyla güncellendi.");
 
             return BadRequest(result);
@@ -32,9 +32,9 @@ namespace API.Controllers
         [HttpPost("create")]
         public async Task<IActionResult> CreateUser([FromBody] WebUserAccountRequestDTO userDto, string passWord, CancellationToken token)
         {
-            NotificationType result = await _userService.CreateUserAsync(userDto, passWord, token);
+            BusinessLogic.OperationResult.NotificationDTO result = await _userService.CreateUserAsync(userDto, passWord, token);
 
-            if (result.ResultType == Notifications.Success)
+            if (result.ResultType == BusinessLogic.OperationResult.Enums.NotificationType.Success)
                 return base.Ok("Kullanıcı başarıyla eklendi.");
 
             return BadRequest(result);

@@ -1,5 +1,5 @@
-﻿using BusinessLogic.DTOs.OperationResult;
-using BusinessLogic.DTOs.WebUser;
+﻿using BusinessLogic.DTOs.WebUser;
+using BusinessLogic.OperationResult;
 using DataAccess.Entities.FilterModels.WebUsers;
 using DataAccess.Entities.Models.WebUsers;
 
@@ -19,26 +19,26 @@ namespace BusinessLogic.Services.Abstracts.WebUsers.Identity
         /// <param name="user"></param>
         /// <param name="password"></param>
         /// <returns></returns>
-        Task<NotificationType> CreateUserAsync(WebUserAccountRequestDTO user, string password, CancellationToken token);
+        Task<NotificationDTO> CreateUserAsync(WebUserAccountRequestDTO user, string password, CancellationToken token);
         /// <summary>
         /// Kullanıcının aktiflik durumunu pasife çekmek için kullanın.
         /// </summary>
         /// <param name="ID"></param>
         /// <returns></returns>
-        Task<NotificationType> DeleteUserAsync(int ID);
+        Task<NotificationDTO> DeleteUserAsync(int ID);
         /// <summary>
         /// Kullanıcıyı veritabanından tamamen silmek için kullanın.
         /// </summary>
         /// <param name="ID"></param>
         /// <returns></returns>
-        Task<NotificationType> DestroyUserAsync(int ID);
+        Task<NotificationDTO> DestroyUserAsync(int ID);
         /// <summary>
         /// Kullanıcı bilgilerini güncellemek için kullanın.Ek özellikler de güncellemeye tabiidir.
         /// </summary>
         /// <param name="user"></param>
         /// <param name="password"></param>
         /// <returns></returns>
-        Task<NotificationType> UpdateUserAsync(WebUserAccountRequestDTO user, CancellationToken token);
+        Task<NotificationDTO> UpdateUserAsync(WebUserAccountRequestDTO user, CancellationToken token);
         /// <summary>
         /// İlgili kullanıcının rollerini listeler.
         /// </summary>
@@ -51,21 +51,21 @@ namespace BusinessLogic.Services.Abstracts.WebUsers.Identity
         /// <param name="user"></param>
         /// <param name="role"></param>
         /// <returns></returns>
-        Task<NotificationType> AddToRoleAsync(WebUserAccount user, string role, CancellationToken token);
+        Task<NotificationDTO> AddToRoleAsync(WebUserAccount user, string role, CancellationToken token);
         /// <summary>
         /// İlgili kullanıcının seçili rolünü siler.
         /// </summary>
         /// <param name="user"></param>
         /// <param name="role"></param>
         /// <returns></returns>
-        Task<NotificationType> RemoveFromRoleAsync(WebUserAccount user, string role, CancellationToken token);
+        Task<NotificationDTO> RemoveFromRoleAsync(WebUserAccount user, string role, CancellationToken token);
         /// <summary>
         /// İlgili kullanıcının aranan role sahip olup olmadığını kontrol eder.
         /// </summary>
         /// <param name="user"></param>
         /// <param name="role"></param>
         /// <returns></returns>
-        Task<NotificationType> IsInRoleAsync(WebUserAccount user, string role);
+        Task<NotificationDTO> IsInRoleAsync(WebUserAccount user, string role);
         /// <summary>
         /// İlgili role sahip tüm kullanıcıları döndürür.
         /// </summary>

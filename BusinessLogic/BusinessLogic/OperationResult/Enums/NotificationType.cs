@@ -1,6 +1,6 @@
-﻿namespace BusinessLogic.Enums
+﻿namespace BusinessLogic.OperationResult.Enums
 {
-    public enum Notifications
+    public enum NotificationType
     {
         UnknownError, // Bilinmeyen Hata
         Null,//Boş

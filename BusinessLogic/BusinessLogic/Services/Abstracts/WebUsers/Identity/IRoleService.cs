@@ -1,4 +1,4 @@
-﻿using BusinessLogic.DTOs.OperationResult;
+﻿using BusinessLogic.OperationResult;
 using DataAccess.Entities.Models.WebUsers;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore.Query.Internal;
@@ -12,19 +12,19 @@ namespace BusinessLogic.Services.Abstracts.WebUsers.Identity
         /// </summary>
         /// <param name="roleName"></param>
         /// <returns></returns>
-        Task<NotificationType> RoleExistsAsync(string roleName);
+        Task<NotificationDTO> RoleExistsAsync(string roleName);
         /// <summary>
         /// Yeni bir rol yaratır.
         /// </summary>
         /// <param name="roleName"></param>
         /// <returns></returns>
-        Task<NotificationType> CreateRoleAsync(string roleName, CancellationToken token);
+        Task<NotificationDTO> CreateRoleAsync(string roleName, CancellationToken token);
         /// <summary>
         /// Rolü siler.
         /// </summary>
         /// <param name="roleName"></param>
         /// <returns></returns>
-        Task<NotificationType> DeleteRoleAsync(string roleName, CancellationToken token);
+        Task<NotificationDTO> DeleteRoleAsync(string roleName, CancellationToken token);
         /// <summary>
         /// Tüm rolleri döndürür.
         /// </summary>

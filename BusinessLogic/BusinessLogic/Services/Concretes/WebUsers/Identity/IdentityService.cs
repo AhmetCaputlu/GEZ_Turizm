@@ -1,10 +1,9 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Azure;
-using BusinessLogic.DTOs.OperationResult;
 using BusinessLogic.DTOs.WebUser;
-using BusinessLogic.Enums;
 using BusinessLogic.Helpers;
+using BusinessLogic.OperationResult;
 using BusinessLogic.Services.Abstracts.WebUsers.Identity;
 using DataAccess.Entities.Enums;
 using DataAccess.Entities.FilterModels.WebUsers;
@@ -13,6 +12,7 @@ using DataAccess.Repositories.Abstracts.WebUserR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using BusinessLogic.OperationResult.Enums;
 
 namespace BusinessLogic.Services.Concretes.WebUsers.Identity
 {
@@ -42,16 +42,16 @@ namespace BusinessLogic.Services.Concretes.WebUsers.Identity
                 var result = new ResultDTO<WebUserAccountResponseDTO, WebUserAccountFilterModel>();
                 if (filterModel.DynamicFilter == null)
                 {
-                    result.NotificationType = new NotificationType { ResultType = Enums.Notifications.Null, Description = "Kriter belirtilmemiş!" };
+                    result.NotificationType = new NotificationDTO { ResultType = NotificationType.Null, Description = "Kriter belirtilmemiş!" };
                 }
                 else
                 {
                     result.List = await _repository.GetDynamicFilteredEntities(filterModel.DynamicFilter).ProjectTo<WebUserAccountResponseDTO>(_mapper.ConfigurationProvider).ToListAsync();
                     if (!result.List.Any())
                     {
-                        result.NotificationType = new NotificationType { ResultType = Enums.Notifications.NullUser, Description = "Kriterlere uygun kullanıcı bulunamadı!!" };
+                        result.NotificationType = new NotificationDTO { ResultType = NotificationType.NullUser, Description = "Kriterlere uygun kullanıcı bulunamadı!!" };
                     }
-                    result.NotificationType = new NotificationType { ResultType = Enums.Notifications.Success };
+                    result.NotificationType = new NotificationDTO { ResultType = NotificationType.Success };
                 }
 
                 result.DynamicFilter = new WebUserAccountFilterModel();
@@ -60,9 +60,9 @@ namespace BusinessLogic.Services.Concretes.WebUsers.Identity
             catch (Exception ex)
             {
                 var result = new ResultDTO<WebUserAccountResponseDTO, WebUserAccountFilterModel>();
-                result.NotificationType = new NotificationType
+                result.NotificationType = new NotificationDTO
                 {
-                    ResultType = Enums.Notifications.UnknownError,
+                    ResultType = NotificationType.UnknownError,
                     Description = $"Bilinmeyen bir hata meydana geldi daha sonra tekrar deneyin!!\n{ex.Message}"
                 };
                 return result;
@@ -74,7 +74,7 @@ namespace BusinessLogic.Services.Concretes.WebUsers.Identity
         /// <param name="user"></param>
         /// <param name="password"></param>
         /// <returns></returns>
-        public async Task<NotificationType> CreateUserAsync(WebUserAccountRequestDTO user, string password, CancellationToken token)
+        public async Task<NotificationDTO> CreateUserAsync(WebUserAccountRequestDTO user, string password, CancellationToken token)
         {
             //Kullanıcı işlemden vazgeçerse diye ek süre tanıdım.İptal edilirse OperationCanceledException bloğu çalışacak.
             await Task.Delay(2500, token);
@@ -82,18 +82,18 @@ namespace BusinessLogic.Services.Concretes.WebUsers.Identity
             {
                 if (user == null)
                 {
-                    return new NotificationType
-                    { ResultType = Enums.Notifications.NullUser, Description = "Kullanıcı bilgileri boş olamaz!" };
+                    return new NotificationDTO
+                    { ResultType = NotificationType.NullUser, Description = "Kullanıcı bilgileri boş olamaz!" };
                 }
                 if (string.IsNullOrWhiteSpace(password))
                 {
-                    return new NotificationType
-                    { ResultType = Enums.Notifications.NullPassWord, Description = "Kullanıcı şifresi boş olamaz!" };
+                    return new NotificationDTO
+                    { ResultType = NotificationType.NullPassWord, Description = "Kullanıcı şifresi boş olamaz!" };
                 }
 
                 var existingUser = await _userManager.FindByNameAsync(user.UserName);
                 if (existingUser != null)
-                    return new NotificationType { ResultType = Enums.Notifications.ExistingUser, Description = "Kullanıcı adı zaten var!" };
+                    return new NotificationDTO { ResultType = NotificationType.ExistingUser, Description = "Kullanıcı adı zaten var!" };
                 WebUserAccount webUserAccount = _mapper.Map<WebUserAccount>(user);
 
                 //Bu noktada şifrenin kriterlere uygunluğunu Identity Kütüphanesinin metotlarıyla kontrol ediyoruz.
@@ -103,7 +103,7 @@ namespace BusinessLogic.Services.Concretes.WebUsers.Identity
                     var pwdResult = await validator.ValidateAsync(_userManager, webUserAccount, password);
                     if (!pwdResult.Succeeded)
                     {
-                        return new NotificationType { ResultType = Enums.Notifications.WrongPassword, Description = "Şifre Kriterlere uygun değil!" };
+                        return new NotificationDTO { ResultType = NotificationType.WrongPassword, Description = "Şifre Kriterlere uygun değil!" };
                     }
                 }
                 webUserAccount.Guid = Guid.NewGuid().ToString();
@@ -115,17 +115,17 @@ namespace BusinessLogic.Services.Concretes.WebUsers.Identity
 
                 IdentityResult result = await _userManager.CreateAsync(webUserAccount, password);
                 if (result.Succeeded)
-                    return new NotificationType { ResultType = Enums.Notifications.Success, Description = "Kullanıcı başarıyla kaydedildi!" };
+                    return new NotificationDTO { ResultType = NotificationType.Success, Description = "Kullanıcı başarıyla kaydedildi!" };
 
-                return new NotificationType { ResultType = Enums.Notifications.UnknownError, Description = "Kullanıcı kaydedilirken bilinmeyen bir hata oluştu!" };
+                return new NotificationDTO { ResultType = NotificationType.UnknownError, Description = "Kullanıcı kaydedilirken bilinmeyen bir hata oluştu!" };
             }
             catch (OperationCanceledException oce)
             {
-                return new NotificationType { ResultType = Enums.Notifications.CancelledByUser, Description = $"Kullanıcı tarafından işlem iptal edildi!\n{oce.Message}" };
+                return new NotificationDTO { ResultType = NotificationType.CancelledByUser, Description = $"Kullanıcı tarafından işlem iptal edildi!\n{oce.Message}" };
             }
             catch (Exception ex)
             {
-                return new NotificationType { ResultType = Enums.Notifications.UnknownError, Description = $"Bilinmeyen bir hata oluştu!\n{ex.Message}" };
+                return new NotificationDTO { ResultType = NotificationType.UnknownError, Description = $"Bilinmeyen bir hata oluştu!\n{ex.Message}" };
             }
         }
         /// <summary>
@@ -133,19 +133,19 @@ namespace BusinessLogic.Services.Concretes.WebUsers.Identity
         /// </summary>
         /// <param name="ID"></param>
         /// <returns></returns>
-        public async Task<NotificationType> DeleteUserAsync(int ID)
+        public async Task<NotificationDTO> DeleteUserAsync(int ID)
         {
             try
             {
                 var deletedUser = await _repository.GetByIdAsync(ID);
-                if (deletedUser == null) new NotificationType
-                { ResultType = Enums.Notifications.NullUser, Description = "Id bilgisi ile eşleşen kullanıcı bulunamadı !!" };
+                if (deletedUser == null) new NotificationDTO
+                { ResultType = NotificationType.NullUser, Description = "Id bilgisi ile eşleşen kullanıcı bulunamadı !!" };
                 if (deletedUser != null) deletedUser.Status = DataStatus.Passive;
-                return new NotificationType { ResultType = Enums.Notifications.Success, Description = "Kullanıcı pasif duruma getirildi!" };
+                return new NotificationDTO { ResultType = NotificationType.Success, Description = "Kullanıcı pasif duruma getirildi!" };
             }
             catch (Exception ex)
             {
-                return new NotificationType { ResultType = Enums.Notifications.UnknownError, Description = "Kullanıcı pasif duruma getirilemedi. Lütfen tekrar deneyin!\n" + ex.Message };
+                return new NotificationDTO { ResultType = NotificationType.UnknownError, Description = "Kullanıcı pasif duruma getirilemedi. Lütfen tekrar deneyin!\n" + ex.Message };
             }
         }
         /// <summary>
@@ -153,19 +153,19 @@ namespace BusinessLogic.Services.Concretes.WebUsers.Identity
         /// </summary>
         /// <param name="ID"></param>
         /// <returns></returns>
-        public async Task<NotificationType> DestroyUserAsync(int ID)
+        public async Task<NotificationDTO> DestroyUserAsync(int ID)
         {
             var destroyedUser = await _repository.GetByIdAsync(ID);
 
-            if (destroyedUser == null) return new NotificationType
-            { ResultType = Enums.Notifications.NullUser, Description = "Id bilgisi ile eşleşen kullanıcı bulunamadı !!" };
+            if (destroyedUser == null) return new NotificationDTO
+            { ResultType = NotificationType.NullUser, Description = "Id bilgisi ile eşleşen kullanıcı bulunamadı !!" };
 
-            if (destroyedUser.Status != DataStatus.Passive) return new NotificationType { ResultType = Enums.Notifications.NotPassive, Description = "Kullanıcı veritabanından silinmeden önce pasif hale getirilmelidir!!" };
+            if (destroyedUser.Status != DataStatus.Passive) return new NotificationDTO { ResultType = NotificationType.NotPassive, Description = "Kullanıcı veritabanından silinmeden önce pasif hale getirilmelidir!!" };
 
             if (destroyedUser != null && destroyedUser.Status == DataStatus.Passive)
-                await _repository.DestroyAsync(destroyedUser.Id);
-            return new NotificationType
-            { ResultType = Enums.Notifications.Success, Description = "kullanıcı başarıyla veritabanından silindi!" };
+                await _userManager.DeleteAsync(destroyedUser);
+            return new NotificationDTO
+            { ResultType = NotificationType.Success, Description = "kullanıcı başarıyla veritabanından silindi!" };
 
         }
         /// <summary>
@@ -173,23 +173,23 @@ namespace BusinessLogic.Services.Concretes.WebUsers.Identity
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        public async Task<NotificationType> UpdateUserAsync(WebUserAccountRequestDTO user, CancellationToken token)
+        public async Task<NotificationDTO> UpdateUserAsync(WebUserAccountRequestDTO user, CancellationToken token)
         {
             await Task.Delay(2500, token);
             try
             {
                 if (user == null)
                 {
-                    return new NotificationType { ResultType = Enums.Notifications.NullUser, Description = "Kullanıcı bilgileri boş olamaz!" };
+                    return new NotificationDTO { ResultType = NotificationType.NullUser, Description = "Kullanıcı bilgileri boş olamaz!" };
                 }
                 WebUserAccount? webUserAccount = await _repository.GetByIdAsync(user.Id);
                 if (webUserAccount == null)
                 {
-                    return new NotificationType { ResultType = Enums.Notifications.IDNotFound, Description = "Id ile eşleşen kullanıcı yok!" };
+                    return new NotificationDTO { ResultType = NotificationType.IDNotFound, Description = "Id ile eşleşen kullanıcı yok!" };
                 }
                 var existingUser = _userManager.FindByNameAsync(user.UserName);
                 if (existingUser != null)
-                    return new NotificationType { ResultType = Enums.Notifications.ExistingUser, Description = "Kullanıcı adı zaten var!" };
+                    return new NotificationDTO { ResultType = NotificationType.ExistingUser, Description = "Kullanıcı adı zaten var!" };
 
                 _mapper.Map(user, webUserAccount);
                 webUserAccount.SecurityStamp = Guid.NewGuid().ToString();
@@ -199,18 +199,18 @@ namespace BusinessLogic.Services.Concretes.WebUsers.Identity
                 webUserAccount.UpdatedIPAddress = IPAdress.GetIpAdress();
                 IdentityResult result = await _userManager.UpdateAsync(webUserAccount);
                 if (result.Succeeded)
-                    return new NotificationType { ResultType = Enums.Notifications.Success, Description = "Kullanıcı başarıyla güncellendi!" };
+                    return new NotificationDTO { ResultType = NotificationType.Success, Description = "Kullanıcı başarıyla güncellendi!" };
 
-                return new NotificationType { ResultType = Enums.Notifications.UnknownError, Description = "Bilinmeyen bir hata oluştu!" };
+                return new NotificationDTO { ResultType = NotificationType.UnknownError, Description = "Bilinmeyen bir hata oluştu!" };
 
             }
             catch (OperationCanceledException oce)
             {
-                return new NotificationType { ResultType = Enums.Notifications.CancelledByUser, Description = $"Kullanıcı tarafından işlem iptal edildi!\n{oce.Message}" };
+                return new NotificationDTO { ResultType = NotificationType.CancelledByUser, Description = $"Kullanıcı tarafından işlem iptal edildi!\n{oce.Message}" };
             }
             catch (Exception ex)
             {
-                return new NotificationType { ResultType = Enums.Notifications.UnknownError, Description = $"Bilinmeyen bir hata oluştu!\n{ex.Message}" };
+                return new NotificationDTO { ResultType = NotificationType.UnknownError, Description = $"Bilinmeyen bir hata oluştu!\n{ex.Message}" };
             }
         }
         /// <summary>
@@ -247,7 +247,7 @@ namespace BusinessLogic.Services.Concretes.WebUsers.Identity
         /// <param name="role"></param>
         /// <param name="token"></param>
         /// <returns></returns>
-        public async Task<NotificationType> AddToRoleAsync(WebUserAccount user, string role, CancellationToken token)
+        public async Task<NotificationDTO> AddToRoleAsync(WebUserAccount user, string role, CancellationToken token)
         {
             try
             {
@@ -255,13 +255,13 @@ namespace BusinessLogic.Services.Concretes.WebUsers.Identity
 
                 if (user == null)
                 {
-                    return new NotificationType
-                    { ResultType = Enums.Notifications.NullUser, Description = "Kullanıcı bilgileri boş olamaz!" };
+                    return new NotificationDTO
+                    { ResultType = NotificationType.NullUser, Description = "Kullanıcı bilgileri boş olamaz!" };
                 }
                 if (string.IsNullOrWhiteSpace(role))
                 {
-                    return new NotificationType
-                    { ResultType = Enums.Notifications.Null, Description = "Kullanıcı rol ismi boş olamaz!" };
+                    return new NotificationDTO
+                    { ResultType = NotificationType.Null, Description = "Kullanıcı rol ismi boş olamaz!" };
                 }
 
                 // Kullanıcıya rol ekle
@@ -269,17 +269,17 @@ namespace BusinessLogic.Services.Concretes.WebUsers.Identity
 
                 if (result.Succeeded)
                 {
-                    return new NotificationType { ResultType = Enums.Notifications.Success, Description = "Rol başarıyla eklendi!" };
+                    return new NotificationDTO { ResultType = NotificationType.Success, Description = "Rol başarıyla eklendi!" };
                 }
-                return new NotificationType { ResultType = Enums.Notifications.UnknownError, Description = "Bilinmeyen bir hata oluştu!" };
+                return new NotificationDTO { ResultType = NotificationType.UnknownError, Description = "Bilinmeyen bir hata oluştu!" };
             }
             catch (OperationCanceledException oce)
             {
-                return new NotificationType { ResultType = Enums.Notifications.CancelledByUser, Description = $"Kullanıcı tarafından işlem iptal edildi!\n{oce.Message}" };
+                return new NotificationDTO { ResultType = NotificationType.CancelledByUser, Description = $"Kullanıcı tarafından işlem iptal edildi!\n{oce.Message}" };
             }
             catch (Exception ex)
             {
-                return new NotificationType { ResultType = Enums.Notifications.UnknownError, Description = $"Bilinmeyen bir hata oluştu!\n{ex.Message}" };
+                return new NotificationDTO { ResultType = NotificationType.UnknownError, Description = $"Bilinmeyen bir hata oluştu!\n{ex.Message}" };
             }
 
         }
@@ -289,7 +289,7 @@ namespace BusinessLogic.Services.Concretes.WebUsers.Identity
         /// <param name="user"></param>
         /// <param name="role"></param>
         /// <returns></returns>
-        public async Task<NotificationType> RemoveFromRoleAsync(WebUserAccount user, string role, CancellationToken token)
+        public async Task<NotificationDTO> RemoveFromRoleAsync(WebUserAccount user, string role, CancellationToken token)
         {
 
             try
@@ -297,29 +297,29 @@ namespace BusinessLogic.Services.Concretes.WebUsers.Identity
                 await Task.Delay(2500);
                 if (user == null)
                 {
-                    return new NotificationType
-                    { ResultType = Enums.Notifications.NullUser, Description = "Kullanıcı bilgileri boş olamaz!" };
+                    return new NotificationDTO
+                    { ResultType = NotificationType.NullUser, Description = "Kullanıcı bilgileri boş olamaz!" };
                 }
                 if (string.IsNullOrWhiteSpace(role))
                 {
-                    return new NotificationType
-                    { ResultType = Enums.Notifications.Null, Description = "Kullanıcı silinecek rolü boş olamaz!" };
+                    return new NotificationDTO
+                    { ResultType = NotificationType.Null, Description = "Kullanıcı silinecek rolü boş olamaz!" };
                 }
                 var result = await _userManager.RemoveFromRoleAsync(user, role);
 
                 if (result.Succeeded)
                 {
-                    return new NotificationType { ResultType = Enums.Notifications.Success, Description = "Rol başarıyla silindi!" };
+                    return new NotificationDTO { ResultType = NotificationType.Success, Description = "Rol başarıyla silindi!" };
                 }
-                return new NotificationType { ResultType = Enums.Notifications.UnknownError, Description = "Bilinmeyen bir hata oluştu!" };
+                return new NotificationDTO { ResultType = NotificationType.UnknownError, Description = "Bilinmeyen bir hata oluştu!" };
             }
             catch (OperationCanceledException oce)
             {
-                return new NotificationType { ResultType = Enums.Notifications.CancelledByUser, Description = $"Kullanıcı tarafından işlem iptal edildi!\n{oce.Message}" };
+                return new NotificationDTO { ResultType = NotificationType.CancelledByUser, Description = $"Kullanıcı tarafından işlem iptal edildi!\n{oce.Message}" };
             }
             catch (Exception ex)
             {
-                return new NotificationType { ResultType = Enums.Notifications.UnknownError, Description = $"Bilinmeyen bir hata oluştu!\n{ex.Message}" };
+                return new NotificationDTO { ResultType = NotificationType.UnknownError, Description = $"Bilinmeyen bir hata oluştu!\n{ex.Message}" };
             }
 
         }
@@ -329,28 +329,28 @@ namespace BusinessLogic.Services.Concretes.WebUsers.Identity
         /// <param name="user"></param>
         /// <param name="role"></param>
         /// <returns></returns>
-        public async Task<NotificationType> IsInRoleAsync(WebUserAccount user, string role)
+        public async Task<NotificationDTO> IsInRoleAsync(WebUserAccount user, string role)
         {
             try
             {
                 if (user == null)
                 {
-                    return new NotificationType
-                    { ResultType = Enums.Notifications.NullUser, Description = "Kullanıcı bilgileri boş olamaz!" };
+                    return new NotificationDTO
+                    { ResultType = NotificationType.NullUser, Description = "Kullanıcı bilgileri boş olamaz!" };
                 }
                 if (string.IsNullOrWhiteSpace(role))
                 {
-                    return new NotificationType
-                    { ResultType = Enums.Notifications.Null, Description = "Kullanıcı aranacak rolü boş olamaz!" };
+                    return new NotificationDTO
+                    { ResultType = NotificationType.Null, Description = "Kullanıcı aranacak rolü boş olamaz!" };
                 }
                 bool? x = await _userManager.IsInRoleAsync(user, role);
                 if (x == true)
-                    return new NotificationType { ResultType = Enums.Notifications.Success };
-                return new NotificationType { ResultType = Enums.Notifications.Null };
+                    return new NotificationDTO { ResultType = NotificationType.Success };
+                return new NotificationDTO { ResultType = NotificationType.Null };
             }
             catch (Exception ex)
             {
-                return new NotificationType { ResultType = Enums.Notifications.UnknownError, Description = $"Bilinmeyen bir hata oluştu!\n{ex.Message}" };
+                return new NotificationDTO { ResultType = NotificationType.UnknownError, Description = $"Bilinmeyen bir hata oluştu!\n{ex.Message}" };
             }
         }
         /// <summary>
@@ -358,23 +358,23 @@ namespace BusinessLogic.Services.Concretes.WebUsers.Identity
         /// </summary>
         /// <param name="roleName"></param>
         /// <returns></returns>
-        public async Task<NotificationType> RoleExistsAsync(string roleName)
+        public async Task<NotificationDTO> RoleExistsAsync(string roleName)
         {
             try
             {
                 if (string.IsNullOrWhiteSpace(roleName))
                 {
-                    return new NotificationType
-                    { ResultType = Enums.Notifications.Null, Description = "Aranacak Kullanıcı rolü boş olamaz!" };
+                    return new NotificationDTO
+                    { ResultType = NotificationType.Null, Description = "Aranacak Kullanıcı rolü boş olamaz!" };
                 }
                 var result = await _roleManager.RoleExistsAsync(roleName);
                 if (result == true)
-                    return new NotificationType { ResultType = Enums.Notifications.Success };
-                return new NotificationType { ResultType = Enums.Notifications.Error };
+                    return new NotificationDTO { ResultType = NotificationType.Success };
+                return new NotificationDTO { ResultType = NotificationType.Error };
             }
             catch (Exception ex)
             {
-                return new NotificationType { ResultType = Enums.Notifications.UnknownError, Description = $"Bilinmeyen bir hata oluştu!\n{ex.Message}" };
+                return new NotificationDTO { ResultType = NotificationType.UnknownError, Description = $"Bilinmeyen bir hata oluştu!\n{ex.Message}" };
             }
         }
         /// <summary>
@@ -382,25 +382,25 @@ namespace BusinessLogic.Services.Concretes.WebUsers.Identity
         /// </summary>
         /// <param name="roleName"></param>
         /// <returns></returns>
-        public async Task<NotificationType> CreateRoleAsync(string roleName, CancellationToken token)
+        public async Task<NotificationDTO> CreateRoleAsync(string roleName, CancellationToken token)
         {
             try
             {
                 if (string.IsNullOrWhiteSpace(roleName))
-                    return new NotificationType { ResultType = Enums.Notifications.Null, Description = "Rol adı boş olamaz!" };
+                    return new NotificationDTO { ResultType = NotificationType.Null, Description = "Rol adı boş olamaz!" };
 
                 var result = await _roleManager.CreateAsync(new IdentityRole<int> { Name = roleName });
                 if (result.Succeeded)
-                    return new NotificationType { ResultType = Enums.Notifications.Success, Description = "Rol başarıyla oluşturuldu!" };
-                return new NotificationType { ResultType = Enums.Notifications.Error, Description = "Hata meydana geldi!" };
+                    return new NotificationDTO { ResultType = NotificationType.Success, Description = "Rol başarıyla oluşturuldu!" };
+                return new NotificationDTO { ResultType = NotificationType.Error, Description = "Hata meydana geldi!" };
             }
             catch (OperationCanceledException oce)
             {
-                return new NotificationType { ResultType = Enums.Notifications.CancelledByUser, Description = $"Kullanıcı tarafından işlem iptal edildi!\n{oce.Message}" };
+                return new NotificationDTO { ResultType = NotificationType.CancelledByUser, Description = $"Kullanıcı tarafından işlem iptal edildi!\n{oce.Message}" };
             }
             catch (Exception ex)
             {
-                return new NotificationType { ResultType = Enums.Notifications.UnknownError, Description = $"Bilinmeyen bir hata oluştu!\n{ex.Message}" };
+                return new NotificationDTO { ResultType = NotificationType.UnknownError, Description = $"Bilinmeyen bir hata oluştu!\n{ex.Message}" };
             }
 
         }
@@ -409,30 +409,30 @@ namespace BusinessLogic.Services.Concretes.WebUsers.Identity
         /// </summary>
         /// <param name="roleName"></param>
         /// <returns></returns>
-        public async Task<NotificationType> DeleteRoleAsync(string roleName, CancellationToken token)
+        public async Task<NotificationDTO> DeleteRoleAsync(string roleName, CancellationToken token)
         {
             try
             {
                 if (string.IsNullOrWhiteSpace(roleName))
-                    return new NotificationType { ResultType = Enums.Notifications.Null, Description = "Rol adı boş olamaz!" };
+                    return new NotificationDTO { ResultType = NotificationType.Null, Description = "Rol adı boş olamaz!" };
 
                 var role = await _roleManager.FindByNameAsync(roleName);
                 if (role == null)
                 {
-                    return new NotificationType { ResultType = Enums.Notifications.Error, Description = "Rol veritabanında bulunamadı!" };
+                    return new NotificationDTO { ResultType = NotificationType.Error, Description = "Rol veritabanında bulunamadı!" };
                 }
                 var result = await _roleManager.DeleteAsync(role);
                 if (result.Succeeded)
-                    return new NotificationType { ResultType = Enums.Notifications.Success, Description = "Rol başarıyla silindi!" };
-                return new NotificationType { ResultType = Enums.Notifications.Error, Description = "Hata meydana geldi!" };
+                    return new NotificationDTO { ResultType = NotificationType.Success, Description = "Rol başarıyla silindi!" };
+                return new NotificationDTO { ResultType = NotificationType.Error, Description = "Hata meydana geldi!" };
             }
             catch (OperationCanceledException oce)
             {
-                return new NotificationType { ResultType = Enums.Notifications.CancelledByUser, Description = $"Kullanıcı tarafından işlem iptal edildi!\n{oce.Message}" };
+                return new NotificationDTO { ResultType = NotificationType.CancelledByUser, Description = $"Kullanıcı tarafından işlem iptal edildi!\n{oce.Message}" };
             }
             catch (Exception ex)
             {
-                return new NotificationType { ResultType = Enums.Notifications.UnknownError, Description = $"Bilinmeyen bir hata oluştu!\n{ex.Message}" };
+                return new NotificationDTO { ResultType = NotificationType.UnknownError, Description = $"Bilinmeyen bir hata oluştu!\n{ex.Message}" };
             }
         }
         /// <summary>
@@ -478,7 +478,7 @@ namespace BusinessLogic.Services.Concretes.WebUsers.Identity
             }
         }
 
-        public async Task<NotificationType> PasswordSignInAsync(string? userName, string? password, bool isPersistent, bool lockoutOnFailure)
+        public async Task<NotificationDTO> PasswordSignInAsync(string? userName, string? password, bool isPersistent, bool lockoutOnFailure)
         {
             try
             {
@@ -486,16 +486,16 @@ namespace BusinessLogic.Services.Concretes.WebUsers.Identity
                 .PasswordSignInAsync(userName, password, isPersistent = false, lockoutOnFailure = false);
                 //Uygulamada yanlış deneme sonrası şifre bloklama veya beni hatırla bulunmayacak.
                 if (result.IsLockedOut)
-                    return new NotificationType { ResultType = Enums.Notifications.LockedOut, Description = "Hesap kilitlenmiş !!" };
+                    return new NotificationDTO { ResultType = NotificationType.LockedOut, Description = "Hesap kilitlenmiş !!" };
                 if (result.Succeeded)
-                    return new NotificationType { ResultType = Enums.Notifications.Success };
-                return new NotificationType { ResultType = Enums.Notifications.Error, Description = "Beklenmeyen bir hata meydana geldi!" };
+                    return new NotificationDTO { ResultType = NotificationType.Success };
+                return new NotificationDTO { ResultType = NotificationType.Error, Description = "Beklenmeyen bir hata meydana geldi!" };
             }
             catch (Exception ex)
             {
-                return new NotificationType
+                return new NotificationDTO
                 {
-                    ResultType = Enums.Notifications.UnknownError,
+                    ResultType = NotificationType.UnknownError,
                     Description = $"Bilinmeyen bir hata oluştu.Lütfen tekrar deneyin!\n {ex.Message}"
                 };
             }
@@ -506,14 +506,14 @@ namespace BusinessLogic.Services.Concretes.WebUsers.Identity
             await _signInManager.SignOutAsync();
         }
 
-        public async Task<NotificationType> CanSignInAsync(WebUserAccount user)
+        public async Task<NotificationDTO> CanSignInAsync(WebUserAccount user)
         {
             try
             {
                 bool x = await _signInManager.CanSignInAsync(user);
                 if (x)
-                    return new NotificationType() { ResultType = Enums.Notifications.Success };
-                return new NotificationType() { ResultType = Enums.Notifications.Error, Description = "Kullanıcı giriş yapamaz! Destek Birimi ile iletişimi geçin" };
+                    return new NotificationDTO() { ResultType = NotificationType.Success };
+                return new NotificationDTO() { ResultType = NotificationType.Error, Description = "Kullanıcı giriş yapamaz! Destek Birimi ile iletişimi geçin" };
             }
             catch (Exception)
             {
