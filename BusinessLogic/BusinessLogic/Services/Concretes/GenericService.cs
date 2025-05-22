@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using BusinessLogic.DTOs.Abstracts;
+using BusinessLogic.Helpers;
 using BusinessLogic.Services.Abstracts;
 using DataAccess.Entities.FilterModels.BaseModel;
 using DataAccess.Entities.Interfaces;
@@ -70,16 +71,37 @@ namespace BusinessLogic.Services.Concretes
         #endregion
         public virtual async Task<IEnumerable<TResponse>> GetDynamicFilteredEntities(TFilterEntity filterModel)
         {
-            return await _repository.GetDynamicFilteredEntities(filterModel)
-        .ProjectTo<TResponse>(_mapper.ConfigurationProvider).ToListAsync();
+            try
+            {
+                return await _repository.GetDynamicFilteredEntities(filterModel)
+       .ProjectTo<TResponse>(_mapper.ConfigurationProvider).ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                return new List<TResponse>();
+            }
         }
         public async Task<TResponse> GetByIdAsync(int Id)
         {
             return _mapper.Map<TResponse>(await _repository.GetByIdAsync(Id));
         }
-        public async Task CreateAsync(TRequest DTO)
+        public virtual async Task CreateAsync(TRequest DTO)
         {
-            await _repository.CreateAsync(_mapper.Map<TEntity>(DTO));
+            try
+            {
+                var entity = _mapper.Map<TEntity>(DTO);
+
+                entity.CreatedDate = DateTime.Now;
+                entity.CreatedID = UniqueIdentify.GetUserID();
+                entity.CreatedIPAddress = IPAdress.GetIpAdress();
+                entity.IsUpdated = false;
+
+                await _repository.CreateAsync(entity);
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
         public async Task CreateRangeAsync(List<TRequest> DTOs)
         {

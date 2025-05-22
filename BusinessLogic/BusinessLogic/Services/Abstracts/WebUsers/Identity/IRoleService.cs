@@ -12,19 +12,19 @@ namespace BusinessLogic.Services.Abstracts.WebUsers.Identity
         /// </summary>
         /// <param name="roleName"></param>
         /// <returns></returns>
-        Task<ResultDTO> RoleExistsAsync(string roleName);
+        Task<NotificationType> RoleExistsAsync(string roleName);
         /// <summary>
         /// Yeni bir rol yaratır.
         /// </summary>
         /// <param name="roleName"></param>
         /// <returns></returns>
-        Task<ResultDTO> CreateRoleAsync(string roleName, CancellationToken token);
+        Task<NotificationType> CreateRoleAsync(string roleName, CancellationToken token);
         /// <summary>
         /// Rolü siler.
         /// </summary>
         /// <param name="roleName"></param>
         /// <returns></returns>
-        Task<ResultDTO> DeleteRoleAsync(string roleName, CancellationToken token);
+        Task<NotificationType> DeleteRoleAsync(string roleName, CancellationToken token);
         /// <summary>
         /// Tüm rolleri döndürür.
         /// </summary>

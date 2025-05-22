@@ -1,13 +1,16 @@
-﻿using BusinessLogic.Enums;
+﻿using BusinessLogic.DTOs.Abstracts;
+using DataAccess.Entities.FilterModels.BaseModel;
+using DataAccess.Entities.Interfaces;
 
 namespace BusinessLogic.DTOs.OperationResult
 {
     /// <summary>
-    /// Bu sınıf BLL katmanında dönmesi gereken sonuç durumunu ve açıklamasının(varsa) nesne olarak dönmesini sağlar.
+    /// Bu sınıf Response döndürmesi gereken metotlarda, kriterleri ve hata mesajlarını da taşıyabilmesi için tasarlandı.
     /// </summary>
-    public class ResultDTO
+    public class ResultDTO<TResponse, TFilter> where TResponse : BaseResponseModelDTO where TFilter : BaseFilterModel
     {
-        public ResultType ResultType { get; set; }
-        public string? Description { get; set; }
+        public TFilter? DynamicFilter { get; set; }
+        public IEnumerable<TResponse>? List { get; set; }
+        public NotificationType? NotificationType { get; set; }
     }
 }

@@ -10,6 +10,10 @@ namespace BusinessLogic.Helpers
         {
             _accessor = httpContextAccessor;
         }
+        /// <summary>
+        /// Kullanıcının IP adresini almak içi yazılmış metot. Doğruluğundan emin değilim :D
+        /// </summary>
+        /// <returns></returns>
         public static string GetIpAdress()
         {
             // Proxy'den gelen IP varsa önce onu al

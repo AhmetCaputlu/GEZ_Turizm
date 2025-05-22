@@ -1,4 +1,6 @@
-﻿namespace BusinessLogic.Helpers
+﻿using BCrypt.Net;
+
+namespace BusinessLogic.Helpers
 {
     public class PasswordHash
     {
@@ -9,6 +11,16 @@
         {
             var hashPassword = BCrypt.Net.BCrypt.HashPassword(passWord);
             return hashPassword;
+        }
+        /// <summary>
+        /// Kullanıcınin Login ekranında gönderdiği şifre bilgisinin doğruluğunu kontrol eder.
+        /// </summary>
+        /// <param name="hashPassword"></param>
+        /// <param name="passWord"></param>
+        /// <returns></returns>
+        public static bool ValidPassword(string hashPassword,string passWord)
+        { 
+           return BCrypt.Net.BCrypt.Verify(hashPassword,passWord);
         }
     }
 }

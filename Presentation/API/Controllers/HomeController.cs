@@ -22,20 +22,20 @@ namespace API.Controllers
         [HttpPut("update")]
         public async Task<IActionResult> UpdateUser([FromBody] WebUserAccountRequestDTO userDto, CancellationToken token)
         {
-            ResultDTO result = await _userService.UpdateUserAsync(userDto, token);
+            NotificationType result = await _userService.UpdateUserAsync(userDto, token);
 
-            if (result.ResultType == ResultType.Success)
-                return Ok("Kullanıcı başarıyla güncellendi.");
+            if (result.ResultType == Notifications.Success)
+                return base.Ok("Kullanıcı başarıyla güncellendi.");
 
             return BadRequest(result);
         }
         [HttpPost("create")]
-        public async Task<IActionResult> CreateUser([FromBody] WebUserAccountRequestDTO userDto,string passWord, CancellationToken token)
+        public async Task<IActionResult> CreateUser([FromBody] WebUserAccountRequestDTO userDto, string passWord, CancellationToken token)
         {
-            ResultDTO result = await _userService.CreateUserAsync(userDto,passWord, token);
+            NotificationType result = await _userService.CreateUserAsync(userDto, passWord, token);
 
-            if (result.ResultType == ResultType.Success)
-                return Ok("Kullanıcı başarıyla eklendi.");
+            if (result.ResultType == Notifications.Success)
+                return base.Ok("Kullanıcı başarıyla eklendi.");
 
             return BadRequest(result);
         }
