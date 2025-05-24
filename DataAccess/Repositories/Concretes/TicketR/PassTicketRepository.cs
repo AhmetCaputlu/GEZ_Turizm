@@ -1,12 +1,7 @@
-﻿using System.Linq;
-using DataAccess.Context;
-using DataAccess.Entities.Abstracts;
-using DataAccess.Entities.Enums;
+﻿using DataAccess.Context;
 using DataAccess.Entities.FilterModels.Tickets;
 using DataAccess.Entities.Models.Tickets;
 using DataAccess.Repositories.Abstracts.TicketR;
-using EFCore.BulkExtensions;
-using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Repositories.Concretes.TicketR
 {

@@ -3,7 +3,6 @@ using DataAccess.Entities.Enums;
 using DataAccess.Entities.Interfaces;
 using DataAccess.Repositories.Abstracts;
 using Microsoft.EntityFrameworkCore;
-using EFCore.BulkExtensions;
 using DataAccess.Entities.FilterModels.BaseModel;
 namespace DataAccess.Repositories.Concretes
 
@@ -71,7 +70,7 @@ namespace DataAccess.Repositories.Concretes
         /// </summary>
         /// <param name="filterModel"></param>
         /// <returns></returns>
-        public virtual IQueryable<TEntity> GetDynamicFilteredEntities(TFilterEntity filterModel)
+        public virtual IQueryable<TEntity> GetDynamicFilteredEntities(TFilterEntity filterModel, CancellationToken token)
         {
             IQueryable<TEntity> filter = _dbset;
             if (filterModel.FirstId.HasValue && filterModel.LastId.HasValue)
@@ -94,7 +93,7 @@ namespace DataAccess.Repositories.Concretes
             }
             if (filterModel.FirstUpdatedDate.HasValue && filterModel.LastUpdatedDate.HasValue)
             {
-                filter = filter.Where(x => 
+                filter = filter.Where(x =>
                 x.UpdatedDate.HasValue && x.UpdatedDate.Value.Date >= filterModel.FirstUpdatedDate.Value.Date &&
                x.UpdatedDate.HasValue && x.UpdatedDate.Value.Date <= filterModel.LastUpdatedDate.Value.Date);
             }
@@ -119,28 +118,25 @@ namespace DataAccess.Repositories.Concretes
 
             return filter;
         }
-        public async Task<TEntity?> GetByIdAsync(int? Id)
+        public async Task<TEntity> GetByIdAsync(int? Id, CancellationToken token)
         {
-            return await _dbset.FindAsync(Id);
+            return await _dbset.FindAsync(Id, token);
         }
-        public async Task CreateAsync(TEntity entity)
+        public async Task CreateAsync(TEntity entity, CancellationToken token)
         {
             await _dbset.AddAsync(entity);
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync(token);
         }
-        public async Task CreateRangeAsync(List<TEntity> entities)
+        public async Task CreateRangeAsync(List<TEntity> entities, CancellationToken token)
         {
             await _dbset.AddRangeAsync(entities);
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync(token);
         }
-        public async Task CreateBulkAsync(List<TEntity> values)
+        public async Task Update(TEntity entity, CancellationToken token)
         {
-            await _context.BulkInsertAsync(values);//Direkt SQL kaydı yapıyor
-        }
-        public async Task Update(TEntity entity)
-        {
+
             _dbset.Update(entity);
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync(token);
             #region Stack OverFlow neden UpdateAsync() yok!!
             /*
                Veri Güncelleme İhtiyacı ve Veri Boyutu: Bir veriyi güncellemek genellikle tek bir işlem olduğundan ve bellekteki bir nesneyi güncellemek çok hızlı gerçekleştiği için asenkron bir işleme gerek yoktur. Yani, güncelleme işlemi bellekte gerçekleşir ve bu işlem veritabanına yansıtılması için SaveChangesAsync gerekir.
@@ -152,65 +148,33 @@ namespace DataAccess.Repositories.Concretes
               */
             #endregion
         }
-        public async Task UpdateRangeAsync(List<TEntity> entities)
+        public async Task UpdateRangeAsync(List<TEntity> entities, CancellationToken token)
         {
             _dbset.UpdateRange(entities);
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync(token);
         }
-        public async Task UpdateBulkAsync(List<TEntity> values)
+        public async Task DeleteAsync(TEntity entity, CancellationToken token)
         {
-            await _context.BulkUpdateAsync(values);
+            entity.Status = DataStatus.Passive;
+            await _context.SaveChangesAsync(token);
         }
-        public async Task DeleteAsync(int Id)
-        {
-            TEntity? entity = await _dbset.FindAsync(Id);
-            if (entity != null)
-            {
-                entity.Status = DataStatus.Passive;
-            }
-            await _context.SaveChangesAsync();
-        }
-        public async Task DeleteRangeAsync(List<TEntity> values)
+        public async Task DeleteRangeAsync(List<TEntity> values, CancellationToken token)
         {
             foreach (TEntity entity in values)
             {
                 entity.Status = DataStatus.Passive;
             }
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync(token);
         }
-        public async Task DeleteRangeSelectAsync(int first, int last)
+        public async Task DestroyAsync(TEntity entity, CancellationToken token)
         {
-            var deletedItems = _dbset.Where(x => x.Id > first && x.Id < last);
-            #region Uyarı!!
-            /*I_dbsetable sadece bir sorgu nesnesi oluşturur.Herhangi bir veritabanı işleminde bulunmadığı için await kullanımı hata verir.Tolistasync gibi bir metod ile bu sorgu veritabanından verileri bir Lİst<T> olarak geri döner.Bu noktada await kullanılır.*/
-            #endregion
-            foreach (var deletedItem in deletedItems)
-            {
-                deletedItem.Status = DataStatus.Passive;
-            }
-            await _context.SaveChangesAsync();
+            _dbset.Remove(entity);
+            await _context.SaveChangesAsync(token);
         }
-        public async Task DestroyAsync(int Id)
-        {
-            TEntity? entity = await _dbset.FindAsync(Id);
-            if (entity != null)
-            _context.Remove(entity);
-            await _context.SaveChangesAsync();
-        }
-        public async Task DestroyRangeAsync(List<TEntity> entities)
+        public async Task DestroyRangeAsync(List<TEntity> entities, CancellationToken token)
         {
             _dbset.RemoveRange(entities);
-            await _context.SaveChangesAsync();
-        }
-        public async Task DestroyRangeSelectAsync(int first, int last)
-        {
-            var values = _dbset.Where(x => x.Id > first && x.Id < last);
-            _context.RemoveRange(values);
-            await _context.SaveChangesAsync();
-        }
-        public async Task DestroyBulkAsync(List<TEntity> values)
-        {
-            await _context.BulkDeleteAsync(values);
+            await _context.SaveChangesAsync(token);
         }
     }
 }

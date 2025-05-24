@@ -1,8 +1,6 @@
 ﻿using BusinessLogic.Services.Abstracts;
-using BusinessLogic.Services.Abstracts.WebUsers;
 using BusinessLogic.Services.Abstracts.WebUsers.Identity;
 using BusinessLogic.Services.Concretes;
-using BusinessLogic.Services.Concretes.WebUsers;
 using BusinessLogic.Services.Concretes.WebUsers.Identity;
 using DataAccess.Context;
 using DataAccess.Entities.Models.WebUsers;
@@ -37,6 +35,7 @@ using DataAccess.Repositories.Concretes.WebUserR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
 namespace BusinessLogic.DependencyResolvers
 {
@@ -119,7 +118,6 @@ namespace BusinessLogic.DependencyResolvers
             collection.AddScoped<IUserService, IdentityService>();
             collection.AddScoped<IRoleService, IdentityService>();
             collection.AddScoped<ISignInService, IdentityService>();
-            collection.AddScoped<IWebUserProfileService, WebUserProfileService>();
             return collection;
         }
         /// <summary>
@@ -132,6 +130,5 @@ namespace BusinessLogic.DependencyResolvers
             collection.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             return collection;
         }
-
     }
 }

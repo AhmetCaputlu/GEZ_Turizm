@@ -46,15 +46,48 @@ namespace BusinessLogic.Services.Abstracts
         /// <param name="DTOs"></param>
         /// <returns></returns>
         Task<NotificationDTO> CreateRangeAsync(List<TRequest> DTOs, CancellationToken token);
-        Task UpdateAsync(TRequest DTO, CancellationToken token);
-        Task UpdateRangeAsync(List<TRequest> DTOs);
-        Task UpdateBulkAsync(List<TRequest> DTOs);
-        Task DeleteAsync(int Id);
-        Task DeleteRangeSelectAsync(int first, int last);
-        Task DeleteRangeAsync(List<TRequest> DTOs);
-        Task DestroyAsync(int Id);
-        Task DestroyRangeSelectAsync(int first, int last);
-        Task DestroyRangeAsync(List<TEntity> entities);
-        Task DestroyBulkAsync(List<TEntity> values);
+        /// <summary>
+        /// Veritabanındaki kayıtlı verinin güncellenmesini sağlar.
+        /// </summary>
+        /// <param name="DTO"></param>
+        /// <param name="token"></param>
+        /// <returns></returns>
+        Task<NotificationDTO> UpdateAsync(TRequest DTO, CancellationToken token);
+        /// <summary>
+        /// Veritabanındaki kayıtlı verinin güncellenmesini sağlar.
+        /// </summary>
+        /// <param name="DTOs"></param>
+        /// <param name="token"></param>
+        /// <returns></returns>
+        Task<NotificationDTO> UpdateRangeAsync(List<TRequest> DTOs, CancellationToken token);
+        /// <summary>
+        /// Veritabanındaki verinin aktiflik durumunu pasif olarak değiştirir.
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <param name="token"></param>
+        /// <returns></returns>
+        Task<NotificationDTO> DeleteAsync(int Id, CancellationToken token);
+        /// <summary>
+        /// Aralık içerisinde (aralık değerleri dahil) bulunan verilerin durumunu pasif olarak değiştirir.
+        /// </summary>
+        /// <param name="first"></param>
+        /// <param name="last"></param>
+        /// <param name="token"></param>
+        /// <returns></returns>
+        Task<NotificationDTO> DeleteRangeAsync(List<TRequest> DTOs, CancellationToken token);
+        /// <summary>
+        /// Seçilen veri veritabanından silinir.Veriye tekrar erişim sağlanamaz!
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <param name="token"></param>
+        /// <returns></returns>
+        Task<NotificationDTO> DestroyAsync(int Id, CancellationToken token);
+        /// <summary>
+        /// Seçilen veriler veritabanından silinir.Veriye tekrar erişim sağlanamaz!
+        /// </summary>
+        /// <param name="entities"></param>
+        /// <param name="token"></param>
+        /// <returns></returns>
+        Task<NotificationDTO> DestroyRangeAsync(List<TEntity> entities, CancellationToken token);
     }
 }

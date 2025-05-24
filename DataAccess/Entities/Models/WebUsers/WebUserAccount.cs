@@ -25,5 +25,7 @@ namespace DataAccess.Entities.Models.WebUsers
         public virtual Country? Country { get; set; }
         //ActivityTicketOrder
         public virtual ICollection<ActivityTicketOrder>? ActivityTicketOrders { get; set; }
+
+        //LogEntry
     }
 }

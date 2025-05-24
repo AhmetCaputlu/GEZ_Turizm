@@ -1,11 +1,7 @@
 ﻿using DataAccess.Context;
-using DataAccess.Entities.Abstracts;
-using DataAccess.Entities.Enums;
 using DataAccess.Entities.FilterModels.Regions;
 using DataAccess.Entities.Models.Regions;
 using DataAccess.Repositories.Abstracts.Region;
-using EFCore.BulkExtensions;
-using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Repositories.Concretes.Region
 {

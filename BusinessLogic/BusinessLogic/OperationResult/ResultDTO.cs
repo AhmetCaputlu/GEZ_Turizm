@@ -10,7 +10,7 @@ namespace BusinessLogic.OperationResult
     public class ResultDTO<TResponse, TFilter> where TResponse : BaseResponseModelDTO where TFilter : BaseFilterModel
     {
         public TFilter? DynamicFilter { get; set; }
-        public IEnumerable<TResponse>? List { get; set; }
+        public List<TResponse>? List { get; set; } = new();
         public int? FilterId { get; set; }
         public TResponse? SelectedEntity { get; set; }
         public NotificationDTO? NotificationType { get; set; }

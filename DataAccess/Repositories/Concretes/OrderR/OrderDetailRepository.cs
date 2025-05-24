@@ -1,11 +1,7 @@
 ﻿using DataAccess.Context;
-using DataAccess.Entities.Abstracts;
-using DataAccess.Entities.Enums;
 using DataAccess.Entities.FilterModels.Orders;
 using DataAccess.Entities.Models.Orders;
 using DataAccess.Repositories.Abstracts.OrderR;
-using EFCore.BulkExtensions;
-using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Repositories.Concretes.OrderR
 {

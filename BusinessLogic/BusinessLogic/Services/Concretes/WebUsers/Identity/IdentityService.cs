@@ -48,7 +48,7 @@ namespace BusinessLogic.Services.Concretes.WebUsers.Identity
                     filterModel.List = await _repository.GetDynamicFilteredEntities(filterModel.DynamicFilter).ProjectTo<WebUserAccountResponseDTO>(_mapper.ConfigurationProvider).ToListAsync();
                     if (!filterModel.List.Any())
                     {
-                        filterModel.NotificationType = new NotificationDTO { ResultType = NotificationType.NullUser, Description = "Kriterlere uygun kullanıcı bulunamadı!!" };
+                        filterModel.NotificationType = new NotificationDTO { ResultType = NotificationType.Null, Description = "Kriterlere uygun kullanıcı bulunamadı!!" };
                     }
                     filterModel.NotificationType = new NotificationDTO { ResultType = NotificationType.Success };
                 }
@@ -81,12 +81,12 @@ namespace BusinessLogic.Services.Concretes.WebUsers.Identity
                 if (user == null)
                 {
                     return new NotificationDTO
-                    { ResultType = NotificationType.NullUser, Description = "Kullanıcı bilgileri boş olamaz!" };
+                    { ResultType = NotificationType.Null, Description = "Kullanıcı bilgileri boş olamaz!" };
                 }
                 if (string.IsNullOrWhiteSpace(password))
                 {
                     return new NotificationDTO
-                    { ResultType = NotificationType.NullPassWord, Description = "Kullanıcı şifresi boş olamaz!" };
+                    { ResultType = NotificationType.Null, Description = "Kullanıcı şifresi boş olamaz!" };
                 }
 
                 var existingUser = await _userManager.FindByNameAsync(user.UserName);
@@ -101,7 +101,7 @@ namespace BusinessLogic.Services.Concretes.WebUsers.Identity
                     var pwdResult = await validator.ValidateAsync(_userManager, webUserAccount, password);
                     if (!pwdResult.Succeeded)
                     {
-                        return new NotificationDTO { ResultType = NotificationType.WrongPassword, Description = "Şifre Kriterlere uygun değil!" };
+                        return new NotificationDTO { ResultType = NotificationType.Wrong, Description = "Şifre Kriterlere uygun değil!" };
                     }
                 }
                 webUserAccount.Guid = Guid.NewGuid().ToString();
@@ -137,7 +137,7 @@ namespace BusinessLogic.Services.Concretes.WebUsers.Identity
             {
                 var deletedUser = await _repository.GetByIdAsync(ID);
                 if (deletedUser == null) new NotificationDTO
-                { ResultType = NotificationType.NullUser, Description = "Id bilgisi ile eşleşen kullanıcı bulunamadı !!" };
+                { ResultType = NotificationType.Null, Description = "Id bilgisi ile eşleşen kullanıcı bulunamadı !!" };
                 if (deletedUser != null) deletedUser.Status = DataStatus.Passive;
                 return new NotificationDTO { ResultType = NotificationType.Success, Description = "Kullanıcı pasif duruma getirildi!" };
             }
@@ -156,7 +156,7 @@ namespace BusinessLogic.Services.Concretes.WebUsers.Identity
             var destroyedUser = await _repository.GetByIdAsync(ID);
 
             if (destroyedUser == null) return new NotificationDTO
-            { ResultType = NotificationType.NullUser, Description = "Id bilgisi ile eşleşen kullanıcı bulunamadı !!" };
+            { ResultType = NotificationType.Null, Description = "Id bilgisi ile eşleşen kullanıcı bulunamadı !!" };
 
             if (destroyedUser.Status != DataStatus.Passive) return new NotificationDTO { ResultType = NotificationType.NotPassive, Description = "Kullanıcı veritabanından silinmeden önce pasif hale getirilmelidir!!" };
 
@@ -178,7 +178,7 @@ namespace BusinessLogic.Services.Concretes.WebUsers.Identity
             {
                 if (user == null)
                 {
-                    return new NotificationDTO { ResultType = NotificationType.NullUser, Description = "Kullanıcı bilgileri boş olamaz!" };
+                    return new NotificationDTO { ResultType = NotificationType.Null, Description = "Kullanıcı bilgileri boş olamaz!" };
                 }
                 WebUserAccount? webUserAccount = await _repository.GetByIdAsync(user.Id);
                 if (webUserAccount == null)
@@ -254,7 +254,7 @@ namespace BusinessLogic.Services.Concretes.WebUsers.Identity
                 if (user == null)
                 {
                     return new NotificationDTO
-                    { ResultType = NotificationType.NullUser, Description = "Kullanıcı bilgileri boş olamaz!" };
+                    { ResultType = NotificationType.Null, Description = "Kullanıcı bilgileri boş olamaz!" };
                 }
                 if (string.IsNullOrWhiteSpace(role))
                 {
@@ -296,7 +296,7 @@ namespace BusinessLogic.Services.Concretes.WebUsers.Identity
                 if (user == null)
                 {
                     return new NotificationDTO
-                    { ResultType = NotificationType.NullUser, Description = "Kullanıcı bilgileri boş olamaz!" };
+                    { ResultType = NotificationType.Null, Description = "Kullanıcı bilgileri boş olamaz!" };
                 }
                 if (string.IsNullOrWhiteSpace(role))
                 {
@@ -334,7 +334,7 @@ namespace BusinessLogic.Services.Concretes.WebUsers.Identity
                 if (user == null)
                 {
                     return new NotificationDTO
-                    { ResultType = NotificationType.NullUser, Description = "Kullanıcı bilgileri boş olamaz!" };
+                    { ResultType = NotificationType.Null, Description = "Kullanıcı bilgileri boş olamaz!" };
                 }
                 if (string.IsNullOrWhiteSpace(role))
                 {

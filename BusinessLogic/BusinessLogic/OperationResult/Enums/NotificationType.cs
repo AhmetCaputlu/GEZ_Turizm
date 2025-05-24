@@ -2,17 +2,16 @@
 {
     public enum NotificationType
     {
-        UnknownError, // Bilinmeyen Hata
+        UnknownError, // Bilinmeyen hata
+        Error,
         Null,//Boş
-        NullUser, // Boş kullanıcı
-        ExistingUser, //Kullanıcı ismi zaten kullanılıyor
-        NullPassWord, // Boş şifre bilgisi
-        WrongPassword, //Kriterlere uygun olmayan parola
+        ExistingUser, //Zaten var
+        Wrong, //Yanlış
         CancelledByUser, //Kullanıcı taraflı işlem iptali (Cancellation Token)
-        IDNotFound,//Karışılıksız bir ID gönderilirse
-        LockedOut,
-        NotPassive,//Destroy işlemleri için kullanılıyor.
-        Success, // Başarılı
-        Error
+        IDNotFound, //Karşılıksız bir ID gönderilirse
+        LockedOut, 
+        NotPassive, //Destroy işlemleri için kullanılıyor.
+        Success // Başarılı
+        
     }
 }

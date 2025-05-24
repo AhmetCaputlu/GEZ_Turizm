@@ -1,23 +1,21 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using BusinessLogic.DTOs.Abstracts;
-using BusinessLogic.DTOs.WebUser;
 using BusinessLogic.Helpers;
 using BusinessLogic.OperationResult;
 using BusinessLogic.OperationResult.Enums;
 using BusinessLogic.Services.Abstracts;
 using DataAccess.Entities.FilterModels.BaseModel;
-using DataAccess.Entities.FilterModels.WebUsers;
 using DataAccess.Entities.Interfaces;
 using DataAccess.Repositories.Abstracts;
 using Microsoft.EntityFrameworkCore;
 
 namespace BusinessLogic.Services.Concretes
 {
-    public class GenericService<TEntity, TResponse, TRequest, TFilterEntity> :
+    public class GenericService<TEntity, TResponse, TRequest, TFilterEntity, DataTransferObject> :
         IGenericService<TEntity, TResponse, TRequest, TFilterEntity>
-        where TEntity : class, IEntity where TResponse : BaseResponseModelDTO where TRequest : BaseRequestModelDTO
-        where TFilterEntity : BaseFilterModel
+        where TEntity : class, IEntity where TResponse : BaseResponseModelDTO
+        where TRequest : BaseRequestModelDTO where TFilterEntity : BaseFilterModel
     {
         private readonly IGenericRepository<TEntity, TFilterEntity> _repository;
         private readonly IMapper _mapper;
@@ -26,6 +24,7 @@ namespace BusinessLogic.Services.Concretes
             _repository = repository;
             _mapper = mapper;
         }
+
         #region Manuel Methods
         //public IEnumerable<TResponse> GetAllEntities()
         //{
@@ -82,7 +81,7 @@ namespace BusinessLogic.Services.Concretes
         {
             try
             {
-                await Task.Delay(2000);
+                await Task.Delay(2000, token);
                 if (result.DynamicFilter == null)
                 {
                     result.NotificationType = new NotificationDTO
@@ -94,12 +93,12 @@ namespace BusinessLogic.Services.Concretes
                 }
                 else
                 {
-                    result.List = await _repository.GetDynamicFilteredEntities(result.DynamicFilter).ProjectTo<TResponse>(_mapper.ConfigurationProvider).ToListAsync();
+                    result.List = await _repository.GetDynamicFilteredEntities(result.DynamicFilter, token).ProjectTo<TResponse>(_mapper.ConfigurationProvider).ToListAsync();
                     if (!result.List.Any())
                     {
                         result.NotificationType = new NotificationDTO
                         {
-                            ResultType = NotificationType.NullUser,
+                            ResultType = NotificationType.Null,
                             Description = "Kriterlere uygun kullanıcı bulunamadı!!"
                         };
                         return result;
@@ -129,17 +128,17 @@ namespace BusinessLogic.Services.Concretes
         {
             try
             {
-                await Task.Delay(2000);
+                await Task.Delay(2000, token);
                 if (result.FilterId.HasValue)
                 {
-                    var selectedEntity = await _repository.GetByIdAsync(result.FilterId);
+                    var selectedEntity = await _repository.GetByIdAsync(result.FilterId, token);
                     if (selectedEntity != null)
                     {
                         result.SelectedEntity = _mapper.Map<TResponse>(selectedEntity);
                         result.NotificationType = new NotificationDTO { ResultType = NotificationType.Success };
                         return result;
                     }
-                    result.NotificationType = new NotificationDTO { ResultType = NotificationType.NullUser, Description = "Aranan bilgiye uygun kullanıcı bulunamadı !" };
+                    result.NotificationType = new NotificationDTO { ResultType = NotificationType.Null, Description = "Aranan Id verisine uygun kullanıcı bulunamadı !" };
                     return result;
                 }
                 result.NotificationType = new NotificationDTO { ResultType = NotificationType.Null, Description = "Id bilgisi boş gönderilmiş!" };
@@ -158,7 +157,7 @@ namespace BusinessLogic.Services.Concretes
 
         }
         /// <summary>
-        /// Veritabanına yeni bir veri eklemek için kullanılır.
+        /// Veritabanına yeni bir veri eklemek için kullanılır.Servis özelinde ezilebilir.
         /// </summary>
         /// <param name="DTO"></param>
         /// <returns></returns>
@@ -166,7 +165,7 @@ namespace BusinessLogic.Services.Concretes
         {
             try
             {
-                await Task.Delay(2000);
+                await Task.Delay(2000, token);
                 if (DTO == null)
                 {
                     return new NotificationDTO
@@ -184,7 +183,7 @@ namespace BusinessLogic.Services.Concretes
                     entity.CreatedIPAddress = IPAdress.GetIpAdress();
                     entity.IsUpdated = false;
 
-                    await _repository.CreateAsync(entity);
+                    await _repository.CreateAsync(entity, token);
                     return new NotificationDTO
                     {
                         ResultType = NotificationType.Success,
@@ -210,7 +209,7 @@ namespace BusinessLogic.Services.Concretes
         {
             try
             {
-                await Task.Delay(4000);
+                await Task.Delay(4000, token);
                 if (DTOs.Count == 0)
                 {
                     return new NotificationDTO
@@ -232,7 +231,7 @@ namespace BusinessLogic.Services.Concretes
                         entity.IsUpdated = false;
                     }
 
-                    await _repository.CreateRangeAsync(entities);
+                    await _repository.CreateRangeAsync(entities, token);
                     return new NotificationDTO
                     {
                         ResultType = NotificationType.Success,
@@ -249,46 +248,196 @@ namespace BusinessLogic.Services.Concretes
                 return new NotificationDTO { ResultType = NotificationType.UnknownError, Description = $"Bilinmeyen bir hata meydana geldi!\n{ex.Message}" };
             }
         }
+        /// <summary>
+        /// Veritabanındaki kayıtlı kullanıcının güncellenmesini sağlar.
+        /// </summary>
+        /// <param name="DTO"></param>
+        /// <param name="token"></param>
+        /// <returns></returns>
         public async Task<NotificationDTO> UpdateAsync(TRequest DTO, CancellationToken token)
         {
+            try
+            {
+                await Task.Delay(2000, token);
+                var updatedEntity = await _repository.GetByIdAsync(DTO.Id, token);
+                if (updatedEntity != null)
+                {
+                    updatedEntity.IsUpdated = true;
+                    updatedEntity.UpdatedDate = DateTime.Now;
+                    updatedEntity.UpdatedID = UniqueIdentify.GetUserID();
+                    updatedEntity.UpdatedIPAddress = IPAdress.GetIpAdress();
+                    _mapper.Map(DTO, updatedEntity);
+                    await _repository.Update(updatedEntity, token);
 
-            await _repository.Update(_mapper.Map<TEntity>(DTO));
+                    return new NotificationDTO { ResultType = NotificationType.Success, Description = "Kullanıcı başarıyla güncellendi!" };
+                }
+                return new NotificationDTO { ResultType = NotificationType.Null, Description = "Aranan Id verisine uygun kullanıcı bulunamadı !" };
+            }
+            catch (OperationCanceledException oce)
+            {
+                return new NotificationDTO { ResultType = NotificationType.CancelledByUser, Description = $"Kullanıcı tarafından işlem iptal edildi!\n{oce.Message}" };
+            }
+            catch (Exception ex)
+            {
+                return new NotificationDTO { ResultType = NotificationType.UnknownError, Description = $"Bilinmeyen bir hata meydana geldi!\n{ex.Message}" };
+            }
         }
-        public async Task UpdateRangeAsync(List<TRequest> DTOs)
+        /// <summary>
+        /// Veritabanındaki kayıtlı kullanıcıların güncellenmesini sağlar.
+        /// </summary>
+        /// <param name="DTOs"></param>
+        /// <param name="token"></param>
+        /// <returns></returns>
+        public async Task<NotificationDTO> UpdateRangeAsync(List<TRequest> DTOs, CancellationToken token)
         {
-            await _repository.UpdateRangeAsync(_mapper.Map<List<TEntity>>(DTOs));
+            try
+            {
+                await Task.Delay(2000, token);
+                var updatedList = new List<TEntity>();
+                if (DTOs.Count > 0)
+                {
+                    foreach (var dto in DTOs)
+                    {
+                        var updatedEntity = await _repository.GetByIdAsync(dto.Id, token);
+                        _mapper.Map(dto, updatedEntity);
+                        updatedEntity.IsUpdated = true;
+                        updatedEntity.UpdatedDate = DateTime.Now;
+                        updatedEntity.UpdatedID = UniqueIdentify.GetUserID();
+                        updatedEntity.UpdatedIPAddress = IPAdress.GetIpAdress();
+                        updatedList.Add(updatedEntity);
+                    }
+                    await _repository.UpdateRangeAsync(updatedList, token);
+
+                    return new NotificationDTO { ResultType = NotificationType.Success, Description = "Güncellemeler başarıyla tamamlandı!" };
+                }
+                return new NotificationDTO { ResultType = NotificationType.Null, Description = "Liste boş gönderilmiş!" };
+            }
+            catch (OperationCanceledException oce)
+            {
+                return new NotificationDTO { ResultType = NotificationType.CancelledByUser, Description = $"Kullanıcı tarafından işlem iptal edildi!\n{oce.Message}" };
+            }
+            catch (Exception ex)
+            {
+                return new NotificationDTO { ResultType = NotificationType.UnknownError, Description = $"Bilinmeyen bir hata meydana geldi!\n{ex.Message}" };
+            }
         }
-        public async Task UpdateBulkAsync(List<TRequest> DTOs)
+        /// <summary>
+        /// Veritabanındaki verinin aktiflik durumunu pasif olarak değiştirir.
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <param name="token"></param>
+        /// <returns></returns>
+        public async Task<NotificationDTO> DeleteAsync(int Id, CancellationToken token)
         {
-            await _repository.UpdateBulkAsync(_mapper.Map<List<TEntity>>(DTOs));
+            try
+            {
+                await Task.Delay(2000, token);
+                var deleted = await _repository.GetByIdAsync(Id, token);
+                if (deleted != null)
+                {
+                    await _repository.DeleteAsync(deleted, token);
+                    return new NotificationDTO { ResultType = NotificationType.Success, Description = $"Veri Başarıyla silindi!" };
+                }
+                return new NotificationDTO { ResultType = NotificationType.Null, Description = "Kullanıcı bulunamadı!!" };
+            }
+            catch (OperationCanceledException oce)
+            {
+                return new NotificationDTO { ResultType = NotificationType.CancelledByUser, Description = $"Kullanıcı tarafından işlem iptal edildi!\n{oce.Message}" };
+            }
+            catch (Exception ex)
+            {
+                return new NotificationDTO { ResultType = NotificationType.UnknownError, Description = $"Bilinmeyen bir hata meydana geldi!\n{ex.Message}" };
+            }
         }
-        public async Task DeleteAsync(int Id)
+        /// <summary>
+        /// Veritabanındaki verilerin aktiflik durumunu pasif olarak değiştirir.
+        /// </summary>
+        /// <param name="DTOs"></param>
+        /// <param name="token"></param>
+        /// <returns></returns>
+        public async Task<NotificationDTO> DeleteRangeAsync(List<TRequest> DTOs, CancellationToken token)
         {
-            await _repository.DeleteAsync(Id);
+            try
+            {
+                await Task.Delay(4000, token);
+                if (DTOs.Count > 0)
+                {
+                    await _repository.DeleteRangeAsync(_mapper.Map<List<TEntity>>(DTOs), token);
+                    return new NotificationDTO { ResultType = NotificationType.Success, Description = $"Veriler başarıyla silindi!" };
+                }
+                return new NotificationDTO { ResultType = NotificationType.Null, Description = "Silinecek listede veri bulunamadı!" };
+            }
+            catch (OperationCanceledException oce)
+            {
+                return new NotificationDTO { ResultType = NotificationType.CancelledByUser, Description = $"Kullanıcı tarafından işlem iptal edildi!\n{oce.Message}" };
+            }
+            catch (Exception ex)
+            {
+                return new NotificationDTO { ResultType = NotificationType.UnknownError, Description = $"Bilinmeyen bir hata meydana geldi!\n{ex.Message}" };
+            }
         }
-        public async Task DeleteRangeSelectAsync(int first, int last)
+        /// <summary>
+        /// Seçilen veri veritabanından silinir.Veriye tekrar erişim sağlanamaz!
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <param name="token"></param>
+        /// <returns></returns>
+        public async Task<NotificationDTO> DestroyAsync(int Id, CancellationToken token)
         {
-            await _repository.DeleteRangeSelectAsync(first, last);
+            try
+            {
+                await Task.Delay(2000, token);
+                var destroyedItem = await _repository.GetByIdAsync(Id, token);
+                if (destroyedItem != null)
+                {
+                    await _repository.DestroyAsync(destroyedItem, token);
+                    return new NotificationDTO
+                    {
+                        ResultType = NotificationType.Success,
+                        Description = "Veri başarıyla veritabanından silindi!"
+                    };
+                }
+                return new NotificationDTO { ResultType = NotificationType.Null, Description = "Id bilgisine uygun veri bulunamadı!" };
+            }
+            catch (OperationCanceledException oce)
+            {
+                return new NotificationDTO { ResultType = NotificationType.CancelledByUser, Description = $"Kullanıcı tarafından işlem iptal edildi!\n{oce.Message}" };
+            }
+            catch (Exception ex)
+            {
+                return new NotificationDTO { ResultType = NotificationType.UnknownError, Description = $"Bilinmeyen bir hata meydana geldi!\n{ex.Message}" };
+            }
         }
-        public async Task DeleteRangeAsync(List<TRequest> DTOs)
+        /// <summary>
+        /// Seçilen veriler veritabanından silinir.Veriye tekrar erişim sağlanamaz!
+        /// </summary>
+        /// <param name="entities"></param>
+        /// <param name="token"></param>
+        /// <returns></returns>
+        public async Task<NotificationDTO> DestroyRangeAsync(List<TEntity> entities, CancellationToken token)
         {
-            await _repository.DeleteRangeAsync(_mapper.Map<List<TEntity>>(DTOs));
-        }
-        public async Task DestroyAsync(int Id)
-        {
-            await _repository.DestroyAsync(Id);
-        }
-        public async Task DestroyRangeSelectAsync(int first, int last)
-        {
-            await _repository.DestroyRangeSelectAsync(first, last);
-        }
-        public async Task DestroyRangeAsync(List<TEntity> entities)
-        {
-            await _repository.DestroyRangeAsync(entities);
-        }
-        public async Task DestroyBulkAsync(List<TEntity> values)
-        {
-            await _repository.DestroyBulkAsync(values);
+            try
+            {
+                await Task.Delay(4000,token);
+                if (entities.Count > 0)
+                {
+                    await _repository.DeleteRangeAsync(entities, token);
+                    return new NotificationDTO
+                    {
+                        ResultType = NotificationType.Success,
+                        Description = "Veriler başarıyla veritabanından silindi!"
+                    };
+                }
+                return new NotificationDTO { ResultType = NotificationType.Null, Description = "Listede herhangi bir veri bulunamadı!" };
+            }
+            catch (OperationCanceledException oce)
+            {
+                return new NotificationDTO { ResultType = NotificationType.CancelledByUser, Description = $"Kullanıcı tarafından işlem iptal edildi!\n{oce.Message}" };
+            }
+            catch (Exception ex)
+            {
+                return new NotificationDTO { ResultType = NotificationType.UnknownError, Description = $"Bilinmeyen bir hata meydana geldi!\n{ex.Message}" };
+            }
         }
     }
 }
