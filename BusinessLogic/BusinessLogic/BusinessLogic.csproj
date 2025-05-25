@@ -15,5 +15,13 @@
   <ItemGroup>
     <ProjectReference Include="..\..\DataAccess\DataAccess.csproj" />
   </ItemGroup>
+	
+  <ItemGroup>
+    <Folder Include="Services\EmployeeS\" />
+    <Folder Include="Services\VehicleS\" />
+    <Folder Include="Services\TicketS\" />
+    <Folder Include="Services\RegionS\" />
+    <Folder Include="Services\OrderS\" />
+  </ItemGroup>
 
 </Project>

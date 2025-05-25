@@ -12,6 +12,6 @@ namespace DataAccess.Entities.FilterModels.BaseModel
         public DateTime? LastUpdatedDate { get; set; } = null;
         public DataStatus? Status { get; set; } = null;
         public bool? IsUpdated { get; set; } = null;
-        public bool? Descending { get; set; } = null;
+        public bool? Descending { get; set; } = true;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using BusinessLogic.DTOs.Abstracts;
+using DataAccess.Entities.Enums;
 
 namespace BusinessLogic.DTOs.WebUser
 {
@@ -11,6 +12,8 @@ namespace BusinessLogic.DTOs.WebUser
         [Required(ErrorMessage = "Bu alan zorunludur!!")]
         [StringLength(30, MinimumLength = 2, ErrorMessage = "2-30 karakter arasında bir değer girin!")]
         public string LastName { get; set; }
+        [Required(ErrorMessage = "Bu alan zorunludur!!")]
+        public Gender Gender { get; set; }
         [Required(ErrorMessage = "Bu alan zorunludur!!")]
         //todo:İş mantığında kullanıcı yaşı belirli bir yaşın üzerindeyse hata döndür!!
         public DateTime BirthDate { get; set; }

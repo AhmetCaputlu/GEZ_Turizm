@@ -1,122 +1,40 @@
-﻿@model  BusinessLogic.OperationResult.ResultDTO<BusinessLogic.DTOs.Regions.CountryResponseDTO,DataAccess.Entities.FilterModels.Regions.CountryFilterModel>
+﻿@model BusinessLogic.DTOs.Companies.PartnerCompanies.TransactionRequestDTO
 
 
-<div class="container mt-5">
-	<div class="card shadow-sm p-4">
-		<h4 class="mb-4">Filtreleme Formu</h4>
-		<form asp-action="Test" method="get" class="row g-3">
-			<div class="col-md-6">
-				<label class="form-label">First Id</label>
-				<input asp-for="DynamicFilter.FirstId" type="number" class="form-control" />
-			</div>
+<h2>Yeni İşlem Oluştur</h2>
 
-			<div class="col-md-6">
-				<label class="form-label">Last Id</label>
-				<input asp-for="DynamicFilter.LastId" type="number" class="form-control" />
-			</div>
+<form asp-action="Test" method="post">
+	<div class="row">
 
-			<div class="col-md-6">
-				<label class="form-label">First Created Date</label>
-				<input asp-for="DynamicFilter.FirstCreatedDate" type="date" class="form-control" />
-			</div>
+		<div class="col-md-6 mb-3">
+			<label asp-for="Type" class="form-label"></label>
+			<select asp-for="Type" class="form-select" asp-items="Html.GetEnumSelectList<TransactionType>()">
+				<option value="">Seçiniz</option>
+			</select>
+			<span asp-validation-for="Type" class="text-danger"></span>
+		</div>
 
-			<div class="col-md-6">
-				<label class="form-label">Last Created Date</label>
-				<input asp-for="DynamicFilter.LastCreatedDate" type="date" class="form-control" />
-			</div>
+		<div class="col-md-6 mb-3">
+			<label asp-for="TotalCost" class="form-label"></label>
+			<input asp-for="TotalCost" class="form-control" type="number" step="0.01" />
+			<span asp-validation-for="TotalCost" class="text-danger"></span>
+		</div>
 
-			<div class="col-md-6">
-				<label class="form-label">First Updated Date</label>
-				<input asp-for="DynamicFilter.FirstUpdatedDate" type="date" class="form-control" />
-			</div>
+		<div class="col-md-6 mb-3">
+			<label asp-for="PartnerCompanyId" class="form-label"></label>
+			<select asp-for="PartnerCompanyId" class="form-select" asp-items="ViewBag.PartnerCompanies">
+				<option value="">Şirket Seçiniz</option>
+			</select>
+			<span asp-validation-for="PartnerCompanyId" class="text-danger"></span>
+		</div>
 
-			<div class="col-md-6">
-				<label class="form-label">Last Updated Date</label>
-				<input asp-for="DynamicFilter.LastUpdatedDate" type="date" class="form-control" />
-			</div>
-
-			<div class="col-md-6">
-				<label class="form-label">Status</label>
-				<select asp-for="DynamicFilter.Status" asp-items="Html.GetEnumSelectList<DataStatus>()" class="form-select">
-					<option value="">Tümü</option>
-				</select>
-			</div>
-
-			<div class="col-md-6">
-				<label class="form-label">Is Updated</label><br />
-				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="radio" name="IsUpdated" value="true" id="isUpdatedYes" />
-					<label class="form-check-label" for="isUpdatedYes">Evet</label>
-				</div>
-				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="radio" name="IsUpdated" value="false" id="isUpdatedNo" />
-					<label class="form-check-label" for="isUpdatedNo">Hayır</label>
-				</div>
-			</div>
-
-			<div class="col-md-6">
-				<label class="form-label">Descending</label><br />
-				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="radio" asp-for="DynamicFilter.Descending" value="" id="descNull" />
-					<label class="form-check-label" for="descNull">Seçim Yok</label>
-				</div>
-				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="radio" asp-for="DynamicFilter.Descending" value="true" id="descTrue" />
-					<label class="form-check-label" for="descTrue">Artan</label>
-				</div>
-			</div>
-
-			<div class="col-md-6">
-				<label class="form-label">Name</label>
-				<input asp-for="DynamicFilter.FirstUpdatedDate" type="text" class="form-control" />
-			</div>
-
-			<div class="col-md-6">
-				<label class="form-label">Gender</label>
-				<select asp-for="DynamicFilter.Continent" asp-items="Html.GetEnumSelectList<Gender>()" class="form-select">
-					<option value="">Tümü</option>
-				</select>
-			</div>
-
-			<div class="col-md-6">
-				<label class="form-label">Descending Age</label><br />
-				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="radio" asp-for="DynamicFilter.Status" value="" id="ageDescTrue" />
-					<label class="form-check-label" for="ageDescTrue">Seçim Yok</label>
-				</div>
-				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="radio" asp-for="DynamicFilter.Status" value="true" id="ageDescFalse" />
-					<label class="form-check-label" for="ageDescFalse">Artan</label>
-				</div>
-			</div>
-
-			<div class="col-12 text-end">
-				<button type="submit" class="btn btn-primary me-2">Filtrele</button>
-				<button type="reset" class="btn btn-secondary">Temizle</button>
-			</div>
-		</form>
 	</div>
 
-	<div class="card mt-5 shadow-sm">
-		<div class="card-header bg-primary text-white">
-			<strong>Kullanıcı Listesi</strong>
-		</div>
-		<div class="card-body">
-			<table class="table table-hover text-center align-middle table-bordered">
-				<thead class="table-light">
-					<tr>
-						<th style="width:180px">İsim</th>
-					</tr>
-				</thead>
-				<tbody>
-					@foreach (var item in Model.List)
-					{
-						<tr>
-							<td>@item.CountryDescription</td>
-						</tr>
-					}
-				</tbody>
-			</table>
-		</div>
-	</div>
-</div>
+	<button type="submit" class="btn btn-primary">Kaydet</button>
+</form>
+
+@section Scripts {
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+}

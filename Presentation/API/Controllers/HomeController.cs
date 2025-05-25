@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using BusinessLogic.Services.Abstracts.WebUsers.Identity;
 using BusinessLogic.OperationResult;
-using BusinessLogic.OperationResult.Enums;
 
 namespace API.Controllers
 {
@@ -24,7 +23,7 @@ namespace API.Controllers
         {
             BusinessLogic.OperationResult.NotificationDTO result = await _userService.UpdateUserAsync(userDto, token);
 
-            if (result.ResultType == BusinessLogic.OperationResult.Enums.NotificationType.Success)
+            if (result.ResultType == NotificationType.Success)
                 return base.Ok("Kullanıcı başarıyla güncellendi.");
 
             return BadRequest(result);
@@ -34,7 +33,7 @@ namespace API.Controllers
         {
             BusinessLogic.OperationResult.NotificationDTO result = await _userService.CreateUserAsync(userDto, passWord, token);
 
-            if (result.ResultType == BusinessLogic.OperationResult.Enums.NotificationType.Success)
+            if (result.ResultType == NotificationType.Success)
                 return base.Ok("Kullanıcı başarıyla eklendi.");
 
             return BadRequest(result);

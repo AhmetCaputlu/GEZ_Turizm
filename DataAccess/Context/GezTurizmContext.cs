@@ -54,3 +54,4 @@ namespace DataAccess.Context
 //todo: RequestDTO'lar içerisinde bulunan Navigation Id'leri doldurulacak. İş mantığında Id bilgisi ile veritabanı araması yapılacak.
 
 //todo: Employee bilgilerinde hiredate Request DTO lar için datetime.now atanacak ??RequestDTo içerisinde bu özellik olmicak
+//todo: Claimlar kullanılarak kullanıcının Guid bilgisi ile int ID bilgisi de tutulacak!!

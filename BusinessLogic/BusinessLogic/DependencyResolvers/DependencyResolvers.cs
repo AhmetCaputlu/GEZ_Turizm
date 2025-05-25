@@ -1,41 +1,25 @@
-﻿using BusinessLogic.Services.Abstracts;
+﻿using BusinessLogic.Services.Abstracts.Activities;
+using BusinessLogic.Services.Abstracts.ActivityS;
+using BusinessLogic.Services.Abstracts.WebUsers;
 using BusinessLogic.Services.Abstracts.WebUsers.Identity;
-using BusinessLogic.Services.Concretes;
-using BusinessLogic.Services.Concretes.WebUsers.Identity;
+using BusinessLogic.Services.Abstracts.WebUserS;
+using BusinessLogic.Services.Abstracts.WebUserS.Identity;
+using BusinessLogic.Services.BaseGenericS;
+using BusinessLogic.Services.CompanyS;
 using DataAccess.Context;
 using DataAccess.Entities.Models.WebUsers;
-using DataAccess.Repositories.Abstracts;
-using DataAccess.Repositories.Abstracts.Activity;
-using DataAccess.Repositories.Abstracts.Company;
-using DataAccess.Repositories.Abstracts.Employee;
-using DataAccess.Repositories.Abstracts.EmployeeR;
-using DataAccess.Repositories.Abstracts.Order;
-using DataAccess.Repositories.Abstracts.OrderR;
-using DataAccess.Repositories.Abstracts.Region;
-using DataAccess.Repositories.Abstracts.RegionR;
-using DataAccess.Repositories.Abstracts.Ticket;
-using DataAccess.Repositories.Abstracts.TicketR;
-using DataAccess.Repositories.Abstracts.Vehicle;
-using DataAccess.Repositories.Abstracts.VehicleR;
-using DataAccess.Repositories.Abstracts.WebUserR;
-using DataAccess.Repositories.Concretes;
-using DataAccess.Repositories.Concretes.Activity;
-using DataAccess.Repositories.Concretes.Company;
-using DataAccess.Repositories.Concretes.Employee;
-using DataAccess.Repositories.Concretes.EmployeeR;
-using DataAccess.Repositories.Concretes.Order;
-using DataAccess.Repositories.Concretes.OrderR;
-using DataAccess.Repositories.Concretes.Region;
-using DataAccess.Repositories.Concretes.RegionR;
-using DataAccess.Repositories.Concretes.Ticket;
-using DataAccess.Repositories.Concretes.TicketR;
-using DataAccess.Repositories.Concretes.Vehicle;
-using DataAccess.Repositories.Concretes.VehicleR;
-using DataAccess.Repositories.Concretes.WebUserR;
+using DataAccess.Repositories;
+using DataAccess.Repositories.ActivityR;
+using DataAccess.Repositories.CompanyR;
+using DataAccess.Repositories.EmployeeR;
+using DataAccess.Repositories.OrderR;
+using DataAccess.Repositories.RegionR;
+using DataAccess.Repositories.TicketR;
+using DataAccess.Repositories.VehicleR;
+using DataAccess.Repositories.WebUserR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 
 namespace BusinessLogic.DependencyResolvers
 {
@@ -92,6 +76,7 @@ namespace BusinessLogic.DependencyResolvers
             collection.AddScoped<IWebUserProfileRepository, WebUserProfileRepository>();
             collection.AddScoped(typeof(IGenericCompanyRepository<,>), typeof(GenericCompanyRepository<,>));
             collection.AddScoped<IPartnerCompanyRepository, PartnerCompanyRepository>();
+            collection.AddScoped<ITransactionRepository, TransactionRepository>();
             collection.AddScoped<ICountryRepository, CountryRepository>();
             collection.AddScoped(typeof(IGenericEmployeeRepository<,>), typeof(GenericEmployeeRepository<,>));
             collection.AddScoped<IEmployeeRepository, EmployeeRepository>();
@@ -118,6 +103,10 @@ namespace BusinessLogic.DependencyResolvers
             collection.AddScoped<IUserService, IdentityService>();
             collection.AddScoped<IRoleService, IdentityService>();
             collection.AddScoped<ISignInService, IdentityService>();
+            collection.AddScoped<ITransactionService, TransactionService>();
+            collection.AddScoped<IPartnerCompanyService, PartnerCompanyService>();
+            collection.AddScoped<IActivityService, ActivityService>();
+            collection.AddScoped<IWebUserProfileService, WebUserProfileService>();
             return collection;
         }
         /// <summary>

@@ -1,6 +1,4 @@
-﻿using BusinessLogic.OperationResult.Enums;
-
-namespace BusinessLogic.OperationResult
+﻿namespace BusinessLogic.OperationResult
 {
     /// <summary>
     /// Bu sınıf BLL katmanında dönmesi gereken sonuç durumunu ve açıklamasının(varsa) nesne olarak dönmesini sağlar.
