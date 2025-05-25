@@ -10,6 +10,6 @@ namespace BusinessLogic.Services.CompanyS
         where TEntity : BaseCompanyModel where TResponse : BaseCompanyResponseDTO
         where TRequest : BaseCompanyRequestDTO where TFilterEntity : BaseCompanyFilterModel, new()
     {
-
+        
     }
 }

@@ -4,13 +4,10 @@ using DataAccess.Entities.Enums;
 
 namespace BusinessLogic.DTOs.Vehicles
 {
-    public class VehicleResponseDTO : BaseResponseModelDTO
+    public class VehicleResponseDTO : BaseVehicleResponseDTO
     {
-        public string LicensePlate { get; set; }
-        public VehicleType VehicleType { get; set; }
-        public short Capacity { get; set; }
-        public bool IsAvailable { get; set; }
         public DateTime PurchaseDate { get; set; }
+        public decimal MarketValue { get; set; }
         public ActivityResponseDTO? ActivityResponseDTO { get; set; }
     }
 }
